@@ -1,0 +1,1998 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>Stan Zhou&#39;s Hexo Technical Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Stan Zhou">
+    
+
+    
+    <meta name="description" content="Infrastructure as code">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stan Zhou&#39;s Hexo Technical Blog">
+<meta property="og:url" content="http://223.95.78.227/index.html">
+<meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
+<meta property="og:description" content="Infrastructure as code">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stan Zhou&#39;s Hexo Technical Blog">
+<meta name="twitter:description" content="Infrastructure as code">
+<meta name="twitter:creator" content="@stanosaka">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Stan Zhou&#39;s Hexo Technical Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/toad.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/toadman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/toadman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/toadman.png" alt="Stan Zhou&#39;s Hexo Technical Blog" title="Stan Zhou&#39;s Hexo Technical Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Stan Zhou&#39;s Hexo Technical Blog">Stan Zhou&#39;s Hexo Technical Blog</a></h1>
+				<h2 class="blog-motto">Innovation Evangelist</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:223.95.78.227">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/19/programming4sysadmins/" title="programming4sysadmins" itemprop="url">programming4sysadmins</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-19T06:10:53.000Z" itemprop="datePublished"> Published 2019-07-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="What-can-you-do-with-python"><a href="#What-can-you-do-with-python" class="headerlink" title="What can you do with python?"></a>What can you do with python?</h2><ul>
+<li>Versatile language, can use it across a lot of different domains</li>
+<li>really fast to learn and fast to develop in<h2 id="Environment-Setup"><a href="#Environment-Setup" class="headerlink" title="Environment Setup"></a>Environment Setup</h2><a href="https://wiki.openhatch.org/wiki/O%27Reilly_Introduction_to_Python">link</a><h2 id="Python-basic-data-types"><a href="#Python-basic-data-types" class="headerlink" title="Python basic data types"></a>Python basic data types</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; type(1)</span><br><span class="line">&lt;type &apos;int&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; type(1.0)</span><br><span class="line">&lt;type &apos;float&apos;&gt;</span><br><span class="line">Type is a functions that takes input and spits out output.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>a function</strong> is just the name and then input inside parentheses, and it’ll spit out output.</p>
+<p>If you need to include the string delimiter inside the string just precede it with a backslash, as in ‘It\’s a wrap’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &quot;Hello &quot; + str(1)</span><br><span class="line">&apos;Hello 1&apos;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Making-choices-boolean-if-eif-else-compound-conditionals"><a href="#Making-choices-boolean-if-eif-else-compound-conditionals" class="headerlink" title="Making choices: boolean, if/eif/else, compound conditionals"></a>Making choices: boolean, if/eif/else, compound conditionals</h2><p>Boolean:</p>
+<ul>
+<li>True</li>
+<li>False<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = 1</span><br><span class="line">&gt;&gt;&gt; x &gt; 0 and x &lt; 2</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; &quot;a&quot; in &quot;hello&quot; or &quot;e&quot; in &quot;hello&quot;</span><br><span class="line">True</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; temp = 32</span><br><span class="line">&gt;&gt;&gt; if temp &gt; 60 and temp &lt; 75:</span><br><span class="line">...     print(&quot;Nice and cozy&quot;)</span><br><span class="line">... else:</span><br><span class="line">...     print(&quot;Too extreme for me&quot;)</span><br><span class="line">...</span><br><span class="line">Too extreme for me</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; sister = 15</span><br><span class="line">&gt;&gt;&gt; brother =15</span><br><span class="line">&gt;&gt;&gt; if sister &gt; brother:</span><br><span class="line">...     print(&quot;Sister is older&quot;)</span><br><span class="line">... elif sister == brother:</span><br><span class="line">...     print(&quot;Same age!&quot;)</span><br><span class="line">... else:</span><br><span class="line">...     print(&quot;Brother is older&quot;)</span><br><span class="line">...</span><br><span class="line">Same age!</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; names = [&quot;Alice&quot;, &quot;Amy&quot;]</span><br><span class="line">&gt;&gt;&gt; names.append(&quot;Adam&quot;)</span><br><span class="line">&gt;&gt;&gt; names</span><br><span class="line">[&apos;Alice&apos;, &apos;Amy&apos;, &apos;Adam&apos;]</span><br><span class="line">&gt;&gt;&gt; names[len(names)-1]</span><br><span class="line">&apos;Adam&apos;</span><br><span class="line">&gt;&gt;&gt; names[-1]</span><br><span class="line">&apos;Adam&apos;</span><br></pre></td></tr></table></figure>
+<p>The real superpower when using lists is actually to be able to loop over them.</p>
+<h2 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h2><h1 id="Great-Bash"><a href="#Great-Bash" class="headerlink" title="Great Bash"></a>Great Bash</h1><ul>
+<li><p>Redirect the output of commands</p>
+<ul>
+<li>Standard error is file descriptor “2” <code>ls -l myscript not.here &gt; lsout 2&gt; lserr</code></li>
+<li>Out and error can be redirected separately or together <code>ls -l myscript not.here &amp;&gt; lsboth</code></li>
+<li>The order of redirection is important<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls -l myscript not.here &gt; lsout 2&gt;&amp;1</span><br><span class="line">## Redirectin error output to standard output</span><br><span class="line">## Standard output is already being re-directed to file &gt; dirlist</span><br><span class="line">## Hence, both error and standard output are written to file lsout</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Redirecting and piping input and output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls &gt; /tmp/lsout</span><br><span class="line">wc &lt; /tmp/lsout</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Use the vertical bar character | to create a pipe: <code>ls|wc</code></p>
+<p>Connect a series of commands with | symbols to make a pipeline.</p>
+<ul>
+<li>Create input with here documents</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/programming/">programming</a><a href="/tags/systemadmin/">systemadmin</a><a href="/tags/python/">python</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/17/devops/" title="DevOps" itemprop="url">DevOps</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-17T11:23:02.000Z" itemprop="datePublished"> Published 2019-07-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><strong>What is DevOps?</strong></p>
+<ul>
+<li>Speed and agility enable organizations to better serve their customers and compete more effectively in the market</li>
+<li>Combination of cultural philosophies, practices, and tools</li>
+<li>Increases an organization’s ability to deliver applications and services at high velocity</li>
+<li>Evolves and imprvoes products faster<br><strong>Why DevOps?</strong></li>
+<li>Antomate manual tasks, help teams manage complex environments at scale, and keep engineers in control of the velocity that is enabled by DevOps:<ul>
+<li>Speed</li>
+<li>Rapid delivery</li>
+<li>Reliability</li>
+<li>Scale</li>
+<li>Improved collaboration</li>
+<li>Security</li>
+</ul>
+</li>
+</ul>
+<p>Standard Continuous delivery (CD) techniques</p>
+<ul>
+<li>Blue/Green deployment (where “live” and “last” deployments are maintained on live)<br>Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green.</li>
+</ul>
+<p>At any time, only one of the environments is live, with the live environment serving all production traffic. For this example, Blue is currently live and Green is idle.</p>
+<p>As you prepare a new version of your software, deployment and the final stage of testing takes place in the environment that is not live: in this example, Green. Once you have deployed and fully tested the software in Green, you switch the router so all incoming requests now go to Green instead of Blue. Green is now live, and Blue is idle.</p>
+<p>This technique can eliminate downtime due to app deployment. In addition, blue-green deployment reduces risk: if something unexpected happens with your new version on Green, you can immediately roll back to the last version by switching back to Blue.</p>
+<ul>
+<li>Phoenix deployment (where whole system are rebuilt on each release).</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Devops/">Devops</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/17/aws-admin/" title="aws administration" itemprop="url">aws administration</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-17T08:02:52.000Z" itemprop="datePublished"> Published 2019-07-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="CodeCommit"><a href="#CodeCommit" class="headerlink" title="CodeCommit"></a>CodeCommit</h1><p>Codecommit is a source control service provided by aws(hosts private git repositories)<br><strong>why choose CodeCommit</strong></p>
+<ul>
+<li>Easy integration with other AWS services like CodePipeline</li>
+<li>Repositories are private by default</li>
+<li>Can use IAM for fine-graned authorization</li>
+</ul>
+<p><strong>Creating a private code repo on CodeCommit</strong><br>IAM-&gt; HTTPS Git credentials for AWS CodeCommit</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/SampleRepo</span><br><span class="line">cd SampleRepo</span><br><span class="line">wget https://s3.amazonaws.com/aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip</span><br><span class="line">unzip SampleApp_Linux.zip</span><br><span class="line">rm SampleApp_Linux.zip</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;Initial commit&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p><strong>Migrating your project to CodeCommit</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### - - mirror here means that we are not interested in cloning the application, however we are interested in downloading the Git binary files that make up the repository in the first place. </span><br><span class="line">git clone --mirror https://github.com/awslabs/aws-demo-php-simple-app.git aws-codecommit-demo</span><br><span class="line">git push https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/myrepo</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;initial commit to demp rep&quot;</span><br><span class="line">git remote add demo https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/demo</span><br><span class="line">git remote -v</span><br><span class="line">git push demo master</span><br></pre></td></tr></table></figure>
+<p><a href="https://docs.aws.amazon.com/codecommit/latest/userguide/getting-started-cc.html">CodeCommit tutorials</a><br><a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html">Using IAM policies with CodeCommit</a><br><a href="https://aws.amazon.com/blogs/devops/using-aws-codecommit-pull-requests-to-request-code-reviews-and-discuss-code/">Using AWS CodeCommit Pull Requests</a><br><a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">GitFlow development release model</a></p>
+<h1 id="Deploying-Jenkins"><a href="#Deploying-Jenkins" class="headerlink" title="Deploying Jenkins"></a>Deploying Jenkins</h1><p>Amazon linux 2 AMI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br><span class="line">sudo yum -y install java-1.8.0</span><br><span class="line"># remove java 7</span><br><span class="line">sudo yum remove java-1.7.0-openjdk</span><br><span class="line">java -version</span><br><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo https:/pkg.jenkins-ci.org/redhat/jenkins.repo </span><br><span class="line">sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key</span><br><span class="line">sudo yum -y install jenkins</span><br><span class="line">sudo service jenkins start</span><br></pre></td></tr></table></figure></p>
+<h1 id="CodeDeploy"><a href="#CodeDeploy" class="headerlink" title="CodeDeploy"></a>CodeDeploy</h1><p><img src="https://i.imgur.com/ZRCFrZP.png" alt="codedeploy ec2"></p>
+<h1 id="Cloud9"><a href="#Cloud9" class="headerlink" title="Cloud9"></a>Cloud9</h1><p><strong>What is Cloud9</strong></p>
+<ul>
+<li>Cloud9 integrates with other AWS DevOps tools such as CodeCommit, CodePipeline, and CodeStar to enable a rich development pipeline with continuous delivery</li>
+<li>AWS Cloud9 contains a collection of tools that you use to code, build, run, test, debug, and release software on the cloud</li>
+<li>Use the AWS Cloud9 Integrated Development Environment (IDE) to work with these tools<br><strong>What can i do with aws Cloud 9</strong></li>
+<li>Supported languages:<ul>
+<li>C++</li>
+<li>Java</li>
+<li>Python</li>
+<li>.NET</li>
+<li>Node.js</li>
+<li>PHP</li>
+<li>Pearl</li>
+<li>Ruby</li>
+<li>Go</li>
+<li>JavaScript</li>
+<li>CoffeeScript</li>
+</ul>
+</li>
+<li>Supported integrations:<ul>
+<li>CodeCommit</li>
+<li>CodePipeline</li>
+<li>CodeStar</li>
+<li>API gateway</li>
+<li>Lambda</li>
+<li>Lightsail</li>
+<li>DynamoDB</li>
+<li>RDS</li>
+<li>AWS CLI</li>
+<li>Docker</li>
+<li>GitHub</li>
+</ul>
+</li>
+<li>Supported environments<ul>
+<li>EC2</li>
+<li>SSH</li>
+<li>Single-user environment</li>
+<li>Shared team environment</li>
+<li>virtualenv<h1 id="CodeBuild"><a href="#CodeBuild" class="headerlink" title="CodeBuild"></a>CodeBuild</h1><h1 id="CodePipeline"><a href="#CodePipeline" class="headerlink" title="CodePipeline"></a>CodePipeline</h1><h1 id="CodeStart"><a href="#CodeStart" class="headerlink" title="CodeStart"></a>CodeStart</h1></li>
+</ul>
+</li>
+</ul>
+<h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><ul>
+<li><a href="https://aws.amazon.com/devops/what-is-devops/">What is DevOps</a></li>
+<li><a href="https://aws.amazon.com/pricing/">AWS pricing</a></li>
+<li><a href="https://docs.aws.amazon.com/codepiepline/latest/userguide/tutorials-simple-codecommit.html">TUtorial-create a simple pipeline</a></li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/aws/">aws</a><a href="/tags/Codecommit/">Codecommit</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/15/devops-with-aws/" title="devops-with-aws" itemprop="url">devops-with-aws</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-15T13:44:53.000Z" itemprop="datePublished"> Published 2019-07-15</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Project-setup"><a href="#Project-setup" class="headerlink" title="Project setup"></a>Project setup</h1><p><a href="https://github.com/espiderinc/hapi-rest-demo">code</a></p>
+<h2 id="Importance-of-automated-test-in-CI-CD"><a href="#Importance-of-automated-test-in-CI-CD" class="headerlink" title="Importance of automated test in CI,CD"></a>Importance of automated test in CI,CD</h2><ul>
+<li>Automated tests<ul>
+<li>Unit tests</li>
+<li>Integration tests</li>
+<li>UAT tests</li>
+</ul>
+</li>
+<li>Code coverage</li>
+<li>Notifications<h2 id="CI-CD-with-relational-databases"><a href="#CI-CD-with-relational-databases" class="headerlink" title="CI/CD with relational databases"></a>CI/CD with relational databases</h2></li>
+<li>Managing the version of database schema<br>There is no easy way to control the version of relational database schema</li>
+<li>Database schema migrations</li>
+<li>DellStore2 sample database<ul>
+<li>Products table</li>
+</ul>
+</li>
+<li>Sqitch change management system<h2 id="Project-component-setup"><a href="#Project-component-setup" class="headerlink" title="Project component setup"></a>Project component setup</h2></li>
+<li>PostgreSQL database on AWS RDS</li>
+<li>Node.JS HAPI RESTful API project</li>
+<li>Sqitch database mangement framework<h2 id="Setup-PostreSQL-database-instance-in-AWS-RDS"><a href="#Setup-PostreSQL-database-instance-in-AWS-RDS" class="headerlink" title="Setup PostreSQL database instance in AWS RDS"></a>Setup PostreSQL database instance in AWS RDS</h2></li>
+</ul>
+<ol>
+<li>Create a rds in aws with postgresql engine version 9.4.7.</li>
+<li>Connect to aws rds use pgAdmin 3.</li>
+<li>Download sample schema dellstore2 from <a href="http://pgfoundry.org/projects/dbsamples/">link</a></li>
+<li>In pgAdmin3 click Plugins-&gt; PSQL console-&gt; run command <code>\i /tmp/dellstore2.sql</code> to create a new schema.<h2 id="Setup-Node-JS-HAPI-ReSTful-API-project"><a href="#Setup-Node-JS-HAPI-ReSTful-API-project" class="headerlink" title="Setup Node.JS HAPI ReSTful API project"></a>Setup Node.JS HAPI ReSTful API project</h2><strong>HAPI</strong> is a rich application framework for building applications and RESTful APIs with Node.JS</li>
+</ol>
+<p>Official website for HAPI framework is HAPIJS.com</p>
+<ol>
+<li>install node and npm<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">mkdir myfirsthapiproject</span><br><span class="line">cd myfirsthapiproject</span><br><span class="line">npm init</span><br><span class="line">npm install --save hapi</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/espiderinc/hapi-rest-demo.git</span><br><span class="line">cd hapi-rest-demo</span><br><span class="line">npm install</span><br><span class="line">sudo npm install -g istanbul mocha</span><br><span class="line">node index.js</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li><p><img src="https://i.imgur.com/rCcEgzW.png" alt="access by">)<br><img src="https://i.imgur.com/VdGe8f3.png" alt="Imgur"></p>
+</li>
+<li><p>test</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">hapi-rest-demo git:(master) ✗ npm test</span><br><span class="line"></span><br><span class="line">&gt; hapi-rest-demo@1.0.0 test /home/stan/workspace/hapi-rest-demo</span><br><span class="line">&gt; istanbul cover _mocha test/**/*.js</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(node:20777) [DEP0022] DeprecationWarning: os.tmpDir() is deprecated. Use os.tmpdir() instead.</span><br><span class="line">  Task routes</span><br><span class="line">    GET /products</span><br><span class="line">      ✓ should return statusCode 200 (381ms)</span><br><span class="line">      ✓ should return product [ACADEMY BROOKLYN] </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  2 passing (416ms)</span><br><span class="line"></span><br><span class="line">=============================================================================</span><br><span class="line">Writing coverage object [/home/stan/workspace/hapi-rest-demo/coverage/coverage.json]</span><br><span class="line">Writing coverage reports at [/home/stan/workspace/hapi-rest-demo/coverage]</span><br><span class="line">=============================================================================</span><br><span class="line"></span><br><span class="line">=============================== Coverage summary ===============================</span><br><span class="line">Statements   : 56.31% ( 58/103 )</span><br><span class="line">Branches     : 39.29% ( 11/28 )</span><br><span class="line">Functions    : 47.83% ( 11/23 )</span><br><span class="line">Lines        : 57% ( 57/100 )</span><br><span class="line">================================================================================</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>report generated workspace/hapi-rest-demo/coverage/lcov-report/index.html</p>
+<h2 id="Setup-swtich-database-schema-framework"><a href="#Setup-swtich-database-schema-framework" class="headerlink" title="Setup swtich (database schema framework)"></a>Setup swtich (database schema framework)</h2><p>Managin database schema for relational databaes (with Sqitch)<br><strong>Sqitch</strong> is a standalone system without any dependency on frameworks or ORMs.</p>
+<ul>
+<li>handels dependencies between scripts</li>
+<li><a href="http://sqitch.org">project site</a><br><strong>install sqitch</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull sqitch/sqitch</span><br><span class="line">curl -L https://git.io/fAX6Z -o sqitch &amp;&amp; chmod +x sqitch</span><br><span class="line">mv sqitch /usr/bin/</span><br><span class="line">sudo apt-get install -y libdbd-pg-perl postgresql-client</span><br><span class="line">sqitch --version</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>use sqitch</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">mkdir stantutorial</span><br><span class="line">cd stantutorial</span><br><span class="line">sqitch init stantutorial --uri http://github.com/espiderinc/hapi-rest-demo.git</span><br><span class="line">cat sqitch.conf</span><br><span class="line"> [core]</span><br><span class="line">         engine = pg</span><br><span class="line">        # plan_file = sqitch.plan</span><br><span class="line">        # top_dir = .</span><br><span class="line">sqitch config --user user.name &apos;StanTutorial&apos;</span><br><span class="line">sqitch config --user user.email &apos;devops@cwzhou.win&apos;</span><br><span class="line">sqitch add schema -n &apos;Add schema for tutorial objects.&apos;</span><br><span class="line">Created deploy/schema.sql</span><br><span class="line">Created revert/schema.sql</span><br><span class="line">Created verify/schema.sql</span><br><span class="line">Added &quot;schema&quot; to sqitch.plan</span><br><span class="line"></span><br><span class="line"> cat deploy/schema.sql</span><br><span class="line">-- Deploy stantutorial:schema to pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">CREATE SCHEMA tutorial;</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">cat revert/schema.sql</span><br><span class="line">-- Revert stantutorial:schema from pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">DROP SCHEMA tutorial;</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line"> cat verify/schema.sql</span><br><span class="line">-- Verify stantutorial:schema on pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add verifications here.</span><br><span class="line"></span><br><span class="line">select 1/count(*) from information_schema.schemata where schema_name=&apos;tutorial&apos;;</span><br><span class="line"></span><br><span class="line">ROLLBACK;</span><br><span class="line"></span><br><span class="line"> sqitch add video --requires schema -n &apos;add video table to schema tutorial&apos;</span><br><span class="line"></span><br><span class="line"> cat deploy/video.sql</span><br><span class="line">-- Deploy stantutorial:video to pg</span><br><span class="line">-- requires: schema</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">SET client_min_messages = &apos;warning&apos;;</span><br><span class="line">CREATE TABLE tutorial.video(</span><br><span class="line">        subject TEXT    PRIMARY KEY,</span><br><span class="line">        comment TEXT,</span><br><span class="line">        timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">cat revert/video.sql</span><br><span class="line">-- Revert stantutorial:video from pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">DROP TABLE tutorial.video;</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">cat verify/video.sql</span><br><span class="line">-- Verify stantutorial:video on pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add verifications here.</span><br><span class="line">select subject, comment, timestamp</span><br><span class="line">from tutorial.video</span><br><span class="line">where false;</span><br><span class="line"></span><br><span class="line">ROLLBACK;</span><br><span class="line">sqitch deploy db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br><span class="line">sqitch status db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br><span class="line">sqitch verify db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br><span class="line">sqitch revert db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br><span class="line">sqitch status db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br></pre></td></tr></table></figure></p>
+<h1 id="CI-and-CD-pipeline-deep-dive"><a href="#CI-and-CD-pipeline-deep-dive" class="headerlink" title="CI and CD pipeline deep dive"></a>CI and CD pipeline deep dive</h1><h2 id="AWS-prerequisites"><a href="#AWS-prerequisites" class="headerlink" title="AWS prerequisites"></a>AWS prerequisites</h2><ul>
+<li>IAM instance profile</li>
+</ul>
+<ol>
+<li><p>Create a policy, name: CodeDeploy-EC2-Permissions, json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;Version&quot;: &quot;2012-10-17&quot;,</span><br><span class="line">    &quot;Statement&quot;: [</span><br><span class="line">     &#123;</span><br><span class="line">        &quot;Action&quot;:[</span><br><span class="line">           &quot;s3:Get*&quot;,</span><br><span class="line">           &quot;s3:List*&quot;  </span><br><span class="line">        ],</span><br><span class="line">        &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">        &quot;Resource&quot;: &quot;*&quot;</span><br><span class="line">     &#125;    </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create a role, named CodeDeploy-EC2 -&gt; Choose role type ec2-&gt;Attach permissions policies “CodeDeploy-EC2-Permissions”</p>
+</li>
+</ol>
+<ul>
+<li>IAM service role</li>
+</ul>
+<ol>
+<li>Create a role named stantutorialRole -&gt; select role type CodeDeploy</li>
+</ol>
+<h2 id="Jenkins-installation"><a href="#Jenkins-installation" class="headerlink" title="Jenkins installation"></a>Jenkins installation</h2><p>Ubuntu-&gt; Configure Instance Details, IAM role, select CodeDeploy-EC2 (this will allow jenkins connect to s3 buckets)-&gt;<br>Tag instance: Key group Value hapi-demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key| sudo apt-key add -</span><br><span class="line">sudo vim /etc/apt/sources.list # add following line</span><br><span class="line">deb http://pkg.jenkins-ci.org/debian-stable binary/</span><br><span class="line">sudo apt-get install default-jdk</span><br><span class="line">sudo apt-get install jenkins</span><br></pre></td></tr></table></figure></p>
+<p>Install plugin AWS CodePipeline<br>Install node.js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -</span><br><span class="line">apt-get install -y nodejs</span><br><span class="line">sudo npm install -g npm</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure></p>
+<p>Install sqitch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential cpanminus perl perl-doc</span><br><span class="line">cpanm --quiet --notest App::Sqitch</span><br><span class="line">sqitch --version</span><br><span class="line">apt-get install -y postgresql libdbd-pg-perl</span><br></pre></td></tr></table></figure></p>
+<p>Create a new instance hapi-demo install node.js and<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br><span class="line">sudo apt install ruby-full</span><br><span class="line">sudo apt install wget</span><br><span class="line">wget https://aws-codedeploy-ap-southeast-2.s3.amazonaws.com/latest/install</span><br><span class="line">chmod +x install</span><br><span class="line">sudo ./install auto</span><br></pre></td></tr></table></figure></p>
+<h2 id="CodeDeploy-application"><a href="#CodeDeploy-application" class="headerlink" title="CodeDeploy application"></a>CodeDeploy application</h2><p>Create a new Codedeploy application, choose compute type ec2/on-premises, Service role-&gt; statutorialRole; Environment configuration tick Amazon EC2 instances, Key-&gt; Name, Value-&gt; hapi-demo; Deployment setting-&gt; CodeDeployDefault.OneAtATime</p>
+<h2 id="Review-appSpec-yml-file"><a href="#Review-appSpec-yml-file" class="headerlink" title="Review appSpec.yml file"></a>Review appSpec.yml file</h2><p>appspec.yml file is an application specification file for aws codedeploy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cat appspec.yml</span><br><span class="line">version: 0.0</span><br><span class="line">os: linux</span><br><span class="line">files:</span><br><span class="line">  - source: /</span><br><span class="line">    destination: /myapp</span><br><span class="line">permissions:</span><br><span class="line">  - object: /myapp/startApp.sh</span><br><span class="line">    mode: 777</span><br><span class="line">hooks:</span><br><span class="line">  ApplicationStart:</span><br><span class="line">    - location: startApp.sh</span><br><span class="line">      timeout: 10</span><br></pre></td></tr></table></figure>
+<h2 id="Setup-Jenkins-job"><a href="#Setup-Jenkins-job" class="headerlink" title="Setup Jenkins job"></a>Setup Jenkins job</h2><p>Create a freestyle jenkins job, configurat as following screenshots:<br><img src="https://i.imgur.com/yb9AZch.png" alt="screenshot01"><br><img src="https://i.imgur.com/jxkg9xA.png" alt="screenshot02"><br><img src="https://i.imgur.com/ghjvXwd.png" alt="screenshot03"></p>
+<h2 id="Build-AWS-CodePieline"><a href="#Build-AWS-CodePieline" class="headerlink" title="Build AWS CodePieline"></a>Build AWS CodePieline</h2><ol>
+<li>Source provider <a href="https://github.com/stanosaka/hapi-rest-demo">GitHub</a></li>
+<li>Build provider: Add Jenkins; Prvider name must match the name in jenkin’s job</li>
+<li>Deployment provider: aws codedeploy<br><img src="https://i.imgur.com/Zcps1fo.png" alt="aws codedeploy"><br><img src="https://i.imgur.com/e2nGdbj.png" alt="deployed pages"><br><img src="https://i.imgur.com/eJAhUJH.png" alt="api"><br><img src="https://i.imgur.com/MJs6nKN.png" alt="lcov-report"></li>
+</ol>
+<h1 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h1><h2 id="Notifications"><a href="#Notifications" class="headerlink" title="Notifications"></a>Notifications</h2><p>AWS SNS notifications for build and deployment status</p>
+<ol>
+<li>Create a policy named: notification-policy<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;Version&quot;: &quot;2012-10-17&quot;,</span><br><span class="line">    &quot;Statement&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">            &quot;Action&quot;: &quot;sns:Publish&quot;,</span><br><span class="line">            &quot;Resource&quot;: &quot;*&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Attach notification-policy to Role CodeDeploy-EC2</p>
+<ol start="2">
+<li>in CodeDeploy edit deployment group;<br><img src="https://i.imgur.com/Lx8Kxdw.png" alt="create deployment trigger"><br><img src="https://i.imgur.com/Xl4OvF8.png" alt="notification"></li>
+</ol>
+<h2 id="Code-changes"><a href="#Code-changes" class="headerlink" title="Code changes"></a>Code changes</h2><p>Automatically and continuously deploy code without any downtime</p>
+<h2 id="Database-schema-changes"><a href="#Database-schema-changes" class="headerlink" title="Database schema changes"></a>Database schema changes</h2><p>Consistently and automatically deploy relational database schema changes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sqitch add product-add-comments</span><br><span class="line">cat /db/deploy/product-add-comments.sql</span><br><span class="line">-- Deploy spidertutorial:product-add-comments to pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">alter table products add comments varchar(100) default &apos;default comments&apos;;</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line">git commit -a -m &quot;add new column to products&quot;</span><br><span class="line">git push origin master:master</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Jenkins/">Jenkins</a><a href="/tags/Devops/">Devops</a><a href="/tags/CD-CI/">CD/CI</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/15/splunk/" title="splunk" itemprop="url">splunk</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-15T00:40:04.000Z" itemprop="datePublished"> Published 2019-07-15</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="https://github.com/PacktPublishing/Splunk-7.x-Quick-Start-Guide">code</a></p>
+<h1 id="What-is-Splunk"><a href="#What-is-Splunk" class="headerlink" title="What is Splunk?"></a>What is Splunk?</h1><p>Splunk is a software platform that collects and stores all this machine data in one place.<br><img src="https://i.imgur.com/wObsIBw.png" alt="splunk data sources and use cases"></p>
+<h2 id="Splunk-products"><a href="#Splunk-products" class="headerlink" title="Splunk products"></a>Splunk products</h2><ul>
+<li><strong>Splunk Enterprise</strong>: designed for on-premise deployments</li>
+<li><strong>Splunk Cloud</strong>: a cloud-based <strong>software as a service (SaaS)</strong> version of Splunk Enterprise.</li>
+<li><strong>Splunk Light</strong>: is designed to be a small-scale solution.</li>
+<li><strong>Splunk Free</strong>: is a free version of the core Splunk Enterprise product that has limits on users(one user), ingestion volume (500 MB/day), and other features.</li>
+</ul>
+<p><strong>Splunk components</strong></p>
+<ul>
+<li>Universal forwarder</li>
+<li>Indexer and indexer clusters</li>
+<li>Search head and search head clusters</li>
+<li>Deployment server</li>
+<li>Deployer</li>
+<li>Cluster master</li>
+<li>License master</li>
+<li>Heavy forwarder<br>Universal forwarders, indexers, and search heads constitute the majority of Splunk functionality; the other components provide supporting roles for larger clustered/distributed environments.<br><img src="https://i.imgur.com/sqJ8esH.png" alt="Splunk components in a distributed deployment"></li>
+</ul>
+<p>The <strong>universal forwarder (UF)</strong> is a free small-footprint version of Splunk Enterprise that is installed on each application, web, or other type of server to collect data from specified log files and forward this data to Splunk for indexing(storage). In A large Splunk deployment, you may have hundreds or thousands of forwards that consume and forward data for indexing.</p>
+<p>An <strong>indexer</strong> is the Splunk component that creates and manages indexes, which is where machine data is stored. Indexers perform two main functions: parsing and storing data, which has been received from forwarders or other data sources into indexes, and searching and returning the indexed data in response to search requests.</p>
+<p>An indexing cluster is a group of indexers that have been configured to work together to handle higher volumes of both incmoing data to be indexed and search requests to be serviced, as well as providing redundancy by keeping duplicate copies of indexed data spread across the cluster members.</p>
+<p>A <strong>search head</strong> is an instance of Splunk Enterprise that handles search management functions. This includes providing a web-based user interface called Splunk Web, from which users issue search requests in what is called <strong>Search Processing Language (SPL)</strong>. Search reqeusts initiated by a user ( or a report or dashboard) are sent to one or more indexers to locate and return the requested data; the search head then formates the returned data for presentation to the user.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index=_internal | stats count by source, sourcetype</span><br></pre></td></tr></table></figure>
+<p>an example of executing a simple search in Splunk Web. The SPL specifies searching in the <code>_internal</code> index, which is where Splunk saves data about its internal operations, and provides a count of the number of events in each log for Today. The SPL command specified an <code>index</code>, and then pipes the returned results to the <code>stats</code> command to return a <code>count</code> of all the events by their <code>source</code> and `sourcetype<br><img src="https://i.imgur.com/exMXaN5.jpg" alt="Simple search in Splunk Web"></p>
+<p>A <strong>deployment server</strong> is a Splunk Enterprise instance that acts as a centralized configuration manager ofr a number of Splunk components, but which in practice is used to manage UFs.</p>
+<p>A <strong>deployer</strong> is a Splunk Enterprise instance that is ued to distribute Splunk apps and certain other configuration updates to search head cluster memebers.</p>
+<p>A <strong>cluster master</strong> is a Splunk Enterprise instance that coordinates the activities of an indexing cluster.</p>
+<p>A <strong>license master</strong> is a single Splunk Enterprise instance that provides a licensing service for the multiple instances of Splunk that have been deployed in a distributed environment.</p>
+<p>A <strong>heavy forwarder</strong> is an instance of Splunk Enterprise that can receive data from other forwarders or data sources and parse, index, and/or send data to another Splunk instance for indexing. </p>
+<p>Splunk Enterprise also has a monitoring tool function called the <strong>monitoring console</strong>, which lets you view detailed topology and performance information about your entire distributed deployment from one interface. </p>
+<p><img src="https://i.imgur.com/ElU7rTv.png" alt="Splunk data pipeline"></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/splunk/">splunk</a><a href="/tags/monitoring/">monitoring</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/13/terraform/" title="terraform" itemprop="url">terraform</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-13T03:29:54.000Z" itemprop="datePublished"> Published 2019-07-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="https://github.com/PacktPublishing/Hands-on-Infrastructure-Automation-with-Terraform-on-AWS">Supplemental content</a></p>
+<h1 id="Install-Terraform-and-Tools-on-linux"><a href="#Install-Terraform-and-Tools-on-linux" class="headerlink" title="Install Terraform and Tools on linux"></a>Install Terraform and Tools on linux</h1><h2 id="Terraform-development-environment"><a href="#Terraform-development-environment" class="headerlink" title="Terraform development environment"></a>Terraform development environment</h2><ul>
+<li>Terraform</li>
+<li>aws account</li>
+<li>aws cli with credentials configured</li>
+<li>git</li>
+<li>shell (bash, pwoershell, cmd, git-bash)</li>
+<li>Text editor (visual studio code with Extensions terraform)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://releases.hashicorp.com/terraform/0.12.4/terraform_0.12.4_linux_amd64.zip</span><br><span class="line">unzip terraform_0.12.4_linux_amd64.zip</span><br><span class="line">sudo mv terraform /usr/local/bin</span><br><span class="line">terraform version</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="First-deployment-with-Terraform"><a href="#First-deployment-with-Terraform" class="headerlink" title="First deployment with Terraform"></a>First deployment with Terraform</h1><h2 id="Configuration-language-basics"><a href="#Configuration-language-basics" class="headerlink" title="Configuration language basics"></a>Configuration language basics</h2><p>Terraform uses HCL (Hashicorp configuration language)</p>
+<ul>
+<li>human friendliness</li>
+<li>JSON is quite verbose and doesn’t support comments, is machine readable</li>
+<li>YAML is quite easy to mess up indentation and it’s not always clear whether you should use a colon or hyphen(specially when you using nested maps and lists)- machine-friendly, which is designed to be written and modified by humans</li>
+<li>can sue JSON as input to Terraform</li>
+</ul>
+<p><strong>main features of HCL</strong></p>
+<ul>
+<li>can have single-line comments, start with a double slash or a number sign</li>
+<li>multi-line comments are wrapped in /*</li>
+<li>Values assign syntax key = vaule</li>
+<li>Strings are double bolded</li>
+<li>Numbers, booleans, arrays, lists, objects, named maps or dictonaries</li>
+<li>Interpolations, conditionals, and various build-in functions</li>
+</ul>
+<h2 id="Set-up-aws-provider"><a href="#Set-up-aws-provider" class="headerlink" title="Set up aws provider"></a>Set up aws provider</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir s3_backbone &amp;&amp; cd s3_backbone</span><br><span class="line">git init</span><br><span class="line">terraform init</span><br></pre></td></tr></table></figure>
+<p>Provide: Terraform object that is responsible for managing the lifecycle of a resouce:</p>
+<ul>
+<li>Create, REad, Update, and Delete operations (CRUD)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cat providers.tf</span><br><span class="line">provider &quot;aws&quot;&#123;</span><br><span class="line">  region = &quot;ap-southeast-2&quot;</span><br><span class="line">&#125;</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;Add aws provider&quot;</span><br><span class="line">terraform init</span><br><span class="line">git status</span><br><span class="line">echo &quot;.terraform&quot; &gt;&gt; .gitignore</span><br><span class="line">git status</span><br><span class="line">git add .gitignore&amp;&amp; git commit -m &quot;Add .gitignore&quot;</span><br><span class="line">terraform plan # creates an execution plan</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Deploy-an-s3-bucket-into-aws"><a href="#Deploy-an-s3-bucket-into-aws" class="headerlink" title="Deploy an s3 bucket into aws"></a>Deploy an s3 bucket into aws</h2><p>google terraform s3 bucket<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cat s3.tf</span><br><span class="line">resource &quot;aws_s3_bucket&quot; &quot;main&quot; &#123;</span><br><span class="line">  bucket = &quot;packt-terraform-section2-bucket-stan&quot;</span><br><span class="line">  acl    = &quot;private&quot;</span><br><span class="line">&#125;</span><br><span class="line">git add . &amp;&amp; git commit -m &quot;Add S3 bucket&quot;</span><br><span class="line">terraform plan</span><br><span class="line"># The output of this command is similar to what we get when we run the diff command on Linux: resources with a plus sign are going to be created, resources with the minus sign are going to be deleted, and resources with a tilde sign are going to be modified</span><br><span class="line">terraform apply</span><br><span class="line">git status</span><br><span class="line"># notice that Terraform also created a new file, terraform.tfstate</span><br><span class="line"># it&apos;s a JSON file, which contains some information about the bucket we just created. Terraform uses the state file to map real-world resources to your configuration, and keep track of metadata</span><br></pre></td></tr></table></figure></p>
+<p><strong>What is state?</strong></p>
+<ul>
+<li>Desired state</li>
+<li>Actual state</li>
+<li>Known state<br>When we write our configuration files, we describe the desired state. This is how we want our infrastructure to be. Then there’s the actual state: this is how our infrastructure looks like, right now. You can get this actual state by exploring your infrastructure in the web console, or running some describe commands against the API. And to bridge these two states, there is the known state, which is stored in the state file. Terraform uses it to keep track of all resources it already created for this set of templates. In general, this known state should be the same as the actual state. When we run the plan command, Terraform performs a refresh, and then determines what actions are necessary to achieve the desired state specified in the configuration files. When you run the apply command, Terraform executes the planned actions, and then stores the updated actual state in the state file.</li>
+</ul>
+<p>for example, you went to the web console and manually changed something - Terraform will detect such changes, and unless they also exist in the desired state, it will revert them. So, if we are going to treat our <strong>infrastructure as code</strong>, we should get into the mindset of not changing our sources manually.</p>
+<p>Make sure the state file is ignored by Git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> cat .gitignore</span><br><span class="line">.terraform</span><br><span class="line"></span><br><span class="line">*.tfstate*</span><br><span class="line">git add -A &amp;&amp; git commit -m &quot;Ignore TF state&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Structuring-the-project"><a href="#Structuring-the-project" class="headerlink" title="Structuring the project"></a>Structuring the project</h2><p>Typical project structure<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|-main.tf</span><br><span class="line">|-outputs.tf</span><br><span class="line">|-variables.tf</span><br></pre></td></tr></table></figure></p>
+<p>group related resources together, and keep the configuration files to a manageable size - ideally, not longer than 200 lines of code.</p>
+<h1 id="Modifying-resoureces"><a href="#Modifying-resoureces" class="headerlink" title="Modifying resoureces"></a>Modifying resoureces</h1><h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h2><p>Keep the code DRY- Don’t Repeat Yourself-SOFTWARE ENGINEERING PRICIPLE aimed at reducing interpretation of the same data</p>
+<p>Terraform performs automatic conversion from string values to numeric and boolean values, based on context.</p>
+<p>Maps are useful for selecting a value based on some other provided value.</p>
+<p>A list value is an ordered sequence of strings, indexed by integers starting with 0.</p>
+<p>Several ways to set variables:</p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">cat variables.tf</span><br><span class="line">variable &quot;s3_bucket_name&quot; &#123;</span><br><span class="line">        #default = &quot;packt-terraform-section2-bucket-stan&quot;</span><br><span class="line">        description = &quot;Name of the S3 bucket&quot;</span><br><span class="line">        type = &quot;string&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">variable &quot;s3_tags&quot; &#123;</span><br><span class="line">        type = &quot;map&quot;</span><br><span class="line"></span><br><span class="line">        default = &#123;</span><br><span class="line">                created_by = &quot;terraform&quot;</span><br><span class="line">                environment = &quot;test&quot;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">variable &quot;s3_regions&quot; &#123;</span><br><span class="line">        type = &quot;list&quot;</span><br><span class="line">        default = [&quot;ap-southeast-2&quot;, &quot;us-west-2&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">terraform plan</span><br><span class="line">var.s3_bucket_name</span><br><span class="line">  Name of the S3 bucket</span><br><span class="line"></span><br><span class="line">  Enter a value: packt-terraform-section2-bucket-stan</span><br><span class="line"></span><br><span class="line">Refreshing Terraform state in-memory prior to plan...</span><br><span class="line">The refreshed state will be used to calculate this plan, but will not be</span><br><span class="line">persisted to local or remote state storage.</span><br><span class="line"></span><br><span class="line">aws_s3_bucket.main: Refreshing state... [id=packt-terraform-section2-bucket-stan]</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">terraform plan -var &apos;s3_bucket_name=&quot;packt-terraform-section2-bucket-stan&quot;&apos;</span><br><span class="line">Refreshing Terraform state in-memory prior to plan...</span><br><span class="line">The refreshed state will be used to calculate this plan, but will not be</span><br><span class="line">persisted to local or remote state storage.</span><br><span class="line"></span><br><span class="line">aws_s3_bucket.main: Refreshing state... [id=packt-terraform-section2-bucket-stan]</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>3.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">TF_VAR_s3_bucket_name=&quot;packt-terraform-section2-bucket-stan&quot; terraform plan</span><br><span class="line">Refreshing Terraform state in-memory prior to plan...</span><br><span class="line">The refreshed state will be used to calculate this plan, but will not be</span><br><span class="line">persisted to local or remote state storage.</span><br><span class="line"></span><br><span class="line">aws_s3_bucket.main: Refreshing state... [id=packt-terraform-section2-bucket-stan]</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br></pre></td></tr></table></figure></p>
+<p><strong>Variable definition files</strong></p>
+<ul>
+<li>We can also have multiple tfvars files, and pass them explicitly to Terraform using the var file flag. If we pass several files, Terraform will merge their values - and if a particular variable is defined in more than one variable file, the last value that is filed wins. </li>
+<li>Terraform automatically loads all files which match terraform.tfvars or *.auto.tfvars from the current directory</li>
+<li>Other files can be passed explicitly using -var-file flag<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat terraform.tfvars</span><br><span class="line">s3_bucket_name = &quot;packt-terraform-section2-bucket-stan&quot;</span><br><span class="line">terraform plan</span><br><span class="line">Refreshing Terraform state in-memory prior to plan...</span><br><span class="line">The refreshed state will be used to calculate this plan, but will not be</span><br><span class="line">persisted to local or remote state storage.</span><br><span class="line"></span><br><span class="line">aws_s3_bucket.main: Refreshing state... [id=packt-terraform-section2-bucket-stan]</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>String Interpolation</strong></p>
+<ul>
+<li>The process of evaluating a string expression and replacing all paceholders with their values<br><code>&quot;${var.s3_bucket_name}&quot;</code><br><strong>First-Class Expressions</strong><br><code>var.s3_bucket_name</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> cat s3.tf</span><br><span class="line">resource &quot;aws_s3_bucket&quot; &quot;main&quot; &#123;</span><br><span class="line">  bucket = &quot;$&#123;var.s3_bucket_name&#125;&quot;</span><br><span class="line">  acl    = &quot;private&quot;</span><br><span class="line"></span><br><span class="line">  tags   = &#123;</span><br><span class="line">    env = &quot;$&#123;lookup(var.s3_tags, &quot;environment&quot;)&#125;&quot;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  region =&quot;$&#123;var.s3_regions[0]&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line">#Terraform console is a useful tool for automation scripts, as it allows you to access arbitrary attributes from a Terraform configuration.</span><br><span class="line">terraform console</span><br><span class="line">&gt; var.s3_tags</span><br><span class="line">&#123;</span><br><span class="line">  &quot;created_by&quot; = &quot;terraform&quot;</span><br><span class="line">  &quot;environment&quot; = &quot;test&quot;</span><br><span class="line">&#125;</span><br><span class="line">&gt; var.s3_tags[&quot;environment&quot;]</span><br><span class="line">test</span><br><span class="line">&gt; exit</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Local-development-workflow"><a href="#Local-development-workflow" class="headerlink" title="Local development workflow"></a>Local development workflow</h2><p><strong>Using git to store state is a bad idea</strong></p>
+<ul>
+<li>maintenance overhead</li>
+<li>secrets in plain text</li>
+</ul>
+<p><strong>State</strong></p>
+<ul>
+<li>Local state</li>
+<li>Version Control</li>
+<li>Remote state</li>
+<li>Backends<ul>
+<li>Terraform enterprise</li>
+<li>S3</li>
+<li>Consul: a service networking solution to connect and secure services across any runtime platform and public or private cloud.</li>
+<li>Etcd</li>
+<li>HTTP</li>
+</ul>
+</li>
+</ul>
+<p>Recommend using S3<br><strong>Local Values</strong></p>
+<ul>
+<li><strong>Input variables</strong> are similar to arguments of a function</li>
+<li><strong>Local values</strong> are analogous to local variables within the function’s scope</li>
+</ul>
+<p>edit variables.tf file:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">locals &#123;</span><br><span class="line">        s3_tags= &#123;</span><br><span class="line">                created_by = &quot;terraform&quot;</span><br><span class="line">                environment = &quot;$&#123;var.environment&#125;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>we can skip refreshing it again to save a couple of seconds, here. I will pass a flag, -refresh=false.<br>The state filei(terraform.tfstate) is also used to store some metadata, such as resource dependencies, or a pointer to the provider configuration in situations where multiple AWS providers are present. Another use is to store a cache of the attribute values for all the resources in the state. When we run terraform plan, Terraform must know the current state of resources, and by default it will query the providers and sync the latest attributes from all our resources. For large infrastructure, this can be too slow, and we may get throttled at the API level - so, as a performance improvement, there is an option to disable this behavior by passing refresh=false flag.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">terraform plan -refresh=false</span><br><span class="line"></span><br><span class="line">An execution plan has been generated and is shown below.</span><br><span class="line">Resource actions are indicated with the following symbols:</span><br><span class="line">-/+ destroy and then create replacement</span><br><span class="line"></span><br><span class="line">Terraform will perform the following actions:</span><br><span class="line"></span><br><span class="line">terraform apply -auto-approve  ##skip answer yes</span><br><span class="line"></span><br><span class="line">export TF_CLI_ARGS_apply=&quot;-auto-approve&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Common Workflow</strong></p>
+<ul>
+<li>validate</li>
+<li>plan</li>
+<li>apply</li>
+<li>fmt<br><a href="https://github.com/antonbabenko/pre-commit-terraform">Pre-Commit Hooks</a><h2 id="Deleting-Resources"><a href="#Deleting-Resources" class="headerlink" title="Deleting Resources"></a>Deleting Resources</h2>1.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">terraform plan -destroy</span><br><span class="line">terraform destroy</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>remove a resource from configuration and then run terraform plan &amp;&amp; terraform apply</li>
+</ol>
+<p>the 2nd one is more suted to CI/CD systems. You will most likely have some pipeline for provisioning your resources, but you may not necessarily have any automated way of destroying them, because this doesn’t happen that often. Another point is that, this way, you can destroy specific resources without having to pass special flags, which would require changes to automation scripts.</p>
+<p><strong>Protect a resoure from deletion</strong><br>Use the life cycle meta-parameter.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lifecycle &#123;</span><br><span class="line">  prevent_destory = &quot;true&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Only protects against terraform destory.</p>
+<h2 id="Managing-state"><a href="#Managing-state" class="headerlink" title="Managing state **"></a>Managing state <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></h2><p><a href="https://github.com/PacktPublishing/Hands-on-Infrastructure-Automation-with-Terraform-on-AWS/tree/master/Section_3">code</a></p>
+<p><strong>set up the remote state backend</strong></p>
+<ol>
+<li>Create the Terraform configuration section</li>
+</ol>
+<p>This block is special, as it configures the behavior of Terraform itself, such as setting up a backend or requiring a minimum Terraform version to execute a configuration.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">terraform &#123;</span><br><span class="line">  required_version = &quot;&gt; 0.11.7&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>if we have some configuration which we can’t migrate to the latest version, for some reason, we can pin it to an older version in this block. Let’s set the current version.</p>
+<p><strong>Manage terraform versions for each project by Terraform switcher</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># MacOS with brew</span><br><span class="line">brew install warrensbox/tap/tfswitch</span><br><span class="line"># Linux</span><br><span class="line">curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash</span><br><span class="line">tfswitch</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><p>Add a backend</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">backend &quot;s3&quot; &#123;</span><br><span class="line">    bucket = &quot;packt-terraform-bucket-stan-test-ap-southeast-2&quot;</span><br><span class="line">    key = &quot;test/backbone&quot;</span><br><span class="line">    region = &quot;ap-southeast-2&quot;</span><br><span class="line">    encrypt = &quot;true&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Apply</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;Configure remote state&quot;</span><br><span class="line">git clean -fdx #clean the repository of all unchecked files</span><br><span class="line">Removing .terraform/</span><br><span class="line">Removing terraform.tfstate</span><br><span class="line">Removing terraform.tfstate.backup</span><br><span class="line">terraform init</span><br><span class="line">terraform plan #there is no more local state file anymore</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>configuration todo</p>
+</li>
+</ol>
+<ul>
+<li><p>enforce encryption by default (here use the default one, you can use KMS instead)<br>by edit s3.tf:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server_side_encryption_configuration &#123;</span><br><span class="line">  rule &#123;</span><br><span class="line">    apply_server_side_encryption_by_default &#123;</span><br><span class="line">       sse_algorithm = &quot;AES256&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>versioning: alwasy have a way back</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">versioning &#123;</span><br><span class="line">   enabled = true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lifecycle policy: Versioning will store all previous versions of the file, which will eventually bloat the bucket size. To reverse this, we can set a lifecycle policy. Remove all the version after 90 days. In your particular case, you might want to use a different value, or maybe move them to <strong>glacier storage</strong> instead of deleting the old files.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">lifecycle_rule &#123;</span><br><span class="line">   id      = &quot;state&quot;</span><br><span class="line">   prefix  = &quot;state/&quot;</span><br><span class="line">   enabled = true</span><br><span class="line"></span><br><span class="line">   noncurrent_version_expiration &#123;</span><br><span class="line">      days = 90</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Best Practices</strong></p>
+<ul>
+<li>Do not store state locally</li>
+<li>Do not commit state to version control</li>
+<li>If using S3:<ul>
+<li>Enable versioning</li>
+<li>Enforce encryption</li>
+<li>Store state close to the infrastructure</li>
+<li>Limit access to the bucket, consider enabling log in</li>
+</ul>
+</li>
+</ul>
+<h1 id="Building-a-multi-tier-environment"><a href="#Building-a-multi-tier-environment" class="headerlink" title="Building a multi-tier environment"></a>Building a multi-tier environment</h1><p><strong>What we will build?</strong></p>
+<ul>
+<li>Network layer-Virtual Private Cloud (VPC), internet gateway, public and private subnets, NAT gateway, and a bastion host)</li>
+<li>Relational Database Service (RDS) instance running PostgreSQL</li>
+<li>Elastic Container Service (ECS) cluster to host a dockerised app<br><strong>Provider Caching</strong></li>
+<li><strong>terraform init</strong> downloads providers separately for each project</li>
+<li>We can cache them by setting an environment variable<br>  export TF_PLUGIN_VACHE_DIR=”$HOME/.terraform.d/plugin-cache”<br><a href="https://github.com/PacktPublishing/Hands-on-Infrastructure-Automation-with-Terraform-on-AWS/tree/master/Section_4/vpc">code</a><br><img src="https://i.imgur.com/Rzhlc11.png" alt="AWS VPC"><br><strong>Count Meta-Parameter</strong></li>
+<li>Available to all resources</li>
+<li>Allows creating multiple copies of a resouce without repeating its configuration</li>
+<li>Helps keep your infrastructure code <strong>DRY</strong><br><strong>Splat Expression</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resource &quot;aws_nat_gateway&quot; &quot;main&quot; &#123;</span><br><span class="line">  count         = &quot;$&#123;length(var.availability_zones)&#125;&quot;</span><br><span class="line">  subnet_id     = &quot;$&#123;element(aws_subnet.public.*.id, count.index)&#125;&quot;</span><br><span class="line">  allocation_id = &quot;$&#123;element(aws_eip.nat.*.id, count.index)&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>The challenge, here, is that the gateways need to reference the subnets and the IPS that we created, but because we used count, we don’t have a direct reference to each resource. We can resolve this by using a splat expression, which you can see in action where we reference the subnet ID and the allocation ID. A splat expression allows to obtain a list of attribute values from a set of resources created using the count argument. Notice this asterisk, which represents all values in the generated list.</p>
+<h2 id="Organizing-data-with-output-variables"><a href="#Organizing-data-with-output-variables" class="headerlink" title="Organizing data with output variables"></a>Organizing data with output variables</h2><p><strong>Resources and data sources</strong></p>
+<ul>
+<li>Resources provide <strong>Create, Read, Update</strong>,and <strong>Delete</strong> functionality (CRUD)</li>
+<li>Data srouces support <strong>read</strong> operations only<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data &quot;aws_ami&quot; &quot;amazon_linux&quot; &#123;</span><br><span class="line">  most_recent = true</span><br><span class="line">  filter &#123;</span><br><span class="line">    name   = &quot;name&quot;</span><br><span class="line">    values = [&quot;amzn-ami-*-x86_64-gp2&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Output Variables</strong></p>
+<ul>
+<li>Expose important resource attributes and make tme easier to query</li>
+<li>Outputs are exposed to the user and stored in the state file during terraform apply</li>
+<li>A single output block configures a single variable<br><strong>Example Output</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output &quot;vpc_id&quot; &#123;</span><br><span class="line">   value = &quot;$&#123;aws_vpc.main.id&#125;&quot;</span><br><span class="line">   description = &quot;VPC id&quot;</span><br><span class="line">   sensitive = false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>After we run the apply once, the outputs are stored in the state file - so, the next time we need to get them, we can use <code>terraform output</code>.<br>or<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform output public_subnets</span><br></pre></td></tr></table></figure></p>
+<p><strong>provider version</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> terraform providers</span><br><span class="line">.</span><br><span class="line">├── provider.aws 1.31</span><br><span class="line">└── provider.template</span><br><span class="line">ls -l ~/.terraform.d/plugin-cache/linux_amd64</span><br></pre></td></tr></table></figure></p>
+<h2 id="Integrating-components-in-a-complex-environment"><a href="#Integrating-components-in-a-complex-environment" class="headerlink" title="Integrating components in a complex environment"></a>Integrating components in a complex environment</h2><p><img src="https://i.imgur.com/LcsUUkG.png" alt="Adding a database server"><br><strong>Steps to add a DB server</strong></p>
+<ol>
+<li>Create a VPC (done)</li>
+<li>Add Subnets to the VPC (done)</li>
+<li>Create a DB Subnet Group</li>
+<li>Create a VPC Secruity Group</li>
+<li>Create a DB Instance in the VPC</li>
+</ol>
+<p>Integrate separate Terraform configurations while keeping them in different projects</p>
+<p>Remote state serves as a centralized source of truth:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> cat data_sources.tf</span><br><span class="line"># Remote state</span><br><span class="line">data &quot;terraform_remote_state&quot; &quot;vpc&quot; &#123;</span><br><span class="line">  backend = &quot;s3&quot;</span><br><span class="line"></span><br><span class="line">  config &#123;</span><br><span class="line">    bucket = &quot;packt-terraform-bucket-stan-test-$&#123;var.region&#125;&quot;</span><br><span class="line">    key    = &quot;test/vpc&quot;</span><br><span class="line">    region = &quot;$&#123;var.region&#125;&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Remote state allows us to share information between current projects, and to build our infrastructures in small atomic configurations focused on one thing.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db_subnet_group.tf</span><br><span class="line">subnet_ids = [&quot;$&#123;data.terraform_remote_state.vpc.private_subnets&#125;&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>Notice the interpolation syntax that we use.first, specify that it’s a data source - then its type, terraform remote state. Then comes the name of particular remote state, VPC, and lastly the attribute that we are interested in. </p>
+<h2 id="Using-templates"><a href="#Using-templates" class="headerlink" title="Using templates"></a>Using templates</h2><p><img src="https://i.imgur.com/IjCKZfO.png" alt="Application tier"><br>deploy a small but realistic web application into our VPC. Our app runs in Docker, so we will provision an LST container service cluster - <strong>ECS</strong> - to host it in our private subnets. We will use <strong>Fargate</strong>, which is a managed compute and orchestration engine, so we won’t need to maintain EC2 instances that run our containers. </p>
+<p><strong>Use Terraform templates to compose complex string inputs</strong><br>App: a REST API for a todo applicaton, written in Go. It uses Postgres scale database as its backend.</p>
+<p><a href="https://hub.docker.com/r/endofcake/go-todo-rest-api-example/">public image on Docker hub</a></p>
+<ol>
+<li>provision an ECS cluster<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat ecs_cluster.tf</span><br><span class="line">resource &quot;aws_ecs_cluster&quot; &quot;main&quot; &#123;</span><br><span class="line">  name = &quot;$&#123;var.ecs_cluster_name&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>Partitioning Infrastructure</strong></p>
+<ul>
+<li>If the resources are likely to be created and destryoed together, they belong together</li>
+<li>If some resource can be used by multiple other resources, it’s better to keep it sparate (VPC,RDS, and ECS cluster)</li>
+</ul>
+<p>template eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">bastion.tf</span><br><span class="line"># User data</span><br><span class="line">data &quot;template_file&quot; &quot;user_data&quot; &#123;</span><br><span class="line">  template = &quot;$&#123;file(&quot;$&#123;path.module&#125;/templates/user_data.sh&quot;)&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/tmplates/user_data.sh</span><br><span class="line">#!/bin/env bash</span><br><span class="line"></span><br><span class="line">set -euo pipefail</span><br><span class="line">exec &gt; &gt;(tee /var/log/user-data.log|logger -t user-data -s 2&gt;/dev/console) 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line">echo &quot;Starting user data...&quot;</span><br><span class="line">yum update -y</span><br><span class="line">yum install -y postgresql96.x86_64</span><br><span class="line">touch /home/ec2-user/success</span><br><span class="line">echo &quot;All done&quot;</span><br></pre></td></tr></table></figure></p>
+<p>Next, I create template_cloudinit_config data source, and pull in the rendered template file. cloudinit_config allows us to compose multi-part user data scripts.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data &quot;template_cloudinit_config&quot; &quot;user_data&quot; &#123;</span><br><span class="line">  gzip          = true</span><br><span class="line">  base64_encode = true</span><br><span class="line"></span><br><span class="line">  part &#123;</span><br><span class="line">    content_type = &quot;text/x-shellscript&quot;</span><br><span class="line">    content      = &quot;$&#123;data.template_file.user_data.rendered&#125;&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>If we run terraform apply with this configuration on Windows, it most likely wouldn’t work - the problem is that Windows use a different line break tag, which is not valid on Linux. Windows use both carriage return and line feed, while Linux only uses line feed. The easiest way to check the line break tag is to look at the bottom right corner of the editor. Anyway, long story short, we want to make sure that this script is valid, even if we deploy our configuration from a Windows machine. This is probably the only case where there is any difference between running Terraform on Linux and on Windows. There are two changes that you should make to resolve this.</p>
+<ol>
+<li><p>add a gitattributes file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat .gitattributes</span><br><span class="line"># Always LF</span><br><span class="line">*.sh text eol=lf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>use EditorConfig plugin to define how our text editor displays and saves our code<br><img src="https://i.imgur.com/55JD2B3.png" alt="editorconfig plugin"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat .editorconfig</span><br><span class="line">[*.sh]</span><br><span class="line">end_of_line = lf</span><br><span class="line">indent_size = 2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><a href="https://github.com/stanosaka/Hands-on-Infrastructure-Automation-with-Terraform-on-AWS/tree/master/Section_4/ecs_app_todo">ecs app todo code</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">~/terraform/ecs_app_todo|</span><br><span class="line">⇒  tree</span><br><span class="line">.</span><br><span class="line">├── cloudwatch.tf</span><br><span class="line">├── data_sources.tf</span><br><span class="line">├── ecs_task.tf</span><br><span class="line">├── graph.png</span><br><span class="line">├── iam.tf</span><br><span class="line">├── lb.tf</span><br><span class="line">├── outputs.tf</span><br><span class="line">├── providers.tf</span><br><span class="line">├── templates</span><br><span class="line">│   └── ecs_task.tpl</span><br><span class="line">├── terraform.tfvars</span><br><span class="line">└── variables.tf</span><br></pre></td></tr></table></figure></p>
+<p>templates/ecs_task.tpl file: ECS task definition. It describes which Docker images to use, the required resources, and other configurations necessary to launch the containers. As you can see, it’s a JSON block, which I’ve extracted into a template. It requires a few parameters, mostly to set up the connection to the database. </p>
+<p>ecs_task.tf file: This is the Terraform configuration of our ECS task. I’m using the familiar template file data source, and I’m passing the required variables using the vars parameter, which accepts a map of variables. Some of the variables come from the tfvars file, but many are imported from the remote state. </p>
+<p>data_sources.tf file: If we check out our data sources, we see that we’re pulling in remote state from all three projects that we created earlier. </p>
+<p>lb.tf file: another important resource that we are creating is the load balancer, which distributes income and application traffic across multiple targets, for high availability. It will also allow us to connect to our service from the public internet, and here is the security group which allows public access</p>
+<p><strong>confirm it’s working</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">curl -d &apos;&#123;&quot;title&quot;:&quot;sample project&quot;&#125;&apos; -H &quot;Content-Type: application/json&quot; -X POST todoapp-alb-91218331.ap-southeast-2.elb.amazonaws.com/projects</span><br><span class="line">&#123;&quot;ID&quot;:1,&quot;CreatedAt&quot;:&quot;2019-07-21T12:20:38.881103057Z&quot;,&quot;UpdatedAt&quot;:&quot;2019-07-21T12:20:38.881103057Z&quot;,&quot;DeletedAt&quot;:null,&quot;title&quot;:&quot;sample project&quot;,&quot;archived&quot;:false,&quot;tasks&quot;:null&#125;</span><br><span class="line"></span><br><span class="line">curl todoapp-alb-91218331.ap-southeast-2.elb.amazonaws.com/projects</span><br><span class="line">[&#123;&quot;ID&quot;:1,&quot;CreatedAt&quot;:&quot;2019-07-21T12:20:38.881103Z&quot;,&quot;UpdatedAt&quot;:&quot;2019-07-21T12:20:38.881103Z&quot;,&quot;DeletedAt&quot;:null,&quot;title&quot;:&quot;sample project&quot;,&quot;archived&quot;:false,&quot;tasks&quot;:null&#125;]</span><br><span class="line"></span><br><span class="line">ssh bastion</span><br><span class="line">export PGPASSWORD=foobar</span><br><span class="line">export PGHOST=todoapp.foobar.ap-southeast-2.rds.amazonaws.com</span><br><span class="line">psql -U terraform -d todoapp</span><br><span class="line">todoapp=&gt; \d+</span><br><span class="line">                             List of relations</span><br><span class="line"> Schema |      Name       |   Type   |   Owner   |    Size    | Description</span><br><span class="line">--------+-----------------+----------+-----------+------------+-------------</span><br><span class="line"> public | projects        | table    | terraform | 16 kB      |</span><br><span class="line"> public | projects_id_seq | sequence | terraform | 8192 bytes |</span><br><span class="line"> public | tasks           | table    | terraform | 8192 bytes |</span><br><span class="line"> public | tasks_id_seq    | sequence | terraform | 8192 bytes |</span><br><span class="line">(4 rows)</span><br><span class="line">todoapp=&gt; select * from projects;</span><br><span class="line"> id |          created_at           |          updated_at           | deleted_at |     title      | archived</span><br><span class="line">----+-------------------------------+-------------------------------+------------+----------------+----------</span><br><span class="line">  1 | 2019-07-21 12:20:38.881103+00 | 2019-07-21 12:20:38.881103+00 |            | sample project | f</span><br><span class="line">(1 row)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Working-with-dependency-graph"><a href="#Working-with-dependency-graph" class="headerlink" title="Working with dependency graph"></a>Working with dependency graph</h2><p><strong>Dependency graph</strong></p>
+<ul>
+<li>All resources in the configuration are organized into a graph</li>
+<li>The graph is used to determine the order in which the resources are created<br><img src="https://i.imgur.com/9swFk8u.png" alt="Directed acyclic graph"><br>Terraform organizes all resources in a configuration in a directed acyclic graph. What this means in plain English is that the dependencies between the resources go in one direction, and there can be no cycles. So, no circular dependencies. When we run the plan command, Terraform builds this graph, checks whether there are any cycles, and then determines which operations can be run in parallel. By default, up to ten nodes in the graph can be processed concurrently. We can control this setting using the parallelism flag on the plan, apply, and destroy commands, but in most cases this is not required.<br><strong>Parallelism</strong></li>
+<li>Up to 10 nodes can be processed concurrently by default</li>
+<li>Conifgurable with <strong>-parallemism</strong> flag for plan, apply, and destroy commands (advanced setting)<br><strong>Dependencies</strong></li>
+<li><p>Implicit-one resource references another resource using the interpolation syntax</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">resource &quot;aws_lb&quot; &quot;todo_app&quot; &#123;</span><br><span class="line">    security_groups = [&quot;$&#123;aws_security_group.lb.id&#125;&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Explicit-using depends_on metaparameter<br> <code>depends_on = [&quot;aws_security_group.lb&quot;]</code></p>
+</li>
+</ul>
+<p>Use explicit dependencies to resolve race conditions<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Have to set an explicit dependency here to avoid</span><br><span class="line">  # race condition with LB creation</span><br><span class="line">depends_on = [&quot;aws_lb_listener.todo_app&quot;]</span><br></pre></td></tr></table></figure></p>
+<p><strong>tools</strong></p>
+<ol>
+<li><p><a href="http://graphviz.gitlab.io/download/">Graphviz</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">terraform graph|dot -Tpng &gt; graph.png</span><br><span class="line">terraform plan</span><br><span class="line">terraform graph -draw-cycles|dot -Tpng &gt; graph.png</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://github.com/28mm/blast-radius">blast radius</a></p>
+</li>
+</ol>
+<h2 id="Main-takeaways"><a href="#Main-takeaways" class="headerlink" title="Main takeaways"></a>Main takeaways</h2><ul>
+<li>Use outputs and remote state data source to integrate stacks of resources in a complex environment</li>
+<li>Keep your code DRY by using <em>count</em> parameter and splat expressions</li>
+<li>Use <strong>templates</strong> to generate complex string inputs, such as user data scripts or ECS task definitions</li>
+</ul>
+<h1 id="Creating-reusable-components-with-moduels"><a href="#Creating-reusable-components-with-moduels" class="headerlink" title="Creating reusable components with moduels"></a>Creating reusable components with moduels</h1><h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><ul>
+<li>Self-contained packages of Terraform configurations that are managed as a group<br>When we want to avoid writing duplicate code in a general-purpose programming language, we usually write a library. In, Terraform, we can put our code in a <strong>module</strong>.</li>
+<li>Improve code resue</li>
+<li>Provide an abstration layer<br>for example, you may need to add a vault cluster to your environment, and the vault is another great Hashicorp tool which is used for managing secrets, which requires dozens of components - but instead of thinking about individual security groups or EC2 instances, you can treat all these resources as a single group which requires some parameters, and gives you a ready-to-use vault cluster. </li>
+<li>Can be teated as blackbox</li>
+<li>Share best practices within an organization</li>
+<li>Versioned artifacts</li>
+</ul>
+<h2 id="Creating-the-first-module"><a href="#Creating-the-first-module" class="headerlink" title="Creating the first module"></a>Creating the first module</h2><ul>
+<li>Root module:<ul>
+<li>The current working dirctory holding Terraform files</li>
+</ul>
+</li>
+<li>Child modules:<ul>
+<li>All modules sourced by the root (parent) module<br><strong>Delaring Modules</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module &quot;child&quot; &#123;</span><br><span class="line">source = &quot;./child&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>rename ecs app project to module.ecs_app_web<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat main.tf</span><br><span class="line">module &quot;child&quot; &#123;</span><br><span class="line">    source = &quot;../module.ecs_app_web&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Error-and-debug"><a href="#Error-and-debug" class="headerlink" title="Error and debug"></a>Error and debug</h1><ol>
+<li>Error 1:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">terraform init</span><br><span class="line"></span><br><span class="line">Initializing the backend...</span><br><span class="line">Backend configuration changed!</span><br><span class="line"></span><br><span class="line">Terraform has detected that the configuration specified for the backend</span><br><span class="line">has changed. Terraform will now check for existing state in the backends.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Error inspecting states in the &quot;s3&quot; backend:</span><br><span class="line">    NoSuchBucket: The specified bucket does not exist</span><br><span class="line">        status code: 404, request id: E51C641611FF2763, host id: 9AN52en4R7RaZueavAicV5/N01SahL+Y1TZBT8TGnYBYYD5ywWxPKgkiiqDx8+FsgkwNNyadfSU=</span><br><span class="line"></span><br><span class="line">Prior to changing backends, Terraform inspects the source and destination</span><br><span class="line">states to determine what kind of migration steps need to be taken, if any.</span><br><span class="line">Terraform failed to load the states. The data in both the source and the</span><br><span class="line">destination remain unmodified. Please resolve the above error and try again.</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Debug mode:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> TF_LOG=trace terraform init</span><br><span class="line">2019/07/21 11:50:39 [INFO] Terraform version: 0.11.7  41e50bd32a8825a84535e353c3674af8ce799161</span><br><span class="line">2019/07/21 11:50:39 [INFO] Go runtime version: go1.10.1</span><br><span class="line">2019/07/21 11:50:39 [INFO] CLI args: []string&#123;&quot;/root/.terraform.versions/terraform_0.11.7&quot;, &quot;init&quot;&#125;</span><br><span class="line">2019/07/21 11:50:39 [DEBUG] Attempting to open CLI config file: /root/.terraformrc</span><br><span class="line">2019/07/21 11:50:39 [DEBUG] File doesn&apos;t exist, but doesn&apos;t need to. Ignoring.</span><br><span class="line">2019/07/21 11:50:39 [INFO] CLI command args: []string&#123;&quot;init&quot;&#125;</span><br><span class="line">2019/07/21 11:50:39 [DEBUG] command: loading backend config file: /root/terraform/vpc</span><br><span class="line"></span><br><span class="line">Initializing the backend...</span><br><span class="line">2019/07/21 11:50:39 [TRACE] Preserving existing state linea</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>Error2:<br><img src="https://i.imgur.com/NvWneaV.png" alt="error2"><br>if ecs try to connect to localhost as rds, and couldnot connect sucessfully</li>
+</ol>
+<p>Debug:<br>ecs_task.tpl pg environment vars are all missing</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/aws/">aws</a><a href="/tags/terraform/">terraform</a><a href="/tags/automation/">automation</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/05/agile/" title="agile" itemprop="url">agile</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-05T01:10:42.858Z" itemprop="datePublished"> Published 2019-07-05</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Agile-is-a-movement"><a href="#Agile-is-a-movement" class="headerlink" title="Agile is a movement."></a>Agile is a movement.</h1><p>Movement: a group of people working together to advance their shared political, social, or artistic ideas.</p>
+<h2 id="Early-agile-methodologies"><a href="#Early-agile-methodologies" class="headerlink" title="Early agile methodologies"></a>Early agile methodologies</h2><ul>
+<li>1995: Scrum<ul>
+<li>Iterative cycles of work</li>
+<li>Emphasis on cross-functional collaboration</li>
+</ul>
+</li>
+<li>Mid-90s: Crystal<ul>
+<li>Emphasis on adaptability and “stretch-to-fit” process</li>
+</ul>
+</li>
+<li>1990: XP<ul>
+<li>Short, iterative cycles of work</li>
+<li>Emphasis on collaboration between developers</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/MjJqXdR.jpg" alt="agile manifesto"><br><strong>Agile Values</strong></p>
+<ul>
+<li>Increase cross-functional collaboration</li>
+<li>Minimize works in progress (sepecs, etc)</li>
+<li>Work in iterative cycles to incorporate change and get frequent feedback</li>
+<li>Make time to reflect on how you work</li>
+</ul>
+<hr>
+<h1 id="Agile-Development"><a href="#Agile-Development" class="headerlink" title="Agile Development"></a>Agile Development</h1><p><strong>born-on-the-cloud model</strong>: cloud as the primary platform for both consumed and delivered services<br>Agility to get projects up and running quickly<br>streamlined process by reducing transitions from Development to Operations</p>
+<p>Java EE application with a Minimum Viable Product (MVP)<br>setup the cloud infrastructure and Toolchain using the Born-on-the-cloud approach</p>
+<p>Hypothesis-driven development</p>
+<p>ranked backlog, user stories, story points<br>tracking and delivering in Timeboxed iterations</p>
+<p><strong>backlog</strong> is a prioritized list of features (User Stores) waiting to be scheduled and implemented</p>
+<p>Note that among other things one of the most important responsibilities of the product owner role in Agile development methodology is to keep the backlog ranked by priority, and he or she can set the priorities by simply dragging the issues and ordering them, regardless of when they were added to the backlog</p>
+<p>User stories: who, what, why<br>story points and planning poker</p>
+<p><strong>user story</strong> is an informal, natural language description of a chunk of functionality that is of value from an end-user perspective<br>As a <who>, I want <what> so that <why></p>
+<p><strong>Story Points</strong> are estimates of effort as influenced by the amount of work, complexity, risk, and uncertainty.</p>
+<ul>
+<li>(Adapted) Fibonacci sequence: 0,1,2,3,5,8,13,20,40,100</li>
+</ul>
+<p><strong>Planning Poker</strong> is a consensus-based, gamified technique for estimating<br>Timeboxing refers to the act of putting strict time boundaries around an action for activity</p>
+<p>time boxed interrogations along with story points are important to measure the team velocity over time. For example you should track the total amount of story points that team delivers each iteration, and this way you’ll be able to determine on average the team velocity metric, or in other words how many story points on average the team is able to deliver. </p>
+<p>Architecture breakdown</p>
+<ul>
+<li>User interface (html/css/javascript)</li>
+<li>CRUD Service(REST APIs with JAX-RS)</li>
+<li>Database(NoSQL)</li>
+</ul>
+<p><strong>Test-Driven Development (TDD)</strong> is a technique for building software by writing automate test cases before writing any code<br>why: focus on the outcome; helps to manage risk; enables fast iterations and continous integration; keeps the code clear, simple and testable;<br>grater confidence to make applicaton changes; documentation of how the system works</p>
+<p>How:add a test-&gt;run all tests and see if the new one fails-&gt; write the code-&gt;run tests-&gt; refactor the code-&gt;repeat</p>
+<p>A <strong>delivery pipeline</strong> is a sequence of automated stages that retrieve input and run jobs, such as builds, tests, and deployments.<br>It automates the continuous deployment of a project, with miniumum or no-human intervention.</p>
+<ul>
+<li>A Stage retrieves input and run jobs, such as builds,tests, and deployments.</li>
+<li>Jobs run in discrete working directories in containers that are created for each pipeline run</li>
+<li>By default, stages run sequentially after changes are delivered to source control</li>
+</ul>
+<p><strong>showcase the applicaton</strong>: At the end of the iteration before the retrospective meeting that is a showcase meaning, also know as demo meeting, where the work done is demonstrated to the stakeholders and feedback is obtaining. The showcase meeting starts by reviewing what we have committed in the form of user stories. And finally we demonstrate what we have accomplished in the form of working software, so we can acquire feedback on the product we are building.</p>
+<p><strong>retrospective meeting</strong>: how to conduct<br>1st way:<br>What went well?<br>what could be improved?</p>
+<p>2nd way:<br>Start doing</p>
+<ul>
+<li>continuous delivery<br>stop doing</li>
+<li>time-bxed iterations<br>continue doing</li>
+<li>ranked backlog</li>
+</ul>
+<h2 id="Common-Problems"><a href="#Common-Problems" class="headerlink" title="Common Problems"></a>Common Problems</h2><h2 id="Value-Focus"><a href="#Value-Focus" class="headerlink" title="Value/Focus"></a>Value/Focus</h2><table>
+<thead>
+<tr>
+<th>Problems</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Not understanding the market</td>
+<td>Hypothesis-driven development</td>
+</tr>
+<tr>
+<td>Putting wrong products into the market</td>
+<td>Minimum Viable Product (MVP)</td>
+</tr>
+<tr>
+<td>Lack of focus on value</td>
+<td>Timboxing/Iterations</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Productivity-Speed-Cost"><a href="#Productivity-Speed-Cost" class="headerlink" title="Productivity/Speed/Cost"></a>Productivity/Speed/Cost</h2><table>
+<thead>
+<tr>
+<th>Problems</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Too long to get projects up and running</td>
+<td>Born on the Cloud</td>
+</tr>
+<tr>
+<td>Slow to put products into market</td>
+<td>MVP/Delivery pipeline/Continuous delivery</td>
+</tr>
+<tr>
+<td>Too costly projects</td>
+<td>Automation/Toolchain/Delivery pipeline</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Communication-Visibility"><a href="#Communication-Visibility" class="headerlink" title="Communication/Visibility"></a>Communication/Visibility</h2><table>
+<thead>
+<tr>
+<th>Problems</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priorities aren’t clear</td>
+<td>Ranked backlog</td>
+</tr>
+<tr>
+<td>Requirements not reflecting the user’s needs</td>
+<td>User stories</td>
+</tr>
+<tr>
+<td>Poor team communication</td>
+<td>Daily standup</td>
+</tr>
+<tr>
+<td>Lack of visibility into the progress</td>
+<td>Iteration wall/Showcase meeting</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Quality-Control"><a href="#Quality-Control" class="headerlink" title="Quality/Control"></a>Quality/Control</h2><table>
+<thead>
+<tr>
+<th>Problems</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low quality products</td>
+<td>Test driven development/Delivery pipeline</td>
+</tr>
+<tr>
+<td>Lack of prcess improvement</td>
+<td>Retrospective meeting/Continous improvement</td>
+</tr>
+<tr>
+<td>Bad Requirements estimations</td>
+<td>Story points/Planning poker</td>
+</tr>
+<tr>
+<td>Not honouring past our commitments</td>
+<td>Track team’s velocity</td>
+</tr>
+</tbody>
+</table>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/agile/">agile</a><a href="/tags/software-development/">software development</a><a href="/tags/agile-development/">agile development</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/04/devops-as-a-service/" title="Devops As A Service" itemprop="url">Devops As A Service</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-03T23:54:43.000Z" itemprop="datePublished"> Published 2019-07-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><img src="https://i.imgur.com/5ci7g2C.png" alt="Imgur"><br>Business Requirements</p>
+<ul>
+<li>Start with business requirements</li>
+<li>DevOps is about doing the work right</li>
+<li>What about doing the right work? See<ul>
+<li>(Agile) Portfolio Management- making sure the work you are doing is funded and delivering business value, and</li>
+<li>Lean Control - making sure you get early engagement with control functions in your organisation (Audit, Compliance, Security, Architecture,<br>Accessibility, Marketing, etc.)</li>
+</ul>
+</li>
+<li>Work/Requirements are comprised of<ul>
+<li>features of business value (2-3 months), divided into …</li>
+<li>sprints (2-3 weeks) and the sprints are made up of …</li>
+<li>tasks (2-3 days of work)</li>
+</ul>
+</li>
+</ul>
+<p>Tasks</p>
+<ul>
+<li>2-3 days of work</li>
+<li>Developers pull tasks off of a sprint queue</li>
+<li>Sprint goals to demo working software at the end of each sprint</li>
+</ul>
+<p>Code</p>
+<ul>
+<li>Integrated continuously, Build continuously</li>
+<li>All code is reviewed by another team member before committing</li>
+<li>Feature branching or trunk-based development?</li>
+<li>No long lived code branches</li>
+</ul>
+<p>Continuous Integration</p>
+<ul>
+<li>Code built continuously (multiple times per day)</li>
+<li>Fast feedback -continous builds are very fast (&lt; 5mins)</li>
+<li>Best practice build patterns/chains<ul>
+<li>Compile, unit test, integration test, deploy artefacts</li>
+</ul>
+</li>
+</ul>
+<p>Metrics</p>
+<ul>
+<li>Code quality is vital</li>
+<li>Code coverage measures test automation</li>
+<li>Gold/silver/bronze accreditation</li>
+</ul>
+<p>Artifacts</p>
+<ul>
+<li>Green builds produce shippable artefacts (.jar, .dll, .exe, docker image)</li>
+<li>Single store for all internal and external artefacts and libraries</li>
+<li>Security policies around 3rd party libraries and external access</li>
+</ul>
+<p>Infrastructure as Code</p>
+<ul>
+<li>Operations roles change</li>
+<li>Infrastructure provisioning and configuration is automated</li>
+<li>Orchestration tools to provision infrastructure (Terraform, Cloud Formation for AWS)</li>
+<li>Configuration management tools to install and manage software on provisioned infrastructure (Chef, Puppet, Ansible)</li>
+<li>IaC is stored, tested and versioned in source code control</li>
+<li>Organisational Change, move to Site Reliability Engineering (SRE)</li>
+</ul>
+<p>Service Mangement</p>
+<ul>
+<li>Approvals and change are automated</li>
+<li>Products with higher levels of accreditation have lower change management overheads (more automation)</li>
+</ul>
+<p>Continous Deployment</p>
+<ul>
+<li>Infrastructure provisioned automatically</li>
+<li>Configuration automated</li>
+<li>Change approvals automated</li>
+<li>Push button deployment to production</li>
+</ul>
+<p>Monitoring</p>
+<ul>
+<li>Observability driven design</li>
+<li>Monitoring, logging, dash boarding early in the life-cycle</li>
+<li>Issues and observations feed back to developers</li>
+</ul>
+<p>Security</p>
+<ul>
+<li>“Shift Left” security</li>
+<li>“average total cost of a breach ranges from $2.2 million to $6.9 million”</li>
+<li>Code vulnerability scanning in the build pipeline</li>
+<li>Build fail if major/critical issues</li>
+<li>Tools- CheckMarx, Fortify</li>
+<li>Artefact scanning for security vulnerabilities</li>
+<li>Firewalls to protect against 3rd party vulnerabilities</li>
+<li>Tools - Nexus Lifecycle/Fiewall, BackDuck</li>
+<li>Image scanning dof Docker images</li>
+<li>Tools- AquaSec, Twistlock, Tennable, OpenSCAP</li>
+</ul>
+<p>Evolving DevOps @ Scale</p>
+<p>Shadow DevOps -&gt; Enterprise DevOps -&gt; DevOps as a Service</p>
+<p>10 years age -&gt; 5 years ago  -&gt; the future</p>
+<p><img src="https://i.imgur.com/6Ei88Zz.jpg" alt="Enterprise Devops"><br><img src="https://i.imgur.com/jRJvY69.jpg" alt="Devops as a Service"><br><img src="https://i.imgur.com/kQNGOfS.jpg" alt="GitOps"><br><img src="https://i.imgur.com/Vvmeafo.jpg" alt="AWS DevOps"><br><img src="https://i.imgur.com/lwpUXVf.jpg" alt="Azure DevOps"></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Devops/">Devops</a><a href="/tags/aws/">aws</a><a href="/tags/git/">git</a><a href="/tags/Azure/">Azure</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/03/version-control/" title="version control" itemprop="url">version control</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-03T01:55:35.000Z" itemprop="datePublished"> Published 2019-07-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Common-Terminologies"><a href="#Common-Terminologies" class="headerlink" title="Common Terminologies"></a>Common Terminologies</h1><p><strong>Repository</strong>: A unit of storage and change tracking that represents a direcotry whose contents are tacked by Git</p>
+<p><strong>Brach</strong>: A version of a repository that represents the current state of the set of files that constitute a repository</p>
+<p><strong>Master</strong>: The frault or main branch, it is a version of the repository that is considered the single source of truth</p>
+<p><strong>Refrence</strong>: A Git ref or reference is a name corresponding to a commit hash</p>
+<p><strong>HEAD</strong>: A reference to the most recent commit on a branch</p>
+<p><strong>Working Tree</strong>: This refers to the section in which we view and make changes to the files in branch</p>
+<p><strong>Index</strong>: This is an area where Git holds files that have been changed, added, or removed in readiness for a commit</p>
+<p><strong>Commit</strong>: This is an entry into Git’s history that represents a change made to a set of files at a given point in time</p>
+<p><strong>Merge</strong>: A merge is the process of incorporating change from one branch to another</p>
+<p><strong>Workflows</strong>: Workflows refer to the approach a team takes to introduce changes to a code base.</p>
+<h2 id="Workflows"><a href="#Workflows" class="headerlink" title="Workflows"></a>Workflows</h2><p><strong>Gitflow workflow</strong></p>
+<ul>
+<li>This uses two branches: master and develop</li>
+<li>The master branch is used to track release history, while the develop branch is used to track feature integration into the product.</li>
+</ul>
+<p><strong>Centralized workflow</strong></p>
+<ul>
+<li>This approach uses the master branch as the default development branch.</li>
+<li>The changes are committed to the master branch.</li>
+<li>It’s a suitable workflow for small size teams and teams transitioning from Apache Subversion.</li>
+<li>In Apache Subversion, the trunk is the equivalent of the master branch.</li>
+</ul>
+<p><strong>Feature branch workflow</strong></p>
+<ul>
+<li>In this workflow, feature development is carried out in a dedicated branch.</li>
+<li>The branch is then merged to the master once the intended changes are approved.</li>
+</ul>
+<p><strong>Forking workflow</strong></p>
+<ul>
+<li>The individual seeking to make a change to a repository, makes a copy of the desired repository in their respective GitHub account.</li>
+<li>The changes are made in the copy of the source repository and then it’s merged to the source repository throught a pull request.</li>
+</ul>
+<h1 id="Navigating-GitHub"><a href="#Navigating-GitHub" class="headerlink" title="Navigating GitHub"></a>Navigating GitHub</h1><h2 id="Organizations"><a href="#Organizations" class="headerlink" title="Organizations"></a>Organizations</h2><p><strong>Role-based membership</strong></p>
+<ul>
+<li><p>Each personal account that is added to an organization can belong to one of the aforementioned roles.</p>
+</li>
+<li><p>The owner role is the most superior and is used to conduct administrative procedures.<br><strong>Repository level permissions</strong></p>
+<pre class="mermaid">graph TD;
+ Read-->Write;
+ Write-->Admin;</pre></li>
+<li>Teams or their respective members can be assigned read, write, or admin-level permissions to a repository.</li>
+<li>Each level dictates activities that the assigned members undertake, with a varying degree of limitations.<br><strong>Teams</strong></li>
+<li>There are members of an organization that can be grouped into teams, with the option of nesting the teams to match an organization’s structure.<br><strong>Multi-factor authentication</strong></li>
+<li>Organizations support the enforcement of two-factor authentication as well as business-specific single sign-on approaches such as <strong>Security Assertion Markup Language (SAML)</strong> and <strong>System for Corss-domain Identity Management</strong> (SCIM).<h3 id="Market-place-install-codacy"><a href="#Market-place-install-codacy" class="headerlink" title="Market place install codacy"></a>Market place install codacy</h3></li>
+</ul>
+<h1 id="Runtime-config"><a href="#Runtime-config" class="headerlink" title="Runtime config"></a>Runtime config</h1><p>Git configurations are set in three levels:</p>
+<ul>
+<li>System-wide configuration<ul>
+<li>set in the <strong>/etc/gitconfig</strong> file</li>
+<li>access use <strong>git config –system</strong></li>
+</ul>
+</li>
+<li>User specific configuraton<ul>
+<li>~/.gitconfig</li>
+<li>git config –global</li>
+</ul>
+</li>
+<li>Repository-specific configuration<ul>
+<li>Repository specific settings are set in the <strong>path_to_repository/.git/config</strong></li>
+<li>An example of configuration is the GitHub URL of a repository, which set at this level.</li>
+<li>There settings are accessed via <strong>git config –local</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="Removing-configuratoin"><a href="#Removing-configuratoin" class="headerlink" title="Removing configuratoin"></a>Removing configuratoin</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset [section_name].[section_variable]</span><br></pre></td></tr></table></figure>
+<p>exampel:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset user.name</span><br></pre></td></tr></table></figure></p>
+<p>create a ssh key:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C foobar@cwzhou.win</span><br></pre></td></tr></table></figure></p>
+<h1 id="Fundamentails-of-repositories"><a href="#Fundamentails-of-repositories" class="headerlink" title="Fundamentails of repositories"></a>Fundamentails of repositories</h1><p><strong>Tags</strong><br>There are used for the purpose of identifying specific significant points on a repository’s history.</p>
+<ul>
+<li><p>lightweight tages<br>Lightweight tags act as pointers to a specific commit. It only stores the reference to the commit: <strong>git tag v2.5</strong></p>
+</li>
+<li><p>annotated tags<br>Annotated tags act as pointers to a specific commit and additionally store information about the creator of the tag, the email, and date of creation:<br> <strong>git tag -a v2.6 -m “Support sdk version 3”</strong></p>
+</li>
+</ul>
+<h1 id="Versioning-Commits"><a href="#Versioning-Commits" class="headerlink" title="Versioning Commits"></a>Versioning Commits</h1><p>In git, files can have the following statuses:</p>
+<ul>
+<li>Untracked: This is a file that exists in the working tree whose changes are not being monitored by Git and aren’t listed in the <strong>gitignore</strong> file.</li>
+<li>Unstaged: This is a file whose changes are being tracked by Git; the file has been changed since the last commit and has yet to be moved to the <strong>index</strong>.</li>
+<li>Staged: This is a file whose changes are being tracked by Git; the file has been changed since the last commit and has been moved to the index.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+<ul>
+<li>It’s used to retrieve the details of files that are untracked, unstaged, or staged.</li>
+<li><strong>git status</strong> lists files in order of their statuses.</li>
+<li>The <strong>git status</strong> output is lengthy in nature</li>
+<li>To view a brief list and status, use the <strong>-s</strong> or <strong>–short</strong> option with the <strong>git status</strong> command.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">szhou@armitage:~/DevOps/github/foobar|master</span><br><span class="line">⇒  git branch ft-add-encapsulating-class</span><br><span class="line">szhou@armitage:~/DevOps/github/foobar|master</span><br><span class="line">⇒  git checkout ft-add-encapsulating-class</span><br><span class="line">Switched to branch &apos;ft-add-encapsulating-class&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>ft is feature branch, bg for bug, fs for rolling out hard fixes, ch for<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add . &amp;&amp; git commit -m &quot;Added a class for match functions&quot; &amp;&amp; git push origin ft-add-encapsulating-class</span><br></pre></td></tr></table></figure></p>
+<p><strong>git diff</strong></p>
+<ul>
+<li>The git diff command is uesed to compare one snapshot of changes to another.</li>
+</ul>
+<p>zoom in the change:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">szhou@armitage:~/DevOps/github/foobar|ft-add-encapsulating-class⚡</span><br><span class="line">⇒  git diff</span><br><span class="line">szhou@armitage:~/DevOps/github/foobar|ft-add-encapsulating-class⚡</span><br><span class="line">⇒  git diff src/lib</span><br><span class="line">szhou@armitage:~/DevOps/github/foobar|ft-add-encapsulating-class⚡</span><br><span class="line">⇒  git diff src/lib/compute.py</span><br></pre></td></tr></table></figure></p>
+<p>Undo the change<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rest --hard</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD -- src/</span><br><span class="line">git log</span><br><span class="line">git diff master</span><br><span class="line">git diff --cached</span><br><span class="line">git diff ft-add-encapsulating-class..ft-support-multiplication-arithmetic</span><br></pre></td></tr></table></figure>
+<p><strong>git add</strong></p>
+<ul>
+<li>is used to add files to the index from the working tree.</li>
+<li>syntax: <strong>git add [options] [path_to_files]</strong></li>
+</ul>
+<p>The options used with <strong>git add</strong> include <strong>-n</strong> and <strong>–dry-run</strong>: simulates the behaviour of git add for the specified file.</p>
+<p><strong>-f</strong> or <strong>–force</strong>: adds ignored files to the index.</p>
+<p><strong>-i</strong> or <strong>–interactive</strong>: creates an interactive prompt that can be used for adding files from the working tree to the index.</p>
+<p><strong>-por –patch</strong>: caters for adding portions of a file to the index.</p>
+<p><strong>options</strong>:</p>
+<ul>
+<li>?: Print help</li>
+<li>y: Stage this hunk</li>
+<li>n: Do not stage this hunk</li>
+<li>q: Exit or quit. Do not stage this hunk or any of the remaining hunks.</li>
+<li>a: Stage this hunk and all later hunks in the specified files</li>
+<li>d: Do not stage this hunk or any of the remaining hunks in the file</li>
+<li>g: Select a hunk to go to</li>
+<li>/: Search for the hunk that matches the specified regex pattern</li>
+<li>j: Leave this hunk undecided; see the next undecided hunk</li>
+<li>J: Leave this hunk undecided; see the next hunk</li>
+<li>k: Leave this hunk undecided; see the previous undecided hunk</li>
+<li>K: Leave this hunk undecided; see the previous hunk</li>
+<li>s: Split the current hunk into more granular hunks</li>
+<li>e: Manually edit the current hunk</li>
+</ul>
+<p><strong>git commit</strong></p>
+<ul>
+<li>The <strong>git commit</strong> command saves the files in the index.</li>
+<li>The commit operation stores a message along with the commit.</li>
+<li>This message describes the additions or alterations associated with the created snapshot.</li>
+</ul>
+<p>Note: the <strong>git commit</strong> command requires that a message be provided for each commit operation.<br><strong>options</strong>:</p>
+<ul>
+<li>-m [text] or –message [text]: associate the index file with the commit action</li>
+<li>-a or -all: stage tracked files that are unstaged</li>
+<li>-p or –patch: interactive patch tool</li>
+<li>-C [commit hash] or –resue-message=[commit hash]: resue a commit message and the author information of the specified commit hash</li>
+<li>-F [file] or –file=[file]: specifies a file from which a commit message should be obtained</li>
+<li>-t [file] or –template [file]: specifies the commit message template file</li>
+<li>-e or –edit: edits the provided commit message</li>
+<li>–no-edit: uses the specified message as is</li>
+<li>–author=[author]: overrides the details fo a commit author</li>
+<li>–date=[date]: overrides the data details used in a commit</li>
+<li>-q or –quiet: suppresses the summary message that’s returned after running the <strong>git commit</strong> command</li>
+</ul>
+<p><strong>git rm</strong></p>
+<p>The <strong>git rm</strong> command performs two roles.</p>
+<ul>
+<li>Removes files from the working directory and the index</li>
+<li>Remove files from index<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim src/lib/scientific.py</span><br><span class="line">git add . &amp;&amp; git commit -m &quot;Added sci module&quot;</span><br><span class="line">git rm src/lib/scientific.py</span><br><span class="line">git status</span><br><span class="line">git commit -m &quot;Removed sci module&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>git mv</strong></p>
+<ul>
+<li>used to rename or move a file or a directory</li>
+<li>This command has two forms of implementation:<ul>
+<li>git mv [options][source][destination]: used to rename a file</li>
+<li>git mv [options][source]…[destination]: used to move a file</li>
+</ul>
+</li>
+</ul>
+<p><strong>git log command</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git log --follow src/lib/advanced/advanced_compute.py</span><br><span class="line">git log --decorate=full</span><br><span class="line">git log --decorate=short</span><br><span class="line">git log --decorate=no</span><br><span class="line">git log -L 6,12:src/lib/compute.py</span><br><span class="line">git log -n 3</span><br><span class="line">git log -3</span><br><span class="line">git log --skip=4</span><br><span class="line">git log --since=01/01/2018</span><br><span class="line">git log --pretty=oneline</span><br><span class="line">git log --pretty=short</span><br><span class="line">git log --pretty=medium</span><br><span class="line">git log --pretty=format:&quot;%H %an&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Amending-commits"><a href="#Amending-commits" class="headerlink" title="Amending commits"></a>Amending commits</h2><p>The most recent commit can be edited using the –amend option of the <strong>git commit</strong> command.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br><span class="line">git rebase -i HEAD~4  # retrv the last 4 commits</span><br><span class="line">pick 721d2ec Removed sci module</span><br><span class="line">pick fc150d2 Added sci module</span><br><span class="line">pick 4be4d85 Rename scientific module</span><br><span class="line">pick 9a8a4ea Moved scientific module</span><br><span class="line"></span><br><span class="line">change pick to reword save and quit the file.</span><br><span class="line"></span><br><span class="line">## change the file</span><br><span class="line">git rebase -i HEAD~3</span><br><span class="line">change pick to edit save and quit the file.</span><br><span class="line">vim src/lib/advanced/advanced_compute.py</span><br><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit --amend</span><br><span class="line">git rebase --continue</span><br><span class="line">git log -4</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a><a href="/tags/github/">github</a><a href="/tags/version-control/">version control</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/06/28/ansible/" title="ansible" itemprop="url">ansible</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-06-28T00:23:15.000Z" itemprop="datePublished"> Published 2019-06-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Ansible-configuration"><a href="#Ansible-configuration" class="headerlink" title="Ansible configuration"></a>Ansible configuration</h1><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>for ubuntu:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apt-get install software-properties-common</span><br><span class="line">apt-add-repository ppa:ansible/ansible</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install ansible</span><br><span class="line">root@ansible-host:~# ansible --version</span><br><span class="line">ansible 2.8.1</span><br><span class="line">  config file = /etc/ansible/ansible.cfg</span><br><span class="line">  configured module search path = [u&apos;/root/.ansible/plugins/modules&apos;, u&apos;/usr/share/ansible/plugins/modules&apos;]</span><br><span class="line">  ansible python module location = /usr/lib/python2.7/dist-packages/ansible</span><br><span class="line">  executable location = /usr/bin/ansible</span><br><span class="line">  python version = 2.7.12 (default, Nov 12 2018, 14:36:49) [GCC 5.4.0 20160609]</span><br></pre></td></tr></table></figure></p>
+<h2 id="configuration-files"><a href="#configuration-files" class="headerlink" title="configuration files"></a>configuration files</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ANSIBLE_CONFIG #an environemtn variable</span><br><span class="line">ansible.cfg # in the current directory</span><br><span class="line">.ansible.cfg #in the home directory</span><br><span class="line">/etc/ansible/ansible.cfg</span><br></pre></td></tr></table></figure>
+<h2 id="Ansible-inventory"><a href="#Ansible-inventory" class="headerlink" title="Ansible inventory"></a>Ansible inventory</h2><p><code>/etc/ansible/hosts</code><br>INI format, support host variables, group variables and group of group<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># add to /etc/ansible/hosts</span><br><span class="line">[demo_hosts]</span><br><span class="line">node01 ansible_user=ubuntu</span><br><span class="line">node02 ansible_user=ubuntu</span><br><span class="line"># add to /etc/hosts</span><br><span class="line">172.31.5.185 node01</span><br><span class="line">172.31.8.115 node02</span><br></pre></td></tr></table></figure></p>
+<h2 id="Verify-Ansible-Inventory"><a href="#Verify-Ansible-Inventory" class="headerlink" title="Verify Ansible Inventory"></a>Verify Ansible Inventory</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">eval `ssh-agent -s`</span><br><span class="line">ssh-add ansible-key.pem</span><br><span class="line">ansible -m ping all</span><br><span class="line"># add to /etc/ansible/hosts</span><br><span class="line">[web_server]</span><br><span class="line">node01 ansible_user=ubuntu</span><br><span class="line"></span><br><span class="line">[db_server]</span><br><span class="line">node02 ansible_user=ubuntu</span><br><span class="line">ansible web-server -m ping</span><br><span class="line">ansible db-server -m ping</span><br></pre></td></tr></table></figure>
+<h1 id="Run-and-execute-ansible-tasks"><a href="#Run-and-execute-ansible-tasks" class="headerlink" title="Run and execute ansible tasks"></a>Run and execute ansible tasks</h1><h2 id="Ansible-Command-Line"><a href="#Ansible-Command-Line" class="headerlink" title="Ansible Command Line"></a>Ansible Command Line</h2><p>Two ways: ad-hoc command and playbook</p>
+<h3 id="Ansible-Ad-hoc-Commands"><a href="#Ansible-Ad-hoc-Commands" class="headerlink" title="Ansible Ad-hoc Commands"></a>Ansible Ad-hoc Commands</h3><p><code>ansible &lt;target&gt; -m &lt;module name&gt; -a arguments</code></p>
+<p>support parallelism: <code>&lt;command&gt; -f</code></p>
+<p><code>ansible demo_host -m copy -a &quot;src=/tmp/test1 dest=/tmp/test1&quot;</code> #-m means module, -a optional provided a list of arguments</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ansible-doc -l</span><br><span class="line">ansible-doc copy</span><br><span class="line">ansible-doc -l|grep shell</span><br><span class="line">touch /tmp/test1</span><br><span class="line">ansible demo_hosts -m copy -a &quot;src=/tmp/test1 dest=/tmp/test1&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="Ansible-Facts"><a href="#Ansible-Facts" class="headerlink" title="Ansible Facts"></a>Ansible Facts</h2><p>A fact is a detail or piece of information collect from remote host. Can be use for grouping node, or filter node.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ansible all -m setup</span><br><span class="line">ansible demo_host -m setup</span><br></pre></td></tr></table></figure></p>
+<h2 id="Ansible-Variables"><a href="#Ansible-Variables" class="headerlink" title="Ansible Variables"></a>Ansible Variables</h2><p>Valid Variable names</p>
+<ul>
+<li>Cannot use “-“ (hyphen)</li>
+<li>Can be alphanumeric</li>
+<li>Should start with an alphabet</li>
+</ul>
+<p>Ansible Variables Naming Conventions</p>
+<p>can define variables in Inventory, playbooks file and roles.</p>
+<h2 id="Ansible-Sections"><a href="#Ansible-Sections" class="headerlink" title="Ansible Sections"></a>Ansible Sections</h2><ul>
+<li>Target Section: sepecify the host group</li>
+<li>Variable Section</li>
+<li>Task Section : list all the task</li>
+<li>Handler Section</li>
+<li>Loops</li>
+<li>Conditionals</li>
+<li>Until</li>
+<li>Notify<h2 id="Ansible-playbooks"><a href="#Ansible-playbooks" class="headerlink" title="Ansible playbooks"></a>Ansible playbooks</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@ansible-host:/home/ubuntu# cat sample.yaml</span><br><span class="line">---</span><br><span class="line">- hosts: demo_hosts</span><br><span class="line">  vars:</span><br><span class="line">      package1 : &quot;nginx&quot;</span><br><span class="line">      package2 : &quot;wget&quot;</span><br><span class="line">  tasks:</span><br><span class="line">   - name: Installing package nginx</span><br><span class="line">     apt: pkg=nginx state=installed update_cache=true</span><br><span class="line">     become: true</span><br><span class="line">   - name: Installing package wget</span><br><span class="line">     apt: name=&#123;&#123; package2 &#125;&#125; state=installed update_cache=true</span><br><span class="line">     become: true</span><br><span class="line">   - name: Copying test1 file</span><br><span class="line">     copy: src=/tmp/test11 dest=/tmp/test11</span><br><span class="line"></span><br><span class="line">ansible-doc apt ##check the manual for ansible apt</span><br><span class="line">ansible-playbook sample.yaml ## run ansible playbook</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Deep-Dive-Into-Ansible-Playbooks"><a href="#Deep-Dive-Into-Ansible-Playbooks" class="headerlink" title="Deep Dive Into Ansible Playbooks"></a>Deep Dive Into Ansible Playbooks</h1><h2 id="Install-Apache-with-Ansible-Playbook"><a href="#Install-Apache-with-Ansible-Playbook" class="headerlink" title="Install Apache with Ansible Playbook"></a>Install Apache with Ansible Playbook</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root@ansible-host:~# cat apache_install.yaml</span><br><span class="line">---</span><br><span class="line">- hosts: web_portal</span><br><span class="line">  tasks:</span><br><span class="line">    - name: Apt get update</span><br><span class="line">      apt: update_cache=yes</span><br><span class="line"></span><br><span class="line">    - name: Install Apache2</span><br><span class="line">      apt: name=apache2 update_cache=no</span><br><span class="line"></span><br><span class="line">    - name: Copy data files</span><br><span class="line">      copy: src=index.html dest=/var/www/html/</span><br><span class="line"></span><br><span class="line">    - name: Stop the service</span><br><span class="line">      service: name=apache2 state=stopped</span><br><span class="line">root@ansible-host:~# ansible-playbook apache_install.yaml -b</span><br></pre></td></tr></table></figure>
+<h2 id="Run-and-Stop-Service"><a href="#Run-and-Stop-Service" class="headerlink" title="Run and Stop Service"></a>Run and Stop Service</h2><h2 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">root@ansible-host:~# cat current.html.j2</span><br><span class="line">this is my current file -</span><br><span class="line">my hostname is - &#123;&#123; ansible_hostname &#125;&#125;</span><br><span class="line">root@ansible-host:~# cat apache_install.yaml</span><br><span class="line">---</span><br><span class="line">- hosts: web_portal</span><br><span class="line">  tasks:</span><br><span class="line">    - name: Apt get update</span><br><span class="line">      apt: update_cache=yes</span><br><span class="line"></span><br><span class="line">    - name: Install Apache2</span><br><span class="line">      apt: name=apache2 update_cache=no</span><br><span class="line"></span><br><span class="line">    - name: Copy data files</span><br><span class="line">      copy: src=index.html dest=/var/www/html/</span><br><span class="line"></span><br><span class="line">    - name: Stop the service</span><br><span class="line">      service: name=apache2 state=stopped</span><br><span class="line"></span><br><span class="line">    - name: Copy template file</span><br><span class="line">      template: src=current.html.j2 dest=/var/www/html/current.html</span><br><span class="line">      notify:</span><br><span class="line">        - Start apache</span><br><span class="line">  handlers:</span><br><span class="line">    - name: Start apache</span><br><span class="line">      service: name=apache2 state=restarted</span><br><span class="line">### dry run ansible</span><br><span class="line">ansible-playbook apache_install.yaml -b --check</span><br></pre></td></tr></table></figure>
+<h2 id="Debug-Statements-In-playbook"><a href="#Debug-Statements-In-playbook" class="headerlink" title="Debug Statements In playbook"></a>Debug Statements In playbook</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">root@ansible-host:~# cat apache_install.yaml</span><br><span class="line">---</span><br><span class="line">- hosts: web_portal</span><br><span class="line">  tasks:</span><br><span class="line">    - name: Apt get update</span><br><span class="line">      apt: update_cache=yes</span><br><span class="line"></span><br><span class="line">    - name: Install Apache2</span><br><span class="line">      apt: name=apache2 update_cache=no</span><br><span class="line"></span><br><span class="line">    - name: Copy data files</span><br><span class="line">      copy: src=index.html dest=/var/www/html/</span><br><span class="line">      register: copy_status</span><br><span class="line"></span><br><span class="line">    - name: Stop the service</span><br><span class="line">      service: name=apache2 state=stopped</span><br><span class="line"></span><br><span class="line">    - name: Copy template file</span><br><span class="line">      template: src=current.html.j2 dest=/var/www/html/current.html</span><br><span class="line">      notify:</span><br><span class="line">        - Start apache</span><br><span class="line"></span><br><span class="line">    - name: Copy status</span><br><span class="line">      debug: var=copy_status</span><br><span class="line"></span><br><span class="line">  handlers:</span><br><span class="line">    - name: Start apache</span><br><span class="line">      service: name=apache2 state=restarted</span><br><span class="line">root@ansible-host:~# ansible-playbook apache_install.yaml -b</span><br><span class="line"></span><br><span class="line">PLAY [web_portal] *************************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [Gathering Facts] ********************************************************************************************************************************</span><br><span class="line">ok: [node01]</span><br><span class="line"></span><br><span class="line">TASK [Apt get update] *********************************************************************************************************************************</span><br><span class="line"> [WARNING]: Could not find aptitude. Using apt-get instead</span><br><span class="line"></span><br><span class="line">changed: [node01]</span><br><span class="line"></span><br><span class="line">TASK [Install Apache2] ********************************************************************************************************************************</span><br><span class="line">ok: [node01]</span><br><span class="line"></span><br><span class="line">TASK [Copy data files] ********************************************************************************************************************************</span><br><span class="line">ok: [node01]</span><br><span class="line"></span><br><span class="line">TASK [Stop the service] *******************************************************************************************************************************</span><br><span class="line">ok: [node01]</span><br><span class="line"></span><br><span class="line">TASK [Copy template file] *****************************************************************************************************************************</span><br><span class="line">ok: [node01]</span><br><span class="line"></span><br><span class="line">TASK [Copy status] ************************************************************************************************************************************</span><br><span class="line">ok: [node01] =&gt; &#123;</span><br><span class="line">    &quot;copy_status&quot;: &#123;</span><br><span class="line">        &quot;changed&quot;: false,</span><br><span class="line">        &quot;checksum&quot;: &quot;9be1fe2ae3529c22cf8a1b0fd1edc53048dcf277&quot;,</span><br><span class="line">        &quot;dest&quot;: &quot;/var/www/html/index.html&quot;,</span><br><span class="line">        &quot;diff&quot;: &#123;</span><br><span class="line">            &quot;after&quot;: &#123;</span><br><span class="line">                &quot;path&quot;: &quot;/var/www/html/index.html&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;before&quot;: &#123;</span><br><span class="line">                &quot;path&quot;: &quot;/var/www/html/index.html&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;failed&quot;: false,</span><br><span class="line">        &quot;gid&quot;: 0,</span><br><span class="line">        &quot;group&quot;: &quot;root&quot;,</span><br><span class="line">        &quot;mode&quot;: &quot;0644&quot;,</span><br><span class="line">        &quot;owner&quot;: &quot;root&quot;,</span><br><span class="line">        &quot;path&quot;: &quot;/var/www/html/index.html&quot;,</span><br><span class="line">        &quot;size&quot;: 24,</span><br><span class="line">        &quot;state&quot;: &quot;file&quot;,</span><br><span class="line">        &quot;uid&quot;: 0</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************************************************************************************</span><br><span class="line">node01                     : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</span><br></pre></td></tr></table></figure>
+<h2 id="Loops-Conditionals-and-until-section"><a href="#Loops-Conditionals-and-until-section" class="headerlink" title="Loops, Conditionals and until section"></a>Loops, Conditionals and until section</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">root@ansible-host:~# cat apache_install.yaml</span><br><span class="line">---</span><br><span class="line">- hosts: web_portal</span><br><span class="line">  tasks:</span><br><span class="line">    - name: Apt get update</span><br><span class="line">      apt: update_cache=yes</span><br><span class="line"></span><br><span class="line">    - name: Install Apache2, nginx, nmap</span><br><span class="line">      apt: name=&#123;&#123; item &#125;&#125; update_cache=no</span><br><span class="line">      with_items:</span><br><span class="line">         - apache2</span><br><span class="line">         - nginx</span><br><span class="line">         - nmap</span><br><span class="line"></span><br><span class="line">    - name: Copy data files</span><br><span class="line">      copy: src=index.html dest=/var/www/html/</span><br><span class="line">      register: copy_status</span><br><span class="line"></span><br><span class="line">    - name: Stop the service</span><br><span class="line">      service: name=apache2 state=stopped</span><br><span class="line"></span><br><span class="line">    - name: Copy template file</span><br><span class="line">      template: src=current.html.j2 dest=/var/www/html/current.html</span><br><span class="line">      notify:</span><br><span class="line">        - Start apache</span><br><span class="line"></span><br><span class="line">    - name: Copy status</span><br><span class="line">      debug: var=copy_status</span><br><span class="line"></span><br><span class="line">  handlers:</span><br><span class="line">    - name: Start apache</span><br><span class="line">      service: name=apache2 state=restarted</span><br></pre></td></tr></table></figure>
+<h1 id="Putting-it-all-together-with-ansible"><a href="#Putting-it-all-together-with-ansible" class="headerlink" title="Putting it all together with ansible"></a>Putting it all together with ansible</h1><h2 id="Ansible-vault"><a href="#Ansible-vault" class="headerlink" title="Ansible vault"></a>Ansible vault</h2><p>ansible-vault create foo.yml<br>ansible-vaule view foo.yml<br>ansible-playbook site.yml -ask-vault-pass</p>
+<h2 id="Common-Ansible-Modules"><a href="#Common-Ansible-Modules" class="headerlink" title="Common Ansible Modules"></a>Common Ansible Modules</h2><ul>
+<li>Setup module<br>ansible node01 -m setup</li>
+<li>File module<br>ansible-doc file</li>
+<li>Yum module<br>for redhat, centos</li>
+<li>Apt module<br>for debian, ubuntu</li>
+<li>Service module<br>for start and stop service</li>
+<li>Copy module<br>which is used for copy the file</li>
+<li>User module<br>ansible-doc user<br>ansible node01 -m user -a “user=stancloud” -b</li>
+<li>Command module<br>ansible-doc command</li>
+<li><p>Shell module<br>ansible node01 -m shell -a “tail /var/log/syslog”</p>
+<h2 id="Ansible-Roles"><a href="#Ansible-Roles" class="headerlink" title="Ansible Roles"></a>Ansible Roles</h2><p>Roles are similar to project.</p>
+<h3 id="roles-directory-structure"><a href="#roles-directory-structure" class="headerlink" title="roles directory structure"></a>roles directory structure</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">ansible-galaxy init stan</span><br><span class="line">- stan was created successfully</span><br><span class="line">root@ansible-host:/tmp# tree stan</span><br><span class="line">stan</span><br><span class="line">├── defaults</span><br><span class="line">│   └── main.yml</span><br><span class="line">├── files</span><br><span class="line">├── handlers</span><br><span class="line">│   └── main.yml</span><br><span class="line">├── meta</span><br><span class="line">│   └── main.yml</span><br><span class="line">├── README.md</span><br><span class="line">├── tasks</span><br><span class="line">│   └── main.yml</span><br><span class="line">├── templates</span><br><span class="line">├── tests</span><br><span class="line">│   ├── inventory</span><br><span class="line">│   └── test.yml</span><br><span class="line">└── vars</span><br><span class="line">    └── main.yml</span><br><span class="line">roles/</span><br><span class="line">  role-name/</span><br><span class="line">     files/</span><br><span class="line">     templates/ #j2 files</span><br><span class="line">     tasks/</span><br><span class="line">        main.yml</span><br><span class="line">     handlers/</span><br><span class="line">        main.yml</span><br><span class="line">     vars/</span><br><span class="line">        main.yml</span><br><span class="line">     defaults/</span><br><span class="line">        main.yml</span><br><span class="line">     meta</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Common role</p>
+</li>
+<li>mySQL role</li>
+<li>Apache role</li>
+<li>WordPress role<h3 id="Deploy-wordpress"><a href="#Deploy-wordpress" class="headerlink" title="Deploy wordpress"></a>Deploy wordpress</h3></li>
+</ul>
+<h2 id="Ansible-Galaxy"><a href="#Ansible-Galaxy" class="headerlink" title="Ansible Galaxy"></a>Ansible Galaxy</h2><p>root@ansible-host:/tmp# ansible-galaxy install bennojoy.nginx</p>
+<ul>
+<li>downloading role ‘nginx’, owned by bennojoy</li>
+<li>downloading role from <a href="https://github.com/bennojoy/nginx/archive/master.tar.gz">https://github.com/bennojoy/nginx/archive/master.tar.gz</a></li>
+<li>extracting bennojoy.nginx to /root/.ansible/roles/bennojoy.nginx</li>
+<li>bennojoy.nginx (master) was installed successfully<br><a href="http://jinja.pocoo.org">jinja</a><h1 id="Manage-aws-cloud-resouces-with-ansible"><a href="#Manage-aws-cloud-resouces-with-ansible" class="headerlink" title="Manage aws cloud resouces with ansible"></a>Manage aws cloud resouces with ansible</h1><h2 id="manage-aws-ec2-instances-with-ansible"><a href="#manage-aws-ec2-instances-with-ansible" class="headerlink" title="manage aws ec2 instances with ansible"></a>manage aws ec2 instances with ansible</h2>ansible-doc -l|grep aws<br>ansible-doc -l|grep ec2<h2 id="Deploy-new-aws-ec2-instances-using-ansible-playbook"><a href="#Deploy-new-aws-ec2-instances-using-ansible-playbook" class="headerlink" title="Deploy new aws ec2 instances using ansible playbook"></a>Deploy new aws ec2 instances using ansible playbook</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cat ec2_create.yaml</span><br><span class="line">---</span><br><span class="line">- hosts: localhost</span><br><span class="line">  tasks:</span><br><span class="line">    - name: Create AWS instances</span><br><span class="line">      ec2:</span><br><span class="line">        key_name: ansible-key</span><br><span class="line">        instance_type: t2.micro</span><br><span class="line">        image: ami-001dae151248753a2</span><br><span class="line">        count: 3</span><br><span class="line">        vpc_subnet_id: subnet-20615347</span><br><span class="line">        assign_public_ip: no</span><br><span class="line">        region: ap-southeast-2</span><br><span class="line"></span><br><span class="line">ansible-playbook -i &quot;localhost,&quot; -c local ec2_create.yaml</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ansbile/">ansbile</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="stanosaka" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Devops/" title="Devops">Devops<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/aws/" title="aws">aws<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/centos/" title="centos">centos<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/saltstack/" title="saltstack">saltstack<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/backup/" title="backup">backup<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/docker/" title="docker">docker<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/software-development/" title="software development">software development<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/agile-development/" title="agile development">agile development<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ansbile/" title="ansbile">ansbile<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Codecommit/" title="Codecommit">Codecommit<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://zety.com/mycv/00root" target="_blank" title="Stan&#39;s resume">Stan&#39;s resume</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-tutorials" target="_blank" title="IBM cloud solution tutorial">IBM cloud solution tutorial</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.tecmint.com" target="_blank" title="Linux Howto's Guide">Tecmint</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://stanchou.wordpress.com" target="_blank" title="Stan&#39;s wordpress">Stan&#39;s wordpress</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://docs.00root.com" target="_blank" title="Stan&#39;s gitbook">Stan&#39;s gitbook</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.gitbook.com/book/yeasy/docker_practice/details" target="_blank" title="Learn Docker">Learn Docker</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.unixhot.com/page/ops" target="_blank" title="运维知识体系">运维知识体系</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://sed.sourceforge.net/sed1line_zh-CN.html" target="_blank" title="sed cheatsheet">sed cheatsheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://obsavus1p.bkt.clouddn.com/vim_cheat_sheet_for_programmers_print.png" target="_blank" title="vim cheatsheet">vim cheatsheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/aws-samples" target="_blank" title="AWS Samples">AWS Samples</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/bikrambora/devlab-launchpad" target="_blank" title="Welcome to Dev Labs">Dev Labs</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.lib.uts.edu.au" target="_blank" title="shoujin.wang@student.uts.edu.au">UTS Library</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://7esl.com" target="_blank" title="ESL">ESL</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Stan live in Sydney. <br/>
+			I am a lifelong technology learner.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/stanosaka" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/6724938" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		<a href="https://twitter.com/stanosaka" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/stan.osaka" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		<a href="https://www.linkedin.com/in/00root" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		<a href="https://www.douban.com/people/btw01v" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/stan-22-82" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:devops@cwzhou.win" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Stan Zhou">Stan Zhou</a>
+		
+		
+		</p>
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+        
+  	    <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+            <script>
+               if (window.mermaid) {
+                  mermaid.initialize({theme: 'forest'});
+               }
+            </script>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>

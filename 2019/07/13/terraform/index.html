@@ -1,0 +1,910 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>terraform | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Stan Zhou">
+    
+
+    
+    <meta name="description" content="Supplemental content Install Terraform and Tools on linuxTerraform development environment Terraform aws account aws cli with credentials configured git shell (bash, pwoershell, cmd, git-bash) Text ed">
+<meta name="keywords" content="aws,terraform,automation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="terraform">
+<meta property="og:url" content="http://223.95.78.227/2019/07/13/terraform/index.html">
+<meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
+<meta property="og:description" content="Supplemental content Install Terraform and Tools on linuxTerraform development environment Terraform aws account aws cli with credentials configured git shell (bash, pwoershell, cmd, git-bash) Text ed">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.imgur.com/Rzhlc11.png">
+<meta property="og:image" content="https://i.imgur.com/LcsUUkG.png">
+<meta property="og:image" content="https://i.imgur.com/IjCKZfO.png">
+<meta property="og:image" content="https://i.imgur.com/55JD2B3.png">
+<meta property="og:image" content="https://i.imgur.com/9swFk8u.png">
+<meta property="og:image" content="https://i.imgur.com/NvWneaV.png">
+<meta property="og:updated_time" content="2019-07-21T13:03:31.336Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="terraform">
+<meta name="twitter:description" content="Supplemental content Install Terraform and Tools on linuxTerraform development environment Terraform aws account aws cli with credentials configured git shell (bash, pwoershell, cmd, git-bash) Text ed">
+<meta name="twitter:image" content="https://i.imgur.com/Rzhlc11.png">
+<meta name="twitter:creator" content="@stanosaka">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Stan Zhou&#39;s Hexo Technical Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/toad.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/toadman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/toadman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/toadman.png" alt="Stan Zhou&#39;s Hexo Technical Blog" title="Stan Zhou&#39;s Hexo Technical Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Stan Zhou&#39;s Hexo Technical Blog">Stan Zhou&#39;s Hexo Technical Blog</a></h1>
+				<h2 class="blog-motto">Innovation Evangelist</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:223.95.78.227">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/13/terraform/" title="terraform" itemprop="url">terraform</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-13T03:29:54.000Z" itemprop="datePublished"> Published 2019-07-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Install-Terraform-and-Tools-on-linux"><span class="toc-number">1.</span> <span class="toc-text">Install Terraform and Tools on linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Terraform-development-environment"><span class="toc-number">1.1.</span> <span class="toc-text">Terraform development environment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-deployment-with-Terraform"><span class="toc-number">2.</span> <span class="toc-text">First deployment with Terraform</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration-language-basics"><span class="toc-number">2.1.</span> <span class="toc-text">Configuration language basics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set-up-aws-provider"><span class="toc-number">2.2.</span> <span class="toc-text">Set up aws provider</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploy-an-s3-bucket-into-aws"><span class="toc-number">2.3.</span> <span class="toc-text">Deploy an s3 bucket into aws</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Structuring-the-project"><span class="toc-number">2.4.</span> <span class="toc-text">Structuring the project</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Modifying-resoureces"><span class="toc-number">3.</span> <span class="toc-text">Modifying resoureces</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Variables"><span class="toc-number">3.1.</span> <span class="toc-text">Variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Local-development-workflow"><span class="toc-number">3.2.</span> <span class="toc-text">Local development workflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deleting-Resources"><span class="toc-number">3.3.</span> <span class="toc-text">Deleting Resources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Managing-state"><span class="toc-number">3.4.</span> <span class="toc-text">Managing state **</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Building-a-multi-tier-environment"><span class="toc-number">4.</span> <span class="toc-text">Building a multi-tier environment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Organizing-data-with-output-variables"><span class="toc-number">4.1.</span> <span class="toc-text">Organizing data with output variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Integrating-components-in-a-complex-environment"><span class="toc-number">4.2.</span> <span class="toc-text">Integrating components in a complex environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-templates"><span class="toc-number">4.3.</span> <span class="toc-text">Using templates</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Working-with-dependency-graph"><span class="toc-number">4.4.</span> <span class="toc-text">Working with dependency graph</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-takeaways"><span class="toc-number">4.5.</span> <span class="toc-text">Main takeaways</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating-reusable-components-with-moduels"><span class="toc-number">5.</span> <span class="toc-text">Creating reusable components with moduels</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modules"><span class="toc-number">5.1.</span> <span class="toc-text">Modules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-the-first-module"><span class="toc-number">5.2.</span> <span class="toc-text">Creating the first module</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Error-and-debug"><span class="toc-number">6.</span> <span class="toc-text">Error and debug</span></a></li></ol>
+		
+		</div>
+		
+		<p><a href="https://github.com/PacktPublishing/Hands-on-Infrastructure-Automation-with-Terraform-on-AWS">Supplemental content</a></p>
+<h1 id="Install-Terraform-and-Tools-on-linux"><a href="#Install-Terraform-and-Tools-on-linux" class="headerlink" title="Install Terraform and Tools on linux"></a>Install Terraform and Tools on linux</h1><h2 id="Terraform-development-environment"><a href="#Terraform-development-environment" class="headerlink" title="Terraform development environment"></a>Terraform development environment</h2><ul>
+<li>Terraform</li>
+<li>aws account</li>
+<li>aws cli with credentials configured</li>
+<li>git</li>
+<li>shell (bash, pwoershell, cmd, git-bash)</li>
+<li>Text editor (visual studio code with Extensions terraform)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://releases.hashicorp.com/terraform/0.12.4/terraform_0.12.4_linux_amd64.zip</span><br><span class="line">unzip terraform_0.12.4_linux_amd64.zip</span><br><span class="line">sudo mv terraform /usr/local/bin</span><br><span class="line">terraform version</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="First-deployment-with-Terraform"><a href="#First-deployment-with-Terraform" class="headerlink" title="First deployment with Terraform"></a>First deployment with Terraform</h1><h2 id="Configuration-language-basics"><a href="#Configuration-language-basics" class="headerlink" title="Configuration language basics"></a>Configuration language basics</h2><p>Terraform uses HCL (Hashicorp configuration language)</p>
+<ul>
+<li>human friendliness</li>
+<li>JSON is quite verbose and doesn’t support comments, is machine readable</li>
+<li>YAML is quite easy to mess up indentation and it’s not always clear whether you should use a colon or hyphen(specially when you using nested maps and lists)- machine-friendly, which is designed to be written and modified by humans</li>
+<li>can sue JSON as input to Terraform</li>
+</ul>
+<p><strong>main features of HCL</strong></p>
+<ul>
+<li>can have single-line comments, start with a double slash or a number sign</li>
+<li>multi-line comments are wrapped in /*</li>
+<li>Values assign syntax key = vaule</li>
+<li>Strings are double bolded</li>
+<li>Numbers, booleans, arrays, lists, objects, named maps or dictonaries</li>
+<li>Interpolations, conditionals, and various build-in functions</li>
+</ul>
+<h2 id="Set-up-aws-provider"><a href="#Set-up-aws-provider" class="headerlink" title="Set up aws provider"></a>Set up aws provider</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir s3_backbone &amp;&amp; cd s3_backbone</span><br><span class="line">git init</span><br><span class="line">terraform init</span><br></pre></td></tr></table></figure>
+<p>Provide: Terraform object that is responsible for managing the lifecycle of a resouce:</p>
+<ul>
+<li>Create, REad, Update, and Delete operations (CRUD)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cat providers.tf</span><br><span class="line">provider &quot;aws&quot;&#123;</span><br><span class="line">  region = &quot;ap-southeast-2&quot;</span><br><span class="line">&#125;</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;Add aws provider&quot;</span><br><span class="line">terraform init</span><br><span class="line">git status</span><br><span class="line">echo &quot;.terraform&quot; &gt;&gt; .gitignore</span><br><span class="line">git status</span><br><span class="line">git add .gitignore&amp;&amp; git commit -m &quot;Add .gitignore&quot;</span><br><span class="line">terraform plan # creates an execution plan</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Deploy-an-s3-bucket-into-aws"><a href="#Deploy-an-s3-bucket-into-aws" class="headerlink" title="Deploy an s3 bucket into aws"></a>Deploy an s3 bucket into aws</h2><p>google terraform s3 bucket<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cat s3.tf</span><br><span class="line">resource &quot;aws_s3_bucket&quot; &quot;main&quot; &#123;</span><br><span class="line">  bucket = &quot;packt-terraform-section2-bucket-stan&quot;</span><br><span class="line">  acl    = &quot;private&quot;</span><br><span class="line">&#125;</span><br><span class="line">git add . &amp;&amp; git commit -m &quot;Add S3 bucket&quot;</span><br><span class="line">terraform plan</span><br><span class="line"># The output of this command is similar to what we get when we run the diff command on Linux: resources with a plus sign are going to be created, resources with the minus sign are going to be deleted, and resources with a tilde sign are going to be modified</span><br><span class="line">terraform apply</span><br><span class="line">git status</span><br><span class="line"># notice that Terraform also created a new file, terraform.tfstate</span><br><span class="line"># it&apos;s a JSON file, which contains some information about the bucket we just created. Terraform uses the state file to map real-world resources to your configuration, and keep track of metadata</span><br></pre></td></tr></table></figure></p>
+<p><strong>What is state?</strong></p>
+<ul>
+<li>Desired state</li>
+<li>Actual state</li>
+<li>Known state<br>When we write our configuration files, we describe the desired state. This is how we want our infrastructure to be. Then there’s the actual state: this is how our infrastructure looks like, right now. You can get this actual state by exploring your infrastructure in the web console, or running some describe commands against the API. And to bridge these two states, there is the known state, which is stored in the state file. Terraform uses it to keep track of all resources it already created for this set of templates. In general, this known state should be the same as the actual state. When we run the plan command, Terraform performs a refresh, and then determines what actions are necessary to achieve the desired state specified in the configuration files. When you run the apply command, Terraform executes the planned actions, and then stores the updated actual state in the state file.</li>
+</ul>
+<p>for example, you went to the web console and manually changed something - Terraform will detect such changes, and unless they also exist in the desired state, it will revert them. So, if we are going to treat our <strong>infrastructure as code</strong>, we should get into the mindset of not changing our sources manually.</p>
+<p>Make sure the state file is ignored by Git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> cat .gitignore</span><br><span class="line">.terraform</span><br><span class="line"></span><br><span class="line">*.tfstate*</span><br><span class="line">git add -A &amp;&amp; git commit -m &quot;Ignore TF state&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Structuring-the-project"><a href="#Structuring-the-project" class="headerlink" title="Structuring the project"></a>Structuring the project</h2><p>Typical project structure<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|-main.tf</span><br><span class="line">|-outputs.tf</span><br><span class="line">|-variables.tf</span><br></pre></td></tr></table></figure></p>
+<p>group related resources together, and keep the configuration files to a manageable size - ideally, not longer than 200 lines of code.</p>
+<h1 id="Modifying-resoureces"><a href="#Modifying-resoureces" class="headerlink" title="Modifying resoureces"></a>Modifying resoureces</h1><h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h2><p>Keep the code DRY- Don’t Repeat Yourself-SOFTWARE ENGINEERING PRICIPLE aimed at reducing interpretation of the same data</p>
+<p>Terraform performs automatic conversion from string values to numeric and boolean values, based on context.</p>
+<p>Maps are useful for selecting a value based on some other provided value.</p>
+<p>A list value is an ordered sequence of strings, indexed by integers starting with 0.</p>
+<p>Several ways to set variables:</p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">cat variables.tf</span><br><span class="line">variable &quot;s3_bucket_name&quot; &#123;</span><br><span class="line">        #default = &quot;packt-terraform-section2-bucket-stan&quot;</span><br><span class="line">        description = &quot;Name of the S3 bucket&quot;</span><br><span class="line">        type = &quot;string&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">variable &quot;s3_tags&quot; &#123;</span><br><span class="line">        type = &quot;map&quot;</span><br><span class="line"></span><br><span class="line">        default = &#123;</span><br><span class="line">                created_by = &quot;terraform&quot;</span><br><span class="line">                environment = &quot;test&quot;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">variable &quot;s3_regions&quot; &#123;</span><br><span class="line">        type = &quot;list&quot;</span><br><span class="line">        default = [&quot;ap-southeast-2&quot;, &quot;us-west-2&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">terraform plan</span><br><span class="line">var.s3_bucket_name</span><br><span class="line">  Name of the S3 bucket</span><br><span class="line"></span><br><span class="line">  Enter a value: packt-terraform-section2-bucket-stan</span><br><span class="line"></span><br><span class="line">Refreshing Terraform state in-memory prior to plan...</span><br><span class="line">The refreshed state will be used to calculate this plan, but will not be</span><br><span class="line">persisted to local or remote state storage.</span><br><span class="line"></span><br><span class="line">aws_s3_bucket.main: Refreshing state... [id=packt-terraform-section2-bucket-stan]</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">terraform plan -var &apos;s3_bucket_name=&quot;packt-terraform-section2-bucket-stan&quot;&apos;</span><br><span class="line">Refreshing Terraform state in-memory prior to plan...</span><br><span class="line">The refreshed state will be used to calculate this plan, but will not be</span><br><span class="line">persisted to local or remote state storage.</span><br><span class="line"></span><br><span class="line">aws_s3_bucket.main: Refreshing state... [id=packt-terraform-section2-bucket-stan]</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>3.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">TF_VAR_s3_bucket_name=&quot;packt-terraform-section2-bucket-stan&quot; terraform plan</span><br><span class="line">Refreshing Terraform state in-memory prior to plan...</span><br><span class="line">The refreshed state will be used to calculate this plan, but will not be</span><br><span class="line">persisted to local or remote state storage.</span><br><span class="line"></span><br><span class="line">aws_s3_bucket.main: Refreshing state... [id=packt-terraform-section2-bucket-stan]</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br></pre></td></tr></table></figure></p>
+<p><strong>Variable definition files</strong></p>
+<ul>
+<li>We can also have multiple tfvars files, and pass them explicitly to Terraform using the var file flag. If we pass several files, Terraform will merge their values - and if a particular variable is defined in more than one variable file, the last value that is filed wins. </li>
+<li>Terraform automatically loads all files which match terraform.tfvars or *.auto.tfvars from the current directory</li>
+<li>Other files can be passed explicitly using -var-file flag<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat terraform.tfvars</span><br><span class="line">s3_bucket_name = &quot;packt-terraform-section2-bucket-stan&quot;</span><br><span class="line">terraform plan</span><br><span class="line">Refreshing Terraform state in-memory prior to plan...</span><br><span class="line">The refreshed state will be used to calculate this plan, but will not be</span><br><span class="line">persisted to local or remote state storage.</span><br><span class="line"></span><br><span class="line">aws_s3_bucket.main: Refreshing state... [id=packt-terraform-section2-bucket-stan]</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>String Interpolation</strong></p>
+<ul>
+<li>The process of evaluating a string expression and replacing all paceholders with their values<br><code>&quot;${var.s3_bucket_name}&quot;</code><br><strong>First-Class Expressions</strong><br><code>var.s3_bucket_name</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> cat s3.tf</span><br><span class="line">resource &quot;aws_s3_bucket&quot; &quot;main&quot; &#123;</span><br><span class="line">  bucket = &quot;$&#123;var.s3_bucket_name&#125;&quot;</span><br><span class="line">  acl    = &quot;private&quot;</span><br><span class="line"></span><br><span class="line">  tags   = &#123;</span><br><span class="line">    env = &quot;$&#123;lookup(var.s3_tags, &quot;environment&quot;)&#125;&quot;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  region =&quot;$&#123;var.s3_regions[0]&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line">#Terraform console is a useful tool for automation scripts, as it allows you to access arbitrary attributes from a Terraform configuration.</span><br><span class="line">terraform console</span><br><span class="line">&gt; var.s3_tags</span><br><span class="line">&#123;</span><br><span class="line">  &quot;created_by&quot; = &quot;terraform&quot;</span><br><span class="line">  &quot;environment&quot; = &quot;test&quot;</span><br><span class="line">&#125;</span><br><span class="line">&gt; var.s3_tags[&quot;environment&quot;]</span><br><span class="line">test</span><br><span class="line">&gt; exit</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Local-development-workflow"><a href="#Local-development-workflow" class="headerlink" title="Local development workflow"></a>Local development workflow</h2><p><strong>Using git to store state is a bad idea</strong></p>
+<ul>
+<li>maintenance overhead</li>
+<li>secrets in plain text</li>
+</ul>
+<p><strong>State</strong></p>
+<ul>
+<li>Local state</li>
+<li>Version Control</li>
+<li>Remote state</li>
+<li>Backends<ul>
+<li>Terraform enterprise</li>
+<li>S3</li>
+<li>Consul: a service networking solution to connect and secure services across any runtime platform and public or private cloud.</li>
+<li>Etcd</li>
+<li>HTTP</li>
+</ul>
+</li>
+</ul>
+<p>Recommend using S3<br><strong>Local Values</strong></p>
+<ul>
+<li><strong>Input variables</strong> are similar to arguments of a function</li>
+<li><strong>Local values</strong> are analogous to local variables within the function’s scope</li>
+</ul>
+<p>edit variables.tf file:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">locals &#123;</span><br><span class="line">        s3_tags= &#123;</span><br><span class="line">                created_by = &quot;terraform&quot;</span><br><span class="line">                environment = &quot;$&#123;var.environment&#125;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>we can skip refreshing it again to save a couple of seconds, here. I will pass a flag, -refresh=false.<br>The state filei(terraform.tfstate) is also used to store some metadata, such as resource dependencies, or a pointer to the provider configuration in situations where multiple AWS providers are present. Another use is to store a cache of the attribute values for all the resources in the state. When we run terraform plan, Terraform must know the current state of resources, and by default it will query the providers and sync the latest attributes from all our resources. For large infrastructure, this can be too slow, and we may get throttled at the API level - so, as a performance improvement, there is an option to disable this behavior by passing refresh=false flag.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">terraform plan -refresh=false</span><br><span class="line"></span><br><span class="line">An execution plan has been generated and is shown below.</span><br><span class="line">Resource actions are indicated with the following symbols:</span><br><span class="line">-/+ destroy and then create replacement</span><br><span class="line"></span><br><span class="line">Terraform will perform the following actions:</span><br><span class="line"></span><br><span class="line">terraform apply -auto-approve  ##skip answer yes</span><br><span class="line"></span><br><span class="line">export TF_CLI_ARGS_apply=&quot;-auto-approve&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Common Workflow</strong></p>
+<ul>
+<li>validate</li>
+<li>plan</li>
+<li>apply</li>
+<li>fmt<br><a href="https://github.com/antonbabenko/pre-commit-terraform">Pre-Commit Hooks</a><h2 id="Deleting-Resources"><a href="#Deleting-Resources" class="headerlink" title="Deleting Resources"></a>Deleting Resources</h2>1.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">terraform plan -destroy</span><br><span class="line">terraform destroy</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>remove a resource from configuration and then run terraform plan &amp;&amp; terraform apply</li>
+</ol>
+<p>the 2nd one is more suted to CI/CD systems. You will most likely have some pipeline for provisioning your resources, but you may not necessarily have any automated way of destroying them, because this doesn’t happen that often. Another point is that, this way, you can destroy specific resources without having to pass special flags, which would require changes to automation scripts.</p>
+<p><strong>Protect a resoure from deletion</strong><br>Use the life cycle meta-parameter.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lifecycle &#123;</span><br><span class="line">  prevent_destory = &quot;true&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Only protects against terraform destory.</p>
+<h2 id="Managing-state"><a href="#Managing-state" class="headerlink" title="Managing state **"></a>Managing state <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></h2><p><a href="https://github.com/PacktPublishing/Hands-on-Infrastructure-Automation-with-Terraform-on-AWS/tree/master/Section_3">code</a></p>
+<p><strong>set up the remote state backend</strong></p>
+<ol>
+<li>Create the Terraform configuration section</li>
+</ol>
+<p>This block is special, as it configures the behavior of Terraform itself, such as setting up a backend or requiring a minimum Terraform version to execute a configuration.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">terraform &#123;</span><br><span class="line">  required_version = &quot;&gt; 0.11.7&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>if we have some configuration which we can’t migrate to the latest version, for some reason, we can pin it to an older version in this block. Let’s set the current version.</p>
+<p><strong>Manage terraform versions for each project by Terraform switcher</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># MacOS with brew</span><br><span class="line">brew install warrensbox/tap/tfswitch</span><br><span class="line"># Linux</span><br><span class="line">curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash</span><br><span class="line">tfswitch</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><p>Add a backend</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">backend &quot;s3&quot; &#123;</span><br><span class="line">    bucket = &quot;packt-terraform-bucket-stan-test-ap-southeast-2&quot;</span><br><span class="line">    key = &quot;test/backbone&quot;</span><br><span class="line">    region = &quot;ap-southeast-2&quot;</span><br><span class="line">    encrypt = &quot;true&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Apply</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;Configure remote state&quot;</span><br><span class="line">git clean -fdx #clean the repository of all unchecked files</span><br><span class="line">Removing .terraform/</span><br><span class="line">Removing terraform.tfstate</span><br><span class="line">Removing terraform.tfstate.backup</span><br><span class="line">terraform init</span><br><span class="line">terraform plan #there is no more local state file anymore</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>configuration todo</p>
+</li>
+</ol>
+<ul>
+<li><p>enforce encryption by default (here use the default one, you can use KMS instead)<br>by edit s3.tf:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server_side_encryption_configuration &#123;</span><br><span class="line">  rule &#123;</span><br><span class="line">    apply_server_side_encryption_by_default &#123;</span><br><span class="line">       sse_algorithm = &quot;AES256&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>versioning: alwasy have a way back</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">versioning &#123;</span><br><span class="line">   enabled = true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lifecycle policy: Versioning will store all previous versions of the file, which will eventually bloat the bucket size. To reverse this, we can set a lifecycle policy. Remove all the version after 90 days. In your particular case, you might want to use a different value, or maybe move them to <strong>glacier storage</strong> instead of deleting the old files.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">lifecycle_rule &#123;</span><br><span class="line">   id      = &quot;state&quot;</span><br><span class="line">   prefix  = &quot;state/&quot;</span><br><span class="line">   enabled = true</span><br><span class="line"></span><br><span class="line">   noncurrent_version_expiration &#123;</span><br><span class="line">      days = 90</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Best Practices</strong></p>
+<ul>
+<li>Do not store state locally</li>
+<li>Do not commit state to version control</li>
+<li>If using S3:<ul>
+<li>Enable versioning</li>
+<li>Enforce encryption</li>
+<li>Store state close to the infrastructure</li>
+<li>Limit access to the bucket, consider enabling log in</li>
+</ul>
+</li>
+</ul>
+<h1 id="Building-a-multi-tier-environment"><a href="#Building-a-multi-tier-environment" class="headerlink" title="Building a multi-tier environment"></a>Building a multi-tier environment</h1><p><strong>What we will build?</strong></p>
+<ul>
+<li>Network layer-Virtual Private Cloud (VPC), internet gateway, public and private subnets, NAT gateway, and a bastion host)</li>
+<li>Relational Database Service (RDS) instance running PostgreSQL</li>
+<li>Elastic Container Service (ECS) cluster to host a dockerised app<br><strong>Provider Caching</strong></li>
+<li><strong>terraform init</strong> downloads providers separately for each project</li>
+<li>We can cache them by setting an environment variable<br>  export TF_PLUGIN_VACHE_DIR=”$HOME/.terraform.d/plugin-cache”<br><a href="https://github.com/PacktPublishing/Hands-on-Infrastructure-Automation-with-Terraform-on-AWS/tree/master/Section_4/vpc">code</a><br><img src="https://i.imgur.com/Rzhlc11.png" alt="AWS VPC"><br><strong>Count Meta-Parameter</strong></li>
+<li>Available to all resources</li>
+<li>Allows creating multiple copies of a resouce without repeating its configuration</li>
+<li>Helps keep your infrastructure code <strong>DRY</strong><br><strong>Splat Expression</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resource &quot;aws_nat_gateway&quot; &quot;main&quot; &#123;</span><br><span class="line">  count         = &quot;$&#123;length(var.availability_zones)&#125;&quot;</span><br><span class="line">  subnet_id     = &quot;$&#123;element(aws_subnet.public.*.id, count.index)&#125;&quot;</span><br><span class="line">  allocation_id = &quot;$&#123;element(aws_eip.nat.*.id, count.index)&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>The challenge, here, is that the gateways need to reference the subnets and the IPS that we created, but because we used count, we don’t have a direct reference to each resource. We can resolve this by using a splat expression, which you can see in action where we reference the subnet ID and the allocation ID. A splat expression allows to obtain a list of attribute values from a set of resources created using the count argument. Notice this asterisk, which represents all values in the generated list.</p>
+<h2 id="Organizing-data-with-output-variables"><a href="#Organizing-data-with-output-variables" class="headerlink" title="Organizing data with output variables"></a>Organizing data with output variables</h2><p><strong>Resources and data sources</strong></p>
+<ul>
+<li>Resources provide <strong>Create, Read, Update</strong>,and <strong>Delete</strong> functionality (CRUD)</li>
+<li>Data srouces support <strong>read</strong> operations only<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data &quot;aws_ami&quot; &quot;amazon_linux&quot; &#123;</span><br><span class="line">  most_recent = true</span><br><span class="line">  filter &#123;</span><br><span class="line">    name   = &quot;name&quot;</span><br><span class="line">    values = [&quot;amzn-ami-*-x86_64-gp2&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Output Variables</strong></p>
+<ul>
+<li>Expose important resource attributes and make tme easier to query</li>
+<li>Outputs are exposed to the user and stored in the state file during terraform apply</li>
+<li>A single output block configures a single variable<br><strong>Example Output</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output &quot;vpc_id&quot; &#123;</span><br><span class="line">   value = &quot;$&#123;aws_vpc.main.id&#125;&quot;</span><br><span class="line">   description = &quot;VPC id&quot;</span><br><span class="line">   sensitive = false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>After we run the apply once, the outputs are stored in the state file - so, the next time we need to get them, we can use <code>terraform output</code>.<br>or<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform output public_subnets</span><br></pre></td></tr></table></figure></p>
+<p><strong>provider version</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> terraform providers</span><br><span class="line">.</span><br><span class="line">├── provider.aws 1.31</span><br><span class="line">└── provider.template</span><br><span class="line">ls -l ~/.terraform.d/plugin-cache/linux_amd64</span><br></pre></td></tr></table></figure></p>
+<h2 id="Integrating-components-in-a-complex-environment"><a href="#Integrating-components-in-a-complex-environment" class="headerlink" title="Integrating components in a complex environment"></a>Integrating components in a complex environment</h2><p><img src="https://i.imgur.com/LcsUUkG.png" alt="Adding a database server"><br><strong>Steps to add a DB server</strong></p>
+<ol>
+<li>Create a VPC (done)</li>
+<li>Add Subnets to the VPC (done)</li>
+<li>Create a DB Subnet Group</li>
+<li>Create a VPC Secruity Group</li>
+<li>Create a DB Instance in the VPC</li>
+</ol>
+<p>Integrate separate Terraform configurations while keeping them in different projects</p>
+<p>Remote state serves as a centralized source of truth:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> cat data_sources.tf</span><br><span class="line"># Remote state</span><br><span class="line">data &quot;terraform_remote_state&quot; &quot;vpc&quot; &#123;</span><br><span class="line">  backend = &quot;s3&quot;</span><br><span class="line"></span><br><span class="line">  config &#123;</span><br><span class="line">    bucket = &quot;packt-terraform-bucket-stan-test-$&#123;var.region&#125;&quot;</span><br><span class="line">    key    = &quot;test/vpc&quot;</span><br><span class="line">    region = &quot;$&#123;var.region&#125;&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Remote state allows us to share information between current projects, and to build our infrastructures in small atomic configurations focused on one thing.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db_subnet_group.tf</span><br><span class="line">subnet_ids = [&quot;$&#123;data.terraform_remote_state.vpc.private_subnets&#125;&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>Notice the interpolation syntax that we use.first, specify that it’s a data source - then its type, terraform remote state. Then comes the name of particular remote state, VPC, and lastly the attribute that we are interested in. </p>
+<h2 id="Using-templates"><a href="#Using-templates" class="headerlink" title="Using templates"></a>Using templates</h2><p><img src="https://i.imgur.com/IjCKZfO.png" alt="Application tier"><br>deploy a small but realistic web application into our VPC. Our app runs in Docker, so we will provision an LST container service cluster - <strong>ECS</strong> - to host it in our private subnets. We will use <strong>Fargate</strong>, which is a managed compute and orchestration engine, so we won’t need to maintain EC2 instances that run our containers. </p>
+<p><strong>Use Terraform templates to compose complex string inputs</strong><br>App: a REST API for a todo applicaton, written in Go. It uses Postgres scale database as its backend.</p>
+<p><a href="https://hub.docker.com/r/endofcake/go-todo-rest-api-example/">public image on Docker hub</a></p>
+<ol>
+<li>provision an ECS cluster<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat ecs_cluster.tf</span><br><span class="line">resource &quot;aws_ecs_cluster&quot; &quot;main&quot; &#123;</span><br><span class="line">  name = &quot;$&#123;var.ecs_cluster_name&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>Partitioning Infrastructure</strong></p>
+<ul>
+<li>If the resources are likely to be created and destryoed together, they belong together</li>
+<li>If some resource can be used by multiple other resources, it’s better to keep it sparate (VPC,RDS, and ECS cluster)</li>
+</ul>
+<p>template eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">bastion.tf</span><br><span class="line"># User data</span><br><span class="line">data &quot;template_file&quot; &quot;user_data&quot; &#123;</span><br><span class="line">  template = &quot;$&#123;file(&quot;$&#123;path.module&#125;/templates/user_data.sh&quot;)&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/tmplates/user_data.sh</span><br><span class="line">#!/bin/env bash</span><br><span class="line"></span><br><span class="line">set -euo pipefail</span><br><span class="line">exec &gt; &gt;(tee /var/log/user-data.log|logger -t user-data -s 2&gt;/dev/console) 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line">echo &quot;Starting user data...&quot;</span><br><span class="line">yum update -y</span><br><span class="line">yum install -y postgresql96.x86_64</span><br><span class="line">touch /home/ec2-user/success</span><br><span class="line">echo &quot;All done&quot;</span><br></pre></td></tr></table></figure></p>
+<p>Next, I create template_cloudinit_config data source, and pull in the rendered template file. cloudinit_config allows us to compose multi-part user data scripts.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data &quot;template_cloudinit_config&quot; &quot;user_data&quot; &#123;</span><br><span class="line">  gzip          = true</span><br><span class="line">  base64_encode = true</span><br><span class="line"></span><br><span class="line">  part &#123;</span><br><span class="line">    content_type = &quot;text/x-shellscript&quot;</span><br><span class="line">    content      = &quot;$&#123;data.template_file.user_data.rendered&#125;&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>If we run terraform apply with this configuration on Windows, it most likely wouldn’t work - the problem is that Windows use a different line break tag, which is not valid on Linux. Windows use both carriage return and line feed, while Linux only uses line feed. The easiest way to check the line break tag is to look at the bottom right corner of the editor. Anyway, long story short, we want to make sure that this script is valid, even if we deploy our configuration from a Windows machine. This is probably the only case where there is any difference between running Terraform on Linux and on Windows. There are two changes that you should make to resolve this.</p>
+<ol>
+<li><p>add a gitattributes file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat .gitattributes</span><br><span class="line"># Always LF</span><br><span class="line">*.sh text eol=lf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>use EditorConfig plugin to define how our text editor displays and saves our code<br><img src="https://i.imgur.com/55JD2B3.png" alt="editorconfig plugin"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat .editorconfig</span><br><span class="line">[*.sh]</span><br><span class="line">end_of_line = lf</span><br><span class="line">indent_size = 2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><a href="https://github.com/stanosaka/Hands-on-Infrastructure-Automation-with-Terraform-on-AWS/tree/master/Section_4/ecs_app_todo">ecs app todo code</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">~/terraform/ecs_app_todo|</span><br><span class="line">⇒  tree</span><br><span class="line">.</span><br><span class="line">├── cloudwatch.tf</span><br><span class="line">├── data_sources.tf</span><br><span class="line">├── ecs_task.tf</span><br><span class="line">├── graph.png</span><br><span class="line">├── iam.tf</span><br><span class="line">├── lb.tf</span><br><span class="line">├── outputs.tf</span><br><span class="line">├── providers.tf</span><br><span class="line">├── templates</span><br><span class="line">│   └── ecs_task.tpl</span><br><span class="line">├── terraform.tfvars</span><br><span class="line">└── variables.tf</span><br></pre></td></tr></table></figure></p>
+<p>templates/ecs_task.tpl file: ECS task definition. It describes which Docker images to use, the required resources, and other configurations necessary to launch the containers. As you can see, it’s a JSON block, which I’ve extracted into a template. It requires a few parameters, mostly to set up the connection to the database. </p>
+<p>ecs_task.tf file: This is the Terraform configuration of our ECS task. I’m using the familiar template file data source, and I’m passing the required variables using the vars parameter, which accepts a map of variables. Some of the variables come from the tfvars file, but many are imported from the remote state. </p>
+<p>data_sources.tf file: If we check out our data sources, we see that we’re pulling in remote state from all three projects that we created earlier. </p>
+<p>lb.tf file: another important resource that we are creating is the load balancer, which distributes income and application traffic across multiple targets, for high availability. It will also allow us to connect to our service from the public internet, and here is the security group which allows public access</p>
+<p><strong>confirm it’s working</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">curl -d &apos;&#123;&quot;title&quot;:&quot;sample project&quot;&#125;&apos; -H &quot;Content-Type: application/json&quot; -X POST todoapp-alb-91218331.ap-southeast-2.elb.amazonaws.com/projects</span><br><span class="line">&#123;&quot;ID&quot;:1,&quot;CreatedAt&quot;:&quot;2019-07-21T12:20:38.881103057Z&quot;,&quot;UpdatedAt&quot;:&quot;2019-07-21T12:20:38.881103057Z&quot;,&quot;DeletedAt&quot;:null,&quot;title&quot;:&quot;sample project&quot;,&quot;archived&quot;:false,&quot;tasks&quot;:null&#125;</span><br><span class="line"></span><br><span class="line">curl todoapp-alb-91218331.ap-southeast-2.elb.amazonaws.com/projects</span><br><span class="line">[&#123;&quot;ID&quot;:1,&quot;CreatedAt&quot;:&quot;2019-07-21T12:20:38.881103Z&quot;,&quot;UpdatedAt&quot;:&quot;2019-07-21T12:20:38.881103Z&quot;,&quot;DeletedAt&quot;:null,&quot;title&quot;:&quot;sample project&quot;,&quot;archived&quot;:false,&quot;tasks&quot;:null&#125;]</span><br><span class="line"></span><br><span class="line">ssh bastion</span><br><span class="line">export PGPASSWORD=foobar</span><br><span class="line">export PGHOST=todoapp.foobar.ap-southeast-2.rds.amazonaws.com</span><br><span class="line">psql -U terraform -d todoapp</span><br><span class="line">todoapp=&gt; \d+</span><br><span class="line">                             List of relations</span><br><span class="line"> Schema |      Name       |   Type   |   Owner   |    Size    | Description</span><br><span class="line">--------+-----------------+----------+-----------+------------+-------------</span><br><span class="line"> public | projects        | table    | terraform | 16 kB      |</span><br><span class="line"> public | projects_id_seq | sequence | terraform | 8192 bytes |</span><br><span class="line"> public | tasks           | table    | terraform | 8192 bytes |</span><br><span class="line"> public | tasks_id_seq    | sequence | terraform | 8192 bytes |</span><br><span class="line">(4 rows)</span><br><span class="line">todoapp=&gt; select * from projects;</span><br><span class="line"> id |          created_at           |          updated_at           | deleted_at |     title      | archived</span><br><span class="line">----+-------------------------------+-------------------------------+------------+----------------+----------</span><br><span class="line">  1 | 2019-07-21 12:20:38.881103+00 | 2019-07-21 12:20:38.881103+00 |            | sample project | f</span><br><span class="line">(1 row)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Working-with-dependency-graph"><a href="#Working-with-dependency-graph" class="headerlink" title="Working with dependency graph"></a>Working with dependency graph</h2><p><strong>Dependency graph</strong></p>
+<ul>
+<li>All resources in the configuration are organized into a graph</li>
+<li>The graph is used to determine the order in which the resources are created<br><img src="https://i.imgur.com/9swFk8u.png" alt="Directed acyclic graph"><br>Terraform organizes all resources in a configuration in a directed acyclic graph. What this means in plain English is that the dependencies between the resources go in one direction, and there can be no cycles. So, no circular dependencies. When we run the plan command, Terraform builds this graph, checks whether there are any cycles, and then determines which operations can be run in parallel. By default, up to ten nodes in the graph can be processed concurrently. We can control this setting using the parallelism flag on the plan, apply, and destroy commands, but in most cases this is not required.<br><strong>Parallelism</strong></li>
+<li>Up to 10 nodes can be processed concurrently by default</li>
+<li>Conifgurable with <strong>-parallemism</strong> flag for plan, apply, and destroy commands (advanced setting)<br><strong>Dependencies</strong></li>
+<li><p>Implicit-one resource references another resource using the interpolation syntax</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">resource &quot;aws_lb&quot; &quot;todo_app&quot; &#123;</span><br><span class="line">    security_groups = [&quot;$&#123;aws_security_group.lb.id&#125;&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Explicit-using depends_on metaparameter<br> <code>depends_on = [&quot;aws_security_group.lb&quot;]</code></p>
+</li>
+</ul>
+<p>Use explicit dependencies to resolve race conditions<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Have to set an explicit dependency here to avoid</span><br><span class="line">  # race condition with LB creation</span><br><span class="line">depends_on = [&quot;aws_lb_listener.todo_app&quot;]</span><br></pre></td></tr></table></figure></p>
+<p><strong>tools</strong></p>
+<ol>
+<li><p><a href="http://graphviz.gitlab.io/download/">Graphviz</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">terraform graph|dot -Tpng &gt; graph.png</span><br><span class="line">terraform plan</span><br><span class="line">terraform graph -draw-cycles|dot -Tpng &gt; graph.png</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://github.com/28mm/blast-radius">blast radius</a></p>
+</li>
+</ol>
+<h2 id="Main-takeaways"><a href="#Main-takeaways" class="headerlink" title="Main takeaways"></a>Main takeaways</h2><ul>
+<li>Use outputs and remote state data source to integrate stacks of resources in a complex environment</li>
+<li>Keep your code DRY by using <em>count</em> parameter and splat expressions</li>
+<li>Use <strong>templates</strong> to generate complex string inputs, such as user data scripts or ECS task definitions</li>
+</ul>
+<h1 id="Creating-reusable-components-with-moduels"><a href="#Creating-reusable-components-with-moduels" class="headerlink" title="Creating reusable components with moduels"></a>Creating reusable components with moduels</h1><h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><ul>
+<li>Self-contained packages of Terraform configurations that are managed as a group<br>When we want to avoid writing duplicate code in a general-purpose programming language, we usually write a library. In, Terraform, we can put our code in a <strong>module</strong>.</li>
+<li>Improve code resue</li>
+<li>Provide an abstration layer<br>for example, you may need to add a vault cluster to your environment, and the vault is another great Hashicorp tool which is used for managing secrets, which requires dozens of components - but instead of thinking about individual security groups or EC2 instances, you can treat all these resources as a single group which requires some parameters, and gives you a ready-to-use vault cluster. </li>
+<li>Can be teated as blackbox</li>
+<li>Share best practices within an organization</li>
+<li>Versioned artifacts</li>
+</ul>
+<h2 id="Creating-the-first-module"><a href="#Creating-the-first-module" class="headerlink" title="Creating the first module"></a>Creating the first module</h2><ul>
+<li>Root module:<ul>
+<li>The current working dirctory holding Terraform files</li>
+</ul>
+</li>
+<li>Child modules:<ul>
+<li>All modules sourced by the root (parent) module<br><strong>Delaring Modules</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module &quot;child&quot; &#123;</span><br><span class="line">source = &quot;./child&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>rename ecs app project to module.ecs_app_web<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat main.tf</span><br><span class="line">module &quot;child&quot; &#123;</span><br><span class="line">    source = &quot;../module.ecs_app_web&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Error-and-debug"><a href="#Error-and-debug" class="headerlink" title="Error and debug"></a>Error and debug</h1><ol>
+<li>Error 1:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">terraform init</span><br><span class="line"></span><br><span class="line">Initializing the backend...</span><br><span class="line">Backend configuration changed!</span><br><span class="line"></span><br><span class="line">Terraform has detected that the configuration specified for the backend</span><br><span class="line">has changed. Terraform will now check for existing state in the backends.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Error inspecting states in the &quot;s3&quot; backend:</span><br><span class="line">    NoSuchBucket: The specified bucket does not exist</span><br><span class="line">        status code: 404, request id: E51C641611FF2763, host id: 9AN52en4R7RaZueavAicV5/N01SahL+Y1TZBT8TGnYBYYD5ywWxPKgkiiqDx8+FsgkwNNyadfSU=</span><br><span class="line"></span><br><span class="line">Prior to changing backends, Terraform inspects the source and destination</span><br><span class="line">states to determine what kind of migration steps need to be taken, if any.</span><br><span class="line">Terraform failed to load the states. The data in both the source and the</span><br><span class="line">destination remain unmodified. Please resolve the above error and try again.</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Debug mode:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> TF_LOG=trace terraform init</span><br><span class="line">2019/07/21 11:50:39 [INFO] Terraform version: 0.11.7  41e50bd32a8825a84535e353c3674af8ce799161</span><br><span class="line">2019/07/21 11:50:39 [INFO] Go runtime version: go1.10.1</span><br><span class="line">2019/07/21 11:50:39 [INFO] CLI args: []string&#123;&quot;/root/.terraform.versions/terraform_0.11.7&quot;, &quot;init&quot;&#125;</span><br><span class="line">2019/07/21 11:50:39 [DEBUG] Attempting to open CLI config file: /root/.terraformrc</span><br><span class="line">2019/07/21 11:50:39 [DEBUG] File doesn&apos;t exist, but doesn&apos;t need to. Ignoring.</span><br><span class="line">2019/07/21 11:50:39 [INFO] CLI command args: []string&#123;&quot;init&quot;&#125;</span><br><span class="line">2019/07/21 11:50:39 [DEBUG] command: loading backend config file: /root/terraform/vpc</span><br><span class="line"></span><br><span class="line">Initializing the backend...</span><br><span class="line">2019/07/21 11:50:39 [TRACE] Preserving existing state linea</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>Error2:<br><img src="https://i.imgur.com/NvWneaV.png" alt="error2"><br>if ecs try to connect to localhost as rds, and couldnot connect sucessfully</li>
+</ol>
+<p>Debug:<br>ecs_task.tpl pg environment vars are all missing</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/aws/">aws</a><a href="/tags/terraform/">terraform</a><a href="/tags/automation/">automation</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://223.95.78.227/2019/07/13/terraform/" data-title="terraform | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/07/15/splunk/" title="splunk">
+  <strong>上一篇：</strong><br/>
+  <span>
+  splunk</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2019/07/05/agile/"  title="agile">
+ <strong>下一篇：</strong><br/> 
+ <span>agile
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Install-Terraform-and-Tools-on-linux"><span class="toc-number">1.</span> <span class="toc-text">Install Terraform and Tools on linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Terraform-development-environment"><span class="toc-number">1.1.</span> <span class="toc-text">Terraform development environment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-deployment-with-Terraform"><span class="toc-number">2.</span> <span class="toc-text">First deployment with Terraform</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration-language-basics"><span class="toc-number">2.1.</span> <span class="toc-text">Configuration language basics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set-up-aws-provider"><span class="toc-number">2.2.</span> <span class="toc-text">Set up aws provider</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploy-an-s3-bucket-into-aws"><span class="toc-number">2.3.</span> <span class="toc-text">Deploy an s3 bucket into aws</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Structuring-the-project"><span class="toc-number">2.4.</span> <span class="toc-text">Structuring the project</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Modifying-resoureces"><span class="toc-number">3.</span> <span class="toc-text">Modifying resoureces</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Variables"><span class="toc-number">3.1.</span> <span class="toc-text">Variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Local-development-workflow"><span class="toc-number">3.2.</span> <span class="toc-text">Local development workflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deleting-Resources"><span class="toc-number">3.3.</span> <span class="toc-text">Deleting Resources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Managing-state"><span class="toc-number">3.4.</span> <span class="toc-text">Managing state **</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Building-a-multi-tier-environment"><span class="toc-number">4.</span> <span class="toc-text">Building a multi-tier environment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Organizing-data-with-output-variables"><span class="toc-number">4.1.</span> <span class="toc-text">Organizing data with output variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Integrating-components-in-a-complex-environment"><span class="toc-number">4.2.</span> <span class="toc-text">Integrating components in a complex environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-templates"><span class="toc-number">4.3.</span> <span class="toc-text">Using templates</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Working-with-dependency-graph"><span class="toc-number">4.4.</span> <span class="toc-text">Working with dependency graph</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-takeaways"><span class="toc-number">4.5.</span> <span class="toc-text">Main takeaways</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating-reusable-components-with-moduels"><span class="toc-number">5.</span> <span class="toc-text">Creating reusable components with moduels</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modules"><span class="toc-number">5.1.</span> <span class="toc-text">Modules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-the-first-module"><span class="toc-number">5.2.</span> <span class="toc-text">Creating the first module</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Error-and-debug"><span class="toc-number">6.</span> <span class="toc-text">Error and debug</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="stanosaka" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Devops/" title="Devops">Devops<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/aws/" title="aws">aws<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/centos/" title="centos">centos<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/saltstack/" title="saltstack">saltstack<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/backup/" title="backup">backup<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/docker/" title="docker">docker<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/software-development/" title="software development">software development<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/agile-development/" title="agile development">agile development<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ansbile/" title="ansbile">ansbile<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Codecommit/" title="Codecommit">Codecommit<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://zety.com/mycv/00root" target="_blank" title="Stan&#39;s resume">Stan&#39;s resume</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-tutorials" target="_blank" title="IBM cloud solution tutorial">IBM cloud solution tutorial</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.tecmint.com" target="_blank" title="Linux Howto's Guide">Tecmint</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://stanchou.wordpress.com" target="_blank" title="Stan&#39;s wordpress">Stan&#39;s wordpress</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://docs.00root.com" target="_blank" title="Stan&#39;s gitbook">Stan&#39;s gitbook</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.gitbook.com/book/yeasy/docker_practice/details" target="_blank" title="Learn Docker">Learn Docker</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.unixhot.com/page/ops" target="_blank" title="运维知识体系">运维知识体系</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://sed.sourceforge.net/sed1line_zh-CN.html" target="_blank" title="sed cheatsheet">sed cheatsheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://obsavus1p.bkt.clouddn.com/vim_cheat_sheet_for_programmers_print.png" target="_blank" title="vim cheatsheet">vim cheatsheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/aws-samples" target="_blank" title="AWS Samples">AWS Samples</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/bikrambora/devlab-launchpad" target="_blank" title="Welcome to Dev Labs">Dev Labs</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.lib.uts.edu.au" target="_blank" title="shoujin.wang@student.uts.edu.au">UTS Library</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://7esl.com" target="_blank" title="ESL">ESL</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Stan live in Sydney. <br/>
+			I am a lifelong technology learner.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/stanosaka" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/6724938" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		<a href="https://twitter.com/stanosaka" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/stan.osaka" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		<a href="https://www.linkedin.com/in/00root" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		<a href="https://www.douban.com/people/btw01v" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/stan-22-82" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:devops@cwzhou.win" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Stan Zhou">Stan Zhou</a>
+		
+		
+		</p>
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+        
+  	    <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+            <script>
+               if (window.mermaid) {
+                  mermaid.initialize({theme: 'forest'});
+               }
+            </script>
+        
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

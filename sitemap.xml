@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/07/17/devops/</loc>
+    
+    <lastmod>2019-07-23T08:25:52.496Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/05/05/docker/</loc>
+    
+    <lastmod>2019-07-23T00:30:04.373Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/07/23/LinuxSystemAdmin/</loc>
+    
+    <lastmod>2019-07-23T00:24:22.453Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/07/13/terraform/</loc>
     
-    <lastmod>2019-07-21T13:03:31.336Z</lastmod>
+    <lastmod>2019-07-22T05:09:38.152Z</lastmod>
     
   </url>
   
@@ -37,13 +58,6 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2019/07/17/devops/</loc>
-    
-    <lastmod>2019-07-18T01:21:49.941Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://223.95.78.227/2016/08/17/aws/</loc>
     
     <lastmod>2019-07-17T08:02:28.337Z</lastmod>
@@ -68,13 +82,6 @@
     <loc>http://223.95.78.227/2019/07/04/devops-as-a-service/</loc>
     
     <lastmod>2019-07-15T13:30:57.541Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/05/05/docker/</loc>
-    
-    <lastmod>2019-07-15T06:14:41.449Z</lastmod>
     
   </url>
   

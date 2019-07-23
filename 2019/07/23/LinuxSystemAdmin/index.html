@@ -4,27 +4,30 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>DevOps | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>LinuxSystemAdmin | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="What is DevOps?  Speed and agility enable organizations to better serve their customers and compete more effectively in the market Combination of cultural philosophies, practices, and tools Increases">
-<meta name="keywords" content="Devops">
+    <meta name="description" content="TCP/IP networkingTroubleshoot networkingTools for troubleshooting the network  ping - ICMP echo requests traceroute and tracepath - Trace the path taken to a given host netcat - Arbitrary TCP and UDP">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DevOps">
-<meta property="og:url" content="http://223.95.78.227/2019/07/17/devops/index.html">
+<meta property="og:title" content="LinuxSystemAdmin">
+<meta property="og:url" content="http://223.95.78.227/2019/07/23/LinuxSystemAdmin/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="What is DevOps?  Speed and agility enable organizations to better serve their customers and compete more effectively in the market Combination of cultural philosophies, practices, and tools Increases">
+<meta property="og:description" content="TCP/IP networkingTroubleshoot networkingTools for troubleshooting the network  ping - ICMP echo requests traceroute and tracepath - Trace the path taken to a given host netcat - Arbitrary TCP and UDP">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.imgur.com/DXtJZOm.png">
-<meta property="og:updated_time" content="2019-07-23T08:25:52.496Z">
+<meta property="og:image" content="https://i.imgur.com/RcrCjea.jpg">
+<meta property="og:image" content="https://i.imgur.com/60o3bav.png">
+<meta property="og:image" content="https://i.imgur.com/D7Vewu7.jpg">
+<meta property="og:image" content="https://i.imgur.com/4WIQHtZ.png">
+<meta property="og:updated_time" content="2019-07-23T00:24:22.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DevOps">
-<meta name="twitter:description" content="What is DevOps?  Speed and agility enable organizations to better serve their customers and compete more effectively in the market Combination of cultural philosophies, practices, and tools Increases">
-<meta name="twitter:image" content="https://i.imgur.com/DXtJZOm.png">
+<meta name="twitter:title" content="LinuxSystemAdmin">
+<meta name="twitter:description" content="TCP/IP networkingTroubleshoot networkingTools for troubleshooting the network  ping - ICMP echo requests traceroute and tracepath - Trace the path taken to a given host netcat - Arbitrary TCP and UDP">
+<meta name="twitter:image" content="https://i.imgur.com/RcrCjea.jpg">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -85,14 +88,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/07/17/devops/" title="DevOps" itemprop="url">DevOps</a>
+      <a href="/2019/07/23/LinuxSystemAdmin/" title="LinuxSystemAdmin" itemprop="url">LinuxSystemAdmin</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2019-07-17T11:23:02.000Z" itemprop="datePublished"> Published 2019-07-17</time>
+    <time datetime="2019-07-22T23:00:22.000Z" itemprop="datePublished"> Published 2019-07-23</time>
     
   </p>
 </header>
@@ -101,36 +104,23 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP-networking"><span class="toc-number">1.</span> <span class="toc-text">TCP/IP networking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshoot-networking"><span class="toc-number">1.1.</span> <span class="toc-text">Troubleshoot networking</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p><strong>What is DevOps?</strong></p>
+		<h1 id="TCP-IP-networking"><a href="#TCP-IP-networking" class="headerlink" title="TCP/IP networking"></a>TCP/IP networking</h1><h2 id="Troubleshoot-networking"><a href="#Troubleshoot-networking" class="headerlink" title="Troubleshoot networking"></a>Troubleshoot networking</h2><p><strong>Tools for troubleshooting the network</strong></p>
 <ul>
-<li>Speed and agility enable organizations to better serve their customers and compete more effectively in the market</li>
-<li>Combination of cultural philosophies, practices, and tools</li>
-<li>Increases an organization’s ability to deliver applications and services at high velocity</li>
-<li>Evolves and imprvoes products faster<br><strong>Why DevOps?</strong></li>
-<li>Antomate manual tasks, help teams manage complex environments at scale, and keep engineers in control of the velocity that is enabled by DevOps:<ul>
-<li>Speed</li>
-<li>Rapid delivery</li>
-<li>Reliability</li>
-<li>Scale</li>
-<li>Improved collaboration</li>
-<li>Security</li>
-</ul>
+<li><em>ping</em> - ICMP echo requests<br><img src="https://i.imgur.com/RcrCjea.jpg" alt="ping -I eth1 192.168.10.12"></li>
+<li><em>traceroute</em> and <em>tracepath</em> - Trace the path taken to a given host</li>
+<li><em>netcat</em> - Arbitrary TCP and UDP network communication<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">stan@stan-virtual-machine:~$ ifconfig</span><br><span class="line">eth0      Link encap:Ethernet  HWaddr 00:0c:29:a2:c2:5d  </span><br><span class="line">          inet addr:192.168.199.107  Bcast:192.168.199.255  Mask:255.255.255.0</span><br><span class="line">          inet6 addr: fe80::20c:29ff:fea2:c25d/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:109798 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:34545 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:53893408 (53.8 MB)  TX bytes:15357635 (15.3 MB)</span><br><span class="line"></span><br><span class="line">lo        Link encap:Local Loopback  </span><br><span class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</span><br><span class="line">          inet6 addr: ::1/128 Scope:Host</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  Metric:1</span><br><span class="line">          RX packets:5917 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:5917 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:0 </span><br><span class="line">          RX bytes:1699426 (1.6 MB)  TX bytes:1699426 (1.6 MB)</span><br><span class="line"></span><br><span class="line">stan@stan-virtual-machine:~$ nc -l 8000</span><br><span class="line">nc -v -z 192.168.199.107 8000</span><br><span class="line">Connection to 192.168.199.107 8000 port [tcp/*] succeeded!</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>Standard Continuous delivery (CD) techniques</p>
+<p><img src="https://i.imgur.com/60o3bav.png" alt="nc"></p>
 <ul>
-<li>Blue/Green deployment (where “live” and “last” deployments are maintained on live)<br>Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green.</li>
+<li><em>tcpdump</em> and <em>wireshark</em> - Packet captures for network analysis<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> nc -l 8000 &amp;</span><br><span class="line">[1] 20393</span><br><span class="line">➜  ~ sudo tcpdump -i enp2s0 port 8000</span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span><br><span class="line">listening on enp2s0, link-type EN10MB (Ethernet), capture size 262144 bytes</span><br><span class="line">Hi</span><br><span class="line">[1]  + 20393 done       nc -l 8000</span><br><span class="line">09:52:41.674092 IP stan-virtual-machine.lan.57089 &gt; stan-OptiPlex-380.lan.8000: Flags [S], seq 3581133462, win 29200, options [mss 1460,sackOK,TS val 12349350 ecr 0,nop,wscale 7], length 0</span><br><span class="line">09:52:41.674180 IP stan-OptiPlex-380.lan.8000 &gt; stan-virtual-machine.lan.57089: Flags [S.], seq 2419171515, ack 3581133463, win 28960, options [mss 1460,sackOK,TS val 2113949133 ecr 12349350,nop,wscale 7], length 0</span><br><span class="line">09:52:41.674412 IP stan-virtual-machine.lan.57089 &gt; stan-OptiPlex-380.lan.8000: Flags [.], ack 1, win 229, options [nop,nop,TS val 12349351 ecr 2113949133], length 0</span><br><span class="line">09:52:41.674518 IP stan-virtual-machine.lan.57089 &gt; stan-OptiPlex-380.lan.8000: Flags [P.], seq 1:4, ack 1, win 229, options [nop,nop,TS val 12349351 ecr 2113949133], length 3</span><br><span class="line">09:52:41.674541 IP stan-OptiPlex-380.lan.8000 &gt; stan-virtual-machine.lan.57089: Flags [.], ack 4, win 227, options [nop,nop,TS val 2113949133 ecr 12349351], length 0</span><br><span class="line">09:52:41.674582 IP stan-virtual-machine.lan.57089 &gt; stan-OptiPlex-380.lan.8000: Flags [F.], seq 4, ack 1, win 229, options [nop,nop,TS val 12349351 ecr 2113949133], length 0</span><br><span class="line">09:52:41.674718 IP stan-OptiPlex-380.lan.8000 &gt; stan-virtual-machine.lan.57089: Flags [F.], seq 1, ack 5, win 227, options [nop,nop,TS val 2113949133 ecr 12349351], length 0</span><br><span class="line">^C</span><br><span class="line">7 packets captured</span><br><span class="line">8 packets received by filter</span><br><span class="line">1 packet dropped by kernel</span><br><span class="line"></span><br><span class="line">stan@stan-virtual-machine:~$ echo Hi| nc 192.168.199.178 8000</span><br><span class="line">tcpdump -i eth1 port 8000 and not port 22 and not icmp</span><br><span class="line">tcpdump -i eth1 not udp 53</span><br><span class="line">tcpdump -nX -i eth1 port 8000</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>At any time, only one of the environments is live, with the live environment serving all production traffic. For this example, Blue is currently live and Green is idle.</p>
-<p>As you prepare a new version of your software, deployment and the final stage of testing takes place in the environment that is not live: in this example, Green. Once you have deployed and fully tested the software in Green, you switch the router so all incoming requests now go to Green instead of Blue. Green is now live, and Blue is idle.</p>
-<p>This technique can eliminate downtime due to app deployment. In addition, blue-green deployment reduces risk: if something unexpected happens with your new version on Green, you can immediately roll back to the last version by switching back to Blue.</p>
-<ul>
-<li>Phoenix deployment (where whole system are rebuilt on each release).<br><img src="https://i.imgur.com/DXtJZOm.png" alt="devops tools"></li>
-</ul>
+<p><img src="https://i.imgur.com/D7Vewu7.jpg" alt="tcpdump"><br><img src="https://i.imgur.com/4WIQHtZ.png" alt="tcp three-way handshake"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -139,7 +129,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Devops/">Devops</a>
+  <span></span> <a href="/tags/Linux/">Linux</a>
   </div>
 
 </div>
@@ -148,7 +138,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2019/07/17/devops/" data-title="DevOps | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2019/07/23/LinuxSystemAdmin/" data-title="LinuxSystemAdmin | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -161,19 +151,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/07/19/programming4sysadmins/" title="programming4sysadmins">
-  <strong>上一篇：</strong><br/>
-  <span>
-  programming4sysadmins</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/07/17/aws-admin/"  title="aws administration">
+<a href="/2019/07/19/programming4sysadmins/"  title="programming4sysadmins">
  <strong>下一篇：</strong><br/> 
- <span>aws administration
+ <span>programming4sysadmins
 </span>
 </a>
 </div>
@@ -188,7 +170,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP-networking"><span class="toc-number">1.</span> <span class="toc-text">TCP/IP networking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshoot-networking"><span class="toc-number">1.1.</span> <span class="toc-text">Troubleshoot networking</span></a></li></ol></li></ol>
  
   </div>
 

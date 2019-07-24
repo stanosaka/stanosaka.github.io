@@ -246,9 +246,9 @@
     </summary>
     
     
-      <category term="Devops" scheme="http://223.95.78.227/tags/Devops/"/>
-    
       <category term="aws" scheme="http://223.95.78.227/tags/aws/"/>
+    
+      <category term="Devops" scheme="http://223.95.78.227/tags/Devops/"/>
     
       <category term="git" scheme="http://223.95.78.227/tags/git/"/>
     

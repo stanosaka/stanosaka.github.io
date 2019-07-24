@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.imgur.com/KKfsLxn.png">
 <meta property="og:image" content="https://i.imgur.com/rWfUi8x.png">
 <meta property="og:image" content="https://i.imgur.com/7bpoPrj.png">
-<meta property="og:updated_time" content="2019-07-23T00:30:04.373Z">
+<meta property="og:updated_time" content="2019-07-24T05:41:10.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker">
 <meta name="twitter:description" content="List Docker CLI commands123456789101112131415161718192021222324252627282930313233343536dockerdocker container --help## Display Docker version and infodocker --versiondocker versiondocker info## Execut">
@@ -114,17 +114,33 @@
 <ul>
 <li>Describe how Docker improves a DevOps workflow<br>Normally, we have two pieces to a working application: the project code base and the provisioning script. The code base is the application code. It is managed by version control and hosted in GitHub, among other platforms.<br><img src="https://i.imgur.com/7bpoPrj.png" alt="Docker implements"><br>The <strong>Dockerfile</strong> takes the place of the provisioning script. The two combined (project code and Dockerfile) make a <strong>Docker image</strong>. A Docker image can be run as an application. This running application sourced from a Docker image is called a <strong>Docker container</strong>.</li>
 </ul>
-<p><strong>Basic Docker Terminal Commands</strong><br><code>`</code><br>docker info ## displays system-wide information<br>docker search <term> (foir example. docker search ubuntu) ##searches Docker Hub for Images<br>docker pull ## pulls an image from the registry to your local machine eg docker pull ubuntu<br>docker images ## lists the Docker images we have locally<br>docker run <image> #will check whether the image by the name hello-world exists locally,if the image is<br>not local, it will be pulled form the default registry, Docker Hub, and run as a container, by default</p>
-<p>docker ps ## lists the running containers<br>docker stop <container ID>  ## stop the container<br>docker rm <container ID> ## Delete the container and the image</p>
+<p><strong>Basic Docker Terminal Commands</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">docker info ## displays system-wide information</span><br><span class="line">docker search &lt;term&gt; (foir example. docker search ubuntu) ##searches Docker Hub for Images</span><br><span class="line">docker pull ## pulls an image from the registry to your local machine eg docker pull ubuntu</span><br><span class="line">docker images ## lists the Docker images we have locally</span><br><span class="line">docker run &lt;image&gt; #will check whether the image by the name hello-world exists locally,if the image is</span><br><span class="line">not local, it will be pulled form the default registry, Docker Hub, and run as a container, by default</span><br><span class="line"></span><br><span class="line">docker ps ## lists the running containers</span><br><span class="line">docker stop &lt;container ID&gt;  ## stop the container </span><br><span class="line">docker rm &lt;container ID&gt; ## Delete the container and the image</span><br><span class="line"></span><br><span class="line">- Interpret Dockerfile syntax</span><br><span class="line">- Build images</span><br><span class="line">- Set up containers and images</span><br><span class="line">- Set up a local dynamic environment</span><br><span class="line">- Run applications in Docker containers</span><br><span class="line">- Obtain a basic overview of how Docker manages images via Docker Hub</span><br><span class="line">- Deploy a Docker image to Docker Hub</span><br><span class="line"></span><br><span class="line">** The Dockerfile**</span><br></pre></td></tr></table></figure></p>
+<p>FROM openjdk:8-jre-alpine</p>
+<p>ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \<br>    JHIPSTER_SLEEP=0 \<br>    JAVA_OPTS=””</p>
+<p>CMD echo “The application will start in ${JHIPSTER_SLEEP}s…” &amp;&amp; \<br>    sleep ${JHIPSTER_SLEEP} &amp;&amp; \<br>    java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /app.war</p>
+<p>EXPOSE 8080 5701/udp</p>
+<p>ADD *.war /app.war<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">The **FROM** instruction specifies the base image to use while initializing the build. Here, we specify open JDK 8 as our Java runtime.</span><br><span class="line"></span><br><span class="line">The **ENV** instruction is used to set environment variables, and the **CMD** instruction is used to specify commands to be executed.</span><br><span class="line"></span><br><span class="line">The **EXPOSE** instruction is used to specify the port that the container listens to during runtime.</span><br><span class="line"></span><br><span class="line">**useful commands for Docker and Docker compose&quot;&quot;</span><br><span class="line">![commands1](https://i.imgur.com/FAExCVU.png)</span><br><span class="line">![commands2](https://i.imgur.com/LtTRrfD.png)</span><br><span class="line"></span><br><span class="line">## Docker-compose</span><br><span class="line">**Sample docker-compose file that will start a Rdis database on port 5000**</span><br></pre></td></tr></table></figure></p>
+<p>version: ‘3’<br>services:<br>  web:<br>    build: .<br>    ports:</p>
+<pre><code>- &quot;5000:5000&quot;
+</code></pre><p>  redis:<br>    image: “redis:alpine”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">The first line of the *docker-compose* file should be the version of the *docker-compose* tool. </span><br><span class="line"></span><br><span class="line">Then we need to specify all the necessary services that we need for our application to run. They should be defined in the *services:* section.</span><br><span class="line"></span><br><span class="line">We can also define multiple services inside here, giving a name to each (*web* and *redis*).</span><br><span class="line"></span><br><span class="line">This is followed by how to build the *service* (either via a command to build or referring a Dockerfile). </span><br><span class="line"></span><br><span class="line">If the application needs any port access, we can configure it using *5000:5000* (that is internal port: external port). </span><br><span class="line"></span><br><span class="line">Then, we have to specify the volume information. This basically tells *docker-compose* to serve the files from the location specified.   </span><br><span class="line"></span><br><span class="line">Once we have specified the services required for our application, then we can start the application via *docker-compose*. This will start your entire application along with the services, and expose the *services* on the port specified. </span><br><span class="line"></span><br><span class="line">With *docker-compose*, we can perform the following operations:</span><br><span class="line"></span><br><span class="line">- **Start**: docker-compose -f &lt;docker_file&gt; up</span><br><span class="line">- **Stop**: docker-compose -f &lt;docker_file&gt; down  </span><br><span class="line">We can also perform the following operations:</span><br><span class="line"></span><br><span class="line">- **List the running services and their status**: *docker ps*</span><br><span class="line">- **Logs**: *docker log &lt;container_id&gt;*</span><br><span class="line"></span><br><span class="line">## Kubernetes</span><br><span class="line">A single deployable component is called a **pod** in Kubernetes. This can be as simple as a running process in the container. A group of pods can be combined together to form a **deployment**. </span><br><span class="line"></span><br><span class="line">The following code is a sample Kubernetes file that will start a Nginx server:</span><br></pre></td></tr></table></figure></p>
+<p>apiVersion: v1<br>kind: Service<br>metadata:<br>  name: nginxsvc<br>  labels:<br>    app: nginx<br>spec:<br>  type: NodePort<br>  ports:</p>
 <ul>
-<li>Interpret Dockerfile syntax</li>
-<li>Build images</li>
-<li>Set up containers and images</li>
-<li>Set up a local dynamic environment</li>
-<li>Run applications in Docker containers</li>
-<li>Obtain a basic overview of how Docker manages images via Docker Hub</li>
-<li>Deploy a Docker image to Docker Hub</li>
+<li>port: 80<br>protocol: TCP<br>name: http</li>
+<li>port: 443<br>protocol: TCP<br>name: https<br>selector:<br>app: nginx<br><code>`</code><ol>
+<li>Start with an <em>apiVersion</em> in a Kubernetes deployment file.</li>
+</ol>
+</li>
 </ul>
+<ol start="2">
+<li>Followed by the type, which takes either a pod, deployment, namespace, ingress (load balancing the pods), role, and many more.</li>
+</ol>
+<p>Ingress forms a layer between the services and the internet so that all the inbound connections are controlled or configured with the ingress controller before sending them to Kubernetes services on the cluster. On the other hand, the egress controller controls or configures services going out of the Kubernetes cluster.</p>
+<ol start="3">
+<li><p>This is followed by the metadata information, such as the type of environments, the application name (nginxsvc), and labels (Kubernetes uses this information to identify and segregate the pods). Kubernetes uses this metadata information to identify the particular pods or a group of pods, and we can manage the instances with this metadata. This is one of the key differences with docker-compose, where docker-compose doesn’t have the flexibility of defining the metadata about the containers.</p>
+</li>
+<li><p>This is followed by the spec, where we define the specification of the images or our application. We can also define the pull strategy for our images as well as define the environment variables along with the exposed ports. We can define the resource limitations on the machine (or VM) for a particular service. They provide health checks, that is, each service is monitored for the health and when some services fail, they are immediately replaced by newer ones. They also provide service discovery out of the box, by assigning each pod an IP, which makes it easier for the services to identify and interact with them. They also provide a better dashboard, to visualize your architecture and the status of the application. You can do most of the management via this dashboard, such as checking the status, logs, scale up, or down the services, and so on.</p>
+</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -220,15 +236,15 @@
 			
 		
 			
+				<li><a href="/tags/linux/" title="linux">linux<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/linux/" title="linux">linux<sup>3</sup></a></li>
 			
 		
 			
@@ -310,6 +326,18 @@
           <li>
             
             	<a href="http://www.tecmint.com" target="_blank" title="Linux Howto's Guide">Tecmint</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://rogerdudler.github.io/git-guide" target="_blank" title="Git commands">Git commands</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" title="Dockerfile reference">Dockerfile reference</a>
             
           </li>
         

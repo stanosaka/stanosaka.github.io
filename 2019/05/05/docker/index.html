@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.imgur.com/KKfsLxn.png">
 <meta property="og:image" content="https://i.imgur.com/rWfUi8x.png">
 <meta property="og:image" content="https://i.imgur.com/7bpoPrj.png">
-<meta property="og:updated_time" content="2019-07-24T05:41:10.922Z">
+<meta property="og:updated_time" content="2019-07-26T12:04:31.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker">
 <meta name="twitter:description" content="List Docker CLI commands123456789101112131415161718192021222324252627282930313233343536dockerdocker container --help## Display Docker version and infodocker --versiondocker versiondocker info## Execut">
@@ -126,21 +126,9 @@
 <p>apiVersion: v1<br>kind: Service<br>metadata:<br>  name: nginxsvc<br>  labels:<br>    app: nginx<br>spec:<br>  type: NodePort<br>  ports:</p>
 <ul>
 <li>port: 80<br>protocol: TCP<br>name: http</li>
-<li>port: 443<br>protocol: TCP<br>name: https<br>selector:<br>app: nginx<br><code>`</code><ol>
-<li>Start with an <em>apiVersion</em> in a Kubernetes deployment file.</li>
-</ol>
+<li>port: 443<br>protocol: TCP<br>name: https<br>selector:<br>app: nginx<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1. Start with an *apiVersion* in a Kubernetes deployment file.</span><br><span class="line"></span><br><span class="line">2. Followed by the type, which takes either a pod, deployment, namespace, ingress (load balancing the pods), role, and many more.</span><br><span class="line"></span><br><span class="line">Ingress forms a layer between the services and the internet so that all the inbound connections are controlled or configured with the ingress controller before sending them to Kubernetes services on the cluster. On the other hand, the egress controller controls or configures services going out of the Kubernetes cluster.</span><br><span class="line"></span><br><span class="line">3. This is followed by the metadata information, such as the type of environments, the application name (nginxsvc), and labels (Kubernetes uses this information to identify and segregate the pods). Kubernetes uses this metadata information to identify the particular pods or a group of pods, and we can manage the instances with this metadata. This is one of the key differences with docker-compose, where docker-compose doesn&apos;t have the flexibility of defining the metadata about the containers.</span><br><span class="line"></span><br><span class="line">4. This is followed by the spec, where we define the specification of the images or our application. We can also define the pull strategy for our images as well as define the environment variables along with the exposed ports. We can define the resource limitations on the machine (or VM) for a particular service. They provide health checks, that is, each service is monitored for the health and when some services fail, they are immediately replaced by newer ones. They also provide service discovery out of the box, by assigning each pod an IP, which makes it easier for the services to identify and interact with them. They also provide a better dashboard, to visualize your architecture and the status of the application. You can do most of the management via this dashboard, such as checking the status, logs, scale up, or down the services, and so on.</span><br><span class="line"></span><br><span class="line">## Docker ps command</span><br><span class="line">```bash</span><br><span class="line">docker ps --format &quot;table &#123;&#123;.ID&#125;&#125; \t &#123;&#123;.Image&#125;&#125; \t &#123;&#123;.Ports&#125;&#125; \t &#123;&#123;.Names&#125;&#125;&quot;</span><br><span class="line">CONTAINER ID         IMAGE                   PORTS                                                NAMES</span><br><span class="line">7d3a6d518e8e         jenkinsci/blueocean     0.0.0.0:8080-&gt;8080/tcp, 0.0.0.0:50000-&gt;50000/tcp     jenkins</span><br><span class="line">9655eb0e836e         alpine                                                                       quotes</span><br><span class="line">root@stan-OptiPlex-380:~|⇒  docker ps --format &quot;table &#123;&#123;.ID&#125;&#125; \t &#123;&#123;.Names &#125;&#125; \t &#123;&#123;.Status&#125;&#125;&quot;</span><br><span class="line">CONTAINER ID         NAMES               STATUS</span><br><span class="line">7d3a6d518e8e         jenkins             Up 2 minutes</span><br><span class="line">9655eb0e836e         quotes              Up 4 hours</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="2">
-<li>Followed by the type, which takes either a pod, deployment, namespace, ingress (load balancing the pods), role, and many more.</li>
-</ol>
-<p>Ingress forms a layer between the services and the internet so that all the inbound connections are controlled or configured with the ingress controller before sending them to Kubernetes services on the cluster. On the other hand, the egress controller controls or configures services going out of the Kubernetes cluster.</p>
-<ol start="3">
-<li><p>This is followed by the metadata information, such as the type of environments, the application name (nginxsvc), and labels (Kubernetes uses this information to identify and segregate the pods). Kubernetes uses this metadata information to identify the particular pods or a group of pods, and we can manage the instances with this metadata. This is one of the key differences with docker-compose, where docker-compose doesn’t have the flexibility of defining the metadata about the containers.</p>
-</li>
-<li><p>This is followed by the spec, where we define the specification of the images or our application. We can also define the pull strategy for our images as well as define the environment variables along with the exposed ports. We can define the resource limitations on the machine (or VM) for a particular service. They provide health checks, that is, each service is monitored for the health and when some services fail, they are immediately replaced by newer ones. They also provide service discovery out of the box, by assigning each pod an IP, which makes it easier for the services to identify and interact with them. They also provide a better dashboard, to visualize your architecture and the status of the application. You can do most of the management via this dashboard, such as checking the status, logs, scale up, or down the services, and so on.</p>
-</li>
-</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -224,7 +212,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Devops/" title="Devops">Devops<sup>6</sup></a></li>
+				<li><a href="/tags/Devops/" title="Devops">Devops<sup>7</sup></a></li>
 			
 		
 			
@@ -236,15 +224,15 @@
 			
 		
 			
+				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/linux/" title="linux">linux<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>3</sup></a></li>
 			
 		
 			
@@ -284,6 +272,10 @@
 			
 		
 			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
 			
 		
@@ -297,10 +289,6 @@
 		
 			
 				<li><a href="/tags/ansbile/" title="ansbile">ansbile<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Codecommit/" title="Codecommit">Codecommit<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -338,6 +326,18 @@
           <li>
             
             	<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" title="Dockerfile reference">Dockerfile reference</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://bit.ly/2mTQr8l" target="_blank" title="Linux Command line cheat sheet">Linux Command line cheat sheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://bit.ly/2EPHxze" target="_blank" title="PowerShell Basic Cheat Sheet">PowerShell Basic Cheat Sheet</a>
             
           </li>
         

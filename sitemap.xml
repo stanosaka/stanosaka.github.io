@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://223.95.78.227/2019/05/05/docker/</loc>
+    <loc>http://223.95.78.227/2019/07/26/jenkins-bule-ocean/</loc>
     
-    <lastmod>2019-07-26T12:04:31.308Z</lastmod>
+    <lastmod>2019-07-26T12:09:34.060Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2019/07/26/jenkins-bule-ocean/</loc>
+    <loc>http://223.95.78.227/2019/05/05/docker/</loc>
     
-    <lastmod>2019-07-26T12:01:53.864Z</lastmod>
+    <lastmod>2019-07-26T12:04:31.308Z</lastmod>
     
   </url>
   
@@ -247,6 +247,13 @@
   </url>
   
   <url>
+    <loc>http://223.95.78.227/2017/09/06/redhat/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2016/09/15/saltstack/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
@@ -290,13 +297,6 @@
   
   <url>
     <loc>http://223.95.78.227/2016/08/19/zabbix-client/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2017/09/06/redhat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

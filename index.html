@@ -83,7 +83,92 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/07/26/jenkins-bule-ocean/" title="jenkins pipleline" itemprop="url">jenkins pipleline</a>
+      <a href="/2019/07/26/effective-jenkins/" title="Effective Jenkins" itemprop="url">Effective Jenkins</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-26T12:19:23.000Z" itemprop="datePublished"> Published 2019-07-26</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Devops-and-the-delivery-pipeline"><a href="#Devops-and-the-delivery-pipeline" class="headerlink" title="Devops and the delivery pipeline"></a>Devops and the delivery pipeline</h1><p><strong>How did we get here to DevOps?</strong></p>
+<ul>
+<li>At the 2008 Agile Toronto conference, Andrew Shafer and Patrick Debois introduced the term DevOps in their talk on Agile intrastructure</li>
+<li>Until 2009, most of the IT operations and development teams were used to work in silos<br><strong>What is DevOps?</strong><br>Devops is a culture of collaboration between software engineering and IT operations as well as the practice of using<br>software enginerring concepts where applicable in IT operations -Lars Fronius</li>
+</ul>
+<p>The continuous delivery pipeline: enables a constant flow of changes into production by means of an automated<br>software production line, by breaking down the software delivery process into stages.</p>
+<p><strong>Typical delivery/deployment pipeline</strong> contains three parts:</p>
+<ul>
+<li>Build automation: responsible for compiling and packaging the software</li>
+<li>Test automation: responsible for executing unity, integration, and functional or non-functional tests.</li>
+<li>Deployment automation: responsible for installing and provisioning new environments for the application.</li>
+</ul>
+<p>Once someone has committed something and all of the three setps has passed successfully, we should have a new<br>version of the application available in a production like environment.</p>
+<p><strong>Default interaction with Jenkins</strong></p>
+<ul>
+<li>Historically, the default interaction model with Jenkins has been using web UI, requiring users to create<br>jobs and fill in the details manually throught a web browser</li>
+<li>Disadvantages:<ul>
+<li>Huge effort to create and manage jobs</li>
+<li>CI configuration separated from the code</li>
+</ul>
+</li>
+</ul>
+<p><strong>Pipleline as Code</strong></p>
+<ul>
+<li>After the introduction of the Pipeline plugin, now it’s possible to implement an entire delivery/deployment<br>pipeline in a Jenkinsfile and store that alongside the software code, treating their pipeline as another piece<br>of code checked into source control</li>
+<li>Advantages:<ul>
+<li>Checking the pipeline definition into source control</li>
+<li>Support for extending the dsl by means of the shared libraries feature</li>
+</ul>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Jenkins/">Jenkins</a><a href="/tags/Devops/">Devops</a><a href="/tags/CD-CI/">CD/CI</a><a href="/tags/Pipeline/">Pipeline</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/26/jenkins-bule-ocean/" title="Jenkins Pipeline" itemprop="url">Jenkins Pipeline</a>
   </h1>
   <p class="article-author">By
        
@@ -1473,154 +1558,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/07/04/devops-as-a-service/" title="Devops As A Service" itemprop="url">Devops As A Service</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-07-03T23:54:43.000Z" itemprop="datePublished"> Published 2019-07-04</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><img src="https://i.imgur.com/5ci7g2C.png" alt="Imgur"><br>Business Requirements</p>
-<ul>
-<li>Start with business requirements</li>
-<li>DevOps is about doing the work right</li>
-<li>What about doing the right work? See<ul>
-<li>(Agile) Portfolio Management- making sure the work you are doing is funded and delivering business value, and</li>
-<li>Lean Control - making sure you get early engagement with control functions in your organisation (Audit, Compliance, Security, Architecture,<br>Accessibility, Marketing, etc.)</li>
-</ul>
-</li>
-<li>Work/Requirements are comprised of<ul>
-<li>features of business value (2-3 months), divided into …</li>
-<li>sprints (2-3 weeks) and the sprints are made up of …</li>
-<li>tasks (2-3 days of work)</li>
-</ul>
-</li>
-</ul>
-<p>Tasks</p>
-<ul>
-<li>2-3 days of work</li>
-<li>Developers pull tasks off of a sprint queue</li>
-<li>Sprint goals to demo working software at the end of each sprint</li>
-</ul>
-<p>Code</p>
-<ul>
-<li>Integrated continuously, Build continuously</li>
-<li>All code is reviewed by another team member before committing</li>
-<li>Feature branching or trunk-based development?</li>
-<li>No long lived code branches</li>
-</ul>
-<p>Continuous Integration</p>
-<ul>
-<li>Code built continuously (multiple times per day)</li>
-<li>Fast feedback -continous builds are very fast (&lt; 5mins)</li>
-<li>Best practice build patterns/chains<ul>
-<li>Compile, unit test, integration test, deploy artefacts</li>
-</ul>
-</li>
-</ul>
-<p>Metrics</p>
-<ul>
-<li>Code quality is vital</li>
-<li>Code coverage measures test automation</li>
-<li>Gold/silver/bronze accreditation</li>
-</ul>
-<p>Artifacts</p>
-<ul>
-<li>Green builds produce shippable artefacts (.jar, .dll, .exe, docker image)</li>
-<li>Single store for all internal and external artefacts and libraries</li>
-<li>Security policies around 3rd party libraries and external access</li>
-</ul>
-<p>Infrastructure as Code</p>
-<ul>
-<li>Operations roles change</li>
-<li>Infrastructure provisioning and configuration is automated</li>
-<li>Orchestration tools to provision infrastructure (Terraform, Cloud Formation for AWS)</li>
-<li>Configuration management tools to install and manage software on provisioned infrastructure (Chef, Puppet, Ansible)</li>
-<li>IaC is stored, tested and versioned in source code control</li>
-<li>Organisational Change, move to Site Reliability Engineering (SRE)</li>
-</ul>
-<p>Service Mangement</p>
-<ul>
-<li>Approvals and change are automated</li>
-<li>Products with higher levels of accreditation have lower change management overheads (more automation)</li>
-</ul>
-<p>Continous Deployment</p>
-<ul>
-<li>Infrastructure provisioned automatically</li>
-<li>Configuration automated</li>
-<li>Change approvals automated</li>
-<li>Push button deployment to production</li>
-</ul>
-<p>Monitoring</p>
-<ul>
-<li>Observability driven design</li>
-<li>Monitoring, logging, dash boarding early in the life-cycle</li>
-<li>Issues and observations feed back to developers</li>
-</ul>
-<p>Security</p>
-<ul>
-<li>“Shift Left” security</li>
-<li>“average total cost of a breach ranges from $2.2 million to $6.9 million”</li>
-<li>Code vulnerability scanning in the build pipeline</li>
-<li>Build fail if major/critical issues</li>
-<li>Tools- CheckMarx, Fortify</li>
-<li>Artefact scanning for security vulnerabilities</li>
-<li>Firewalls to protect against 3rd party vulnerabilities</li>
-<li>Tools - Nexus Lifecycle/Fiewall, BackDuck</li>
-<li>Image scanning dof Docker images</li>
-<li>Tools- AquaSec, Twistlock, Tennable, OpenSCAP</li>
-</ul>
-<p>Evolving DevOps @ Scale</p>
-<p>Shadow DevOps -&gt; Enterprise DevOps -&gt; DevOps as a Service</p>
-<p>10 years age -&gt; 5 years ago  -&gt; the future</p>
-<p><img src="https://i.imgur.com/6Ei88Zz.jpg" alt="Enterprise Devops"><br><img src="https://i.imgur.com/jRJvY69.jpg" alt="Devops as a Service"><br><img src="https://i.imgur.com/kQNGOfS.jpg" alt="GitOps"><br><img src="https://i.imgur.com/Vvmeafo.jpg" alt="AWS DevOps"><br><img src="https://i.imgur.com/lwpUXVf.jpg" alt="Azure DevOps"></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Devops/">Devops</a><a href="/tags/aws/">aws</a><a href="/tags/git/">git</a><a href="/tags/Azure/">Azure</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1651,7 +1588,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Devops/" title="Devops">Devops<sup>7</sup></a></li>
+				<li><a href="/tags/Devops/" title="Devops">Devops<sup>8</sup></a></li>
 			
 		
 			
@@ -1659,15 +1596,15 @@
 			
 		
 			
+				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/centos/" title="centos">centos<sup>5</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>4</sup></a></li>
 			
 		
 			
@@ -1707,11 +1644,11 @@
 			
 		
 			
-				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+				<li><a href="/tags/Pipeline/" title="Pipeline">Pipeline<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
 			
 		
 			
@@ -1752,7 +1689,19 @@
         
           <li>
             
-            	<a href="http://www.tecmint.com" target="_blank" title="Linux Howto's Guide">Tecmint</a>
+            	<a href="https://github.com/aws-samples" target="_blank" title="AWS Samples">AWS Samples</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/bikrambora/devlab-launchpad" target="_blank" title="Welcome to Dev Labs">Dev Labs</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.python.org/" target="_blank" title="Python doc">Python doc</a>
             
           </li>
         
@@ -1782,13 +1731,13 @@
         
           <li>
             
-            	<a href="https://stanchou.wordpress.com" target="_blank" title="Stan&#39;s wordpress">Stan&#39;s wordpress</a>
+            	<a href="http://sed.sourceforge.net/sed1line_zh-CN.html" target="_blank" title="sed cheatsheet">sed cheatsheet</a>
             
           </li>
         
           <li>
             
-            	<a href="https://docs.00root.com" target="_blank" title="Stan&#39;s gitbook">Stan&#39;s gitbook</a>
+            	<a href="http://obsavus1p.bkt.clouddn.com/vim_cheat_sheet_for_programmers_print.png" target="_blank" title="vim cheatsheet">vim cheatsheet</a>
             
           </li>
         
@@ -1806,25 +1755,7 @@
         
           <li>
             
-            	<a href="http://sed.sourceforge.net/sed1line_zh-CN.html" target="_blank" title="sed cheatsheet">sed cheatsheet</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://obsavus1p.bkt.clouddn.com/vim_cheat_sheet_for_programmers_print.png" target="_blank" title="vim cheatsheet">vim cheatsheet</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://github.com/aws-samples" target="_blank" title="AWS Samples">AWS Samples</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://github.com/bikrambora/devlab-launchpad" target="_blank" title="Welcome to Dev Labs">Dev Labs</a>
+            	<a href="https://www.tecmint.com/" target="_blank" title="tecmint">tecmint</a>
             
           </li>
         
@@ -1837,6 +1768,18 @@
           <li>
             
             	<a href="https://7esl.com" target="_blank" title="ESL">ESL</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://stanchou.wordpress.com" target="_blank" title="Stan&#39;s wordpress">Stan&#39;s wordpress</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://docs.00root.com" target="_blank" title="Stan&#39;s gitbook">Stan&#39;s gitbook</a>
             
           </li>
         

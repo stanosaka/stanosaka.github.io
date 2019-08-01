@@ -83,154 +83,6 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/07/04/devops-as-a-service/" title="Devops As A Service" itemprop="url">Devops As A Service</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-07-03T23:54:43.000Z" itemprop="datePublished"> Published 2019-07-04</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><img src="https://i.imgur.com/5ci7g2C.png" alt="Imgur"><br>Business Requirements</p>
-<ul>
-<li>Start with business requirements</li>
-<li>DevOps is about doing the work right</li>
-<li>What about doing the right work? See<ul>
-<li>(Agile) Portfolio Management- making sure the work you are doing is funded and delivering business value, and</li>
-<li>Lean Control - making sure you get early engagement with control functions in your organisation (Audit, Compliance, Security, Architecture,<br>Accessibility, Marketing, etc.)</li>
-</ul>
-</li>
-<li>Work/Requirements are comprised of<ul>
-<li>features of business value (2-3 months), divided into …</li>
-<li>sprints (2-3 weeks) and the sprints are made up of …</li>
-<li>tasks (2-3 days of work)</li>
-</ul>
-</li>
-</ul>
-<p>Tasks</p>
-<ul>
-<li>2-3 days of work</li>
-<li>Developers pull tasks off of a sprint queue</li>
-<li>Sprint goals to demo working software at the end of each sprint</li>
-</ul>
-<p>Code</p>
-<ul>
-<li>Integrated continuously, Build continuously</li>
-<li>All code is reviewed by another team member before committing</li>
-<li>Feature branching or trunk-based development?</li>
-<li>No long lived code branches</li>
-</ul>
-<p>Continuous Integration</p>
-<ul>
-<li>Code built continuously (multiple times per day)</li>
-<li>Fast feedback -continous builds are very fast (&lt; 5mins)</li>
-<li>Best practice build patterns/chains<ul>
-<li>Compile, unit test, integration test, deploy artefacts</li>
-</ul>
-</li>
-</ul>
-<p>Metrics</p>
-<ul>
-<li>Code quality is vital</li>
-<li>Code coverage measures test automation</li>
-<li>Gold/silver/bronze accreditation</li>
-</ul>
-<p>Artifacts</p>
-<ul>
-<li>Green builds produce shippable artefacts (.jar, .dll, .exe, docker image)</li>
-<li>Single store for all internal and external artefacts and libraries</li>
-<li>Security policies around 3rd party libraries and external access</li>
-</ul>
-<p>Infrastructure as Code</p>
-<ul>
-<li>Operations roles change</li>
-<li>Infrastructure provisioning and configuration is automated</li>
-<li>Orchestration tools to provision infrastructure (Terraform, Cloud Formation for AWS)</li>
-<li>Configuration management tools to install and manage software on provisioned infrastructure (Chef, Puppet, Ansible)</li>
-<li>IaC is stored, tested and versioned in source code control</li>
-<li>Organisational Change, move to Site Reliability Engineering (SRE)</li>
-</ul>
-<p>Service Mangement</p>
-<ul>
-<li>Approvals and change are automated</li>
-<li>Products with higher levels of accreditation have lower change management overheads (more automation)</li>
-</ul>
-<p>Continous Deployment</p>
-<ul>
-<li>Infrastructure provisioned automatically</li>
-<li>Configuration automated</li>
-<li>Change approvals automated</li>
-<li>Push button deployment to production</li>
-</ul>
-<p>Monitoring</p>
-<ul>
-<li>Observability driven design</li>
-<li>Monitoring, logging, dash boarding early in the life-cycle</li>
-<li>Issues and observations feed back to developers</li>
-</ul>
-<p>Security</p>
-<ul>
-<li>“Shift Left” security</li>
-<li>“average total cost of a breach ranges from $2.2 million to $6.9 million”</li>
-<li>Code vulnerability scanning in the build pipeline</li>
-<li>Build fail if major/critical issues</li>
-<li>Tools- CheckMarx, Fortify</li>
-<li>Artefact scanning for security vulnerabilities</li>
-<li>Firewalls to protect against 3rd party vulnerabilities</li>
-<li>Tools - Nexus Lifecycle/Fiewall, BackDuck</li>
-<li>Image scanning dof Docker images</li>
-<li>Tools- AquaSec, Twistlock, Tennable, OpenSCAP</li>
-</ul>
-<p>Evolving DevOps @ Scale</p>
-<p>Shadow DevOps -&gt; Enterprise DevOps -&gt; DevOps as a Service</p>
-<p>10 years age -&gt; 5 years ago  -&gt; the future</p>
-<p><img src="https://i.imgur.com/6Ei88Zz.jpg" alt="Enterprise Devops"><br><img src="https://i.imgur.com/jRJvY69.jpg" alt="Devops as a Service"><br><img src="https://i.imgur.com/kQNGOfS.jpg" alt="GitOps"><br><img src="https://i.imgur.com/Vvmeafo.jpg" alt="AWS DevOps"><br><img src="https://i.imgur.com/lwpUXVf.jpg" alt="Azure DevOps"></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Devops/">Devops</a><a href="/tags/aws/">aws</a><a href="/tags/git/">git</a><a href="/tags/Azure/">Azure</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
       <a href="/2019/07/03/version-control/" title="version control" itemprop="url">version control</a>
   </h1>
   <p class="article-author">By
@@ -1479,6 +1331,105 @@
 
 
 
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/05/06/git/" title="Complete Git and Github Masterclass" itemprop="url">Complete Git and Github Masterclass</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-05-05T14:25:42.000Z" itemprop="datePublished"> Published 2019-05-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Complete-Git-and-Github-Masterclass"><a href="#Complete-Git-and-Github-Masterclass" class="headerlink" title="Complete Git and Github Masterclass"></a>Complete Git and Github Masterclass</h1><h2 id="How-Git-works-3-main-states-of-artifact"><a href="#How-Git-works-3-main-states-of-artifact" class="headerlink" title="How Git works - 3 main states of artifact"></a>How Git works - 3 main states of artifact</h2><p>Modified: Here, the artifact goes through chaneg made by the user</p>
+<p>Staged: Here, the user/developer adds the artifact to Git index or staging area</p>
+<p>Committed: Here, the artifact gets safely stored in Gt database.</p>
+<h2 id="3-sections-of-a-Git-project"><a href="#3-sections-of-a-Git-project" class="headerlink" title="3 sections of a Git project"></a>3 sections of a Git project</h2><p>Working directory: this is the root directory of your Git project</p>
+<p>Staging area: Also called index, this is where all related changes are build up</p>
+<p>Commit area: this is where all artifacts are stacked safely in Git Database</p>
+<h2 id="3-ways-of-setting-up-Git-repository"><a href="#3-ways-of-setting-up-Git-repository" class="headerlink" title="3 ways of setting up Git repository"></a>3 ways of setting up Git repository</h2><p>From scratch: we will create a repository from absolutely blank state</p>
+<p>Existing project: here we will convert an existing unversioned project to a Git repository</p>
+<p>By Copying: we will copy an existing Git repository from Github</p>
+<h2 id="Git-Help-system"><a href="#Git-Help-system" class="headerlink" title="Git Help system"></a>Git Help system</h2><p><code>git help -a</code> and <code>git help -g</code> list available subcommands and some concept guides</p>
+<h2 id="What-is-Fork-and-how-to-do-it"><a href="#What-is-Fork-and-how-to-do-it" class="headerlink" title="What is Fork and how to do it"></a>What is Fork and how to do it</h2><p>What it means: Creating a project from another existing project</p>
+<p>Encouragement: encourages project advancement &amp; collaboration</p>
+<p>Contribution: encourages outside contribution</p>
+<p>Updates: Forks can updated</p>
+<p>Command <code>git status</code>: tells us the status of the working directory and staging area</p>
+<p>Command <code>git log</code>: displays committed snapshots or commit history</p>
+<p><img src="https://i.imgur.com/NKpsqvI.png" alt="Real world branching scenario"></p>
+<h2 id="Git-branching"><a href="#Git-branching" class="headerlink" title="Git branching"></a>Git branching</h2><p>Show branch: <code>git branch</code></p>
+<p>Create a new branch: <code>git branch demobranch</code></p>
+<p>Switch to the new branch: <code>git checkout demobranch</code></p>
+<h2 id="Undoing-changes-in-a-Git-repository"><a href="#Undoing-changes-in-a-Git-repository" class="headerlink" title="Undoing changes in a Git repository"></a>Undoing changes in a Git repository</h2><h3 id="Checking-out-commits-in-a-Git-repository"><a href="#Checking-out-commits-in-a-Git-repository" class="headerlink" title="Checking out commits in a Git repository"></a>Checking out commits in a Git repository</h3><p><code>vim robot.txt</code></p>
+<p>Express git add and commit command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git commit -am <span class="string">"1st commit - robot.txt"</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --oneline</span><br><span class="line"></span><br><span class="line">git check 265fbe5</span><br></pre></td></tr></table></figure>
+<p>Create a new branch:</p>
+<p><code>git checkout -b newbranch</code></p>
+<p>Switch branch:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">git checkout newbranch</span><br></pre></td></tr></table></figure>
+<h3 id="Checking-out-files-in-a-Git-repository"><a href="#Checking-out-files-in-a-Git-repository" class="headerlink" title="Checking out files in a Git repository"></a>Checking out files in a Git repository</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --oneline</span><br><span class="line"></span><br><span class="line">git checkout bb3d025 checkoutfile.txt</span><br><span class="line"></span><br><span class="line">git checkout HEAD checkoutfile.txt</span><br><span class="line"></span><br><span class="line">git status</span><br></pre></td></tr></table></figure>
+<h3 id="Reverting-changes-in-a-Git-repository"><a href="#Reverting-changes-in-a-Git-repository" class="headerlink" title="Reverting changes in a Git repository"></a>Reverting changes in a Git repository</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">"commit file to revert"</span></span><br><span class="line"></span><br><span class="line">git revert HEAD</span><br></pre></td></tr></table></figure>
+<h3 id="Resetting-Git-repository"><a href="#Resetting-Git-repository" class="headerlink" title="Resetting Git repository"></a>Resetting Git repository</h3><p><code>git reset --hard</code></p>
+<blockquote>
+<p>resets the staging area and working directory to match the most recent commit.</p>
+</blockquote>
+<p><img src="https://i.imgur.com/XxVvIOm.png" alt="git reset --hard"></p>
+<p><code>git reset --hard hash_vaule</code></p>
+<blockquote>
+<p>moves the current branch id backward to commit id we are using and reset the both the staging area and work dir to match, this destroy not the current change and both the commit id as well.</p>
+</blockquote>
+<p><img src="https://i.imgur.com/hDkx3Z8.png" alt="git reset --hard hash_vaule"></p>
+<h3 id="Cleaning-Git-repository"><a href="#Cleaning-Git-repository" class="headerlink" title="Cleaning Git repository"></a>Cleaning Git repository</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git clean -n</span><br><span class="line"></span><br><span class="line">git clean -f</span><br><span class="line"></span><br><span class="line">git clean -fd</span><br><span class="line"></span><br><span class="line">vim .gitignore</span><br><span class="line"></span><br><span class="line">git add .gitignore</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">"committing .gitignore"</span></span><br><span class="line"></span><br><span class="line">git clean -xf</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  ####  ######   ######  ##     ## ######## </span></span><br><span class="line"><span class="comment">#   ##  ##    ## ##    ## ##     ## ##       </span></span><br><span class="line"><span class="comment">#   ##  ##       ##       ##     ## ##       </span></span><br><span class="line"><span class="comment">#   ##   ######   ######  ##     ## ######   </span></span><br><span class="line"><span class="comment">#   ##        ##       ## ##     ## ##       </span></span><br><span class="line"><span class="comment">#   ##  ##    ## ##    ## ##     ## ##       </span></span><br><span class="line"><span class="comment">#  ####  ######   ######   #######  ######## </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  ██╗███████╗███████╗██╗   ██╗███████╗</span></span><br><span class="line"><span class="comment">#  ██║██╔════╝██╔════╝██║   ██║██╔════╝</span></span><br><span class="line"><span class="comment">#  ██║███████╗███████╗██║   ██║█████╗  </span></span><br><span class="line"><span class="comment">#  ██║╚════██║╚════██║██║   ██║██╔══╝  </span></span><br><span class="line"><span class="comment">#  ██║███████║███████║╚██████╔╝███████╗</span></span><br><span class="line"><span class="comment">#  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚══════╝</span></span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>If github ask for username and password:</p>
+<blockquote>
+<p><code>git remote set-url origin git@github.com:szhouchoice/EffectiveDevOpsTerraform.git</code></p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a><a href="/tags/github/">github</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -1509,15 +1460,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Devops/" title="Devops">Devops<sup>8</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>5</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>5</sup></a></li>
+				<li><a href="/tags/Devops/" title="Devops">Devops<sup>7</sup></a></li>
 			
 		
 			
@@ -1526,6 +1469,14 @@
 		
 			
 				<li><a href="/tags/centos/" title="centos">centos<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>4</sup></a></li>
 			
 		
 			
@@ -1549,10 +1500,6 @@
 			
 		
 			
-				<li><a href="/tags/Pipeline/" title="Pipeline">Pipeline<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
 			
 		
@@ -1569,11 +1516,11 @@
 			
 		
 			
-				<li><a href="/tags/Blue-Ocean/" title="Blue Ocean">Blue Ocean<sup>2</sup></a></li>
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+				<li><a href="/tags/Pipeline/" title="Pipeline">Pipeline<sup>1</sup></a></li>
 			
 		
 			
@@ -1586,6 +1533,10 @@
 		
 			
 				<li><a href="/tags/software-development/" title="software development">software development<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/agile-development/" title="agile development">agile development<sup>1</sup></a></li>
 			
 		
 		</ul>

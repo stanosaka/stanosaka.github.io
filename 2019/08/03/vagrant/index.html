@@ -4,25 +4,25 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>docker tomcat7 | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>vagrant | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="docker container with centos 6 and tomcat 7# docker search centos # docker pull centos Download the Oracle JDK wget --no-cookies --no-check-certificate --header &amp;quot;Cookie: gpw_e24=http%3A%2F%2Fwww.">
-<meta name="keywords" content="docker,tomcat">
+    <meta name="description" content="Vagrant can be used for automatically provisioning VMs, and even whole development environments. On ubuntu host:1234567891011$ sudo apt install vagrant$ vagrant --version$ mkdir Vagrant;cd Vagrant$ va">
+<meta name="keywords" content="vagrant,Hashicorp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker tomcat7">
-<meta property="og:url" content="http://223.95.78.227/2016/08/24/docker-tomcat7/index.html">
+<meta property="og:title" content="vagrant">
+<meta property="og:url" content="http://223.95.78.227/2019/08/03/vagrant/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="docker container with centos 6 and tomcat 7# docker search centos # docker pull centos Download the Oracle JDK wget --no-cookies --no-check-certificate --header &amp;quot;Cookie: gpw_e24=http%3A%2F%2Fwww.">
+<meta property="og:description" content="Vagrant can be used for automatically provisioning VMs, and even whole development environments. On ubuntu host:1234567891011$ sudo apt install vagrant$ vagrant --version$ mkdir Vagrant;cd Vagrant$ va">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-17T11:51:44.480Z">
+<meta property="og:updated_time" content="2019-08-03T13:41:24.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker tomcat7">
-<meta name="twitter:description" content="docker container with centos 6 and tomcat 7# docker search centos # docker pull centos Download the Oracle JDK wget --no-cookies --no-check-certificate --header &amp;quot;Cookie: gpw_e24=http%3A%2F%2Fwww.">
+<meta name="twitter:title" content="vagrant">
+<meta name="twitter:description" content="Vagrant can be used for automatically provisioning VMs, and even whole development environments. On ubuntu host:1234567891011$ sudo apt install vagrant$ vagrant --version$ mkdir Vagrant;cd Vagrant$ va">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/08/24/docker-tomcat7/" title="docker tomcat7" itemprop="url">docker tomcat7</a>
+      <a href="/2019/08/03/vagrant/" title="vagrant" itemprop="url">vagrant</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2016-08-24T01:15:59.000Z" itemprop="datePublished"> Published 2016-08-24</time>
+    <time datetime="2019-08-03T13:35:53.000Z" itemprop="datePublished"> Published 2019-08-03</time>
     
   </p>
 </header>
@@ -99,57 +99,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-container-with-centos-6-and-tomcat-7"><span class="toc-number">1.</span> <span class="toc-text">docker container with centos 6 and tomcat 7</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h1 id="docker-container-with-centos-6-and-tomcat-7"><a href="#docker-container-with-centos-6-and-tomcat-7" class="headerlink" title="docker container with centos 6 and tomcat 7"></a>docker container with centos 6 and tomcat 7</h1><pre><code># docker search centos
-# docker pull centos
-</code></pre><p>Download the Oracle JDK</p>
-<pre><code>wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u72-b14/jdk-7u72-linux-x64.tar.gz&quot;
-</code></pre><p>Create a working folder and place both Tomcat tarball and Oracle JDK files in the same folder.</p>
-<pre><code>[root@docker centos6]# ls
-apache-tomcat-7.0.70.tar.gz  Dockerfile  jdk-7u72-linux-x64.tar.gz
-
-[root@docker centos6]# cat Dockerfile
-FROM centos:latest
-MAINTAINER lreeder
-
-#Helpful utils, but only sudo is required
-#RUN yum -y install tar
-#RUN yum -y install vim
-#RUN yum -y install nc
-RUN yum -y install sudo
-
-######## JDK7
-
-#Note that ADD uncompresses this tarball automatically
-ADD jdk-7u72-linux-x64.tar.gz /opt
-WORKDIR /opt/jdk1.7.0_72
-RUN alternatives --install /usr/bin/java java /opt/jdk1.7.0_72/bin/java 1
-RUN alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_72/bin/jar 1
-RUN alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_72/bin/javac 1
-RUN echo &quot;JAVA_HOME=/opt/jdk1.7.0_72&quot; &gt;&gt; /etc/environment
-
-######## TOMCAT
-
-#Note that ADD uncompresses this tarball automatically
-ADD apache-tomcat-7.0.70.tar.gz /usr/share
-WORKDIR /usr/share/
-RUN mv  apache-tomcat-7.0.70 tomcat7
-RUN echo &quot;JAVA_HOME=/opt/jdk1.7.0_72/&quot; &gt;&gt; /etc/default/tomcat7
-RUN groupadd tomcat
-RUN useradd -s /bin/bash -g tomcat tomcat
-RUN chown -Rf tomcat.tomcat /usr/share/tomcat7
-EXPOSE 8080
-</code></pre><p>Build image</p>
-<pre><code># docker build --rm=true -t centos6/tomcat7 .
-</code></pre><p>Setup port forwarding and start tomcat</p>
-<pre><code>[root@docker centos6]# docker run -p 80:8080 --rm=true -t -i --name tomcat7 centos6/tomcat7 /usr/bin/sudo -u tomcat /usr/share/tomcat7/bin/catalina.sh run
-</code></pre><p>Find out the IP address for the running container:</p>
-<pre><code>[root@docker centos6]# docker inspect --format &apos;{{ .NetworkSettings.IPAddress }}&apos; tomcat7
-172.17.0.22
-</code></pre>  
+		<p>Vagrant can be used for automatically provisioning VMs, and even whole development environments.</p>
+<p>On ubuntu host:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install vagrant</span><br><span class="line">$ vagrant --version</span><br><span class="line">$ mkdir Vagrant;cd Vagrant</span><br><span class="line">$ vagrant init</span><br><span class="line"># Every Vagrant development environment requires a box. You can search for</span><br><span class="line">  # boxes at https://vagrantcloud.com/search.</span><br><span class="line">  config.vm.box = &quot;base&quot;</span><br><span class="line">$ sed -i &apos;s#config.vm.box = &quot;base&quot;#config.vm.box = &quot;centos/7&quot;#g&apos; Vagrantfile</span><br><span class="line">$ vagrant up</span><br><span class="line">$ vagrant ssh</span><br><span class="line">$ vagrant destroy</span><br></pre></td></tr></table></figure></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -157,7 +113,7 @@ EXPOSE 8080
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/docker/">docker</a><a href="/tags/tomcat/">tomcat</a>
+  <span></span> <a href="/tags/vagrant/">vagrant</a><a href="/tags/Hashicorp/">Hashicorp</a>
   </div>
 
 </div>
@@ -166,7 +122,7 @@ EXPOSE 8080
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2016/08/24/docker-tomcat7/" data-title="docker tomcat7 | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2019/08/03/vagrant/" data-title="vagrant | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -179,19 +135,11 @@ EXPOSE 8080
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/08/28/backup-script/" title="backup script">
-  <strong>上一篇：</strong><br/>
-  <span>
-  backup script</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/08/19/zabbix-client/"  title="Install Zabbix Agent">
+<a href="/2019/07/29/jenkins-blue-ocean/"  title="Jenkins Pipeline">
  <strong>下一篇：</strong><br/> 
- <span>Install Zabbix Agent
+ <span>Jenkins Pipeline
 </span>
 </a>
 </div>
@@ -206,7 +154,7 @@ EXPOSE 8080
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-container-with-centos-6-and-tomcat-7"><span class="toc-number">1.</span> <span class="toc-text">docker container with centos 6 and tomcat 7</span></a></li></ol>
+ 
  
   </div>
 

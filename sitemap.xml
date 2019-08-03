@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/08/03/vagrant/</loc>
+    
+    <lastmod>2019-08-03T13:41:24.463Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/06/19/useful-commands/</loc>
+    
+    <lastmod>2019-08-03T01:05:24.367Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/07/29/jenkins-blue-ocean/</loc>
     
     <lastmod>2019-07-29T05:01:26.031Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://223.95.78.227/2019/07/13/terraform/</loc>
     
     <lastmod>2019-07-22T05:09:38.152Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/06/19/useful-commands/</loc>
-    
-    <lastmod>2019-07-20T13:25:34.720Z</lastmod>
     
   </url>
   
@@ -261,21 +268,7 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/09/29/syd/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
@@ -289,7 +282,21 @@
   </url>
   
   <url>
+    <loc>http://223.95.78.227/2016/09/29/syd/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2016/10/10/web-security/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

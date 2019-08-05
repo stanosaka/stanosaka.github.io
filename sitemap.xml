@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://223.95.78.227/2019/07/17/devops/</loc>
+    <loc>http://223.95.78.227/2019/08/03/vagrant/</loc>
     
-    <lastmod>2019-08-05T02:30:23.239Z</lastmod>
+    <lastmod>2019-08-05T04:30:14.399Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2019/08/03/vagrant/</loc>
+    <loc>http://223.95.78.227/2019/05/06/git/</loc>
     
-    <lastmod>2019-08-03T13:41:24.463Z</lastmod>
+    <lastmod>2019-08-05T02:40:48.720Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/07/17/devops/</loc>
+    
+    <lastmod>2019-08-05T02:30:23.239Z</lastmod>
     
   </url>
   
@@ -117,13 +124,6 @@
     <loc>http://223.95.78.227/2019/07/03/version-control/</loc>
     
     <lastmod>2019-07-03T13:35:34.673Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/05/06/git/</loc>
-    
-    <lastmod>2019-07-03T02:52:18.956Z</lastmod>
     
   </url>
   

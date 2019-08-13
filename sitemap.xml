@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/07/15/devops-with-aws/</loc>
+    
+    <lastmod>2019-08-13T01:08:49.426Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/06/19/useful-commands/</loc>
+    
+    <lastmod>2019-08-10T02:05:37.126Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/06/28/ansible/</loc>
+    
+    <lastmod>2019-08-05T13:42:59.015Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/05/05/docker/</loc>
+    
+    <lastmod>2019-08-05T07:22:48.272Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/08/03/vagrant/</loc>
     
-    <lastmod>2019-08-05T04:30:14.399Z</lastmod>
+    <lastmod>2019-08-05T05:20:28.770Z</lastmod>
     
   </url>
   
@@ -23,23 +51,9 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2019/06/19/useful-commands/</loc>
-    
-    <lastmod>2019-08-03T01:05:24.367Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://223.95.78.227/2019/07/29/jenkins-blue-ocean/</loc>
     
     <lastmod>2019-07-29T05:01:26.031Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/05/05/docker/</loc>
-    
-    <lastmod>2019-07-26T12:04:31.308Z</lastmod>
     
   </url>
   
@@ -86,13 +100,6 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2019/07/15/devops-with-aws/</loc>
-    
-    <lastmod>2019-07-17T06:15:42.958Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://223.95.78.227/2019/06/24/practical-jenkins/</loc>
     
     <lastmod>2019-07-16T07:02:23.721Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>http://223.95.78.227/2019/07/03/version-control/</loc>
     
     <lastmod>2019-07-03T13:35:34.673Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/06/28/ansible/</loc>
-    
-    <lastmod>2019-06-30T07:18:40.596Z</lastmod>
     
   </url>
   
@@ -282,14 +282,7 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
+    <loc>http://223.95.78.227/2016/08/19/zabbix-client/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
@@ -303,7 +296,14 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/08/19/zabbix-client/</loc>
+    <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

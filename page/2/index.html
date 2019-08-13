@@ -203,7 +203,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Devops/">Devops</a><a href="/tags/aws/">aws</a><a href="/tags/git/">git</a><a href="/tags/Azure/">Azure</a>
+  <span></span> <a href="/tags/aws/">aws</a><a href="/tags/Devops/">Devops</a><a href="/tags/git/">git</a><a href="/tags/Azure/">Azure</a>
   </div>
 
 </div>
@@ -459,6 +459,11 @@
     <div class="article-content">
         
         <h1 id="Ansible-configuration"><a href="#Ansible-configuration" class="headerlink" title="Ansible configuration"></a>Ansible configuration</h1><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>for ubuntu:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apt-get install software-properties-common</span><br><span class="line">apt-add-repository ppa:ansible/ansible</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install ansible</span><br><span class="line">root@ansible-host:~# ansible --version</span><br><span class="line">ansible 2.8.1</span><br><span class="line">  config file = /etc/ansible/ansible.cfg</span><br><span class="line">  configured module search path = [u&apos;/root/.ansible/plugins/modules&apos;, u&apos;/usr/share/ansible/plugins/modules&apos;]</span><br><span class="line">  ansible python module location = /usr/lib/python2.7/dist-packages/ansible</span><br><span class="line">  executable location = /usr/bin/ansible</span><br><span class="line">  python version = 2.7.12 (default, Nov 12 2018, 14:36:49) [GCC 5.4.0 20160609]</span><br></pre></td></tr></table></figure></p>
+<h2 id="Gran-access-to-modes-machines"><a href="#Gran-access-to-modes-machines" class="headerlink" title="Gran access to modes/machines:"></a>Gran access to modes/machines:</h2><ul>
+<li>ssh-keygen</li>
+<li>ssh-copy-id<br><strong>Setup:</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp -R /etc/ansible local</span><br><span class="line">cd local</span><br><span class="line">edit ansible.cfg and hosts file</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h2 id="configuration-files"><a href="#configuration-files" class="headerlink" title="configuration files"></a>configuration files</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ANSIBLE_CONFIG #an environemtn variable</span><br><span class="line">ansible.cfg # in the current directory</span><br><span class="line">.ansible.cfg #in the home directory</span><br><span class="line">/etc/ansible/ansible.cfg</span><br></pre></td></tr></table></figure>
 <h2 id="Ansible-inventory"><a href="#Ansible-inventory" class="headerlink" title="Ansible inventory"></a>Ansible inventory</h2><p><code>/etc/ansible/hosts</code><br>INI format, support host variables, group variables and group of group<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># add to /etc/ansible/hosts</span><br><span class="line">[demo_hosts]</span><br><span class="line">node01 ansible_user=ubuntu</span><br><span class="line">node02 ansible_user=ubuntu</span><br><span class="line"># add to /etc/hosts</span><br><span class="line">172.31.5.185 node01</span><br><span class="line">172.31.8.115 node02</span><br></pre></td></tr></table></figure></p>
 <h2 id="Verify-Ansible-Inventory"><a href="#Verify-Ansible-Inventory" class="headerlink" title="Verify Ansible Inventory"></a>Verify Ansible Inventory</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">eval `ssh-agent -s`</span><br><span class="line">ssh-add ansible-key.pem</span><br><span class="line">ansible -m ping all</span><br><span class="line"># add to /etc/ansible/hosts</span><br><span class="line">[web_server]</span><br><span class="line">node01 ansible_user=ubuntu</span><br><span class="line"></span><br><span class="line">[db_server]</span><br><span class="line">node02 ansible_user=ubuntu</span><br><span class="line">ansible web-server -m ping</span><br><span class="line">ansible db-server -m ping</span><br></pre></td></tr></table></figure>
@@ -742,7 +747,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Jenkins/">Jenkins</a><a href="/tags/Devops/">Devops</a><a href="/tags/CD-CI/">CD/CI</a>
+  <span></span> <a href="/tags/Devops/">Devops</a><a href="/tags/Jenkins/">Jenkins</a><a href="/tags/CD-CI/">CD/CI</a>
   </div>
 
 </div>
@@ -803,6 +808,8 @@
 <hr>
 <p>#python</p>
 <p>create a random password:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">stan@dockerfordevops:~/Projects/MobyDock$ python</span><br><span class="line">Python 2.7.12 (default, Nov 12 2018, 14:36:49) </span><br><span class="line">[GCC 5.4.0 20160609] on linux2</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt; import os</span><br><span class="line">&gt;&gt;&gt; import binascii</span><br><span class="line">&gt;&gt;&gt; binascii.b2a_hex(os.urandom(31))</span><br></pre></td></tr></table></figure></p>
+<p>#postgres<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kubernetes-release-1.5 psql -h database -U postgres</span><br><span class="line">psql (11.4 (Ubuntu 11.4-1.pgdg18.04+1), server 9.4.23)</span><br><span class="line">Type &quot;help&quot; for help.</span><br><span class="line"></span><br><span class="line">postgres-# \dd</span><br><span class="line">         Object descriptions</span><br><span class="line"> Schema | Name | Object | Description</span><br><span class="line">--------+------+--------+-------------</span><br><span class="line">(0 rows)</span><br></pre></td></tr></table></figure></p>
+<p>$ mkdir vagrant_ubuntu_xenial_1 &amp;&amp; cd $_</p>
 
         
         
@@ -1460,7 +1467,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Jenkins/">Jenkins</a><a href="/tags/Devops/">Devops</a><a href="/tags/CD-CI/">CD/CI</a>
+  <span></span> <a href="/tags/Devops/">Devops</a><a href="/tags/Jenkins/">Jenkins</a><a href="/tags/CD-CI/">CD/CI</a>
   </div>
 
 </div>
@@ -1552,6 +1559,10 @@
 			
 		
 			
+				<li><a href="/tags/docker/" title="docker">docker<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
 			
 		
@@ -1560,19 +1571,11 @@
 			
 		
 			
-				<li><a href="/tags/docker/" title="docker">docker<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Pipeline/" title="Pipeline">Pipeline<sup>1</sup></a></li>
 			
 		
 			
@@ -1589,6 +1592,10 @@
 		
 			
 				<li><a href="/tags/agile-development/" title="agile development">agile development<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ansbile/" title="ansbile">ansbile<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -1620,6 +1627,18 @@
           <li>
             
             	<a href="https://github.com/bikrambora/devlab-launchpad" target="_blank" title="Welcome to Dev Labs">Dev Labs</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/ansible/ansible-examples" target="_blank" title="Ansible GitHub repo">Ansible GitHub repo</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html" target="_blank" title="Ansible Best Practices">Ansible Best Practices</a>
             
           </li>
         
@@ -1704,6 +1723,12 @@
           <li>
             
             	<a href="https://docs.00root.com" target="_blank" title="Stan&#39;s gitbook">Stan&#39;s gitbook</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://api.ipify.org" target="_blank" title="Your IP address">Your IP address</a>
             
           </li>
         

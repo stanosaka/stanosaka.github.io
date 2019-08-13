@@ -634,7 +634,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Jenkins/">Jenkins</a><a href="/tags/Devops/">Devops</a><a href="/tags/CD-CI/">CD/CI</a><a href="/tags/Pipeline/">Pipeline</a><a href="/tags/Blue-Ocean/">Blue Ocean</a>
+  <span></span> <a href="/tags/Devops/">Devops</a><a href="/tags/Jenkins/">Jenkins</a><a href="/tags/CD-CI/">CD/CI</a><a href="/tags/Pipeline/">Pipeline</a><a href="/tags/Blue-Ocean/">Blue Ocean</a>
   </div>
 
 </div>
@@ -1263,7 +1263,7 @@
 <ol>
 <li>Create a role named stantutorialRole -&gt; select role type CodeDeploy</li>
 </ol>
-<h2 id="Jenkins-installation"><a href="#Jenkins-installation" class="headerlink" title="Jenkins installation"></a>Jenkins installation</h2><p>Ubuntu-&gt; Configure Instance Details, IAM role, select CodeDeploy-EC2 (this will allow jenkins connect to s3 buckets)-&gt;<br>Tag instance: Key group Value hapi-demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key| sudo apt-key add -</span><br><span class="line">sudo vim /etc/apt/sources.list # add following line</span><br><span class="line">deb http://pkg.jenkins-ci.org/debian-stable binary/</span><br><span class="line">sudo apt-get install default-jdk</span><br><span class="line">sudo apt-get install jenkins</span><br></pre></td></tr></table></figure></p>
+<h2 id="Jenkins-installation"><a href="#Jenkins-installation" class="headerlink" title="Jenkins installation"></a>Jenkins installation</h2><p>Ubuntu-&gt; Configure Instance Details, IAM role, select CodeDeploy-EC2 (this will allow jenkins connect to s3 buckets)-&gt;<br>Tag instance: Key group Value hapi-demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key| sudo apt-key add -</span><br><span class="line">sudo vim /etc/apt/sources.list # add following line</span><br><span class="line">deb http://pkg.jenkins-ci.org/debian-stable binary/</span><br><span class="line">sudo apt-get install default-jdk</span><br><span class="line">sudo apt-get install jenkins</span><br><span class="line">sudo service jenkins start</span><br></pre></td></tr></table></figure></p>
 <p>Install plugin AWS CodePipeline<br>Install node.js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -</span><br><span class="line">apt-get install -y nodejs</span><br><span class="line">sudo npm install -g npm</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure></p>
 <p>Install sqitch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential cpanminus perl perl-doc</span><br><span class="line">cpanm --quiet --notest App::Sqitch</span><br><span class="line">sqitch --version</span><br><span class="line">apt-get install -y postgresql libdbd-pg-perl</span><br></pre></td></tr></table></figure></p>
 <p>Create a new instance hapi-demo install node.js and<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br><span class="line">sudo apt install ruby-full</span><br><span class="line">sudo apt install wget</span><br><span class="line">wget https://aws-codedeploy-ap-southeast-2.s3.amazonaws.com/latest/install</span><br><span class="line">chmod +x install</span><br><span class="line">sudo ./install auto</span><br></pre></td></tr></table></figure></p>
@@ -1300,7 +1300,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Jenkins/">Jenkins</a><a href="/tags/Devops/">Devops</a><a href="/tags/CD-CI/">CD/CI</a>
+  <span></span> <a href="/tags/Devops/">Devops</a><a href="/tags/Jenkins/">Jenkins</a><a href="/tags/CD-CI/">CD/CI</a>
   </div>
 
 </div>
@@ -2055,6 +2055,10 @@
 			
 		
 			
+				<li><a href="/tags/docker/" title="docker">docker<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
 			
 		
@@ -2063,19 +2067,11 @@
 			
 		
 			
-				<li><a href="/tags/docker/" title="docker">docker<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Pipeline/" title="Pipeline">Pipeline<sup>1</sup></a></li>
 			
 		
 			
@@ -2092,6 +2088,10 @@
 		
 			
 				<li><a href="/tags/agile-development/" title="agile development">agile development<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ansbile/" title="ansbile">ansbile<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -2123,6 +2123,18 @@
           <li>
             
             	<a href="https://github.com/bikrambora/devlab-launchpad" target="_blank" title="Welcome to Dev Labs">Dev Labs</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/ansible/ansible-examples" target="_blank" title="Ansible GitHub repo">Ansible GitHub repo</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html" target="_blank" title="Ansible Best Practices">Ansible Best Practices</a>
             
           </li>
         
@@ -2207,6 +2219,12 @@
           <li>
             
             	<a href="https://docs.00root.com" target="_blank" title="Stan&#39;s gitbook">Stan&#39;s gitbook</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://api.ipify.org" target="_blank" title="Your IP address">Your IP address</a>
             
           </li>
         

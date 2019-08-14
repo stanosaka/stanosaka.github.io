@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/05/06/git/</loc>
+    
+    <lastmod>2019-08-14T07:22:52.635Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/07/15/devops-with-aws/</loc>
     
     <lastmod>2019-08-13T01:08:49.426Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://223.95.78.227/2019/08/03/vagrant/</loc>
     
     <lastmod>2019-08-05T05:20:28.770Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/05/06/git/</loc>
-    
-    <lastmod>2019-08-05T02:40:48.720Z</lastmod>
     
   </url>
   
@@ -282,14 +282,14 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/08/19/zabbix-client/</loc>
+    <loc>http://223.95.78.227/2016/10/10/web-security/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/10/10/web-security/</loc>
+    <loc>http://223.95.78.227/2016/08/19/zabbix-client/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

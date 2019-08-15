@@ -83,6 +83,59 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/08/16/effective-devops-with-aws/" title="effective devops with aws" itemprop="url">effective devops with aws</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-08-15T14:15:29.000Z" itemprop="datePublished"> Published 2019-08-16</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><strong>Code</strong></p>
+<p><a href="https://github.com/stanosaka/ansible">source code ansible</a><br><a href="https://github.com/00root/helloworld">source code helloworld</a></p>
+<h1 id="Continuous-Delivery"><a href="#Continuous-Delivery" class="headerlink" title="Continuous Delivery"></a>Continuous Delivery</h1><p><img src="https://i.imgur.com/QOYWSYb.png" alt="codepipline01"><br><img src="https://i.imgur.com/an0PPjD.png" alt="codepipline02"><br><img src="https://i.imgur.com/P7gdZBo.png" alt="Source"><br><img src="https://i.imgur.com/O6LNT3M.png" alt="Test"><br><img src="https://i.imgur.com/gD0EYZ7.png" alt="Deploy"><br><img src="https://i.imgur.com/uAnMDQk.png" alt="Approval"><br><img src="https://i.imgur.com/OoeILa2.png" alt="Production"><br><img src="https://i.imgur.com/Mz3RM0I.png" alt="Jenkins01"><br><img src="https://i.imgur.com/88C8zGu.png" alt="Jenkins02"><br><img src="https://i.imgur.com/7YXnt5L.png" alt="Jenkins03"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npmjs.org/ </span><br><span class="line">npm install</span><br><span class="line">./node_modules/mocha/bin/mocha</span><br></pre></td></tr></table></figure></p>
+<p><strong>Creating the new cloudformation stack for production</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">aws cloudformation create-stack --capabilities CAPABILITY_IAM --stack-name helloworld-production --template-body file://nodeserver-cf.template --parameters ParameterKey=KeyPair,ParameterValue=EffectiveDevOpsAWS</span><br><span class="line"> aws cloudformation wait stack-create-complete --stack-name helloworld-production</span><br><span class="line"> 3683  arn=$(aws deploy get-deployment-group --application-name helloworld --deployment-group-name staging --query &apos;deploymentGroupInfo.serviceRoleArn&apos;)</span><br><span class="line"> 3685  aws deploy create-deployment-group --application-name helloworld --ec2-tag-filters Key=aws:cloudformation:stack-name,Type=KEY_AND_VALUE,Value=helloworld-production --deployment-group-name production --service-role-arn $arn</span><br><span class="line"> 3687  aws deploy create-deployment-group --application-name helloworld --ec2-tag-filters Key=aws:cloudformation:stack-name,Type=KEY_AND_VALUE,Value=helloworld-production --deployment-group-name production --service-role-arn arn:aws:iam::012152306932:role/CodeDeployRole</span><br><span class="line"> 3688  aws deploy list-deployment-groups --application-name helloworld</span><br><span class="line"> 3689  aws sns create-topic --name production-deploy-approval</span><br><span class="line"> 3690  aws sns subscribe --topic-arn arn:aws:sns:ap-southeast-2:012152306932:production-deploy-approval --protocol email --notification-endpoint stan.osaka@gmail.com</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2019/08/03/vagrant/" title="vagrant" itemprop="url">vagrant</a>
   </h1>
   <p class="article-author">By
@@ -1753,217 +1806,6 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/aws/">aws</a><a href="/tags/terraform/">terraform</a><a href="/tags/automation/">automation</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/07/05/agile/" title="agile" itemprop="url">agile</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-07-05T01:10:42.858Z" itemprop="datePublished"> Published 2019-07-05</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Agile-is-a-movement"><a href="#Agile-is-a-movement" class="headerlink" title="Agile is a movement."></a>Agile is a movement.</h1><p>Movement: a group of people working together to advance their shared political, social, or artistic ideas.</p>
-<h2 id="Early-agile-methodologies"><a href="#Early-agile-methodologies" class="headerlink" title="Early agile methodologies"></a>Early agile methodologies</h2><ul>
-<li>1995: Scrum<ul>
-<li>Iterative cycles of work</li>
-<li>Emphasis on cross-functional collaboration</li>
-</ul>
-</li>
-<li>Mid-90s: Crystal<ul>
-<li>Emphasis on adaptability and “stretch-to-fit” process</li>
-</ul>
-</li>
-<li>1990: XP<ul>
-<li>Short, iterative cycles of work</li>
-<li>Emphasis on collaboration between developers</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://i.imgur.com/MjJqXdR.jpg" alt="agile manifesto"><br><strong>Agile Values</strong></p>
-<ul>
-<li>Increase cross-functional collaboration</li>
-<li>Minimize works in progress (sepecs, etc)</li>
-<li>Work in iterative cycles to incorporate change and get frequent feedback</li>
-<li>Make time to reflect on how you work</li>
-</ul>
-<hr>
-<h1 id="Agile-Development"><a href="#Agile-Development" class="headerlink" title="Agile Development"></a>Agile Development</h1><p><strong>born-on-the-cloud model</strong>: cloud as the primary platform for both consumed and delivered services<br>Agility to get projects up and running quickly<br>streamlined process by reducing transitions from Development to Operations</p>
-<p>Java EE application with a Minimum Viable Product (MVP)<br>setup the cloud infrastructure and Toolchain using the Born-on-the-cloud approach</p>
-<p>Hypothesis-driven development</p>
-<p>ranked backlog, user stories, story points<br>tracking and delivering in Timeboxed iterations</p>
-<p><strong>backlog</strong> is a prioritized list of features (User Stores) waiting to be scheduled and implemented</p>
-<p>Note that among other things one of the most important responsibilities of the product owner role in Agile development methodology is to keep the backlog ranked by priority, and he or she can set the priorities by simply dragging the issues and ordering them, regardless of when they were added to the backlog</p>
-<p>User stories: who, what, why<br>story points and planning poker</p>
-<p><strong>user story</strong> is an informal, natural language description of a chunk of functionality that is of value from an end-user perspective<br>As a <who>, I want <what> so that <why></p>
-<p><strong>Story Points</strong> are estimates of effort as influenced by the amount of work, complexity, risk, and uncertainty.</p>
-<ul>
-<li>(Adapted) Fibonacci sequence: 0,1,2,3,5,8,13,20,40,100</li>
-</ul>
-<p><strong>Planning Poker</strong> is a consensus-based, gamified technique for estimating<br>Timeboxing refers to the act of putting strict time boundaries around an action for activity</p>
-<p>time boxed interrogations along with story points are important to measure the team velocity over time. For example you should track the total amount of story points that team delivers each iteration, and this way you’ll be able to determine on average the team velocity metric, or in other words how many story points on average the team is able to deliver. </p>
-<p>Architecture breakdown</p>
-<ul>
-<li>User interface (html/css/javascript)</li>
-<li>CRUD Service(REST APIs with JAX-RS)</li>
-<li>Database(NoSQL)</li>
-</ul>
-<p><strong>Test-Driven Development (TDD)</strong> is a technique for building software by writing automate test cases before writing any code<br>why: focus on the outcome; helps to manage risk; enables fast iterations and continous integration; keeps the code clear, simple and testable;<br>grater confidence to make applicaton changes; documentation of how the system works</p>
-<p>How:add a test-&gt;run all tests and see if the new one fails-&gt; write the code-&gt;run tests-&gt; refactor the code-&gt;repeat</p>
-<p>A <strong>delivery pipeline</strong> is a sequence of automated stages that retrieve input and run jobs, such as builds, tests, and deployments.<br>It automates the continuous deployment of a project, with miniumum or no-human intervention.</p>
-<ul>
-<li>A Stage retrieves input and run jobs, such as builds,tests, and deployments.</li>
-<li>Jobs run in discrete working directories in containers that are created for each pipeline run</li>
-<li>By default, stages run sequentially after changes are delivered to source control</li>
-</ul>
-<p><strong>showcase the applicaton</strong>: At the end of the iteration before the retrospective meeting that is a showcase meaning, also know as demo meeting, where the work done is demonstrated to the stakeholders and feedback is obtaining. The showcase meeting starts by reviewing what we have committed in the form of user stories. And finally we demonstrate what we have accomplished in the form of working software, so we can acquire feedback on the product we are building.</p>
-<p><strong>retrospective meeting</strong>: how to conduct<br>1st way:<br>What went well?<br>what could be improved?</p>
-<p>2nd way:<br>Start doing</p>
-<ul>
-<li>continuous delivery<br>stop doing</li>
-<li>time-bxed iterations<br>continue doing</li>
-<li>ranked backlog</li>
-</ul>
-<h2 id="Common-Problems"><a href="#Common-Problems" class="headerlink" title="Common Problems"></a>Common Problems</h2><h2 id="Value-Focus"><a href="#Value-Focus" class="headerlink" title="Value/Focus"></a>Value/Focus</h2><table>
-<thead>
-<tr>
-<th>Problems</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Not understanding the market</td>
-<td>Hypothesis-driven development</td>
-</tr>
-<tr>
-<td>Putting wrong products into the market</td>
-<td>Minimum Viable Product (MVP)</td>
-</tr>
-<tr>
-<td>Lack of focus on value</td>
-<td>Timboxing/Iterations</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Productivity-Speed-Cost"><a href="#Productivity-Speed-Cost" class="headerlink" title="Productivity/Speed/Cost"></a>Productivity/Speed/Cost</h2><table>
-<thead>
-<tr>
-<th>Problems</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Too long to get projects up and running</td>
-<td>Born on the Cloud</td>
-</tr>
-<tr>
-<td>Slow to put products into market</td>
-<td>MVP/Delivery pipeline/Continuous delivery</td>
-</tr>
-<tr>
-<td>Too costly projects</td>
-<td>Automation/Toolchain/Delivery pipeline</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Communication-Visibility"><a href="#Communication-Visibility" class="headerlink" title="Communication/Visibility"></a>Communication/Visibility</h2><table>
-<thead>
-<tr>
-<th>Problems</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Priorities aren’t clear</td>
-<td>Ranked backlog</td>
-</tr>
-<tr>
-<td>Requirements not reflecting the user’s needs</td>
-<td>User stories</td>
-</tr>
-<tr>
-<td>Poor team communication</td>
-<td>Daily standup</td>
-</tr>
-<tr>
-<td>Lack of visibility into the progress</td>
-<td>Iteration wall/Showcase meeting</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Quality-Control"><a href="#Quality-Control" class="headerlink" title="Quality/Control"></a>Quality/Control</h2><table>
-<thead>
-<tr>
-<th>Problems</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Low quality products</td>
-<td>Test driven development/Delivery pipeline</td>
-</tr>
-<tr>
-<td>Lack of prcess improvement</td>
-<td>Retrospective meeting/Continous improvement</td>
-</tr>
-<tr>
-<td>Bad Requirements estimations</td>
-<td>Story points/Planning poker</td>
-</tr>
-<tr>
-<td>Not honouring past our commitments</td>
-<td>Track team’s velocity</td>
-</tr>
-</tbody>
-</table>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/agile/">agile</a><a href="/tags/software-development/">software development</a><a href="/tags/agile-development/">agile development</a>
   </div>
 
 </div>

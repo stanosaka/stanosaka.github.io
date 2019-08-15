@@ -4,28 +4,35 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>vagrant | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>effective devops with aws | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="Vagrant can be used for automatically provisioning VMs, and even whole development environments. On ubuntu host:1234567891011$ sudo apt install vagrant$ vagrant --version$ mkdir Vagrant;cd Vagrant$ va">
-<meta name="keywords" content="vagrant,Hashicorp">
+    <meta name="description" content="Code source code ansiblesource code helloworld Continuous Delivery123npm config set registry http://registry.npmjs.org/ npm install./node_modules/mocha/bin/mocha Creating the new cloudformation stack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vagrant">
-<meta property="og:url" content="http://223.95.78.227/2019/08/03/vagrant/index.html">
+<meta property="og:title" content="effective devops with aws">
+<meta property="og:url" content="http://223.95.78.227/2019/08/16/effective-devops-with-aws/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="Vagrant can be used for automatically provisioning VMs, and even whole development environments. On ubuntu host:1234567891011$ sudo apt install vagrant$ vagrant --version$ mkdir Vagrant;cd Vagrant$ va">
+<meta property="og:description" content="Code source code ansiblesource code helloworld Continuous Delivery123npm config set registry http://registry.npmjs.org/ npm install./node_modules/mocha/bin/mocha Creating the new cloudformation stack">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.imgur.com/lb7muP9.png">
-<meta property="og:image" content="https://i.imgur.com/U5cISEK.png">
-<meta property="og:updated_time" content="2019-08-05T05:20:28.770Z">
+<meta property="og:image" content="https://i.imgur.com/QOYWSYb.png">
+<meta property="og:image" content="https://i.imgur.com/an0PPjD.png">
+<meta property="og:image" content="https://i.imgur.com/P7gdZBo.png">
+<meta property="og:image" content="https://i.imgur.com/O6LNT3M.png">
+<meta property="og:image" content="https://i.imgur.com/gD0EYZ7.png">
+<meta property="og:image" content="https://i.imgur.com/uAnMDQk.png">
+<meta property="og:image" content="https://i.imgur.com/OoeILa2.png">
+<meta property="og:image" content="https://i.imgur.com/Mz3RM0I.png">
+<meta property="og:image" content="https://i.imgur.com/88C8zGu.png">
+<meta property="og:image" content="https://i.imgur.com/7YXnt5L.png">
+<meta property="og:updated_time" content="2019-08-15T14:29:05.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vagrant">
-<meta name="twitter:description" content="Vagrant can be used for automatically provisioning VMs, and even whole development environments. On ubuntu host:1234567891011$ sudo apt install vagrant$ vagrant --version$ mkdir Vagrant;cd Vagrant$ va">
-<meta name="twitter:image" content="https://i.imgur.com/lb7muP9.png">
+<meta name="twitter:title" content="effective devops with aws">
+<meta name="twitter:description" content="Code source code ansiblesource code helloworld Continuous Delivery123npm config set registry http://registry.npmjs.org/ npm install./node_modules/mocha/bin/mocha Creating the new cloudformation stack">
+<meta name="twitter:image" content="https://i.imgur.com/QOYWSYb.png">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -86,14 +93,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/08/03/vagrant/" title="vagrant" itemprop="url">vagrant</a>
+      <a href="/2019/08/16/effective-devops-with-aws/" title="effective devops with aws" itemprop="url">effective devops with aws</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2019-08-03T13:35:53.000Z" itemprop="datePublished"> Published 2019-08-03</time>
+    <time datetime="2019-08-15T14:15:29.000Z" itemprop="datePublished"> Published 2019-08-16</time>
     
   </p>
 </header>
@@ -102,111 +109,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Continuous-Delivery"><span class="toc-number">1.</span> <span class="toc-text">Continuous Delivery</span></a></li></ol>
 		
 		</div>
 		
-		<p>Vagrant can be used for automatically provisioning VMs, and even whole development environments.</p>
-<p>On ubuntu host:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install vagrant</span><br><span class="line">$ vagrant --version</span><br><span class="line">$ mkdir Vagrant;cd Vagrant</span><br><span class="line">$ vagrant init</span><br><span class="line"># Every Vagrant development environment requires a box. You can search for</span><br><span class="line">  # boxes at https://vagrantcloud.com/search.</span><br><span class="line">  config.vm.box = &quot;base&quot;</span><br><span class="line">$ sed -i &apos;s#config.vm.box = &quot;base&quot;#config.vm.box = &quot;centos/7&quot;#g&apos; Vagrantfile</span><br><span class="line">$ vagrant up</span><br><span class="line">$ vagrant ssh</span><br><span class="line">$ vagrant destroy</span><br></pre></td></tr></table></figure></p>
-<p><strong>Components</strong></p>
-<ul>
-<li>Providers:<ul>
-<li>Backend of Vagrant</li>
-<li>VirtualBox</li>
-<li>VMware</li>
-<li>Hyper-V</li>
-<li>vCloud</li>
-<li>AWS</li>
-</ul>
-</li>
-<li>Boxes:<ul>
-<li>Predefined images</li>
-<li><a href="https://app.vagrantup.com/boxes/search">Public Vagrant box catalog</a></li>
-</ul>
-</li>
-<li>Vagrantfile:<ul>
-<li>A Ruby file</li>
-<li>How many VMs</li>
-<li>Configure VMs</li>
-<li>Provision VMs</li>
-<li>Committed to version control<br><img src="https://i.imgur.com/lb7muP9.png" alt="example of Vagrantfile"></li>
-</ul>
-</li>
-<li>Provisioners:<ul>
-<li>Automatically install software, alter configurations</li>
-<li>Boxes may not be a complete use case for you</li>
-<li>Multiple options</li>
-<li>Shell Script</li>
-<li>Ansible</li>
-<li>Chef</li>
-<li>Docker</li>
-<li>Puppet<br><img src="https://i.imgur.com/U5cISEK.png" alt="workflow of vagrant"></li>
-</ul>
-</li>
-</ul>
-<p><strong>Operations</strong></p>
-<ul>
-<li>Adding a vagrant box:<ul>
-<li>Syntax: vagrant box add <name> <url> <provider></li>
-<li>Example: vagrant box add ubuntu/trusty32</li>
-</ul>
-</li>
-<li>Listing and removing vagrant boxes:<ul>
-<li>vagrant box list</li>
-<li>vagrant box remove</li>
-</ul>
-</li>
-<li>Creating a VM environment:<ul>
-<li>Syntax: vagrant init <your box name></li>
-<li>Example: vagrant init ubuntu/trusty32</li>
-</ul>
-</li>
-<li>Starting a VM environment:<ul>
-<li>vagrant up ubuntu/trusty32</li>
-<li>vagrant up </li>
-</ul>
-</li>
-<li>Connecting:<ul>
-<li>vagrant ssh ubuntu/trusty32</li>
-<li>vagrant ssh</li>
-</ul>
-</li>
-<li>Stopping, restarting, and destroying<ul>
-<li>vagrant halt</li>
-<li>vagrant reload</li>
-<li>vagrant destroy</li>
-</ul>
-</li>
-</ul>
-<p><strong>Provisioning of vagrant</strong></p>
-<ul>
-<li>Creating a VM and provisioning it with Apache installed and prot forwarding</li>
-<li><p>Add theses lines in Vagrantfile:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">config.vm.network &quot;forwarded_port&quot;, guest: 80, host: 8080</span><br><span class="line">config.vm.provision &apos;shell&apos;, path: &apos;provision.sh&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Create provision.sh file with these entries:</p>
-<ul>
-<li>sudo apt-get update</li>
-<li>sudo apt-get install -y apache2</li>
-</ul>
-</li>
-<li><p>Destroy and start the virtual machine:</p>
-<ul>
-<li>vagrant destroy</li>
-<li>vagrant up</li>
-</ul>
-</li>
-</ul>
+		<p><strong>Code</strong></p>
+<p><a href="https://github.com/stanosaka/ansible">source code ansible</a><br><a href="https://github.com/00root/helloworld">source code helloworld</a></p>
+<h1 id="Continuous-Delivery"><a href="#Continuous-Delivery" class="headerlink" title="Continuous Delivery"></a>Continuous Delivery</h1><p><img src="https://i.imgur.com/QOYWSYb.png" alt="codepipline01"><br><img src="https://i.imgur.com/an0PPjD.png" alt="codepipline02"><br><img src="https://i.imgur.com/P7gdZBo.png" alt="Source"><br><img src="https://i.imgur.com/O6LNT3M.png" alt="Test"><br><img src="https://i.imgur.com/gD0EYZ7.png" alt="Deploy"><br><img src="https://i.imgur.com/uAnMDQk.png" alt="Approval"><br><img src="https://i.imgur.com/OoeILa2.png" alt="Production"><br><img src="https://i.imgur.com/Mz3RM0I.png" alt="Jenkins01"><br><img src="https://i.imgur.com/88C8zGu.png" alt="Jenkins02"><br><img src="https://i.imgur.com/7YXnt5L.png" alt="Jenkins03"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npmjs.org/ </span><br><span class="line">npm install</span><br><span class="line">./node_modules/mocha/bin/mocha</span><br></pre></td></tr></table></figure></p>
+<p><strong>Creating the new cloudformation stack for production</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">aws cloudformation create-stack --capabilities CAPABILITY_IAM --stack-name helloworld-production --template-body file://nodeserver-cf.template --parameters ParameterKey=KeyPair,ParameterValue=EffectiveDevOpsAWS</span><br><span class="line"> aws cloudformation wait stack-create-complete --stack-name helloworld-production</span><br><span class="line"> 3683  arn=$(aws deploy get-deployment-group --application-name helloworld --deployment-group-name staging --query &apos;deploymentGroupInfo.serviceRoleArn&apos;)</span><br><span class="line"> 3685  aws deploy create-deployment-group --application-name helloworld --ec2-tag-filters Key=aws:cloudformation:stack-name,Type=KEY_AND_VALUE,Value=helloworld-production --deployment-group-name production --service-role-arn $arn</span><br><span class="line"> 3687  aws deploy create-deployment-group --application-name helloworld --ec2-tag-filters Key=aws:cloudformation:stack-name,Type=KEY_AND_VALUE,Value=helloworld-production --deployment-group-name production --service-role-arn arn:aws:iam::012152306932:role/CodeDeployRole</span><br><span class="line"> 3688  aws deploy list-deployment-groups --application-name helloworld</span><br><span class="line"> 3689  aws sns create-topic --name production-deploy-approval</span><br><span class="line"> 3690  aws sns subscribe --topic-arn arn:aws:sns:ap-southeast-2:012152306932:production-deploy-approval --protocol email --notification-endpoint stan.osaka@gmail.com</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/vagrant/">vagrant</a><a href="/tags/Hashicorp/">Hashicorp</a>
-  </div>
 
 </div>
 
@@ -214,7 +129,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2019/08/03/vagrant/" data-title="vagrant | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2019/08/16/effective-devops-with-aws/" data-title="effective devops with aws | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -227,19 +142,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/08/16/effective-devops-with-aws/" title="effective devops with aws">
-  <strong>上一篇：</strong><br/>
-  <span>
-  effective devops with aws</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/07/29/jenkins-blue-ocean/"  title="Jenkins Pipeline">
+<a href="/2019/08/03/vagrant/"  title="vagrant">
  <strong>下一篇：</strong><br/> 
- <span>Jenkins Pipeline
+ <span>vagrant
 </span>
 </a>
 </div>
@@ -254,7 +161,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Continuous-Delivery"><span class="toc-number">1.</span> <span class="toc-text">Continuous Delivery</span></a></li></ol>
  
   </div>
 

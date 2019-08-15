@@ -83,6 +83,217 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/07/05/agile/" title="agile" itemprop="url">agile</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-05T01:10:42.858Z" itemprop="datePublished"> Published 2019-07-05</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Agile-is-a-movement"><a href="#Agile-is-a-movement" class="headerlink" title="Agile is a movement."></a>Agile is a movement.</h1><p>Movement: a group of people working together to advance their shared political, social, or artistic ideas.</p>
+<h2 id="Early-agile-methodologies"><a href="#Early-agile-methodologies" class="headerlink" title="Early agile methodologies"></a>Early agile methodologies</h2><ul>
+<li>1995: Scrum<ul>
+<li>Iterative cycles of work</li>
+<li>Emphasis on cross-functional collaboration</li>
+</ul>
+</li>
+<li>Mid-90s: Crystal<ul>
+<li>Emphasis on adaptability and “stretch-to-fit” process</li>
+</ul>
+</li>
+<li>1990: XP<ul>
+<li>Short, iterative cycles of work</li>
+<li>Emphasis on collaboration between developers</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/MjJqXdR.jpg" alt="agile manifesto"><br><strong>Agile Values</strong></p>
+<ul>
+<li>Increase cross-functional collaboration</li>
+<li>Minimize works in progress (sepecs, etc)</li>
+<li>Work in iterative cycles to incorporate change and get frequent feedback</li>
+<li>Make time to reflect on how you work</li>
+</ul>
+<hr>
+<h1 id="Agile-Development"><a href="#Agile-Development" class="headerlink" title="Agile Development"></a>Agile Development</h1><p><strong>born-on-the-cloud model</strong>: cloud as the primary platform for both consumed and delivered services<br>Agility to get projects up and running quickly<br>streamlined process by reducing transitions from Development to Operations</p>
+<p>Java EE application with a Minimum Viable Product (MVP)<br>setup the cloud infrastructure and Toolchain using the Born-on-the-cloud approach</p>
+<p>Hypothesis-driven development</p>
+<p>ranked backlog, user stories, story points<br>tracking and delivering in Timeboxed iterations</p>
+<p><strong>backlog</strong> is a prioritized list of features (User Stores) waiting to be scheduled and implemented</p>
+<p>Note that among other things one of the most important responsibilities of the product owner role in Agile development methodology is to keep the backlog ranked by priority, and he or she can set the priorities by simply dragging the issues and ordering them, regardless of when they were added to the backlog</p>
+<p>User stories: who, what, why<br>story points and planning poker</p>
+<p><strong>user story</strong> is an informal, natural language description of a chunk of functionality that is of value from an end-user perspective<br>As a <who>, I want <what> so that <why></p>
+<p><strong>Story Points</strong> are estimates of effort as influenced by the amount of work, complexity, risk, and uncertainty.</p>
+<ul>
+<li>(Adapted) Fibonacci sequence: 0,1,2,3,5,8,13,20,40,100</li>
+</ul>
+<p><strong>Planning Poker</strong> is a consensus-based, gamified technique for estimating<br>Timeboxing refers to the act of putting strict time boundaries around an action for activity</p>
+<p>time boxed interrogations along with story points are important to measure the team velocity over time. For example you should track the total amount of story points that team delivers each iteration, and this way you’ll be able to determine on average the team velocity metric, or in other words how many story points on average the team is able to deliver. </p>
+<p>Architecture breakdown</p>
+<ul>
+<li>User interface (html/css/javascript)</li>
+<li>CRUD Service(REST APIs with JAX-RS)</li>
+<li>Database(NoSQL)</li>
+</ul>
+<p><strong>Test-Driven Development (TDD)</strong> is a technique for building software by writing automate test cases before writing any code<br>why: focus on the outcome; helps to manage risk; enables fast iterations and continous integration; keeps the code clear, simple and testable;<br>grater confidence to make applicaton changes; documentation of how the system works</p>
+<p>How:add a test-&gt;run all tests and see if the new one fails-&gt; write the code-&gt;run tests-&gt; refactor the code-&gt;repeat</p>
+<p>A <strong>delivery pipeline</strong> is a sequence of automated stages that retrieve input and run jobs, such as builds, tests, and deployments.<br>It automates the continuous deployment of a project, with miniumum or no-human intervention.</p>
+<ul>
+<li>A Stage retrieves input and run jobs, such as builds,tests, and deployments.</li>
+<li>Jobs run in discrete working directories in containers that are created for each pipeline run</li>
+<li>By default, stages run sequentially after changes are delivered to source control</li>
+</ul>
+<p><strong>showcase the applicaton</strong>: At the end of the iteration before the retrospective meeting that is a showcase meaning, also know as demo meeting, where the work done is demonstrated to the stakeholders and feedback is obtaining. The showcase meeting starts by reviewing what we have committed in the form of user stories. And finally we demonstrate what we have accomplished in the form of working software, so we can acquire feedback on the product we are building.</p>
+<p><strong>retrospective meeting</strong>: how to conduct<br>1st way:<br>What went well?<br>what could be improved?</p>
+<p>2nd way:<br>Start doing</p>
+<ul>
+<li>continuous delivery<br>stop doing</li>
+<li>time-bxed iterations<br>continue doing</li>
+<li>ranked backlog</li>
+</ul>
+<h2 id="Common-Problems"><a href="#Common-Problems" class="headerlink" title="Common Problems"></a>Common Problems</h2><h2 id="Value-Focus"><a href="#Value-Focus" class="headerlink" title="Value/Focus"></a>Value/Focus</h2><table>
+<thead>
+<tr>
+<th>Problems</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Not understanding the market</td>
+<td>Hypothesis-driven development</td>
+</tr>
+<tr>
+<td>Putting wrong products into the market</td>
+<td>Minimum Viable Product (MVP)</td>
+</tr>
+<tr>
+<td>Lack of focus on value</td>
+<td>Timboxing/Iterations</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Productivity-Speed-Cost"><a href="#Productivity-Speed-Cost" class="headerlink" title="Productivity/Speed/Cost"></a>Productivity/Speed/Cost</h2><table>
+<thead>
+<tr>
+<th>Problems</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Too long to get projects up and running</td>
+<td>Born on the Cloud</td>
+</tr>
+<tr>
+<td>Slow to put products into market</td>
+<td>MVP/Delivery pipeline/Continuous delivery</td>
+</tr>
+<tr>
+<td>Too costly projects</td>
+<td>Automation/Toolchain/Delivery pipeline</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Communication-Visibility"><a href="#Communication-Visibility" class="headerlink" title="Communication/Visibility"></a>Communication/Visibility</h2><table>
+<thead>
+<tr>
+<th>Problems</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Priorities aren’t clear</td>
+<td>Ranked backlog</td>
+</tr>
+<tr>
+<td>Requirements not reflecting the user’s needs</td>
+<td>User stories</td>
+</tr>
+<tr>
+<td>Poor team communication</td>
+<td>Daily standup</td>
+</tr>
+<tr>
+<td>Lack of visibility into the progress</td>
+<td>Iteration wall/Showcase meeting</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Quality-Control"><a href="#Quality-Control" class="headerlink" title="Quality/Control"></a>Quality/Control</h2><table>
+<thead>
+<tr>
+<th>Problems</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low quality products</td>
+<td>Test driven development/Delivery pipeline</td>
+</tr>
+<tr>
+<td>Lack of prcess improvement</td>
+<td>Retrospective meeting/Continous improvement</td>
+</tr>
+<tr>
+<td>Bad Requirements estimations</td>
+<td>Story points/Planning poker</td>
+</tr>
+<tr>
+<td>Not honouring past our commitments</td>
+<td>Track team’s velocity</td>
+</tr>
+</tbody>
+</table>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/agile/">agile</a><a href="/tags/software-development/">software development</a><a href="/tags/agile-development/">agile development</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2019/07/04/devops-as-a-service/" title="Devops As A Service" itemprop="url">Devops As A Service</a>
   </h1>
   <p class="article-author">By
@@ -810,6 +1021,7 @@
 <p>create a random password:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">stan@dockerfordevops:~/Projects/MobyDock$ python</span><br><span class="line">Python 2.7.12 (default, Nov 12 2018, 14:36:49) </span><br><span class="line">[GCC 5.4.0 20160609] on linux2</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt; import os</span><br><span class="line">&gt;&gt;&gt; import binascii</span><br><span class="line">&gt;&gt;&gt; binascii.b2a_hex(os.urandom(31))</span><br></pre></td></tr></table></figure></p>
 <p>#postgres<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kubernetes-release-1.5 psql -h database -U postgres</span><br><span class="line">psql (11.4 (Ubuntu 11.4-1.pgdg18.04+1), server 9.4.23)</span><br><span class="line">Type &quot;help&quot; for help.</span><br><span class="line"></span><br><span class="line">postgres-# \dd</span><br><span class="line">         Object descriptions</span><br><span class="line"> Schema | Name | Object | Description</span><br><span class="line">--------+------+--------+-------------</span><br><span class="line">(0 rows)</span><br></pre></td></tr></table></figure></p>
 <p>$ mkdir vagrant_ubuntu_xenial_1 &amp;&amp; cd $_</p>
+<p>wget <a href="https://raw.githubusercontent.com/yogeshraheja/Effective-DevOps-with-AWS/master/Chapter02/helloworld.conf">https://raw.githubusercontent.com/yogeshraheja/Effective-DevOps-with-AWS/master/Chapter02/helloworld.conf</a> -O scripts/helloworld.conf</p>
 
         
         
@@ -1214,260 +1426,6 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/vim/">vim</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/05/08/JenkinsForProfessionals/" title="Jenkins For Professionals" itemprop="url">Jenkins For Professionals</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-05-08T11:26:40.000Z" itemprop="datePublished"> Published 2019-05-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Jenkins-for-Professionals"><a href="#Jenkins-for-Professionals" class="headerlink" title="Jenkins for Professionals"></a>Jenkins for Professionals</h1><h2 id="Jenkins’s-architecture"><a href="#Jenkins’s-architecture" class="headerlink" title="Jenkins’s architecture"></a>Jenkins’s architecture</h2><p>Github repository –&gt; Master -&gt; slave<br>                             -&gt; slave</p>
-<p>Why distributed architecture for Jenkins?</p>
-<ul>
-<li>Sometime, several different environments needed</li>
-<li>If a larger project gets build, a single server cannot handle entire load<br>Jenkins Master:</li>
-<li>Scheduling jobs</li>
-<li>Communicating with the slaves</li>
-<li>Monitor the slaves</li>
-<li>Present the results</li>
-<li>Master can also execute build jobs</li>
-</ul>
-<p>Jenkins Slave:</p>
-<ul>
-<li>Communicates with Jenkins Master</li>
-<li>Can run in different OS</li>
-<li>Execute jobs</li>
-<li>Flexibility</li>
-</ul>
-<h2 id="Jenkins-Freestyle-job"><a href="#Jenkins-Freestyle-job" class="headerlink" title="Jenkins Freestyle job"></a>Jenkins Freestyle job</h2><ul>
-<li>Central feature of Jenkins</li>
-<li>Using jenkins UI to create a CI Pipeline</li>
-</ul>
-<p><a href="https://github.com/ravikiran-srini/springExample">https://github.com/ravikiran-srini/springExample</a></p>
-<h2 id="Scheduling-a-Jenkins-job"><a href="#Scheduling-a-Jenkins-job" class="headerlink" title="Scheduling a Jenkins job"></a>Scheduling a Jenkins job</h2><ul>
-<li>Scheduling is one of the options of a Build Trigger</li>
-<li>Use CRON expressions to schedule a job<ul>
-<li>Each line consists of 5 fields sparated by TAB or whitespace</li>
-<li>MINUTE HOUR DOM MONTH DOW<br>0 refers to Sunday</li>
-</ul>
-</li>
-<li>To specify multiple values, use the following:<ul>
-<li><ul>
-<li>for all valid values</li>
-</ul>
-</li>
-<li>0-9 specify a range of values</li>
-<li>2,3,4,5 to enumerate multiple values</li>
-</ul>
-</li>
-<li>Use Hash system for automatic balancing<ul>
-<li>Use H H <em> </em> <em> instead of 0 0 </em> <em> </em></li>
-</ul>
-</li>
-<li>Use aliases like @yearly, @monthly, @weekly<ul>
-<li>@hourly is the same as H <em> </em> <em> </em></li>
-</ul>
-</li>
-</ul>
-<p>Under Source Code Management of Project,<br>in Build Triggers, tick Build periodically, put five starts.</p>
-<h2 id="Triggering-builds-remotely"><a href="#Triggering-builds-remotely" class="headerlink" title="Triggering builds remotely"></a>Triggering builds remotely</h2><p>Build Triggers-&gt; tick ‘Tigger build remotely’, put Authenication Token value.</p>
-<h2 id="Parameterizing-build"><a href="#Parameterizing-build" class="headerlink" title="Parameterizing build"></a>Parameterizing build</h2><ul>
-<li>Allow you to prompt users for one or more inputs</li>
-<li>Each parameter has a name and a value</li>
-<li>Can be accessed using $paramater or %parameter%</li>
-<li>‘Build Now’ will be replaced by “Build with Parameters”</li>
-</ul>
-<p>Types of Parameters</p>
-<ul>
-<li>Boolean Parameter</li>
-<li>Choice Parameter</li>
-<li>Credentials Parameter</li>
-<li>File Parameter</li>
-<li>List Subversion tags</li>
-<li>Password Parameter</li>
-<li>Run Parameter</li>
-<li>String Parameter</li>
-</ul>
-<h2 id="Creating-a-user"><a href="#Creating-a-user" class="headerlink" title="Creating a user"></a>Creating a user</h2><h2 id="Installing-Plugins"><a href="#Installing-Plugins" class="headerlink" title="Installing Plugins"></a>Installing Plugins</h2><p>Plugin name: Role-based Authorization Strategy</p>
-<h2 id="Implementing-Role-based-access"><a href="#Implementing-Role-based-access" class="headerlink" title="Implementing Role based access"></a>Implementing Role based access</h2><p>Enabling role based access<br>Manage Jenkins-&gt; Configure Global Security, tick ‘Enable security’<br>Authorization select ‘Role-Based Strategy’</p>
-<p>Under Manage Jenkins you will have a new ‘Manage and Assign Roles’-&gt; Manage roles</p>
-<p>In ‘Global roles’ add role ‘team’ with overall read permission.<br>In “Project roles” add role ‘dev’ with ‘Pattern’ ‘Dev.*’, and tick all the boxes.<br>Same for ‘test’ and ‘ops’.<br><img src="https://i.imgur.com/MSJOKSL.png" alt="ManageRoles"></p>
-<h3 id="Assign-Roles"><a href="#Assign-Roles" class="headerlink" title="Assign Roles"></a>Assign Roles</h3><p>Click “Assign Roles”, in ‘Global roles’ add ‘dev’, ‘test’ and ‘ops’ into group ‘team’.<br>Under ‘Item roles’ add user ‘dev’,’test’ and ‘ops’ and assign to its own role. </p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://i.imgur.com/ml63iH6.png" alt="AssignRoles"></h2><h2 id="Jenkins-in-Docker"><a href="#Jenkins-in-Docker" class="headerlink" title="Jenkins in Docker"></a>Jenkins in Docker</h2><h3 id="Running-jenkins-in-docker"><a href="#Running-jenkins-in-docker" class="headerlink" title="Running jenkins in docker"></a>Running jenkins in docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull jenkins</span><br><span class="line">docker run -p 8080:8080 -p 50000:50000 jenkins</span><br></pre></td></tr></table></figure>
-<h3 id="Persisting-Jenkins-data-in-a-Volume"><a href="#Persisting-Jenkins-data-in-a-Volume" class="headerlink" title="Persisting Jenkins data in a Volume"></a>Persisting Jenkins data in a Volume</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker volume create volume1</span><br><span class="line">docker volume volume ls</span><br><span class="line">docker run -p 8080:8080 -p 50000:50000 -v  volume1:/var/jenkins_home jenkins #v means bond a volume</span><br></pre></td></tr></table></figure>
-<p><code>docker stop $(docker ps -aq) #stop all the containers</code><br><code>docker rm $(docker ps -aq) #remove the container</code></p>
-<h3 id="Running-multiple-Jenkins-instances-in-Docker"><a href="#Running-multiple-Jenkins-instances-in-Docker" class="headerlink" title="Running multiple Jenkins instances in Docker"></a>Running multiple Jenkins instances in Docker</h3><p><img src="https://i.imgur.com/0yAeBkU.png" alt="demo"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:8080 -p 50000:50000 -v  volume1:/var/jenkins_home jenkins</span><br><span class="line">docker run -p 8081:8080 -p 50001:50000 -v  volume1:/var/jenkins_home jenkins</span><br></pre></td></tr></table></figure></p>
-<h2 id="Jenkins-Plugins"><a href="#Jenkins-Plugins" class="headerlink" title="Jenkins Plugins"></a>Jenkins Plugins</h2><h3 id="Create-build-monitor-view"><a href="#Create-build-monitor-view" class="headerlink" title="Create build monitor view"></a>Create build monitor view</h3><p>Install pugin: build monitor view</p>
-<h3 id="Using-catlight"><a href="#Using-catlight" class="headerlink" title="Using catlight"></a>Using <a href="https://catlight.io">catlight</a></h3><p><strong>Catlight</strong></p>
-<ul>
-<li>A notification app for developers</li>
-<li>Available for wind, mac &amp; Linux os</li>
-<li>Monitor Busg, tasks, builds</li>
-<li>See status in the tray and get notified</li>
-<li>This is a jenkins plugin</li>
-</ul>
-<h3 id="Using-Jenkins-CLI"><a href="#Using-Jenkins-CLI" class="headerlink" title="Using Jenkins CLI"></a>Using Jenkins CLI</h3><ul>
-<li>Jenkins has a built-in CLI<br>Manage Jenkins-&gt; Jenkins CLI-&gt; Download jenkins-cli.jar</li>
-</ul>
-<p><code>java -jar jenkins-cli.jar -s http://localhost:8080/ build pipeline -f --username stanadmin --password mario54321</code></p>
-<p>Change ‘Configure Global Security’ -&gt; ‘Authorization’-&gt; Logged-in users can do anything-Allow anonymous read access</p>
-<p><code>java -jar jenkins-cli.jar -s http://localhost:8080/ build Parameterized-build -f -p environment=&#39;dev&#39;</code></p>
-<h3 id="Jenkins-Multibranch-Pipeline"><a href="#Jenkins-Multibranch-Pipeline" class="headerlink" title="Jenkins Multibranch Pipeline"></a>Jenkins Multibranch Pipeline</h3><ul>
-<li>Implement different Jenkinsfile for different branches<br>New iteam-&gt; Select Multibranch Pipline-&gt; Scan multibranch pipleline Now<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git remote add proj1 https://github.com/szhouchoice/springExample.git</span><br><span class="line">git branch</span><br><span class="line">git branch -a</span><br><span class="line">git branch feature2</span><br><span class="line">git checkout feature2 # Switched to branch &apos;feature2&apos;</span><br><span class="line">git push origin feature2</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Integrating-Jenkins-with-Slack"><a href="#Integrating-Jenkins-with-Slack" class="headerlink" title="Integrating Jenkins with Slack"></a>Integrating Jenkins with Slack</h3><p>Install: Jenkins-&gt;Plugin Manager-&gt; Slack Notification</p>
-<h3 id="Jenkins-Metrics-and-Trends"><a href="#Jenkins-Metrics-and-Trends" class="headerlink" title="Jenkins Metrics and Trends"></a>Jenkins Metrics and Trends</h3><p><strong>Build History Metrics Plugin</strong></p>
-<ul>
-<li>Mean Time To Failure (MTTF)</li>
-<li>Mean Time To Recovery (MTTR)</li>
-<li>Standard Deviation<br>Install: Plugin Manager-&gt;Build history metrics<br><img src="https://i.imgur.com/C9aaE74.png" alt="Build History Metrics"><br><strong>Global Build Stats</strong><br>Install: Plugin Manager-&gt;global-build-stats<br>Manage Jenkins-&gt;Global Build Stats-&gt;Initalize stats-&gt;Create new chart-&gt;<br>Title: foobar<br>600*400<br>Hourly<br>24 hours<br><img src="https://i.imgur.com/tRfhyNR.png" alt="Global Build Stats"></li>
-</ul>
-<h2 id="Introduction-to-Jenkins-Pipeline"><a href="#Introduction-to-Jenkins-Pipeline" class="headerlink" title="Introduction to Jenkins Pipeline"></a>Introduction to Jenkins Pipeline</h2><ul>
-<li>A suite of plugins that support continuous delivery pipelines</li>
-<li>They provide tools for modeling delivery pipelines as</li>
-<li>Definition is written into a text file called ‘Jenkinsfile’</li>
-</ul>
-<p>Benefits of pipelines</p>
-<ul>
-<li>Automatically creates a Pipeline build process</li>
-<li>Code review of the Pipeline</li>
-<li>Audit trail of the Pipeline </li>
-<li>Single source of truth</li>
-</ul>
-<p>Declarative vs Scripted Pipeline </p>
-<ul>
-<li>Jenkinsfile can be written using:<ul>
-<li>Declarative</li>
-<li>Scripted</li>
-</ul>
-</li>
-<li>Declarative is a more recent feature<ul>
-<li>provides rich syntactical feature</li>
-<li>designed to make reading &amp; writing Pipelines easier</li>
-</ul>
-</li>
-</ul>
-<p>Why pipeline?</p>
-<ul>
-<li>Pipelines add a powerful set of automation tolls onto Jenkins</li>
-<li>Features of Pipeline are:<ul>
-<li>Pipelines are implemented in code </li>
-<li>Pipelines support complex real-world CD requirements</li>
-<li>Pipelines can survive both planned and unplanned restarts</li>
-<li>Pipeline plugin supports custom extensions</li>
-<li>Pipelines can stop and wait</li>
-</ul>
-</li>
-</ul>
-<h2 id="Pipeline-concepts"><a href="#Pipeline-concepts" class="headerlink" title="Pipeline concepts"></a>Pipeline concepts</h2><ul>
-<li>Pipeline</li>
-<li>Node</li>
-<li>Stage: build, test, deploy</li>
-<li>Step</li>
-</ul>
-<p>Declarative Pipeline syntax<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">pipeline&#123;</span><br><span class="line">  agent any</span><br><span class="line">  stages&#123;</span><br><span class="line">    stage(&apos;Build&apos;)&#123;</span><br><span class="line">	steps &#123;</span><br><span class="line">	   //</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&apos;Test&apos;)&#123;</span><br><span class="line">	steps &#123;</span><br><span class="line">	   //</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&apos;Deploy&apos;)&#123;</span><br><span class="line">	steps &#123;</span><br><span class="line">	   //</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Declarative Pipeline syntax<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node &#123;</span><br><span class="line">  stage(&apos;Build&apos;)&#123;</span><br><span class="line">    //</span><br><span class="line">  &#125;</span><br><span class="line">  stage(&apos;Test&apos;)&#123;</span><br><span class="line">    //</span><br><span class="line">  &#125;</span><br><span class="line">  stage(&apos;Deploy&apos;)&#123;</span><br><span class="line">   //</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Creating-a-simple-Pipeline"><a href="#Creating-a-simple-Pipeline" class="headerlink" title="Creating a simple Pipeline"></a>Creating a simple Pipeline</h2><ul>
-<li>Pipeline can be created in any of the following ways:<ul>
-<li>Blue Ocean</li>
-<li>Through Classic UI</li>
-<li>In SCM(Source Code Managment)</li>
-</ul>
-</li>
-</ul>
-<h2 id="Building-a-project-with-jenkins-pipeline"><a href="#Building-a-project-with-jenkins-pipeline" class="headerlink" title="Building a project with jenkins pipeline"></a>Building a project with jenkins pipeline</h2><p>pipeline script:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">pipeline&#123;</span><br><span class="line">  agent any</span><br><span class="line">  stages&#123;</span><br><span class="line">    stage(&apos;Build&apos;)&#123;</span><br><span class="line">        steps &#123;</span><br><span class="line">           bat &quot;rm -rf springExample&quot;</span><br><span class="line">           bat &quot;git clone https://github.com/ravikiran-srini/springExample.git&quot;</span><br><span class="line">           bat &quot;mvn clean -f springExample&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&apos;Test&apos;)&#123;</span><br><span class="line">        steps &#123;</span><br><span class="line">           bat &quot;mvn test -f springExample&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&apos;Deploy&apos;)&#123;</span><br><span class="line">        steps &#123;</span><br><span class="line">           bat &quot;mvn package -f springExample&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Building-a-Pipeline-with-Jenkinsfile"><a href="#Building-a-Pipeline-with-Jenkinsfile" class="headerlink" title="Building a Pipeline with Jenkinsfile"></a>Building a Pipeline with Jenkinsfile</h2><p>Jenkinsfile</p>
-<ul>
-<li>Complex Pipelines are difficult to write and maintain</li>
-<li>You can write Jenkinsfile in an IDE and commit to source control</li>
-</ul>
-<ol>
-<li><p>In <a href="https://github.com/szhouchoice/springExample">https://github.com/szhouchoice/springExample</a> add a Jenksinsfile</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">  agent any</span><br><span class="line">  stages &#123;</span><br><span class="line">    stage(&apos;Build&apos;) &#123;</span><br><span class="line">      steps &#123;</span><br><span class="line">        sh &apos;mvn clean&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&apos;Test&apos;) &#123;</span><br><span class="line">      steps &#123;</span><br><span class="line">        sh &apos;mvn test&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&apos;Deploy&apos;) &#123;</span><br><span class="line">      steps &#123;</span><br><span class="line">        sh &apos;mvn package&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Pipeline<br><img src="https://i.imgur.com/EsJCtWv.png" alt="Pipeline script from SCM"></p>
-</li>
-</ol>
-<h2 id="Using-environment-variables"><a href="#Using-environment-variables" class="headerlink" title="Using environment variables"></a>Using environment variables</h2><p><strong>Environment variables</strong></p>
-<ul>
-<li>Jenkins exposes environment variables through the variable ‘env’</li>
-<li>Entire list of environment variables is accessible from <a href="localhost:8080/pipeline-syntax/globals#env">env variables</a></li>
-</ul>
-<p>example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&apos;stage1&apos;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &quot;Build ID: $&#123;env.BUILD_ID&#125;, Jenkins URL: $&#123;env.JENKINS_URL&#125;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Console Ouput:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Started by user Stan Zhou</span><br><span class="line">Running in Durability level: MAX_SURVIVABILITY</span><br><span class="line">[Pipeline] Start of Pipeline</span><br><span class="line">[Pipeline] node</span><br><span class="line">Running on Jenkins in /Users/szhou/.jenkins/workspace/stanpipeline</span><br><span class="line">[Pipeline] &#123;</span><br><span class="line">[Pipeline] stage</span><br><span class="line">[Pipeline] &#123; (stage1)</span><br><span class="line">[Pipeline] echo</span><br><span class="line">Build ID: 1, Jenkins URL: http://localhost:8080/</span><br><span class="line">[Pipeline] &#125;</span><br><span class="line">[Pipeline] // stage</span><br><span class="line">[Pipeline] &#125;</span><br><span class="line">[Pipeline] // node</span><br><span class="line">[Pipeline] End of Pipeline</span><br><span class="line">Finished: SUCCESS</span><br></pre></td></tr></table></figure></p>
-<h2 id="Setting-environment-variables"><a href="#Setting-environment-variables" class="headerlink" title="Setting environment variables"></a>Setting environment variables</h2><ul>
-<li>Declarative Pipeline<ul>
-<li>use ‘environment’ directive</li>
-</ul>
-</li>
-<li>Scripted Pipeline<ul>
-<li>use ‘withEnv’ step</li>
-</ul>
-</li>
-<li>environment directive in top-level pipeline block will apply to all steps</li>
-<li>environment directive within a stage will only apply with the stage</li>
-</ul>
-<p>example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line">    environment &#123;</span><br><span class="line">        mainenv = &apos;test&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&apos;stage1&apos;) &#123;</span><br><span class="line">            environment &#123;</span><br><span class="line">                subenv = &apos;test1&apos;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo mainenv</span><br><span class="line">                echo subenv</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&apos;stage2&apos;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo mainenv</span><br><span class="line">                echo subenv  # will pro error</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Jenkins-Blue-Ocean"><a href="#Jenkins-Blue-Ocean" class="headerlink" title="Jenkins Blue Ocean"></a>Jenkins Blue Ocean</h1><h2 id="Getting-started-with-blue-ocean"><a href="#Getting-started-with-blue-ocean" class="headerlink" title="Getting started with blue ocean"></a>Getting started with blue ocean</h2><p>What is blue ocean?</p>
-<ul>
-<li>Blue Ocean refefines the user experience of Jenkins</li>
-<li>Features of Blue Ocean are:<ul>
-<li>Visualization</li>
-<li>Pipeline editor</li>
-<li>Personalization</li>
-<li>Precision</li>
-<li>Native integration for branch</li>
-</ul>
-</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Jenkins/">Jenkins</a><a href="/tags/Devops/">Devops</a><a href="/tags/CD-CI/">CD/CI</a>
   </div>
 
 </div>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/08/16/effective-devops-with-aws/</loc>
+    
+    <lastmod>2019-08-15T14:29:05.363Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/06/19/useful-commands/</loc>
+    
+    <lastmod>2019-08-15T00:11:28.885Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/05/06/git/</loc>
     
     <lastmod>2019-08-14T07:22:52.635Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://223.95.78.227/2019/07/15/devops-with-aws/</loc>
     
     <lastmod>2019-08-13T01:08:49.426Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/06/19/useful-commands/</loc>
-    
-    <lastmod>2019-08-10T02:05:37.126Z</lastmod>
     
   </url>
   
@@ -275,7 +282,7 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
+    <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
@@ -296,14 +303,14 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
+    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
+    <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

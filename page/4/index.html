@@ -83,6 +83,92 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/10/10/web-security/" title="web security" itemprop="url">web security</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2016-10-10T00:03:50.000Z" itemprop="datePublished"> Published 2016-10-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="web安全"><a href="#web安全" class="headerlink" title="web安全"></a>web安全</h1><h3 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h3><p>You can insert a table of contents using the marker <code>[TOC]</code>:</p>
+<p>[TOC]</p>
+<h2 id="使用iptables防护网站安全"><a href="#使用iptables防护网站安全" class="headerlink" title="使用iptables防护网站安全"></a>使用iptables防护网站安全</h2><blockquote>
+<p><strong>只允许特定流量通过，禁用其他流量</strong></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>permit ssh<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 22 -j ACCEPT</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>permit DNS<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -l INPUT 1 -p tcp --sport 53 -j ACCEPT</span><br><span class="line">iptables -l INPUT 1 -p udp --sport 53 -j ACCEPT</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>permit service<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -l INPUT 1 -p tcp --dport 80 -j ACCEPT</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>forbid all others<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -j DROP</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@toad ~]<span class="comment"># netstat -tn</span></span><br><span class="line">Active Internet connections (w/o servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address               Foreign Address             State</span><br><span class="line">tcp        0      0 192.168.199.231:61094       101.200.31.147:443          TIME_WAIT</span><br><span class="line">tcp        0     64 192.168.199.231:22          60.186.174.98:61241         ESTABLISHED</span><br><span class="line">tcp        0      0 192.168.199.231:41795       192.168.199.1:445           ESTABLISHED</span><br><span class="line">tcp        0      0 192.168.199.231:22          60.186.174.98:50722         ESTABLISHED</span><br><span class="line">tcp        0      0 ::1:19187                   ::1:10010                   TIME_WAIT</span><br><span class="line"></span><br><span class="line">[root@toad ~]<span class="comment"># netstat -tn|grep 192.168.199.231|awk '&#123;print $5&#125;'|awk -F ":" '&#123;print $1&#125;'|sort|uniq -c|sort -r -n</span></span><br><span class="line">      2 60.186.174.98</span><br><span class="line">      2 101.200.31.147</span><br><span class="line">      1 192.168.199.1</span><br><span class="line">[root@toad ~]<span class="comment"># iptables -l INPUT 1 -s 60.186.174.98 -j DROP</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="AIDE入侵检测系统"><a href="#AIDE入侵检测系统" class="headerlink" title="AIDE入侵检测系统"></a>AIDE入侵检测系统</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#install aide</span></span><br><span class="line">yum install -y aide</span><br><span class="line"></span><br><span class="line"><span class="comment">#config aide</span></span><br><span class="line">vim /etc/aide.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#init aide database</span></span><br><span class="line">aide --init</span><br><span class="line">mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#check monitor file</span></span><br><span class="line">aide --check</span><br><span class="line"></span><br><span class="line"><span class="comment">#update aide database</span></span><br><span class="line">aide --update</span><br><span class="line"></span><br><span class="line"><span class="comment">#setup cron job</span></span><br><span class="line">crontab -e</span><br><span class="line">* 3 * * * /usr/sbin/aide --check|mail -s <span class="string">"AIDE report "</span> sizemore@gmail.com</span><br></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/web-security/">web security</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/09/29/syd/" title="syd" itemprop="url">syd</a>
   </h1>
   <p class="article-author">By
@@ -808,106 +894,6 @@ Total states run: 1
   <div class="article-tags">
   
   <span></span> <a href="/tags/backup/">backup</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/08/24/docker-tomcat7/" title="docker tomcat7" itemprop="url">docker tomcat7</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2016-08-24T01:15:59.000Z" itemprop="datePublished"> Published 2016-08-24</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="docker-container-with-centos-6-and-tomcat-7"><a href="#docker-container-with-centos-6-and-tomcat-7" class="headerlink" title="docker container with centos 6 and tomcat 7"></a>docker container with centos 6 and tomcat 7</h1><pre><code># docker search centos
-# docker pull centos
-</code></pre><p>Download the Oracle JDK</p>
-<pre><code>wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u72-b14/jdk-7u72-linux-x64.tar.gz&quot;
-</code></pre><p>Create a working folder and place both Tomcat tarball and Oracle JDK files in the same folder.</p>
-<pre><code>[root@docker centos6]# ls
-apache-tomcat-7.0.70.tar.gz  Dockerfile  jdk-7u72-linux-x64.tar.gz
-
-[root@docker centos6]# cat Dockerfile
-FROM centos:latest
-MAINTAINER lreeder
-
-#Helpful utils, but only sudo is required
-#RUN yum -y install tar
-#RUN yum -y install vim
-#RUN yum -y install nc
-RUN yum -y install sudo
-
-######## JDK7
-
-#Note that ADD uncompresses this tarball automatically
-ADD jdk-7u72-linux-x64.tar.gz /opt
-WORKDIR /opt/jdk1.7.0_72
-RUN alternatives --install /usr/bin/java java /opt/jdk1.7.0_72/bin/java 1
-RUN alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_72/bin/jar 1
-RUN alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_72/bin/javac 1
-RUN echo &quot;JAVA_HOME=/opt/jdk1.7.0_72&quot; &gt;&gt; /etc/environment
-
-######## TOMCAT
-
-#Note that ADD uncompresses this tarball automatically
-ADD apache-tomcat-7.0.70.tar.gz /usr/share
-WORKDIR /usr/share/
-RUN mv  apache-tomcat-7.0.70 tomcat7
-RUN echo &quot;JAVA_HOME=/opt/jdk1.7.0_72/&quot; &gt;&gt; /etc/default/tomcat7
-RUN groupadd tomcat
-RUN useradd -s /bin/bash -g tomcat tomcat
-RUN chown -Rf tomcat.tomcat /usr/share/tomcat7
-EXPOSE 8080
-</code></pre><p>Build image</p>
-<pre><code># docker build --rm=true -t centos6/tomcat7 .
-</code></pre><p>Setup port forwarding and start tomcat</p>
-<pre><code>[root@docker centos6]# docker run -p 80:8080 --rm=true -t -i --name tomcat7 centos6/tomcat7 /usr/bin/sudo -u tomcat /usr/share/tomcat7/bin/catalina.sh run
-</code></pre><p>Find out the IP address for the running container:</p>
-<pre><code>[root@docker centos6]# docker inspect --format &apos;{{ .NetworkSettings.IPAddress }}&apos; tomcat7
-172.17.0.22
-</code></pre>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/docker/">docker</a><a href="/tags/tomcat/">tomcat</a>
   </div>
 
 </div>

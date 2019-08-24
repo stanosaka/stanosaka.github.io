@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.imgur.com/rWfUi8x.png">
 <meta property="og:image" content="https://i.imgur.com/7bpoPrj.png">
 <meta property="og:image" content="https://i.imgur.com/KjgJtA0.png">
-<meta property="og:updated_time" content="2019-08-05T07:22:48.272Z">
+<meta property="og:updated_time" content="2019-08-21T05:40:35.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker">
 <meta name="twitter:description" content="what is docker  Open platform Build, ship, and run applications Popular because: Flexible Lightweight Interchangeable Portable ScalableList Docker CLI commands    1234567891011121314151617181920212223">
@@ -104,7 +104,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Docker-CLI-commands"><span class="toc-number">1.</span> <span class="toc-text">List Docker CLI commands</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Beginning-Devops-with-Docker"><span class="toc-number"></span> <span class="toc-text">Beginning Devops with Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-Images-and-Containers"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1. Images and Containers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-networking"><span class="toc-number">2.</span> <span class="toc-text">Docker networking</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Docker-CLI-commands"><span class="toc-number">1.</span> <span class="toc-text">List Docker CLI commands</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Beginning-Devops-with-Docker"><span class="toc-number"></span> <span class="toc-text">Beginning Devops with Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-Images-and-Containers"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1. Images and Containers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-networking"><span class="toc-number">2.</span> <span class="toc-text">Docker networking</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#upload-that-new-image-to-dockerhub"><span class="toc-number"></span> <span class="toc-text">upload that new image to dockerhub</span></a>
 		
 		</div>
 		
@@ -224,7 +224,9 @@
 <pre><code>- docker exec -it container2 sh
 - ifconfig
 - ping container1
-</code></pre>  
+</code></pre><h1 id="upload-that-new-image-to-dockerhub"><a href="#upload-that-new-image-to-dockerhub" class="headerlink" title="upload that new image to dockerhub"></a>upload that new image to dockerhub</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker tag helloworld stanosaka/helloworld</span><br><span class="line">docker push stanosaka/helloworld</span><br></pre></td></tr></table></figure>
+<p>Cleaning up containers:We can clean up everything by stopping and removing all containers with these two handy one-line commands:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker stop $(docker ps -a -q)</span><br><span class="line">$ docker system prune</span><br></pre></td></tr></table></figure></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -281,7 +283,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Docker-CLI-commands"><span class="toc-number">1.</span> <span class="toc-text">List Docker CLI commands</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Beginning-Devops-with-Docker"><span class="toc-number"></span> <span class="toc-text">Beginning Devops with Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-Images-and-Containers"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1. Images and Containers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-networking"><span class="toc-number">2.</span> <span class="toc-text">Docker networking</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Docker-CLI-commands"><span class="toc-number">1.</span> <span class="toc-text">List Docker CLI commands</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Beginning-Devops-with-Docker"><span class="toc-number"></span> <span class="toc-text">Beginning Devops with Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-Images-and-Containers"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1. Images and Containers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-networking"><span class="toc-number">2.</span> <span class="toc-text">Docker networking</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#upload-that-new-image-to-dockerhub"><span class="toc-number"></span> <span class="toc-text">upload that new image to dockerhub</span></a>
  
   </div>
 
@@ -432,7 +434,7 @@
         
           <li>
             
-            	<a href="https://www.python.org/" target="_blank" title="Python doc">Python doc</a>
+            	<a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/" target="_blank" title="kubectl cheat sheet">kubectl cheat sheet</a>
             
           </li>
         

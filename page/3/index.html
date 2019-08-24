@@ -624,7 +624,9 @@
 <pre><code>- docker exec -it container2 sh
 - ifconfig
 - ping container1
-</code></pre>
+</code></pre><h1 id="upload-that-new-image-to-dockerhub"><a href="#upload-that-new-image-to-dockerhub" class="headerlink" title="upload that new image to dockerhub"></a>upload that new image to dockerhub</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker tag helloworld stanosaka/helloworld</span><br><span class="line">docker push stanosaka/helloworld</span><br></pre></td></tr></table></figure>
+<p>Cleaning up containers:We can clean up everything by stopping and removing all containers with these two handy one-line commands:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker stop $(docker ps -a -q)</span><br><span class="line">$ docker system prune</span><br></pre></td></tr></table></figure></p>
+
         
         
         <p class="article-more-link">
@@ -1216,7 +1218,7 @@
         
           <li>
             
-            	<a href="https://www.python.org/" target="_blank" title="Python doc">Python doc</a>
+            	<a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/" target="_blank" title="kubectl cheat sheet">kubectl cheat sheet</a>
             
           </li>
         

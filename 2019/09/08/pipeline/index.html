@@ -4,25 +4,32 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>redhat | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>pipeline | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="Issue 1.123456[root@localhost stan]# yum install -y ntpLoaded plugins: langpacks, product-id, search-disabled-repos, subscription-managerThis system is not registered to Red Hat Subscription Managemen">
-<meta name="keywords" content="redhat">
+    <meta name="description" content="Pipeline Represents a part of:  Software delivery Quality assurance process  Benefits:  Operation grouping Visibility Feedback  Pipeline elements  Basic elements Stage - Logical separation Setp - Used">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redhat">
-<meta property="og:url" content="http://223.95.78.227/2017/09/06/redhat/index.html">
+<meta property="og:title" content="pipeline">
+<meta property="og:url" content="http://223.95.78.227/2019/09/08/pipeline/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="Issue 1.123456[root@localhost stan]# yum install -y ntpLoaded plugins: langpacks, product-id, search-disabled-repos, subscription-managerThis system is not registered to Red Hat Subscription Managemen">
+<meta property="og:description" content="Pipeline Represents a part of:  Software delivery Quality assurance process  Benefits:  Operation grouping Visibility Feedback  Pipeline elements  Basic elements Stage - Logical separation Setp - Used">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-16T11:46:43.000Z">
+<meta property="og:image" content="https://i.imgur.com/J7xJ8KG.png">
+<meta property="og:image" content="https://i.imgur.com/s6L2bbo.png">
+<meta property="og:image" content="https://i.imgur.com/WXIl9qU.png">
+<meta property="og:image" content="https://i.imgur.com/Oiury7J.png">
+<meta property="og:image" content="https://i.imgur.com/5Uo3Ac9.png">
+<meta property="og:image" content="https://i.imgur.com/5gDLWLc.png">
+<meta property="og:image" content="https://i.imgur.com/06nJoTO.png">
+<meta property="og:updated_time" content="2019-09-07T15:36:16.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redhat">
-<meta name="twitter:description" content="Issue 1.123456[root@localhost stan]# yum install -y ntpLoaded plugins: langpacks, product-id, search-disabled-repos, subscription-managerThis system is not registered to Red Hat Subscription Managemen">
+<meta name="twitter:title" content="pipeline">
+<meta name="twitter:description" content="Pipeline Represents a part of:  Software delivery Quality assurance process  Benefits:  Operation grouping Visibility Feedback  Pipeline elements  Basic elements Stage - Logical separation Setp - Used">
+<meta name="twitter:image" content="https://i.imgur.com/J7xJ8KG.png">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -83,14 +90,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/09/06/redhat/" title="redhat" itemprop="url">redhat</a>
+      <a href="/2019/09/08/pipeline/" title="pipeline" itemprop="url">pipeline</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2017-09-06T07:49:54.000Z" itemprop="datePublished"> Published 2017-09-06</time>
+    <time datetime="2019-09-07T15:36:16.258Z" itemprop="datePublished"> Published 2019-09-08</time>
     
   </p>
 </header>
@@ -99,22 +106,184 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Issue-1"><span class="toc-number">1.</span> <span class="toc-text">Issue 1.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solve"><span class="toc-number">2.</span> <span class="toc-text">Solve:</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Commit-Pipeline"><span class="toc-number">1.</span> <span class="toc-text">Commit Pipeline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-Quality-Stages"><span class="toc-number">2.</span> <span class="toc-text">Code Quality Stages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Triggers-and-notifications"><span class="toc-number">3.</span> <span class="toc-text">Triggers and notifications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Team-development-strategies"><span class="toc-number">4.</span> <span class="toc-text">Team development strategies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#acceptance-testing"><span class="toc-number">5.</span> <span class="toc-text">acceptance testing**</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="Issue-1"><a href="#Issue-1" class="headerlink" title="Issue 1."></a>Issue 1.</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost stan]<span class="comment"># yum install -y ntp</span></span><br><span class="line">Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager</span><br><span class="line">This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.</span><br><span class="line">There are no enabled repos.</span><br><span class="line"> Run <span class="string">"yum repolist all"</span> to see the repos you have.</span><br><span class="line"> You can <span class="built_in">enable</span> repos with yum-config-manager --<span class="built_in">enable</span> &lt;repo&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Solve"><a href="#Solve" class="headerlink" title="Solve:"></a>Solve:</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yum.repos.d]<span class="comment"># mkdir /cdrom</span></span><br><span class="line">[root@localhost yum.repos.d]<span class="comment"># mount /dev/cdrom /cdrom</span></span><br><span class="line">[root@localhost yum.repos.d]<span class="comment"># pwd</span></span><br><span class="line">/etc/yum.repos.d</span><br><span class="line">[root@localhost yum.repos.d]<span class="comment"># vim dvd.repo</span></span><br><span class="line">[dvd-source]</span><br><span class="line">name=RHEL 7.2 dvd repo</span><br><span class="line">baseurl=file:///cdrom</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br><span class="line">[root@localhost yum.repos.d]<span class="comment"># yum repolist</span></span><br><span class="line">Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager</span><br><span class="line">This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.</span><br><span class="line">dvd-source                                                                                     | 4.1 kB  00:00:00</span><br><span class="line">(1/2): dvd-source/group_gz                                                                     | 136 kB  00:00:00</span><br><span class="line">(2/2): dvd-source/primary_db                                                                   | 3.6 MB  00:00:00</span><br><span class="line">repo id                                             repo name                                                   status</span><br><span class="line">dvd-source                                          RHEL 7.2 dvd repo                                           4,620</span><br><span class="line">repolist: 4,620</span><br><span class="line">[root@localhost yum.repos.d]<span class="comment"># yum install rpm-build</span></span><br><span class="line">Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager</span><br><span class="line">This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.</span><br><span class="line">Resolving Dependencies</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package rpm-build.x86_64 0:4.11.3-17.el7 will be installed</span><br><span class="line">--&gt; Processing Dependency: perl(Thread::Queue) <span class="keyword">for</span> package: rpm-build-4.11.3-17.el7.x86_64</span><br><span class="line">--&gt; Processing Dependency: system-rpm-config <span class="keyword">for</span> package: rpm-build-4.11.3-17.el7.x86_64</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package perl-Thread-Queue.noarch 0:3.02-2.el7 will be installed</span><br><span class="line">---&gt; Package redhat-rpm-config.noarch 0:9.1.0-68.el7 will be installed</span><br><span class="line">--&gt; Processing Dependency: dwz &gt;= 0.4 <span class="keyword">for</span> package: redhat-rpm-config-9.1.0-68.el7.noarch</span><br><span class="line">--&gt; Processing Dependency: perl-srpm-macros <span class="keyword">for</span> package: redhat-rpm-config-9.1.0-68.el7.noarch</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package dwz.x86_64 0:0.11-3.el7 will be installed</span><br><span class="line">---&gt; Package perl-srpm-macros.noarch 0:1-8.el7 will be installed</span><br><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line"></span><br><span class="line">Dependencies Resolved</span><br><span class="line"></span><br><span class="line">======================================================================================================================</span><br><span class="line"> Package                          Arch                  Version                       Repository                 Size</span><br><span class="line">======================================================================================================================</span><br><span class="line">Installing:</span><br><span class="line"> rpm-build                        x86_64                4.11.3-17.el7                 dvd-source                144 k</span><br><span class="line">Installing <span class="keyword">for</span> dependencies:</span><br><span class="line"> dwz                              x86_64                0.11-3.el7                    dvd-source                 99 k</span><br><span class="line"> perl-Thread-Queue                noarch                3.02-2.el7                    dvd-source                 17 k</span><br><span class="line"> perl-srpm-macros                 noarch                1-8.el7                       dvd-source                4.7 k</span><br><span class="line"> redhat-rpm-config                noarch                9.1.0-68.el7                  dvd-source                 77 k</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">======================================================================================================================</span><br><span class="line">Install  1 Package (+4 Dependent packages)</span><br><span class="line"></span><br><span class="line">Total download size: 341 k</span><br><span class="line">Installed size: 734 k</span><br><span class="line">Is this ok [y/d/N]: y</span><br><span class="line">Downloading packages:</span><br><span class="line">----------------------------------------------------------------------------------------------------------------------</span><br><span class="line">Total                                                                                 1.9 MB/s | 341 kB  00:00:00</span><br><span class="line">Running transaction check</span><br><span class="line">Running transaction <span class="built_in">test</span></span><br><span class="line">Transaction <span class="built_in">test</span> succeeded</span><br><span class="line">Running transaction</span><br><span class="line">  Installing : perl-Thread-Queue-3.02-2.el7.noarch                                                                1/5</span><br><span class="line">  Installing : dwz-0.11-3.el7.x86_64                                                                              2/5</span><br><span class="line">  Installing : perl-srpm-macros-1-8.el7.noarch                                                                    3/5</span><br><span class="line">  Installing : redhat-rpm-config-9.1.0-68.el7.noarch                                                              4/5</span><br><span class="line">  Installing : rpm-build-4.11.3-17.el7.x86_64                                                                     5/5</span><br><span class="line">dvd-source/productid                                                                           | 1.6 kB  00:00:00</span><br><span class="line">  Verifying  : redhat-rpm-config-9.1.0-68.el7.noarch                                                              1/5</span><br><span class="line">  Verifying  : rpm-build-4.11.3-17.el7.x86_64                                                                     2/5</span><br><span class="line">  Verifying  : perl-srpm-macros-1-8.el7.noarch                                                                    3/5</span><br><span class="line">  Verifying  : dwz-0.11-3.el7.x86_64                                                                              4/5</span><br><span class="line">  Verifying  : perl-Thread-Queue-3.02-2.el7.noarch                                                                5/5</span><br><span class="line"></span><br><span class="line">Installed:</span><br><span class="line">  rpm-build.x86_64 0:4.11.3-17.el7</span><br><span class="line"></span><br><span class="line">Dependency Installed:</span><br><span class="line">  dwz.x86_64 0:0.11-3.el7                  perl-Thread-Queue.noarch 0:3.02-2.el7  perl-srpm-macros.noarch 0:1-8.el7</span><br><span class="line">  redhat-rpm-config.noarch 0:9.1.0-68.el7</span><br><span class="line"></span><br><span class="line">Complete!</span><br></pre></td></tr></table></figure>
+		<p>Pipeline</p>
+<p>Represents a part of:</p>
+<ul>
+<li>Software delivery</li>
+<li>Quality assurance process</li>
+</ul>
+<p>Benefits:</p>
+<ul>
+<li>Operation grouping</li>
+<li>Visibility</li>
+<li>Feedback</li>
+</ul>
+<p><strong>Pipeline elements</strong></p>
+<ul>
+<li>Basic elements</li>
+<li>Stage - Logical separation</li>
+<li>Setp - Used to visualize process<br><img src="https://i.imgur.com/J7xJ8KG.png" alt="elements"></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">   agent any</span><br><span class="line">   stages &#123;</span><br><span class="line">      stage(&apos;First Stage&apos;) &#123;</span><br><span class="line">          steps &#123;</span><br><span class="line">              echo &apos;Step 1. Hello World&apos;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      stage(&apos;Second Stage&apos;) &#123;</span><br><span class="line">          steps &#123;</span><br><span class="line">              echo &apos;Step 2. Second time Hello&apos;</span><br><span class="line">              echo &apos;Step 3. Third time Hello&apos;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Define pipeline structure<br>A declarative pipeline is always specified inside the pipeline block and contains sections, directives and steps. </li>
+</ul>
+<p><strong>Sections</strong></p>
+<ul>
+<li>Keywords are:<ul>
+<li>Stages</li>
+<li>Step</li>
+<li>Post<br>Sections define the pipeline structure and usually contain one or more directives or steps. They are defined with the key words, stages, step and post.</li>
+</ul>
+</li>
+</ul>
+<p>Stages defines a series of one or more stage directives.</p>
+<p>Steps defines a series of one or more step instructions.<br>Steps are the most fundamental part of the pipeline they define the operations that are executed so they actually tell Jenkins what to do.</p>
+<p>Defined using:</p>
+<ul>
+<li>sh: executes the shell command</li>
+<li>custom</li>
+<li>script</li>
+</ul>
+<p>Posts defines a series of one or more step instructions that are run at the end of the pipeline build.</p>
+<p><strong>Directives</strong></p>
+<ul>
+<li>Expresses the configuration of a pipeline or its parts</li>
+<li>Defined by:<ul>
+<li>Agent: specifies where the execution takes place</li>
+<li>Triggers: define automated ways to trigger the pipeline and can use cron to set the time based scheduling</li>
+<li>Options: specified pipeline specific options</li>
+<li>Environment: deinfes a set of key values used a s environment variables</li>
+<li>Parameters: define a list of user input parameters</li>
+<li>Stage: allows for logical grouping of steps </li>
+<li>When: determines whether the stage should be executed depending on the given condition</li>
+</ul>
+</li>
+</ul>
+<h2 id="Commit-Pipeline"><a href="#Commit-Pipeline" class="headerlink" title="Commit Pipeline"></a>Commit Pipeline</h2><ul>
+<li>Basic continuous integration process</li>
+<li>Results in a report about the build</li>
+<li>Runs after each change in the code</li>
+<li>Consume a reasonable amount of resources</li>
+<li>Starting point</li>
+</ul>
+<p>Since it runs after every change in the code, the build should take no more than five minutes and should consume a reasonable amount of resources. The commit phase is always the starting point of the continuous delivery process and it provides the most important feedback cycle in the development process.</p>
+<p>In the commit phase a developer checks in the code to the repository.<br>The continuous integration server detects the change and the build starts.<br>The most fundamental commit pipeline contains three stages </p>
+<ul>
+<li>checkout</li>
+<li>compile</li>
+<li>unit test</li>
+</ul>
+<h2 id="Code-Quality-Stages"><a href="#Code-Quality-Stages" class="headerlink" title="Code Quality Stages"></a>Code Quality Stages</h2><p><strong>Extending continuous integration</strong></p>
+<ul>
+<li>The most widely used are: Code coverage and Static analysis</li>
+</ul>
+<p><strong>Code coverage</strong></p>
+<ul>
+<li>Scenario:<ul>
+<li>Nobody writes unit tests</li>
+<li>Passes all the builds</li>
+</ul>
+</li>
+<li>Solution:<ul>
+<li>Add coverage code tools</li>
+</ul>
+</li>
+<li>Creates report</li>
+<li>Make build fail<br><strong>Available tools</strong></li>
+<li>JaCoCo</li>
+<li>Clover</li>
+<li>Cobertura<br><strong>Static Code Analysis</strong></li>
+<li>Checks without execution</li>
+<li>Checks number of rules</li>
+<li>Rules apply to wide range of aspects</li>
+<li>Popular tools are Checkstyle, FindBugs, and PMD</li>
+</ul>
+<p><strong>SonarQube</strong></p>
+<ul>
+<li>Quality management tool</li>
+<li>An alternative</li>
+<li>Aggregates different code analysis frameworks</li>
+<li>Has own dashboards</li>
+<li>User friendly web interface</li>
+</ul>
+<h2 id="Triggers-and-notifications"><a href="#Triggers-and-notifications" class="headerlink" title="Triggers and notifications"></a>Triggers and notifications</h2><p><strong>Triggers</strong></p>
+<ul>
+<li>Automatic action to start the build</li>
+<li>Manay options to choose from</li>
+<li>Three types:<ul>
+<li>External</li>
+<li>Polling SCM</li>
+<li>Scheduled build<br><strong>External Trigger</strong></li>
+</ul>
+</li>
+<li>Natural to understand</li>
+<li>Starts the build after it’s called by the notifier</li>
+</ul>
+<p>GitHub -&gt; trigger-&gt; Jenkins</p>
+<p><strong>Polling SCM</strong></p>
+<ul>
+<li>Periodically calls Github</li>
+<li>Sound counter-intuitive<br>Polling SCM trigger is less intuitive.<br><img src="https://i.imgur.com/s6L2bbo.png" alt="Polling SCM figure"><br>Jenkins periodically calls GitHub and checks if there were any push to the repository. Then it starts the build.</li>
+</ul>
+<p><strong>Scheduled build</strong></p>
+<ul>
+<li>Jenkins runs the build periodically</li>
+<li>No communication with any system</li>
+<li>Implementation of scheduled build is same as polling SCM</li>
+<li>Used for the commit pipeline</li>
+</ul>
+<p><strong>Notifications</strong></p>
+<ul>
+<li>Lot</li>
+</ul>
+<h2 id="Team-development-strategies"><a href="#Team-development-strategies" class="headerlink" title="Team development strategies"></a>Team development strategies</h2><p><strong>Development workflows</strong></p>
+<ul>
+<li>Put the code into the repostitory</li>
+<li>Depends on many factors</li>
+<li>Classify into three types:<ul>
+<li><img src="https://i.imgur.com/WXIl9qU.png" alt="Trunk-based workflow"></li>
+<li><img src="https://i.imgur.com/Oiury7J.png" alt="Branching workflow"></li>
+<li><img src="https://i.imgur.com/5Uo3Ac9.png" alt="Forking workflow"><br><strong>Feature toggle</strong><br>Feature toggle is a technique that is an alternative to maintaining multiple source code branches such that the feature can be tested before it is completed and ready for use. It is used to disable the feature for users but enables it for developers while testing. Feature toggles are essentially variables used in conditional statements the simplest implementation of feature toggles are flags and the if statements.</li>
+</ul>
+</li>
+</ul>
+<h2 id="acceptance-testing"><a href="#acceptance-testing" class="headerlink" title="acceptance testing**"></a>acceptance testing**</h2><p>Acceptance testing is a test performed to determine if business requirements or contracts are met. </p>
+<ul>
+<li>Invovles black-box testing</li>
+<li>Imply the acceptance of the software delivery</li>
+<li>Also called UAT</li>
+<li>Rely on manual steps</li>
+<li>Reaonable to run them as programmed repeatable operations<br><strong>Artifact repository</strong><br>While the source control management stores the source code the artifact repository is dedicated for storing software binary artifacts, for example, compiled libraries or components later used to build a complete application.</li>
+<li>Store binaries on a separate server due to:<ul>
+<li>File size</li>
+<li>Versions</li>
+<li>Revision mapping</li>
+<li>Packages</li>
+<li>Access Control</li>
+<li>Clients</li>
+<li>Use cases<br><img src="https://i.imgur.com/5gDLWLc.png" alt="working"><br><strong>private docker registry</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p certs</span><br><span class="line"></span><br><span class="line">openssl req \\n  -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key \\n  -x509 -days 365 -out certs/domain.crt</span><br><span class="line"></span><br><span class="line">docker run -d -p 5000:5000 --restart=always --name registry -v `pwd`/auth:/auth -e &quot;REGISTRY_AUTH=htpasswd&quot; -e &quot;REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm&quot; -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/passwords -v `pwd`/certs:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key registry:2</span><br><span class="line"></span><br><span class="line">docker tag ubuntu_with_python stanosaka/ubuntu_with_python:1</span><br><span class="line">docker push stanosaka/ubuntu_with_python:1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Acceptance test in pipeline</strong><br><img src="https://i.imgur.com/06nJoTO.png" alt="process"></p>
+<ol>
+<li>The developer pushes a code change to Github.</li>
+<li>Jenkins detects the change, triggers the build and checks out the current code.</li>
+<li>Jenkins executes the commit phase and builds the Docker image</li>
+<li>Jenkins pushes the image to Docker Registry</li>
+<li>Jenkins runs the Docker container in the staging environment</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/redhat/">redhat</a>
-  </div>
 
 </div>
 
@@ -122,7 +291,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2017/09/06/redhat/" data-title="redhat | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2019/09/08/pipeline/" data-title="pipeline | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,19 +304,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/05/05/docker/" title="docker">
-  <strong>上一篇：</strong><br/>
-  <span>
-  docker</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/10/27/nginx01/"  title="Nginx Deploy">
+<a href="/2019/08/16/effective-devops-with-aws/"  title="effective devops with aws">
  <strong>下一篇：</strong><br/> 
- <span>Nginx Deploy
+ <span>effective devops with aws
 </span>
 </a>
 </div>
@@ -162,7 +323,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Issue-1"><span class="toc-number">1.</span> <span class="toc-text">Issue 1.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solve"><span class="toc-number">2.</span> <span class="toc-text">Solve:</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Commit-Pipeline"><span class="toc-number">1.</span> <span class="toc-text">Commit Pipeline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-Quality-Stages"><span class="toc-number">2.</span> <span class="toc-text">Code Quality Stages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Triggers-and-notifications"><span class="toc-number">3.</span> <span class="toc-text">Triggers and notifications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Team-development-strategies"><span class="toc-number">4.</span> <span class="toc-text">Team development strategies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#acceptance-testing"><span class="toc-number">5.</span> <span class="toc-text">acceptance testing**</span></a></li></ol>
  
   </div>
 

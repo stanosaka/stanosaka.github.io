@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/09/08/pipeline/</loc>
+    
+    <lastmod>2019-09-07T15:36:16.258Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2016/08/17/aws/</loc>
+    
+    <lastmod>2019-09-06T00:13:02.613Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/05/05/docker/</loc>
     
     <lastmod>2019-09-02T14:21:21.421Z</lastmod>
@@ -96,13 +110,6 @@
     <loc>http://223.95.78.227/2019/07/15/splunk/</loc>
     
     <lastmod>2019-07-19T12:38:59.302Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2016/08/17/aws/</loc>
-    
-    <lastmod>2019-07-17T08:02:28.337Z</lastmod>
     
   </url>
   
@@ -261,14 +268,7 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
+    <loc>http://223.95.78.227/2016/09/15/saltstack/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
@@ -282,7 +282,21 @@
   </url>
   
   <url>
+    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
@@ -297,13 +311,6 @@
   
   <url>
     <loc>http://223.95.78.227/2016/10/10/web-security/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2016/09/15/saltstack/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

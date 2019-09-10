@@ -83,14 +83,14 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/09/08/pipeline/" title="pipeline" itemprop="url">pipeline</a>
+      <a href="/2019/09/09/pipeline/" title="pipeline" itemprop="url">pipeline</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2019-09-07T15:36:16.258Z" itemprop="datePublished"> Published 2019-09-08</time>
+    <time datetime="2019-09-09T05:08:50.136Z" itemprop="datePublished"> Published 2019-09-09</time>
     
   </p>
 </header>
@@ -106,7 +106,94 @@
 <ul>
 <li>Operation grouping</li>
 <li>Visibility</li>
-<li>Feedback</li>
+<li>Feedback<br><strong>Automated deployment pipeline</strong><br>3 stages:<br>code change-&gt; Continuous Integration-&gt; Automated acceptance testing-&gt; Configuration management</li>
+</ul>
+<ol>
+<li>Continuous Integration<br>The continuous integration phase provides the first feedback to the developers. It checks out the code from the repository, compiles it, runs unit tests and verifies the code quality. If any step fails the pipeline execution is stopped and the first thing the developer should do is fix the continuous integration build. The continuous integration pipeline is usually the starting point.</li>
+</ol>
+<ul>
+<li>first feedback</li>
+<li>checks code</li>
+<li>starting point</li>
+<li>simple to setup</li>
+</ul>
+<ol start="2">
+<li>Automated acceptance testing</li>
+</ol>
+<ul>
+<li>Suites of tests</li>
+<li>A quality gate</li>
+<li>Pipeline execution is stopped if test fails</li>
+<li>Prevents movement</li>
+<li>Lot of confusion</li>
+</ul>
+<p><img src="https://i.imgur.com/KGWFQPx.png" alt="Agile testing matrix"></p>
+<ol>
+<li>Acceptance testing</li>
+</ol>
+<ul>
+<li>Represent functional requirements</li>
+<li>Wrtten in the form of stories or examples</li>
+</ul>
+<ol start="2">
+<li>Unit Testing</li>
+</ol>
+<ul>
+<li>Provide the high-quality software</li>
+<li>Minimize the number of bugs</li>
+</ul>
+<ol start="3">
+<li>Exploratory Testing</li>
+</ol>
+<ul>
+<li>Manual black-box testing</li>
+<li>Breaks or improves the system</li>
+</ul>
+<ol start="4">
+<li>Non-functional testing</li>
+</ol>
+<ul>
+<li>Represent properties:<ul>
+<li>Performance</li>
+<li>Scalability</li>
+<li>Security</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>Configuration management</li>
+</ol>
+<ul>
+<li>Replaces the manual operations</li>
+<li>Responsible for tracking and controlling changes</li>
+<li>Solution to the problems</li>
+<li>Enable storing configuration files<br>Configuration management is a solution to the problems posed by manually deploying and configuring applications on the production. Configuration management tools enables storing configuration files in the version control system and tracking every change that was made on the production servers.</li>
+</ul>
+<p><strong>Technical and development prerequisites</strong></p>
+<ul>
+<li>Automated build, test, package, and deploy operations</li>
+<li>Quick pipeline execution</li>
+<li>Quick failure recovery</li>
+<li>Zero-downtime deployment</li>
+<li>Trunk-based deployment</li>
+</ul>
+<p><strong>Building the continuous delivery process</strong><br>Jenkins</p>
+<ul>
+<li>Popular automation server</li>
+<li>Helps create automated sequence of scripts</li>
+<li>Plugin-oriented</li>
+</ul>
+<p>Ansible<br>Helps with:</p>
+<ul>
+<li>Software provisioning</li>
+<li>Configuration management</li>
+<li>Application deployment</li>
+</ul>
+<p>Java</p>
+<ul>
+<li>Most popular programming language</li>
+<li>Develop with the Spring framework</li>
+<li>Gradle-build tool<br>Jenkins is by far the most popular automation server on the market. It helps to create continuous integration and continuous delivery pipelines and in general any other automated sequence of scripts. Highly plug-in oriented it has a greater community which constantly extends it with new features. Another one is Ansible. Ansible is an automation tool that helps with software provisioning configuration management and application deployment. Next comes Java. Java has been the most popular programming language for years, that is why it is being used for most code examples. Together with Java, most companies develop with the Spring framework so we used it to create a simple web service needed to explain some concepts. Gradle is used as a build tool. It is less popular than Maven however trending much faster.</li>
 </ul>
 <p><strong>Pipeline elements</strong></p>
 <ul>
@@ -265,6 +352,20 @@
 <li>Jenkins pushes the image to Docker Registry</li>
 <li>Jenkins runs the Docker container in the staging environment</li>
 </ol>
+<p><strong>Configuration management</strong></p>
+<ul>
+<li>Process of controlling configuration changes</li>
+<li>Used to refer to the software and the hardware</li>
+</ul>
+<p>Application Configuration| Infrastructre Configuration<br>Decides how the system works| Server infrastructure and environment configuration<br>Expressed in the form of flags| Takes care of the deployment process<br><img src="https://i.imgur.com/L4k4cb0.png" alt="working"><br><strong>Traits</strong></p>
+<ul>
+<li>Automation</li>
+<li>Version Control</li>
+<li>Incremental changes</li>
+<li>Server provisioning</li>
+<li>Security</li>
+<li>Simplicity</li>
+</ul>
 
         
         
@@ -275,6 +376,11 @@
     <footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/pipeline/">pipeline</a>
+  </div>
 
 </div>
 
@@ -2152,15 +2258,15 @@
 			
 		
 			
+				<li><a href="/tags/ansbile/" title="ansbile">ansbile<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/software-development/" title="software development">software development<sup>1</sup></a></li>
 			
 		
 		</ul>

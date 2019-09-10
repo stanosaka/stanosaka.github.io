@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://i.imgur.com/FAExCVU.png">
 <meta property="og:image" content="https://i.imgur.com/LtTRrfD.png">
 <meta property="og:image" content="https://i.imgur.com/KjgJtA0.png">
-<meta property="og:updated_time" content="2019-09-10T01:57:14.157Z">
+<meta property="og:updated_time" content="2019-09-10T02:04:54.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker">
 <meta name="twitter:description" content="what is docker  Open platform Build, ship, and run applications Popular because: Flexible Lightweight Interchangeable Portable ScalableList Docker CLI commands    1234567891011121314151617181920212223">
@@ -186,7 +186,7 @@
 </ul>
 </li>
 <li>Overlay networks:<ul>
-<li>Connect multiple Docker saemons together</li>
+<li>Connect multiple Docker daemons together</li>
 <li>Enable swarm services to communicate with each other</li>
 </ul>
 </li>
@@ -214,55 +214,41 @@
 <p>Host1: Check networks and initiate docker swarm:<br> docker network ls<br> docker swarm init<br>Host2: Initiate swarm worker and check its networks:<br> docker swarm join –toaken foobar 192.168.10.91:2377<br> docker network ls</p>
 </blockquote>
 </li>
-<li>Step 2: Create overlay network and spin a docker container on host1<blockquote>
+<li><p>Step 2: Create overlay network and spin a docker container on host1</p>
+<blockquote>
 <p>Create an overlay network:</p>
 <ul>
-<li>docker network create -d overlay –atachable=true swarmnet</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<p>List networks:</p>
-<ul>
-<li>docker network ls</li>
-</ul>
-<p>Spin a Docker container:</p>
-<ul>
+<li>docker network create -d overlay –atachable=true swarmnet<br>List networks:</li>
+<li>docker network ls<br>Spin a Docker container:</li>
 <li>docker run -itd –name container1 –network swarmnet busybox</li>
 </ul>
-<ul>
-<li>Step 3: Spin a container on host2 and check its networks<blockquote>
+</blockquote>
+</li>
+<li><p>Step 3: Spin a container on host2 and check its networks</p>
+<blockquote>
 <p>List networks:</p>
 <ul>
+<li>docker network ls<br>Spin a Docker container:</li>
+<li>docker run -itd –name container2 –network swarmnet busybox<br>List networks and see new network:</li>
 <li>docker network ls</li>
 </ul>
 </blockquote>
 </li>
-</ul>
-<p>Spin a Docker container:</p>
-<ul>
-<li>docker run -itd –name container2 –network swarmnet busybox</li>
-</ul>
-<p>List networks and see new network:</p>
-<ul>
-<li>docker network ls</li>
-</ul>
-<ul>
-<li>Step 4: Login to the containers check its networks and sing each other<blockquote>
+<li><p>Step 4: Login to the containers check its networks and sing each other</p>
+<blockquote>
 <p>Host1: Log in to the container, check IPs, and ping container on Host2:</p>
 <ul>
 <li>docker exec -it container1 sh</li>
 <li>ifconfig</li>
-<li>ping container2</li>
+<li>ping container2<br>Host2:  Log in to the container, check IPs, and ping container on Host1:</li>
+<li>docker exec -it container2 sh</li>
+<li>ifconfig</li>
+<li>ping container1</li>
 </ul>
 </blockquote>
 </li>
 </ul>
-<p>Host2:  Log in to the container, check IPs, and ping container on Host1:</p>
-<pre><code>- docker exec -it container2 sh
-- ifconfig
-- ping container1
-</code></pre><h1 id="upload-that-new-image-to-dockerhub"><a href="#upload-that-new-image-to-dockerhub" class="headerlink" title="upload that new image to dockerhub"></a>upload that new image to dockerhub</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker tag helloworld stanosaka/helloworld</span><br><span class="line">docker push stanosaka/helloworld</span><br></pre></td></tr></table></figure>
+<h1 id="upload-that-new-image-to-dockerhub"><a href="#upload-that-new-image-to-dockerhub" class="headerlink" title="upload that new image to dockerhub"></a>upload that new image to dockerhub</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker tag helloworld stanosaka/helloworld</span><br><span class="line">docker push stanosaka/helloworld</span><br></pre></td></tr></table></figure>
 <p>Cleaning up containers:We can clean up everything by stopping and removing all containers with these two handy one-line commands:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker stop $(docker ps -a -q)</span><br><span class="line">$ docker system prune</span><br></pre></td></tr></table></figure></p>
 <h1 id="Amazon-web-services-and-docker-development"><a href="#Amazon-web-services-and-docker-development" class="headerlink" title="Amazon web services and docker development"></a>Amazon web services and docker development</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install     apt-transport-https     ca-certificates     curl</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key</span><br><span class="line">add-apt-repository    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br><span class="line">apt update</span><br><span class="line">apt-get install docker-ce docker-ce-cli containerd.io</span><br><span class="line">systemctl start docker</span><br><span class="line">systemctl status docker</span><br><span class="line"></span><br><span class="line">root@ip-172-31-6-219:~# cat dockerfile</span><br><span class="line">FROM ubuntu:16.04</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">RUN apt update</span><br><span class="line">RUN apt install -y apache2</span><br><span class="line">RUN echo &quot;Welcome to my web site&quot; &gt; /var/www/html/index.html</span><br><span class="line">CMD /usr/sbin/apache2ctl -D FOREGROUND</span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker info</span><br><span class="line">docker run -it --detach=true ubuntu bash</span><br><span class="line">docker ps</span><br><span class="line">docker renmae nervous_visvesvaraya newname</span><br><span class="line">docker network inspect newnet|less</span><br><span class="line">docker network connect newnet newname</span><br><span class="line">docker inspect newname|less</span><br><span class="line">ping 172.18.0.2</span><br><span class="line">ping 172.17.0.2</span><br><span class="line">docker build -t &quot;webserver&quot; .</span><br><span class="line">docker images</span><br><span class="line">docker run -d -p 80:80 webserver /usr/sbin/apache2ctl -D FOREGROUND</span><br><span class="line">docker ps</span><br><span class="line">curl localhost</span><br><span class="line"> aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com</span><br><span class="line">&#123;</span><br><span class="line">    &quot;Role&quot;: &#123;</span><br><span class="line">        &quot;AssumeRolePolicyDocument&quot;: &#123;</span><br><span class="line">            &quot;Version&quot;: &quot;2012-10-17&quot;,</span><br><span class="line">            &quot;Statement&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;Action&quot;: [</span><br><span class="line">                        &quot;sts:AssumeRole&quot;</span><br><span class="line">                    ],</span><br><span class="line">                    &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">                    &quot;Principal&quot;: &#123;</span><br><span class="line">                        &quot;Service&quot;: [</span><br><span class="line">                            &quot;ecs.amazonaws.com&quot;</span><br><span class="line">                        ]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;RoleId&quot;: &quot;AROAYYRUPCKTK7Z2M2PLO&quot;,</span><br><span class="line">        &quot;CreateDate&quot;: &quot;2019-09-02T02:28:51Z&quot;,</span><br><span class="line">        &quot;RoleName&quot;: &quot;AWSServiceRoleForECS&quot;,</span><br><span class="line">        &quot;Path&quot;: &quot;/aws-service-role/ecs.amazonaws.com/&quot;,</span><br><span class="line">        &quot;Arn&quot;: &quot;arn:aws:iam::602479202982:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Working-with-ecs-throught-the-aws-cli"><a href="#Working-with-ecs-throught-the-aws-cli" class="headerlink" title="Working with ecs throught the aws cli"></a>Working with ecs throught the aws cli</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">aws ecs list-clusters</span><br><span class="line">aws ecs describe-clusters</span><br><span class="line">aws ecs create-cluster --cluster-name newcluster</span><br></pre></td></tr></table></figure>

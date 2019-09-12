@@ -4,30 +4,27 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>LinuxSystemAdmin | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>networking | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="TCP/IP networkingTroubleshoot networkingTools for troubleshooting the network  ping - ICMP echo requests traceroute and tracepath - Trace the path taken to a given host netcat - Arbitrary TCP and UDP">
-<meta name="keywords" content="Linux">
+    <meta name="description" content="IP subnettingSubnetting part 1IP address  Subnet address  1st Host address  Last Host address  Broadcast address   Two methods  Method 1 - Binary Method Method 2 - Quick Method    What IP address woul">
+<meta name="keywords" content="networking">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LinuxSystemAdmin">
-<meta property="og:url" content="http://223.95.78.227/2019/07/23/LinuxSystemAdmin/index.html">
+<meta property="og:title" content="networking">
+<meta property="og:url" content="http://223.95.78.227/2019/09/12/networking/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="TCP/IP networkingTroubleshoot networkingTools for troubleshooting the network  ping - ICMP echo requests traceroute and tracepath - Trace the path taken to a given host netcat - Arbitrary TCP and UDP">
+<meta property="og:description" content="IP subnettingSubnetting part 1IP address  Subnet address  1st Host address  Last Host address  Broadcast address   Two methods  Method 1 - Binary Method Method 2 - Quick Method    What IP address woul">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.imgur.com/RcrCjea.jpg">
-<meta property="og:image" content="https://i.imgur.com/60o3bav.png">
-<meta property="og:image" content="https://i.imgur.com/D7Vewu7.jpg">
-<meta property="og:image" content="https://i.imgur.com/4WIQHtZ.png">
-<meta property="og:updated_time" content="2019-09-12T08:04:09.723Z">
+<meta property="og:image" content="https://i.imgur.com/GFUUIuH.png">
+<meta property="og:updated_time" content="2019-09-12T14:34:14.724Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LinuxSystemAdmin">
-<meta name="twitter:description" content="TCP/IP networkingTroubleshoot networkingTools for troubleshooting the network  ping - ICMP echo requests traceroute and tracepath - Trace the path taken to a given host netcat - Arbitrary TCP and UDP">
-<meta name="twitter:image" content="https://i.imgur.com/RcrCjea.jpg">
+<meta name="twitter:title" content="networking">
+<meta name="twitter:description" content="IP subnettingSubnetting part 1IP address  Subnet address  1st Host address  Last Host address  Broadcast address   Two methods  Method 1 - Binary Method Method 2 - Quick Method    What IP address woul">
+<meta name="twitter:image" content="https://i.imgur.com/GFUUIuH.png">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -82,20 +79,20 @@
 </div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
+      <div id="main" class="blog" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/07/23/LinuxSystemAdmin/" title="LinuxSystemAdmin" itemprop="url">LinuxSystemAdmin</a>
+      <a href="/2019/09/12/networking/" title="networking" itemprop="url">networking</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2019-07-22T23:00:22.000Z" itemprop="datePublished"> Published 2019-07-23</time>
+    <time datetime="2019-09-12T08:37:21.000Z" itemprop="datePublished"> Published 2019-09-12</time>
     
   </p>
 </header>
@@ -104,49 +101,60 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP-networking"><span class="toc-number">1.</span> <span class="toc-text">TCP/IP networking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshoot-networking"><span class="toc-number">1.1.</span> <span class="toc-text">Troubleshoot networking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backup-and-streaming"><span class="toc-number">1.2.</span> <span class="toc-text">Backup and streaming</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IP-subnetting"><span class="toc-number">1.</span> <span class="toc-text">IP subnetting</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="TCP-IP-networking"><a href="#TCP-IP-networking" class="headerlink" title="TCP/IP networking"></a>TCP/IP networking</h1><h2 id="Troubleshoot-networking"><a href="#Troubleshoot-networking" class="headerlink" title="Troubleshoot networking"></a>Troubleshoot networking</h2><p><strong>Tools for troubleshooting the network</strong></p>
+		<h1 id="IP-subnetting"><a href="#IP-subnetting" class="headerlink" title="IP subnetting"></a>IP subnetting</h1><p><strong>Subnetting part 1</strong><br>IP address</p>
 <ul>
-<li><em>ping</em> - ICMP echo requests<br><img src="https://i.imgur.com/RcrCjea.jpg" alt="ping -I eth1 192.168.10.12"></li>
-<li><em>traceroute</em> and <em>tracepath</em> - Trace the path taken to a given host</li>
-<li><em>netcat</em> - Arbitrary TCP and UDP network communication<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">stan@stan-virtual-machine:~$ ifconfig</span><br><span class="line">eth0      Link encap:Ethernet  HWaddr 00:0c:29:a2:c2:5d  </span><br><span class="line">          inet addr:192.168.199.107  Bcast:192.168.199.255  Mask:255.255.255.0</span><br><span class="line">          inet6 addr: fe80::20c:29ff:fea2:c25d/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:109798 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:34545 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:53893408 (53.8 MB)  TX bytes:15357635 (15.3 MB)</span><br><span class="line"></span><br><span class="line">lo        Link encap:Local Loopback  </span><br><span class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</span><br><span class="line">          inet6 addr: ::1/128 Scope:Host</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  Metric:1</span><br><span class="line">          RX packets:5917 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:5917 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:0 </span><br><span class="line">          RX bytes:1699426 (1.6 MB)  TX bytes:1699426 (1.6 MB)</span><br><span class="line"></span><br><span class="line">stan@stan-virtual-machine:~$ nc -l 8000</span><br><span class="line">nc -v -z 192.168.199.107 8000</span><br><span class="line">Connection to 192.168.199.107 8000 port [tcp/*] succeeded!</span><br></pre></td></tr></table></figure>
+<li>Subnet address </li>
+<li>1st Host address </li>
+<li>Last Host address </li>
+<li>Broadcast address </li>
+</ul>
+<p>Two methods</p>
+<ul>
+<li>Method 1 - Binary Method</li>
+<li>Method 2 - Quick Method</li>
+</ul>
+<p><img src="https://i.imgur.com/GFUUIuH.png" alt="Typical example"></p>
+<ul>
+<li><p>What IP address would router1 be configured with if it is to use the first ip address in the same subnet as PC1?</p>
+</li>
+<li><p>What broadcast address is use by PC1?</p>
+</li>
+<li><p>What ip address would Router1 be configured with if it is to use the last IP address in the same Subnet as PC1?</p>
+</li>
+<li><p>What subnet is PC1 part of?</p>
 </li>
 </ul>
-<p><img src="https://i.imgur.com/60o3bav.png" alt="nc"></p>
+<p><strong>Binary Rules</strong></p>
+<p>Network/subnet address </p>
 <ul>
-<li><em>tcpdump</em> and <em>wireshark</em> - Packet captures for network analysis<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> nc -l 8000 &amp;</span><br><span class="line">[1] 20393</span><br><span class="line">➜  ~ sudo tcpdump -i enp2s0 port 8000</span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span><br><span class="line">listening on enp2s0, link-type EN10MB (Ethernet), capture size 262144 bytes</span><br><span class="line">Hi</span><br><span class="line">[1]  + 20393 done       nc -l 8000</span><br><span class="line">09:52:41.674092 IP stan-virtual-machine.lan.57089 &gt; stan-OptiPlex-380.lan.8000: Flags [S], seq 3581133462, win 29200, options [mss 1460,sackOK,TS val 12349350 ecr 0,nop,wscale 7], length 0</span><br><span class="line">09:52:41.674180 IP stan-OptiPlex-380.lan.8000 &gt; stan-virtual-machine.lan.57089: Flags [S.], seq 2419171515, ack 3581133463, win 28960, options [mss 1460,sackOK,TS val 2113949133 ecr 12349350,nop,wscale 7], length 0</span><br><span class="line">09:52:41.674412 IP stan-virtual-machine.lan.57089 &gt; stan-OptiPlex-380.lan.8000: Flags [.], ack 1, win 229, options [nop,nop,TS val 12349351 ecr 2113949133], length 0</span><br><span class="line">09:52:41.674518 IP stan-virtual-machine.lan.57089 &gt; stan-OptiPlex-380.lan.8000: Flags [P.], seq 1:4, ack 1, win 229, options [nop,nop,TS val 12349351 ecr 2113949133], length 3</span><br><span class="line">09:52:41.674541 IP stan-OptiPlex-380.lan.8000 &gt; stan-virtual-machine.lan.57089: Flags [.], ack 4, win 227, options [nop,nop,TS val 2113949133 ecr 12349351], length 0</span><br><span class="line">09:52:41.674582 IP stan-virtual-machine.lan.57089 &gt; stan-OptiPlex-380.lan.8000: Flags [F.], seq 4, ack 1, win 229, options [nop,nop,TS val 12349351 ecr 2113949133], length 0</span><br><span class="line">09:52:41.674718 IP stan-OptiPlex-380.lan.8000 &gt; stan-virtual-machine.lan.57089: Flags [F.], seq 1, ack 5, win 227, options [nop,nop,TS val 2113949133 ecr 12349351], length 0</span><br><span class="line">^C</span><br><span class="line">7 packets captured</span><br><span class="line">8 packets received by filter</span><br><span class="line">1 packet dropped by kernel</span><br><span class="line"></span><br><span class="line">stan@stan-virtual-machine:~$ echo Hi| nc 192.168.199.178 8000</span><br><span class="line">tcpdump -i eth1 port 8000 and not port 22 and not icmp</span><br><span class="line">tcpdump -i eth1 not udp 53</span><br><span class="line">tcpdump -nX -i eth1 port 8000</span><br></pre></td></tr></table></figure>
-</li>
+<li>Fill the host portion of an address with binary 0’s </li>
 </ul>
-<p><img src="https://i.imgur.com/D7Vewu7.jpg" alt="tcpdump"><br><img src="https://i.imgur.com/4WIQHtZ.png" alt="tcp three-way handshake"></p>
-<h2 id="Backup-and-streaming"><a href="#Backup-and-streaming" class="headerlink" title="Backup and streaming"></a>Backup and streaming</h2><p><strong>What to expect from a backup tool?</strong></p>
+<p>Broadcast address </p>
 <ul>
-<li>Any backup solution should -roughly- provide the following:</li>
-<li>Full and incrementail backups</li>
-<li>File permissions and ownership preservation</li>
-<li>The ability to be automated</li>
+<li>Fill the host portion of an address with binary 1’s </li>
 </ul>
-<p><strong>Introducing rsync</strong></p>
+<p>First Host</p>
 <ul>
-<li>Rsync is native Linux tool that can be deployed from the official repositories</li>
-<li>It supports incremental and full backups- It transfers files over SSH</li>
-<li>It can be automated via cron jobs to run in unattended mode.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type rsync</span><br><span class="line">rsync -zvr simple-php-website/ ~/backup/</span><br><span class="line">sudo rsync -azv simple-php-website/ ~/backup/ # backup with file created time stampe and ownership</span><br></pre></td></tr></table></figure>
-</li>
+<li>Fill the host portion of an address with binary 0’s except for the last bit which is set to binary 1</li>
 </ul>
-<p><strong>using rsync over the network</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -azv simple-php-website/ pi@rpi-01:~/backup/</span><br><span class="line">rsync -azv  pi@rpi-01:~/backup/ simple-php-website</span><br></pre></td></tr></table></figure></p>
-<p><strong>advanced ssh options with rsync</strong></p>
-<pre><code>ssh-keygen
-ssh-copy-id pi@rpi-01 
-rsync -avz -e &quot;ssh -p 2222&quot; simple-php-website/ pi@rpi-01:~/backup/ # specify the ssh port
-rsync -azv --existing simple-php-website/ pi@rpi-01:~/backup/ ## only sync the file existing in destnation
-rsync -avzi simple-php-website/ pi@rpi-01:~/backup/ # i show what has been changed in source and destnation
-dd if=/dev/zero of=data.bin bs=102400 count=10240
-rsync -azv --progress simple-php-website/ pi@rpi-01:~/backup/ #show the transfers info
-rsync -azv --include &apos;*.php&apos; --exclude &apos;*.jpg&apos; simple-php-website/ pi@rpi-01:~/backup/
-
-</code></pre>  
+<p>Last Host</p>
+<ul>
+<li>Fill the host portion of an address with binary 1’s except for the last bit which is set to binary 0</li>
+</ul>
+<p>3rd example<br>172.16.129.1/17</p>
+<p>172.16.1|000 0001.0000 0001<br>subnet = 172.16.1000 0000.0000 0000=172.16.128.0<br>Broadcast= 172.16.1111 1111.1111 1111=172.16.255.255<br>1st host=172.16.128.1<br>last host=172.16.255.254</p>
+<p><strong>Shortcut table</strong><br>128|64|32|16|8|4|2|1<br>128|192|224|240|248|252|254|255</p>
+<p>Tip: the first line shows the decimal values for the binary numbers of an octet<br>10000000=128   00010000=16</p>
+<p>Second row, subtract the value in the frist row from 256<br>256-128=128    256-32=224   256-64=192  256-1=255</p>
+<p><strong>Binary odometer:(0-255)</strong><br>10.1.1.254+1=10.1.1.255<br>10.1.1.255+1=10.1.2.0<br>10.1.2.0+1=10.1.2.1<br>or in reverse:<br>10.1.2.0-1=10.1.1.255</p>
+<p>Broadcast address = Next Network -1<br>First host = subnet +1<br>last host = broadcast -1<br>What subnet is this host on?<br>What is a last host?</p>
+<p><strong>Subnetting part 2</strong><br>creat multiple subnets</p>
+<p>Subnet this network into at least 10 subnets<br>Subnet this network into subnets each having 10 host</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -154,7 +162,7 @@ rsync -azv --include &apos;*.php&apos; --exclude &apos;*.jpg&apos; simple-php-we
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Linux/">Linux</a>
+  <span></span> <a href="/tags/networking/">networking</a>
   </div>
 
 </div>
@@ -163,7 +171,7 @@ rsync -azv --include &apos;*.php&apos; --exclude &apos;*.jpg&apos; simple-php-we
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2019/07/23/LinuxSystemAdmin/" data-title="LinuxSystemAdmin | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2019/09/12/networking/" data-title="networking | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -176,19 +184,11 @@ rsync -azv --include &apos;*.php&apos; --exclude &apos;*.jpg&apos; simple-php-we
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/07/29/jenkins-blue-ocean/" title="Jenkins Pipeline">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Jenkins Pipeline</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/07/19/programming4sysadmins/"  title="programming4sysadmins">
+<a href="/2019/09/09/pipeline/"  title="pipeline">
  <strong>下一篇：</strong><br/> 
- <span>programming4sysadmins
+ <span>pipeline
 </span>
 </a>
 </div>
@@ -199,13 +199,6 @@ rsync -azv --include &apos;*.php&apos; --exclude &apos;*.jpg&apos; simple-php-we
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP-networking"><span class="toc-number">1.</span> <span class="toc-text">TCP/IP networking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshoot-networking"><span class="toc-number">1.1.</span> <span class="toc-text">Troubleshoot networking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backup-and-streaming"><span class="toc-number">1.2.</span> <span class="toc-text">Backup and streaming</span></a></li></ol></li></ol>
- 
-  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -607,55 +600,6 @@ $(document).ready(function(){
 </script>
 
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
-
 
 
 
@@ -725,4 +669,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
-</html>
+ </html>

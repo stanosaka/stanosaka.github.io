@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/07/29/jenkins-blue-ocean/</loc>
+    
+    <lastmod>2019-09-17T10:46:54.853Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/06/19/useful-commands/</loc>
     
     <lastmod>2019-09-17T10:42:20.642Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>http://223.95.78.227/2019/08/03/vagrant/</loc>
     
     <lastmod>2019-08-05T05:20:28.770Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/07/29/jenkins-blue-ocean/</loc>
-    
-    <lastmod>2019-07-29T05:01:26.031Z</lastmod>
     
   </url>
   

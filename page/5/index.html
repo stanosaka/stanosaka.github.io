@@ -83,65 +83,6 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/08/28/mysql-backup/" title="MySQL分库分表备份脚本" itemprop="url">MySQL分库分表备份脚本</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2016-08-28T06:46:20.000Z" itemprop="datePublished"> Published 2016-08-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Let’s cut to the chase<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@aofa-staging tools]# cat mysql_backup.sh</span><br><span class="line">#!/bin/sh</span><br><span class="line">MYUSER=root</span><br><span class="line">MYPASS=yourpasswd</span><br><span class="line">SOCKET=/tmp/mysql.sock</span><br><span class="line">MYLOGIN=&quot;mysql -u$MYUSER -p$MYPASS -S $SOCKET&quot;</span><br><span class="line">MYDUMP=&quot;mysqldump -u$MYUSER -p$MYPASS -S$SOCKET -B&quot;</span><br><span class="line">DATABASE=&quot;$($MYLOGIN -e &quot;show databases;&quot;|egrep -vi &quot;Data|_schema|mysql&quot;)&quot;</span><br><span class="line"></span><br><span class="line">for dbname in $DATABASE</span><br><span class="line">  do</span><br><span class="line">   MYDIR=/backup/mysql/$dbname</span><br><span class="line">   [ ! -d $MYDIR ] &amp;&amp; mkdir -p $MYDIR</span><br><span class="line"> $MYDUMP $dbname|gzip &gt;$MYDIR/$&#123;dbname&#125;_$(date +%F).sql.gz</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
-<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@aofa-staging backup]# tree mysql</span><br><span class="line">mysql</span><br><span class="line">├── allyoubank</span><br><span class="line">│   └── allyoubank_2016-08-28.sql.gz</span><br><span class="line">├── test</span><br><span class="line">│   └── test_2016-08-28.sql.gz</span><br><span class="line">└── wgzy</span><br><span class="line">    └── wgzy_2016-08-28.sql.gz</span><br><span class="line"></span><br><span class="line">3 directories, 3 files</span><br></pre></td></tr></table></figure></p>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@aofa-staging tools]# cat mysql_table.sh</span><br><span class="line">#!/bin/sh</span><br><span class="line">USER=root</span><br><span class="line">PASSWD=xyz</span><br><span class="line">SOCKET=/tmp/mysql.sock</span><br><span class="line">MYLOGIN=&quot;mysql -u$USER -p$PASSWD -S$SOCKET&quot;</span><br><span class="line">MYDUMP=&quot;mysqldump -u$USER -p$PASSWD -S$SOCKET&quot;</span><br><span class="line">DATEBASE=&quot;$($MYLOGIN -e &quot;show databases;&quot;|egrep -vi &quot;Data|_schema|mysql&quot;)&quot;</span><br><span class="line"></span><br><span class="line">for dbname in $DATEBASE</span><br><span class="line">do</span><br><span class="line"> TABLE=&quot;$($MYLOGIN -e &quot;use $dbname;show tables;&quot;|sed &apos;1d&apos;)&quot;</span><br><span class="line">  for tname in $TABLE</span><br><span class="line">   do</span><br><span class="line">MYDIR=/backup/mysql02/$dbname/$&#123;dbname&#125;_$(date +%F)</span><br><span class="line">     [ ! -d $MYDIR ] &amp;&amp; mkdir -p $MYDIR</span><br><span class="line"> $MYDUMP $dbname $tname |gzip &gt;$MYDIR/$&#123;dbname&#125;_$&#123;tname&#125;_$(date +%F).sql.gz</span><br><span class="line">    done</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@aofa-staging mysql02]# tree</span><br><span class="line">.</span><br><span class="line">├── allyoubank</span><br><span class="line">│   └── allyoubank_2016-08-28</span><br><span class="line">│       ├── allyoubank_account_2016-08-28.sql.gz</span><br><span class="line">│       └── allyoubank_w_sign_in_2016-08-28.sql.gz</span><br><span class="line">└── wgzy</span><br><span class="line">    └── wgzy_2016-08-28</span><br><span class="line">        ├── wgzy_account_2016-08-28.sql.gz</span><br><span class="line">        └── wgzy_w_sign_in_2016-08-28.sql.gz</span><br><span class="line">4 directories, 172 files</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/backup/">backup</a><a href="/tags/mysql/">mysql</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
       <a href="/2016/08/28/backup-script/" title="backup script" itemprop="url">backup script</a>
   </h1>
   <p class="article-author">By

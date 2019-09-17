@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/06/19/useful-commands/</loc>
+    
+    <lastmod>2019-09-17T10:42:20.642Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/06/28/ansible/</loc>
     
     <lastmod>2019-09-14T01:33:07.866Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://223.95.78.227/2019/08/16/effective-devops-with-aws/</loc>
     
     <lastmod>2019-08-21T09:47:54.738Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/06/19/useful-commands/</loc>
-    
-    <lastmod>2019-08-15T00:11:28.885Z</lastmod>
     
   </url>
   

@@ -79,6 +79,112 @@
 
    
     
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/09/19/apache-cloudstack/" title="apache-cloudstack" itemprop="url">apache-cloudstack</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-09-19T12:56:11.000Z" itemprop="datePublished"> Published 2019-09-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="What-is-Apache-CloudStack"><a href="#What-is-Apache-CloudStack" class="headerlink" title="What is Apache CloudStack"></a>What is Apache CloudStack</h1><ul>
+<li>Top level Apache Software Foundation project for cloud computing</li>
+<li>Cloud computing framework to deploy IaaS cloud- private, public or hybrid</li>
+<li>Supports all popular hypervisors for virtualization</li>
+<li>Written in Java. Provides APIs and web GUI for management and administration</li>
+</ul>
+<h2 id="Key-features"><a href="#Key-features" class="headerlink" title="Key features"></a>Key features</h2><ul>
+<li>Rich management interface</li>
+<li>Powerful API</li>
+<li>Dynamic workload management</li>
+<li>Secure, configurable and extensible architecture<br><img src="https://i.imgur.com/J7Jm1XC.png" alt="architecuture"></li>
+</ul>
+<h2 id="Key-components-terminology"><a href="#Key-components-terminology" class="headerlink" title="Key components/terminology"></a>Key components/terminology</h2><ul>
+<li>Region<ul>
+<li>Largest Organizational Unit with a CloudStack Deployment</li>
+<li>Consists of one or more zones</li>
+</ul>
+</li>
+<li>Zone<ul>
+<li>Consists of one or more pods</li>
+<li>Contains one or more primary storage servers</li>
+<li>Consists of a secondary storage</li>
+</ul>
+</li>
+<li>Pod<ul>
+<li>Contains one or more clusters</li>
+<li>Contains primary storage servers</li>
+</ul>
+</li>
+<li>Cluster<ul>
+<li>Consists of a group of identical hosts running a common hypervisor</li>
+<li>Contins one or more primary storage servers</li>
+</ul>
+</li>
+<li>Host<ul>
+<li>Smallest orgnizational unit within a Cloustack deployment</li>
+<li>Has hypervisor to manage the guest VMs</li>
+<li>Provides the computing resources that run guest VMs.</li>
+</ul>
+</li>
+<li>Primary storage<br>iSCSI NFS Ceph Gluster  Local FileSystem</li>
+<li>Secondary storage<br>Templates  ISO images   Disk volume snapshots</li>
+</ul>
+<hr>
+<p>Recap</p>
+<ul>
+<li>Cloud computing is more efficient than traditional IT infrastructure deployment and management</li>
+<li>Cloud can be deployed in public, private and hybrid configurations</li>
+<li>Cloud services can be provided as IaaS, PaaS or SaaS.</li>
+<li>Apache CloudStack is an open source IaaS cloud platform</li>
+<li>Apache CloudStack si very robust, extensible and open platform</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/cloudstack/">cloudstack</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
     <article class="post-expand blog" itemprop="articleBody"> 
         <header class="article-info clearfix">
   <h1 itemprop="name">
@@ -1827,120 +1933,6 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/Devops/">Devops</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/07/17/aws-admin/" title="aws administration" itemprop="url">aws administration</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-07-17T08:02:52.000Z" itemprop="datePublished"> Published 2019-07-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="CodeCommit"><a href="#CodeCommit" class="headerlink" title="CodeCommit"></a>CodeCommit</h1><p>Codecommit is a source control service provided by aws(hosts private git repositories)<br><strong>why choose CodeCommit</strong></p>
-<ul>
-<li>Easy integration with other AWS services like CodePipeline</li>
-<li>Repositories are private by default</li>
-<li>Can use IAM for fine-graned authorization</li>
-</ul>
-<p><strong>Creating a private code repo on CodeCommit</strong><br>IAM-&gt; HTTPS Git credentials for AWS CodeCommit</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/SampleRepo</span><br><span class="line">cd SampleRepo</span><br><span class="line">wget https://s3.amazonaws.com/aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip</span><br><span class="line">unzip SampleApp_Linux.zip</span><br><span class="line">rm SampleApp_Linux.zip</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;Initial commit&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<p><strong>Migrating your project to CodeCommit</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### - - mirror here means that we are not interested in cloning the application, however we are interested in downloading the Git binary files that make up the repository in the first place. </span><br><span class="line">git clone --mirror https://github.com/awslabs/aws-demo-php-simple-app.git aws-codecommit-demo</span><br><span class="line">git push https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/myrepo</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;initial commit to demp rep&quot;</span><br><span class="line">git remote add demo https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/demo</span><br><span class="line">git remote -v</span><br><span class="line">git push demo master</span><br></pre></td></tr></table></figure>
-<p><a href="https://docs.aws.amazon.com/codecommit/latest/userguide/getting-started-cc.html">CodeCommit tutorials</a><br><a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html">Using IAM policies with CodeCommit</a><br><a href="https://aws.amazon.com/blogs/devops/using-aws-codecommit-pull-requests-to-request-code-reviews-and-discuss-code/">Using AWS CodeCommit Pull Requests</a><br><a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">GitFlow development release model</a></p>
-<h1 id="Deploying-Jenkins"><a href="#Deploying-Jenkins" class="headerlink" title="Deploying Jenkins"></a>Deploying Jenkins</h1><p>Amazon linux 2 AMI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br><span class="line">sudo yum -y install java-1.8.0</span><br><span class="line"># remove java 7</span><br><span class="line">sudo yum remove java-1.7.0-openjdk</span><br><span class="line">java -version</span><br><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo https:/pkg.jenkins-ci.org/redhat/jenkins.repo </span><br><span class="line">sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key</span><br><span class="line">sudo yum -y install jenkins</span><br><span class="line">sudo service jenkins start</span><br></pre></td></tr></table></figure></p>
-<h1 id="CodeDeploy"><a href="#CodeDeploy" class="headerlink" title="CodeDeploy"></a>CodeDeploy</h1><p><img src="https://i.imgur.com/ZRCFrZP.png" alt="codedeploy ec2"></p>
-<h1 id="Cloud9"><a href="#Cloud9" class="headerlink" title="Cloud9"></a>Cloud9</h1><p><strong>What is Cloud9</strong></p>
-<ul>
-<li>Cloud9 integrates with other AWS DevOps tools such as CodeCommit, CodePipeline, and CodeStar to enable a rich development pipeline with continuous delivery</li>
-<li>AWS Cloud9 contains a collection of tools that you use to code, build, run, test, debug, and release software on the cloud</li>
-<li>Use the AWS Cloud9 Integrated Development Environment (IDE) to work with these tools<br><strong>What can i do with aws Cloud 9</strong></li>
-<li>Supported languages:<ul>
-<li>C++</li>
-<li>Java</li>
-<li>Python</li>
-<li>.NET</li>
-<li>Node.js</li>
-<li>PHP</li>
-<li>Pearl</li>
-<li>Ruby</li>
-<li>Go</li>
-<li>JavaScript</li>
-<li>CoffeeScript</li>
-</ul>
-</li>
-<li>Supported integrations:<ul>
-<li>CodeCommit</li>
-<li>CodePipeline</li>
-<li>CodeStar</li>
-<li>API gateway</li>
-<li>Lambda</li>
-<li>Lightsail</li>
-<li>DynamoDB</li>
-<li>RDS</li>
-<li>AWS CLI</li>
-<li>Docker</li>
-<li>GitHub</li>
-</ul>
-</li>
-<li>Supported environments<ul>
-<li>EC2</li>
-<li>SSH</li>
-<li>Single-user environment</li>
-<li>Shared team environment</li>
-<li>virtualenv<h1 id="CodeBuild"><a href="#CodeBuild" class="headerlink" title="CodeBuild"></a>CodeBuild</h1><h1 id="CodePipeline"><a href="#CodePipeline" class="headerlink" title="CodePipeline"></a>CodePipeline</h1><h1 id="CodeStart"><a href="#CodeStart" class="headerlink" title="CodeStart"></a>CodeStart</h1></li>
-</ul>
-</li>
-</ul>
-<h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><ul>
-<li><a href="https://aws.amazon.com/devops/what-is-devops/">What is DevOps</a></li>
-<li><a href="https://aws.amazon.com/pricing/">AWS pricing</a></li>
-<li><a href="https://docs.aws.amazon.com/codepiepline/latest/userguide/tutorials-simple-codecommit.html">TUtorial-create a simple pipeline</a></li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/aws/">aws</a><a href="/tags/Codecommit/">Codecommit</a>
   </div>
 
 </div>

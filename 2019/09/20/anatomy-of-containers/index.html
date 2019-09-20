@@ -19,20 +19,20 @@
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
 <meta property="og:description" content="Anatomy of containersContainers are specially encapsulated and secured processes running on the host system. Containers leverage a lot of features and primitives available in the Linux OS. The most im">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://imgur.com/3ReVPcO">
-<meta property="og:image" content="https://imgur.com/GVSkK6z">
-<meta property="og:image" content="https://imgur.com/zhefA3P">
-<meta property="og:image" content="https://imgur.com/Np4zxp1">
-<meta property="og:image" content="https://imgur.com/CkLp7N6">
-<meta property="og:image" content="https://imgur.com/Gio85pZ">
-<meta property="og:image" content="https://imgur.com/E80YSMK">
-<meta property="og:image" content="https://imgur.com/hTj3sG0">
-<meta property="og:image" content="https://imgur.com/NMD2UG5">
-<meta property="og:updated_time" content="2019-09-20T06:01:11.285Z">
+<meta property="og:image" content="https://i.imgur.com/3ReVPcO.png">
+<meta property="og:image" content="https://i.imgur.com/GVSkK6z.png">
+<meta property="og:image" content="https://i.imgur.com/zhefA3P.png">
+<meta property="og:image" content="https://i.imgur.com/Np4zxp1.jpg">
+<meta property="og:image" content="https://i.imgur.com/CkLp7N6.jpg">
+<meta property="og:image" content="https://i.imgur.com/Gio85pZ.jpg">
+<meta property="og:image" content="https://i.imgur.com/E80YSMK.jpg">
+<meta property="og:image" content="https://i.imgur.com/hTj3sG0.jpg">
+<meta property="og:image" content="https://i.imgur.com/NMD2UG5.jpg">
+<meta property="og:updated_time" content="2019-09-20T06:10:26.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="anatomy-of-containers">
 <meta name="twitter:description" content="Anatomy of containersContainers are specially encapsulated and secured processes running on the host system. Containers leverage a lot of features and primitives available in the Linux OS. The most im">
-<meta name="twitter:image" content="https://imgur.com/3ReVPcO">
+<meta name="twitter:image" content="https://i.imgur.com/3ReVPcO.png">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -121,8 +121,8 @@
 </ul>
 <p>All processes running in containers share the same Linux kernel of the underlying host operating system. This is fundamentally different compared with VMs, as each VM contains its own full-blown operating system.</p>
 <p>Difference:<br>|      |Container|VMs|<br>|startup times|milliseconds|several seconds|<br>|goal|ephemeral|long-living|</p>
-<p><img src="https://imgur.com/3ReVPcO" alt="high level architecture of Docker"><br>On the lower part of the the preceding figure, we have the Linux operating system with its cgroups, namespaces, and layer capabilities as well as other functionality that we do not need to explicitly mention here. Then, there is an intermediary layer composed of <strong>containerd</strong> and <strong>runc</strong>. On top of all that now sits the Docker engine. The Docker engine offers a RESTful interface to the outside world that can be accessed by any tool, such as the Docker CLI, Docker for Mac, and Docker for Windows or Kubernetes to just name a few.</p>
-<h2 id="Namespaces"><a href="#Namespaces" class="headerlink" title="Namespaces"></a>Namespaces</h2><p>A namespace is an abstraction of global resources such as filesystems, network access, process tree (also named PID namespace) or the system group IDs, and user IDs.<br><img src="https://imgur.com/GVSkK6z" alt="virtual FS"><br>The PID namespace is what keeps processes in one container from seeing or interacting with processes in another container. A process might have the apparent PID 1 inside a container, but if we examine it from the host system, it would have an ordinary PID, say 334:<br><img src="https://imgur.com/zhefA3P" alt="Process tree on a Docker host"></p>
+<p><img src="https://i.imgur.com/3ReVPcO.png" alt="high level architecture of Docker"><br>On the lower part of the the preceding figure, we have the Linux operating system with its cgroups, namespaces, and layer capabilities as well as other functionality that we do not need to explicitly mention here. Then, there is an intermediary layer composed of <strong>containerd</strong> and <strong>runc</strong>. On top of all that now sits the Docker engine. The Docker engine offers a RESTful interface to the outside world that can be accessed by any tool, such as the Docker CLI, Docker for Mac, and Docker for Windows or Kubernetes to just name a few.</p>
+<h2 id="Namespaces"><a href="#Namespaces" class="headerlink" title="Namespaces"></a>Namespaces</h2><p>A namespace is an abstraction of global resources such as filesystems, network access, process tree (also named PID namespace) or the system group IDs, and user IDs.<br><img src="https://i.imgur.com/GVSkK6z.png" alt="virtual FS"><br>The PID namespace is what keeps processes in one container from seeing or interacting with processes in another container. A process might have the apparent PID 1 inside a container, but if we examine it from the host system, it would have an ordinary PID, say 334:<br><img src="https://i.imgur.com/zhefA3P.png" alt="Process tree on a Docker host"></p>
 <h2 id="Control-groups-cgroups"><a href="#Control-groups-cgroups" class="headerlink" title="Control groups (cgroups)"></a>Control groups (cgroups)</h2><p>Linux cgroups are used to limit, manage, and isolate resource usage of collections of processes running on a system.<br>Resources are CPU time, system memory, network bandwidth, or combinations of there resources, and so on.</p>
 <p>Using cgroups, admins can limit the resources that containers can consume.With this, one can avoid, for example, the classical noisy neighbor problem, where a rogue process running in a container consumes all CPU time or reserves massive amounts of RAM and, as such, starves all the other processes running on the host, whether they’re containerized or not.</p>
 <h2 id="Union-filesystem-UnionFS"><a href="#Union-filesystem-UnionFS" class="headerlink" title="Union filesystem (UnionFS)"></a>Union filesystem (UnionFS)</h2><p>The UnionFS forms the backbone of what is known as container images.<br>UnionFS is mainly used on Linux and allows files and directories of distinct filesystems to be overlaid and with it form a single coherent file system.In this context, the individual filesystems are called branches. Contents of directories that have the same path within the merged branches will be seen together in a single merged directory, within the new, virtual filesystem. When merging branches, the priority between the branches is specified. In that way, when two branches contain the same file, the one with the higher priority is seen in the final FS.</p>
@@ -130,11 +130,11 @@
 <h2 id="Runc"><a href="#Runc" class="headerlink" title="Runc"></a>Runc</h2><p>Runc is a lightweight, portable container runtime. It provides full support for Linux namespaces as well as native support for all security features available on Linux, such as SELinux, AppArmor, seccomp, and cgroups.</p>
 <p>Runc is a tool for spawning and running containers according to the Open Container Initiative (OCI) specification.</p>
 <h2 id="Containerd"><a href="#Containerd" class="headerlink" title="Containerd"></a>Containerd</h2><p>Runc is a low-level implementation of a container runtime; containerd builds on top of it, and adds higher-level features, such as image transfer and storage, container execution, and supervision, as well as network and storage attachments.</p>
-<h1 id="Creating-and-managing-container-images"><a href="#Creating-and-managing-container-images" class="headerlink" title="Creating and managing container images"></a>Creating and managing container images</h1><h2 id="The-layered-filesystem"><a href="#The-layered-filesystem" class="headerlink" title="The layered filesystem"></a>The layered filesystem</h2><p><img src="https://imgur.com/Np4zxp1" alt="stack of layers"><br>The layers of a container image are all immutable. Immutable means that once generated, the layer cannot ever be changed. The only possible operation affecting the layer is the physical deletion of it.<br><img src="https://imgur.com/CkLp7N6" alt="A sample custom image based on Alpine and Nginx"><br>Each layer only contains the delta of changes in regard to the previous set of layers. The content of each layer is mapped to a special folder on the host system, which is usually a subfolder of /var/lib/docker/.</p>
+<h1 id="Creating-and-managing-container-images"><a href="#Creating-and-managing-container-images" class="headerlink" title="Creating and managing container images"></a>Creating and managing container images</h1><h2 id="The-layered-filesystem"><a href="#The-layered-filesystem" class="headerlink" title="The layered filesystem"></a>The layered filesystem</h2><p><img src="https://i.imgur.com/Np4zxp1.jpg" alt="stack of layers"><br>The layers of a container image are all immutable. Immutable means that once generated, the layer cannot ever be changed. The only possible operation affecting the layer is the physical deletion of it.<br><img src="https://i.imgur.com/CkLp7N6.jpg" alt="A sample custom image based on Alpine and Nginx"><br>Each layer only contains the delta of changes in regard to the previous set of layers. The content of each layer is mapped to a special folder on the host system, which is usually a subfolder of /var/lib/docker/.</p>
 <p>Since layers are immutable, they can be cached without ever becoming stale. This is a big advantage.</p>
-<h2 id="The-writable-container-layer"><a href="#The-writable-container-layer" class="headerlink" title="The writable container layer"></a>The writable container layer</h2><p><img src="https://imgur.com/Gio85pZ" alt="the writable container layer"><br><img src="https://imgur.com/E80YSMK" alt="Multiple containers sharing the same image layers"><br>The container layer is marked as read/write. Another advantage of the immutability of image layers is that they can be shared among many containers created from this image. All that is needed is a thin, writable container layer for each container.</p>
+<h2 id="The-writable-container-layer"><a href="#The-writable-container-layer" class="headerlink" title="The writable container layer"></a>The writable container layer</h2><p><img src="https://i.imgur.com/Gio85pZ.jpg" alt="the writable container layer"><br><img src="https://i.imgur.com/E80YSMK.jpg" alt="Multiple containers sharing the same image layers"><br>The container layer is marked as read/write. Another advantage of the immutability of image layers is that they can be shared among many containers created from this image. All that is needed is a thin, writable container layer for each container.</p>
 <p>This technique, of course, results in a tremendous reduction of resources that are consumed. Furthermore, this helps to decrease the loading time of a container since only a thin container layer has to be created once the image layers have been loaded into memory, which only happens for the first container.</p>
-<h2 id="Copy-on-write"><a href="#Copy-on-write" class="headerlink" title="Copy-on-write"></a>Copy-on-write</h2><p>Docker uses the copy-on-write technique when dealing with images. Copy-on-write is a strategy of sharing and copying files for maximum efficiency. If a layer uses a file or folder that is available in one of the low-lying layers, then it just uses it. If, on the other hand, a layer wants to modify, say, a file from a low-lying layer, then it first copies this file up to the target layer and then modifies it.<br><img src="https://imgur.com/hTj3sG0" alt="copy-on-write"><br>The second layer wants to modify <strong>File 2</strong>, which is present in the base layer. Thus, it copied it up and then modified it. Now, let’s say that we’re sitting in the top layer of the preceding figure. This layer will use <strong>File 1</strong> from the base layer and <strong>File 2</strong> and <strong>File 3</strong> from the second layer.</p>
+<h2 id="Copy-on-write"><a href="#Copy-on-write" class="headerlink" title="Copy-on-write"></a>Copy-on-write</h2><p>Docker uses the copy-on-write technique when dealing with images. Copy-on-write is a strategy of sharing and copying files for maximum efficiency. If a layer uses a file or folder that is available in one of the low-lying layers, then it just uses it. If, on the other hand, a layer wants to modify, say, a file from a low-lying layer, then it first copies this file up to the target layer and then modifies it.<br><img src="https://i.imgur.com/hTj3sG0.jpg" alt="copy-on-write"><br>The second layer wants to modify <strong>File 2</strong>, which is present in the base layer. Thus, it copied it up and then modified it. Now, let’s say that we’re sitting in the top layer of the preceding figure. This layer will use <strong>File 1</strong> from the base layer and <strong>File 2</strong> and <strong>File 3</strong> from the second layer.</p>
 <h2 id="Creating-images"><a href="#Creating-images" class="headerlink" title="Creating images"></a>Creating images</h2><p>Three ways to create a new container image on your system.</p>
 <ol>
 <li><p>Interactive image creation<br>start with a base image that we want to use as a template and run a container of it interactively. </p>
@@ -144,7 +144,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM python:2.7</span><br><span class="line">RUN mkdir -p /app</span><br><span class="line">WORKDIR /app</span><br><span class="line">COPY ./requirements.txt /app/</span><br><span class="line">RUN pip install -r requirements.txt</span><br><span class="line">CMD [&quot;python&quot;, &quot;main.py&quot;]</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="https://imgur.com/NMD2UG5" alt="the relation of Dockerfile and layers in an image"></p>
+<p><img src="https://i.imgur.com/NMD2UG5.jpg" alt="the relation of Dockerfile and layers in an image"></p>
 <p><strong>The FROM keyword</strong><br>Every DOckerfile starts with the FROM keyword. With it, we define which base image we want to start building our custom image from. If build starting with CentOS 7:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM centos:7</span><br></pre></td></tr></table></figure></p>
 <p>If we really want to start from scratch:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM scratch</span><br></pre></td></tr></table></figure></p>
 <p>FROM scratch is a no-op in the Dockerfile, and as such does not generate a layer in the resulting container image.</p>
@@ -274,11 +274,11 @@
 			
 		
 			
-				<li><a href="/tags/saltstack/" title="saltstack">saltstack<sup>3</sup></a></li>
+				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
+				<li><a href="/tags/saltstack/" title="saltstack">saltstack<sup>3</sup></a></li>
 			
 		
 			
@@ -318,7 +318,7 @@
 			
 		
 			
-				<li><a href="/tags/containers/" title="containers">containers<sup>1</sup></a></li>
+				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -1,0 +1,741 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>anatomy-of-containers | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Stan Zhou">
+    
+
+    
+    <meta name="description" content="Anatomy of containersContainers are specially encapsulated and secured processes running on the host system. Containers leverage a lot of features and primitives available in the Linux OS. The most im">
+<meta name="keywords" content="docker,containers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="anatomy-of-containers">
+<meta property="og:url" content="http://223.95.78.227/2019/09/20/anatomy-of-containers/index.html">
+<meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
+<meta property="og:description" content="Anatomy of containersContainers are specially encapsulated and secured processes running on the host system. Containers leverage a lot of features and primitives available in the Linux OS. The most im">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://imgur.com/3ReVPcO">
+<meta property="og:image" content="https://imgur.com/GVSkK6z">
+<meta property="og:image" content="https://imgur.com/zhefA3P">
+<meta property="og:image" content="https://imgur.com/Np4zxp1">
+<meta property="og:image" content="https://imgur.com/CkLp7N6">
+<meta property="og:image" content="https://imgur.com/Gio85pZ">
+<meta property="og:image" content="https://imgur.com/E80YSMK">
+<meta property="og:image" content="https://imgur.com/hTj3sG0">
+<meta property="og:image" content="https://imgur.com/NMD2UG5">
+<meta property="og:updated_time" content="2019-09-20T06:01:11.285Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="anatomy-of-containers">
+<meta name="twitter:description" content="Anatomy of containersContainers are specially encapsulated and secured processes running on the host system. Containers leverage a lot of features and primitives available in the Linux OS. The most im">
+<meta name="twitter:image" content="https://imgur.com/3ReVPcO">
+<meta name="twitter:creator" content="@stanosaka">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Stan Zhou&#39;s Hexo Technical Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/toad.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/toadman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/toadman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/toadman.png" alt="Stan Zhou&#39;s Hexo Technical Blog" title="Stan Zhou&#39;s Hexo Technical Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Stan Zhou&#39;s Hexo Technical Blog">Stan Zhou&#39;s Hexo Technical Blog</a></h1>
+				<h2 class="blog-motto">Innovation Evangelist</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:223.95.78.227">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/09/20/anatomy-of-containers/" title="anatomy-of-containers" itemprop="url">anatomy-of-containers</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-09-20T00:05:28.000Z" itemprop="datePublished"> Published 2019-09-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Anatomy-of-containers"><span class="toc-number">1.</span> <span class="toc-text">Anatomy of containers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Namespaces"><span class="toc-number">1.1.</span> <span class="toc-text">Namespaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Control-groups-cgroups"><span class="toc-number">1.2.</span> <span class="toc-text">Control groups (cgroups)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Union-filesystem-UnionFS"><span class="toc-number">1.3.</span> <span class="toc-text">Union filesystem (UnionFS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Container-plumbing"><span class="toc-number">1.4.</span> <span class="toc-text">Container plumbing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Runc"><span class="toc-number">1.5.</span> <span class="toc-text">Runc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Containerd"><span class="toc-number">1.6.</span> <span class="toc-text">Containerd</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating-and-managing-container-images"><span class="toc-number">2.</span> <span class="toc-text">Creating and managing container images</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-layered-filesystem"><span class="toc-number">2.1.</span> <span class="toc-text">The layered filesystem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-writable-container-layer"><span class="toc-number">2.2.</span> <span class="toc-text">The writable container layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copy-on-write"><span class="toc-number">2.3.</span> <span class="toc-text">Copy-on-write</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-images"><span class="toc-number">2.4.</span> <span class="toc-text">Creating images</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Anatomy-of-containers"><a href="#Anatomy-of-containers" class="headerlink" title="Anatomy of containers"></a>Anatomy of containers</h1><p>Containers are specially encapsulated and secured processes running on the host system.</p>
+<p>Containers leverage a lot of features and primitives available in the Linux OS. The most important ones are</p>
+<ul>
+<li>namespaces</li>
+<li>cgroups</li>
+</ul>
+<p>All processes running in containers share the same Linux kernel of the underlying host operating system. This is fundamentally different compared with VMs, as each VM contains its own full-blown operating system.</p>
+<p>Difference:<br>|      |Container|VMs|<br>|startup times|milliseconds|several seconds|<br>|goal|ephemeral|long-living|</p>
+<p><img src="https://imgur.com/3ReVPcO" alt="high level architecture of Docker"><br>On the lower part of the the preceding figure, we have the Linux operating system with its cgroups, namespaces, and layer capabilities as well as other functionality that we do not need to explicitly mention here. Then, there is an intermediary layer composed of <strong>containerd</strong> and <strong>runc</strong>. On top of all that now sits the Docker engine. The Docker engine offers a RESTful interface to the outside world that can be accessed by any tool, such as the Docker CLI, Docker for Mac, and Docker for Windows or Kubernetes to just name a few.</p>
+<h2 id="Namespaces"><a href="#Namespaces" class="headerlink" title="Namespaces"></a>Namespaces</h2><p>A namespace is an abstraction of global resources such as filesystems, network access, process tree (also named PID namespace) or the system group IDs, and user IDs.<br><img src="https://imgur.com/GVSkK6z" alt="virtual FS"><br>The PID namespace is what keeps processes in one container from seeing or interacting with processes in another container. A process might have the apparent PID 1 inside a container, but if we examine it from the host system, it would have an ordinary PID, say 334:<br><img src="https://imgur.com/zhefA3P" alt="Process tree on a Docker host"></p>
+<h2 id="Control-groups-cgroups"><a href="#Control-groups-cgroups" class="headerlink" title="Control groups (cgroups)"></a>Control groups (cgroups)</h2><p>Linux cgroups are used to limit, manage, and isolate resource usage of collections of processes running on a system.<br>Resources are CPU time, system memory, network bandwidth, or combinations of there resources, and so on.</p>
+<p>Using cgroups, admins can limit the resources that containers can consume.With this, one can avoid, for example, the classical noisy neighbor problem, where a rogue process running in a container consumes all CPU time or reserves massive amounts of RAM and, as such, starves all the other processes running on the host, whether they’re containerized or not.</p>
+<h2 id="Union-filesystem-UnionFS"><a href="#Union-filesystem-UnionFS" class="headerlink" title="Union filesystem (UnionFS)"></a>Union filesystem (UnionFS)</h2><p>The UnionFS forms the backbone of what is known as container images.<br>UnionFS is mainly used on Linux and allows files and directories of distinct filesystems to be overlaid and with it form a single coherent file system.In this context, the individual filesystems are called branches. Contents of directories that have the same path within the merged branches will be seen together in a single merged directory, within the new, virtual filesystem. When merging branches, the priority between the branches is specified. In that way, when two branches contain the same file, the one with the higher priority is seen in the final FS.</p>
+<h2 id="Container-plumbing"><a href="#Container-plumbing" class="headerlink" title="Container plumbing"></a>Container plumbing</h2><p>The basement on top of which the Docker engine is built; we can also call it the container plumbing and is formed by the two component—runc and containerd.</p>
+<h2 id="Runc"><a href="#Runc" class="headerlink" title="Runc"></a>Runc</h2><p>Runc is a lightweight, portable container runtime. It provides full support for Linux namespaces as well as native support for all security features available on Linux, such as SELinux, AppArmor, seccomp, and cgroups.</p>
+<p>Runc is a tool for spawning and running containers according to the Open Container Initiative (OCI) specification.</p>
+<h2 id="Containerd"><a href="#Containerd" class="headerlink" title="Containerd"></a>Containerd</h2><p>Runc is a low-level implementation of a container runtime; containerd builds on top of it, and adds higher-level features, such as image transfer and storage, container execution, and supervision, as well as network and storage attachments.</p>
+<h1 id="Creating-and-managing-container-images"><a href="#Creating-and-managing-container-images" class="headerlink" title="Creating and managing container images"></a>Creating and managing container images</h1><h2 id="The-layered-filesystem"><a href="#The-layered-filesystem" class="headerlink" title="The layered filesystem"></a>The layered filesystem</h2><p><img src="https://imgur.com/Np4zxp1" alt="stack of layers"><br>The layers of a container image are all immutable. Immutable means that once generated, the layer cannot ever be changed. The only possible operation affecting the layer is the physical deletion of it.<br><img src="https://imgur.com/CkLp7N6" alt="A sample custom image based on Alpine and Nginx"><br>Each layer only contains the delta of changes in regard to the previous set of layers. The content of each layer is mapped to a special folder on the host system, which is usually a subfolder of /var/lib/docker/.</p>
+<p>Since layers are immutable, they can be cached without ever becoming stale. This is a big advantage.</p>
+<h2 id="The-writable-container-layer"><a href="#The-writable-container-layer" class="headerlink" title="The writable container layer"></a>The writable container layer</h2><p><img src="https://imgur.com/Gio85pZ" alt="the writable container layer"><br><img src="https://imgur.com/E80YSMK" alt="Multiple containers sharing the same image layers"><br>The container layer is marked as read/write. Another advantage of the immutability of image layers is that they can be shared among many containers created from this image. All that is needed is a thin, writable container layer for each container.</p>
+<p>This technique, of course, results in a tremendous reduction of resources that are consumed. Furthermore, this helps to decrease the loading time of a container since only a thin container layer has to be created once the image layers have been loaded into memory, which only happens for the first container.</p>
+<h2 id="Copy-on-write"><a href="#Copy-on-write" class="headerlink" title="Copy-on-write"></a>Copy-on-write</h2><p>Docker uses the copy-on-write technique when dealing with images. Copy-on-write is a strategy of sharing and copying files for maximum efficiency. If a layer uses a file or folder that is available in one of the low-lying layers, then it just uses it. If, on the other hand, a layer wants to modify, say, a file from a low-lying layer, then it first copies this file up to the target layer and then modifies it.<br><img src="https://imgur.com/hTj3sG0" alt="copy-on-write"><br>The second layer wants to modify <strong>File 2</strong>, which is present in the base layer. Thus, it copied it up and then modified it. Now, let’s say that we’re sitting in the top layer of the preceding figure. This layer will use <strong>File 1</strong> from the base layer and <strong>File 2</strong> and <strong>File 3</strong> from the second layer.</p>
+<h2 id="Creating-images"><a href="#Creating-images" class="headerlink" title="Creating images"></a>Creating images</h2><p>Three ways to create a new container image on your system.</p>
+<ol>
+<li><p>Interactive image creation<br>start with a base image that we want to use as a template and run a container of it interactively. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">$ docker container run -it --name sample alpine /bin/sh</span><br><span class="line"></span><br><span class="line">#By default, the alpine container does not have the ping tool installed. Let&apos;s assume we want to create a new custom image that has ping installed. </span><br><span class="line"></span><br><span class="line"># apk update &amp;&amp; apk add iputils</span><br><span class="line"> # ping 127.0.0.1</span><br><span class="line">PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.060 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.054 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.059 ms</span><br><span class="line">^C</span><br><span class="line">$ docker container ls -a | grep sample</span><br><span class="line">#If we want to see what has changed in our container in relation to the base image</span><br><span class="line">$ docker container diff sample</span><br><span class="line">C /var</span><br><span class="line">C /var/cache</span><br><span class="line">C /var/cache/apk</span><br><span class="line">A /var/cache/apk/APKINDEX.00740ba1.tar.gz</span><br><span class="line">A /var/cache/apk/APKINDEX.d8b2a6f4.tar.gz</span><br><span class="line">C /bin</span><br><span class="line">C /bin/ping</span><br><span class="line">C /bin/ping6</span><br><span class="line">A /bin/traceroute6</span><br><span class="line">C /lib</span><br><span class="line">C /lib/apk</span><br><span class="line">C /lib/apk/db</span><br><span class="line">C /lib/apk/db/triggers</span><br><span class="line">C /lib/apk/db/installed</span><br><span class="line">C /lib/apk/db/scripts.tar</span><br><span class="line">C /usr</span><br><span class="line">C /usr/sbin</span><br><span class="line">C /usr/sbin/arping</span><br><span class="line">A /usr/sbin/clockdiff</span><br><span class="line">A /usr/sbin/rarpd</span><br><span class="line">A /usr/sbin/setcap</span><br><span class="line">A /usr/sbin/tracepath</span><br><span class="line">A /usr/sbin/tracepath6</span><br><span class="line">A /usr/sbin/ninfod</span><br><span class="line">A /usr/sbin/getcap</span><br><span class="line">A /usr/sbin/tftpd</span><br><span class="line">A /usr/sbin/getpcaps</span><br><span class="line">A /usr/sbin/ipg</span><br><span class="line">A /usr/sbin/rdisc</span><br><span class="line">A /usr/sbin/capsh</span><br><span class="line">C /usr/lib</span><br><span class="line">A /usr/lib/libcap.so.2</span><br><span class="line">A /usr/lib/libcap.so.2.27</span><br><span class="line">C /etc</span><br><span class="line">C /etc/apk</span><br><span class="line">C /etc/apk/world</span><br><span class="line">C /root</span><br><span class="line">A /root/.ash_history</span><br><span class="line"></span><br><span class="line">#In the preceding list, A stands for added, and C for changed. If we had any deleted files, then those would be prefixed with D.</span><br><span class="line">#use the docker container commit command to persist our modifications and create a new image from them:</span><br><span class="line">$ docker container commit sample my-alpine</span><br><span class="line">sha256:31da02222ee7102dd755692bd498c6b170f11ffeb81ca700a4d12c0e5de9b913</span><br><span class="line"></span><br><span class="line">## If we want to see how our custom image has been built</span><br><span class="line">$ docker image history my-alpine</span><br><span class="line">IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT</span><br><span class="line">31da02222ee7        38 seconds ago      /bin/sh                                         1.76MB</span><br><span class="line">961769676411        4 weeks ago         /bin/sh -c #(nop)  CMD [&quot;/bin/sh&quot;]              0B</span><br><span class="line">&lt;missing&gt;           4 weeks ago         /bin/sh -c #(nop) ADD file:fe64057fbb83dccb9…   5.58MB</span><br><span class="line">#The first layer in the preceding list is the one that we just created by adding the iputils package.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Using Dockerfiles<br>The Dockerfile is a text file that is usually literally called Dockerfile. It contains instructions on how to build a custom container image. It is a declarative way of building images.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM python:2.7</span><br><span class="line">RUN mkdir -p /app</span><br><span class="line">WORKDIR /app</span><br><span class="line">COPY ./requirements.txt /app/</span><br><span class="line">RUN pip install -r requirements.txt</span><br><span class="line">CMD [&quot;python&quot;, &quot;main.py&quot;]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://imgur.com/NMD2UG5" alt="the relation of Dockerfile and layers in an image"></p>
+<p><strong>The FROM keyword</strong><br>Every DOckerfile starts with the FROM keyword. With it, we define which base image we want to start building our custom image from. If build starting with CentOS 7:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM centos:7</span><br></pre></td></tr></table></figure></p>
+<p>If we really want to start from scratch:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM scratch</span><br></pre></td></tr></table></figure></p>
+<p>FROM scratch is a no-op in the Dockerfile, and as such does not generate a layer in the resulting container image.</p>
+<p><strong>The RUN keyword</strong><br>The argument for RUN is any valid Linux command, such as the following:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUN yum install -y wget</span><br></pre></td></tr></table></figure></p>
+<p>If we use more than one line, we need to put a backslash () at the end of the lines to indicate to the shell that the command continues on the next line.<br><strong>The COPY and ADD keywords</strong><br>add some content to an existing base image to make it a custom image. Most of the time, these are a few source files of, say, a web application or a few binaries of a compiled application.</p>
+<p>These two keywords are used to copy files and folders from the host into the image that we’re building. The two keywords are very similar, with the exception that the ADD keyword also lets us copy and unpack TAR files, as well as provide a URL as a source for the files and folders to copy.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COPY . /app</span><br><span class="line">COPY ./web /app/web</span><br><span class="line">COPY sample.txt /data/my-sample.txt</span><br><span class="line">ADD sample.tar /app/bin/</span><br><span class="line">ADD http://example.com/sample.txt /data/</span><br></pre></td></tr></table></figure></p>
+<p>In the preceding lines of code:</p>
+<ul>
+<li>The first line copies all files and folders from the current directory recursively to the /app folder inside the container image</li>
+<li>The second line copies everything in the web subfolder to the target folder, /app/web</li>
+<li>The third line copies a single file, sample.txt, into the target folder, /data, and at the same time, renames it to my-sample.txt</li>
+<li>The fourth statement unpacks the sample.tar file into the target folder, /app/bin</li>
+<li>Finally, the last statement copies the remote file, sample.txt, into the target file, /data</li>
+</ul>
+<p>Wildcards are allowed in the source path. For example, the following statement copies all files starting with sample to the mydir folder inside the image:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COPY ./sample* /mydir/</span><br></pre></td></tr></table></figure></p>
+<p>From a security perspective, it is important to know that by default, all files and folders inside the image will have a user ID (UID) and a group ID (GID) of 0. The good thing is that for both ADD and COPY, we can change the ownership that the files will have inside the image using the optional –chown flag, as follows:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADD --chown=11:22 ./data/files* /app/data/</span><br></pre></td></tr></table></figure></p>
+<p>The preceding statement will copy all files starting with the name web and put them into the /app/data folder in the image, and at the same time assign user 11 and group 22 to these files.</p>
+<p>Instead of numbers, one could also use names for the user and group, but then these entities would have to be already defined in the root filesystem of the image at /etc/passwd and /etc/group respectively, otherwise the build of the image would fail.</p>
+<p><strong>The WORKDIR keyword</strong><br>The WORKDIR keyword defines the working directory or context that is used when a container is run from our custom image. So, if I want to set the context to the /app/bin folder inside the image, my expression in the Dockerfile would have to look as follows:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WORKDIR /app/bin</span><br></pre></td></tr></table></figure></p>
+<p>All activity that happens inside the image after the preceding line will use this directory as the working directory. It is very important to note that the following two snippets from a Dockerfile are not the same:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RUN cd /app/bin</span><br><span class="line">RUN touch sample.txt</span><br></pre></td></tr></table></figure></p>
+<p>Compare the preceding code with the following code:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WORKDIR /app/bin</span><br><span class="line">RUN touch sample.txt</span><br></pre></td></tr></table></figure></p>
+<p>The former will create the file in the root of the image filesystem, while the latter will create the file at the expected location in the /app/bin folder. Only the WORKDIR keyword sets the context across the layers of the image. The cd command alone is not persisted across layers.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/docker/">docker</a><a href="/tags/containers/">containers</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://223.95.78.227/2019/09/20/anatomy-of-containers/" data-title="anatomy-of-containers | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/09/19/apache-cloudstack/"  title="apache-cloudstack">
+ <strong>下一篇：</strong><br/> 
+ <span>apache-cloudstack
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Anatomy-of-containers"><span class="toc-number">1.</span> <span class="toc-text">Anatomy of containers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Namespaces"><span class="toc-number">1.1.</span> <span class="toc-text">Namespaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Control-groups-cgroups"><span class="toc-number">1.2.</span> <span class="toc-text">Control groups (cgroups)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Union-filesystem-UnionFS"><span class="toc-number">1.3.</span> <span class="toc-text">Union filesystem (UnionFS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Container-plumbing"><span class="toc-number">1.4.</span> <span class="toc-text">Container plumbing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Runc"><span class="toc-number">1.5.</span> <span class="toc-text">Runc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Containerd"><span class="toc-number">1.6.</span> <span class="toc-text">Containerd</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating-and-managing-container-images"><span class="toc-number">2.</span> <span class="toc-text">Creating and managing container images</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-layered-filesystem"><span class="toc-number">2.1.</span> <span class="toc-text">The layered filesystem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-writable-container-layer"><span class="toc-number">2.2.</span> <span class="toc-text">The writable container layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copy-on-write"><span class="toc-number">2.3.</span> <span class="toc-text">Copy-on-write</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-images"><span class="toc-number">2.4.</span> <span class="toc-text">Creating images</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="stanosaka" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Devops/" title="Devops">Devops<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/aws/" title="aws">aws<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/centos/" title="centos">centos<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Jenkins/" title="Jenkins">Jenkins<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CD-CI/" title="CD/CI">CD/CI<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/docker/" title="docker">docker<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/saltstack/" title="saltstack">saltstack<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zabbix/" title="zabbix">zabbix<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/backup/" title="backup">backup<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Pipeline/" title="Pipeline">Pipeline<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Blue-Ocean/" title="Blue Ocean">Blue Ocean<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/containers/" title="containers">containers<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://zety.com/mycv/00root" target="_blank" title="Stan&#39;s resume">Stan&#39;s resume</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-tutorials" target="_blank" title="IBM cloud solution tutorial">IBM cloud solution tutorial</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/aws-samples" target="_blank" title="AWS Samples">AWS Samples</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/bikrambora/devlab-launchpad" target="_blank" title="Welcome to Dev Labs">Dev Labs</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/ansible/ansible-examples" target="_blank" title="Ansible GitHub repo">Ansible GitHub repo</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html" target="_blank" title="Ansible Best Practices">Ansible Best Practices</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/" target="_blank" title="kubectl cheat sheet">kubectl cheat sheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://rogerdudler.github.io/git-guide" target="_blank" title="Git commands">Git commands</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" title="Dockerfile reference">Dockerfile reference</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://bit.ly/2mTQr8l" target="_blank" title="Linux Command line cheat sheet">Linux Command line cheat sheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://bit.ly/2EPHxze" target="_blank" title="PowerShell Basic Cheat Sheet">PowerShell Basic Cheat Sheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://sed.sourceforge.net/sed1line_zh-CN.html" target="_blank" title="sed cheatsheet">sed cheatsheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://obsavus1p.bkt.clouddn.com/vim_cheat_sheet_for_programmers_print.png" target="_blank" title="vim cheatsheet">vim cheatsheet</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.gitbook.com/book/yeasy/docker_practice/details" target="_blank" title="Learn Docker">Learn Docker</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.unixhot.com/page/ops" target="_blank" title="运维知识体系">运维知识体系</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.tecmint.com/" target="_blank" title="tecmint">tecmint</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.lib.uts.edu.au" target="_blank" title="shoujin.wang@student.uts.edu.au">UTS Library</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://7esl.com" target="_blank" title="ESL">ESL</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://stanchou.wordpress.com" target="_blank" title="Stan&#39;s wordpress">Stan&#39;s wordpress</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://docs.00root.com" target="_blank" title="Stan&#39;s gitbook">Stan&#39;s gitbook</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://api.ipify.org" target="_blank" title="Your IP address">Your IP address</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/stanosaka/oreilly_sql_fundamentals_for_data/blob/master/notes_and_slides/sql_fundamentals_notes.md" target="_blank" title="sql fundamentials">sql fundamentials</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Stan live in Sydney. <br/>
+			I am a lifelong technology learner.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/stanosaka" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/6724938" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		<a href="https://twitter.com/stanosaka" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/stan.osaka" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		<a href="https://www.linkedin.com/in/00root" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		<a href="https://www.douban.com/people/btw01v" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/stan-22-82" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:devops@cwzhou.win" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Stan Zhou">Stan Zhou</a>
+		
+		
+		</p>
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+        
+  	    <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+            <script>
+               if (window.mermaid) {
+                  mermaid.initialize({theme: 'forest'});
+               }
+            </script>
+        
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

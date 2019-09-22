@@ -537,6 +537,12 @@
 <h1 id="Running-in-production"><a href="#Running-in-production" class="headerlink" title="Running in production"></a>Running in production</h1><p><strong>Blue-green deployments</strong><br>In blue-green deployments, the current version of the application service, called blue, handles all the application traffic. We then install the new version of the application service, called green, on the production system. The new service is not yet wired with the rest of the application.</p>
 <p>Once green is installed, one can execute smoke tests against this new service and, if those succeed, the router can be configured to funnel all traffic that previously went to blue to the new service, green. The behavior of green is then observed closely and, if all success criteria are met, blue can be decommissioned. But if, for some reason, green shows some unexpected or unwanted behavior, the router can be reconfigured to return all traffic to blue. Green can then be removed and fixed, and a new blue-green deployment can be executed with the corrected version:<br><img src="https://i.imgur.com/bWC8uLg.png" alt="blue-green deployment"></p>
 <p><strong>Canary releases</strong><br>Canary releases are releases where we have the current version of the application service and the new version installed on the system in parallel. As such, they resemble blue-green deployments. At first, all traffic is still routed through the current version. We then configure a router so that it funnels a small percentage, say 1%, of the overall traffic to the new version of the application service. The behavior of the new service is then monitored closely to find out whether or not it works as expected. If all the criteria for success are met, then the router is configured to funnel more traffic, say 5% this time, through the new service. Again, the behavior of the new service is closely monitored and, if it is successful, more and more traffic is routed to it until we reach 100%. Once all traffic is routed to the new service and it has been stable for some time, the old version of the service can be decommissioned.</p>
+<h1 id="System-management"><a href="#System-management" class="headerlink" title="System management"></a>System management</h1><h2 id="Pruning-unused-resources"><a href="#Pruning-unused-resources" class="headerlink" title="Pruning unused resources"></a>Pruning unused resources</h2><p><strong>Listing resource consumption</strong><br>$ docker system df</p>
+<h1 id="in-verbose-mode"><a href="#in-verbose-mode" class="headerlink" title="in verbose mode"></a>in verbose mode</h1><p>$ docker system df -v<br><strong>Pruning containers</strong></p>
+<h1 id="regain-unused-system-resources"><a href="#regain-unused-system-resources" class="headerlink" title="regain unused system resources"></a>regain unused system resources</h1><p>$ docker container prune # remove all containers from the system that are not in running status<br>$ docker container prune -f # skip confirmation step</p>
+<h1 id="remove-all-containers-from-system-even-the-running-ones"><a href="#remove-all-containers-from-system-even-the-running-ones" class="headerlink" title="remove all containers from system, even the running ones"></a>remove all containers from system, even the running ones</h1><p>$ docker container rm -f $(docker container ls -aq)<br><strong>Pruning images</strong><br>$ docker image prune</p>
+<h1 id="avoid-Docker-asking-for-a-confirmation"><a href="#avoid-Docker-asking-for-a-confirmation" class="headerlink" title="avoid Docker asking for a confirmation"></a>avoid Docker asking for a confirmation</h1><p>$ docker image prune -f</p>
+<h1 id="Sometimes-we-do-not-just-want-to-remove-orphaned-image-layers-but-all-images-that-are-not-currently-in-use-on-our-system-For-this-we-can-use-the-a-or-–all-flag"><a href="#Sometimes-we-do-not-just-want-to-remove-orphaned-image-layers-but-all-images-that-are-not-currently-in-use-on-our-system-For-this-we-can-use-the-a-or-–all-flag" class="headerlink" title="Sometimes we do not just want to remove orphaned image layers but all images that are not currently in use on our system. For this, we can use the -a (or –all) flag:"></a>Sometimes we do not just want to remove orphaned image layers but all images that are not currently in use on our system. For this, we can use the -a (or –all) flag:</h1><p>$ docker image prune –force –all<br><strong>Pruning volumes</strong><br>$ docker volume prune<br>A useful flag when pruning volumes is the -f or –filter flag which allows us to specify the set of volumes which we’re considering for pruning<br>$ docker volume prune –filter ‘label=demo’<br><strong>Pruning network</strong><br>will remove the networks on which currently no container or service is attached.<br>$ docker network prune<br><strong>Pruning everything</strong><br>$ docker system prune</p>
 
         
         
@@ -1941,11 +1947,11 @@
 			
 		
 			
-				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
+				<li><a href="/tags/backup/" title="backup">backup<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/backup/" title="backup">backup<sup>2</sup></a></li>
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
 			
 		
 			
@@ -1953,7 +1959,7 @@
 			
 		
 			
-				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
 			
 		
 			
@@ -1965,15 +1971,15 @@
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/software-development/" title="software development">software development<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/agile-development/" title="agile development">agile development<sup>1</sup></a></li>
 			
 		
 		</ul>

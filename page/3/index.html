@@ -177,9 +177,31 @@
 <p>manifests system robust </p>
 <p>common question why use k8s instead of docker swarm</p>
 <p>number 1 ad: docker swarm is built in<br>K8S: far richer, deploy do different cloud platforms<br>K8S is just far more popular<br>is a orchestration of choice.<br>K8S is the most in demand container orchestration system out there.</p>
-<p>This course is a very practical course. It’s a use-case driven course </p>
 <p>A Java-based with angular on the front-end.</p>
-<h1 id="Installing-Minikube"><a href="#Installing-Minikube" class="headerlink" title="Installing Minikube"></a>Installing Minikube</h1><p>cut-down version-minikube<br><a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a></p>
+<h1 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h1><ul>
+<li>Cluster: A group of physical or virtual machines</li>
+<li>Node: Ap hysical or virtual machine that is part of a cluster</li>
+<li>Control Plane: The set of processes that run the core k8s services (e.g. APi, scheduler, etcd …)</li>
+<li>Pod: The lowest compute unit in Kubernetes, a group of containers that run on a Node.</li>
+</ul>
+<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><p><strong>Head Node</strong><br>That’s the brain of Kubernetes</p>
+<ul>
+<li>API server</li>
+<li>Scheduler: to place the containers where they need to go</li>
+<li>Controller manager: makes sure that the state of the system is what it should be</li>
+<li>Etcd: data store, used to store the state of the system</li>
+<li>Sometimes:<ul>
+<li>kubelet: a process manage all of this</li>
+<li>docker: container engine<br><strong>Worker node</strong></li>
+</ul>
+</li>
+<li>kubelet<br>That’s the Kubernetes agent that runs on all the Kubernetes cluster nodes. Kubelet talks with the Kubernetes API server and then talks to the local Docker daemon to be able to manage the Docker containers running on the node.</li>
+<li>kube-proxy: a system that allos you to manage the IP tables in that node so that the traffic between the pods and the nodes is what it should be</li>
+<li>docker<h1 id="Installing-k8s-in-3-easy-ways"><a href="#Installing-k8s-in-3-easy-ways" class="headerlink" title="Installing k8s in 3 easy ways"></a>Installing k8s in 3 easy ways</h1></li>
+<li>minikube</li>
+<li>gcloud container clusters</li>
+<li>kubeadm<h1 id="Installing-Minikube"><a href="#Installing-Minikube" class="headerlink" title="Installing Minikube"></a>Installing Minikube</h1>cut-down version-minikube<br><a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a></li>
+</ul>
 <p>You might have an incompatibility between your distribution and the one that Minikube is expecting.<br>two command line tools: kubectl is the controller pogramme for k8s. and Minikube</p>
 <p>Enable the Hyper-V role throught settings<br>when enable don’t use oracle virtual box</p>
 <p>goo.gl/4yEFbF    for win 10 Professional</p>
@@ -1244,11 +1266,11 @@
 			
 		
 			
-				<li><a href="/tags/backup/" title="backup">backup<sup>2</sup></a></li>
+				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+				<li><a href="/tags/backup/" title="backup">backup<sup>2</sup></a></li>
 			
 		
 			
@@ -1256,7 +1278,7 @@
 			
 		
 			
-				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
 			
 		
 			
@@ -1268,15 +1290,15 @@
 			
 		
 			
-				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/software-development/" title="software development">software development<sup>1</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/agile-development/" title="agile development">agile development<sup>1</sup></a></li>
+				<li><a href="/tags/containers/" title="containers">containers<sup>1</sup></a></li>
 			
 		
 		</ul>

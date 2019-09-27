@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/09/28/photography/</loc>
+    
+    <lastmod>2019-09-27T14:44:32.492Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/06/04/k8s/</loc>
     
     <lastmod>2019-09-27T14:13:54.676Z</lastmod>
@@ -296,6 +303,13 @@
   </url>
   
   <url>
+    <loc>http://223.95.78.227/2016/09/15/saltstack/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
@@ -310,13 +324,6 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/09/15/saltstack/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
@@ -324,14 +331,14 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/08/19/zabbix-client/</loc>
+    <loc>http://223.95.78.227/2016/10/10/web-security/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/10/10/web-security/</loc>
+    <loc>http://223.95.78.227/2016/08/19/zabbix-client/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

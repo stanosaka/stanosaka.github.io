@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/05/08/vim/</loc>
+    
+    <lastmod>2020-01-20T10:14:31.264Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/05/06/git/</loc>
+    
+    <lastmod>2020-01-11T04:02:39.764Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/10/02/python/</loc>
+    
+    <lastmod>2019-10-02T13:32:48.678Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/09/28/photography/</loc>
     
     <lastmod>2019-09-27T14:44:32.492Z</lastmod>
@@ -75,13 +96,6 @@
     <loc>http://223.95.78.227/2019/07/17/devops/</loc>
     
     <lastmod>2019-09-13T14:59:52.588Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/05/06/git/</loc>
-    
-    <lastmod>2019-09-13T05:39:13.467Z</lastmod>
     
   </url>
   
@@ -198,13 +212,6 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2019/05/08/vim/</loc>
-    
-    <lastmod>2019-06-19T07:10:17.895Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://223.95.78.227/2016/09/18/saltstackformula/</loc>
     
     <lastmod>2019-05-17T11:56:40.698Z</lastmod>
@@ -310,13 +317,6 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
@@ -339,6 +339,13 @@
   
   <url>
     <loc>http://223.95.78.227/2016/08/19/zabbix-client/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

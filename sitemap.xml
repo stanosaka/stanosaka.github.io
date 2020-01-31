@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://223.95.78.227/2019/05/08/vim/</loc>
+    <loc>http://223.95.78.227/2016/08/29/centos7/</loc>
     
-    <lastmod>2020-01-20T10:14:31.264Z</lastmod>
+    <lastmod>2020-01-31T00:55:43.080Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://223.95.78.227/2019/05/06/git/</loc>
     
-    <lastmod>2020-01-11T04:02:39.764Z</lastmod>
+    <lastmod>2020-01-22T01:23:51.287Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/05/08/vim/</loc>
+    
+    <lastmod>2020-01-20T10:14:31.264Z</lastmod>
     
   </url>
   
@@ -198,13 +205,6 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/08/29/centos7/</loc>
-    
-    <lastmod>2019-06-20T03:23:17.178Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://223.95.78.227/2016/09/18/saltstackformula/</loc>
     
     <lastmod>2019-05-17T11:56:40.698Z</lastmod>
@@ -296,14 +296,14 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2017/09/06/redhat/</loc>
+    <loc>http://223.95.78.227/2016/09/15/saltstack/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/09/15/saltstack/</loc>
+    <loc>http://223.95.78.227/2017/09/06/redhat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.imgur.com/60o3bav.png">
 <meta property="og:image" content="https://i.imgur.com/D7Vewu7.jpg">
 <meta property="og:image" content="https://i.imgur.com/4WIQHtZ.png">
-<meta property="og:updated_time" content="2019-09-19T06:48:35.263Z">
+<meta property="og:updated_time" content="2020-02-10T10:54:39.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LinuxSystemAdmin">
 <meta name="twitter:description" content="TCP/IP networkingTroubleshoot networkingTools for troubleshooting the network  ping - ICMP echo requests traceroute and tracepath - Trace the path taken to a given host netcat - Arbitrary TCP and UDP">
@@ -104,7 +104,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP-networking"><span class="toc-number">1.</span> <span class="toc-text">TCP/IP networking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshoot-networking"><span class="toc-number">1.1.</span> <span class="toc-text">Troubleshoot networking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backup-and-streaming"><span class="toc-number">1.2.</span> <span class="toc-text">Backup and streaming</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP-networking"><span class="toc-number">1.</span> <span class="toc-text">TCP/IP networking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshoot-networking"><span class="toc-number">1.1.</span> <span class="toc-text">Troubleshoot networking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backup-and-streaming"><span class="toc-number">1.2.</span> <span class="toc-text">Backup and streaming</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-troubleshooting"><span class="toc-number">2.</span> <span class="toc-text">Linux troubleshooting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#System-access-troubleshooting"><span class="toc-number">2.1.</span> <span class="toc-text">System access troubleshooting</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#telnet-192-168-1-5-80-http"><span class="toc-number">3.</span> <span class="toc-text">telnet 192.168.1.5 80 (http)</span></a></li></ol>
 		
 		</div>
 		
@@ -147,7 +147,32 @@
 <li>It is difficult to know exactly which process is using the disk I/O the most, but using kill -STOP to temporarily suspend the susceptiable process can narrow down the possibilities.</li>
 <li>If a process is identified as resource intensive, a number of actions can be taken: if it is CPU intensive you can use the renice command to descrease its priority. You can also ask the user to run it later. I the process is hogging the disk and/or then network, renice will not solve the problem, but you can tune the process itself to optimize its behavior (for example web servers).</li>
 </ul>
-  
+<h1 id="Linux-troubleshooting"><a href="#Linux-troubleshooting" class="headerlink" title="Linux troubleshooting"></a>Linux troubleshooting</h1><h2 id="System-access-troubleshooting"><a href="#System-access-troubleshooting" class="headerlink" title="System access troubleshooting"></a>System access troubleshooting</h2><p><strong>Server is not reachable</strong></p>
+<ul>
+<li>Ping the destination server name<ul>
+<li>if server name is not pingable</li>
+</ul>
+</li>
+<li>Ping the destination server yb IP<ul>
+<li>if IP is pingable = Name resolution issue<ul>
+<li>Check /etc/hosts file</li>
+<li>Check /etc/resolv.conf</li>
+<li>Check /etc/nsswitch.conf</li>
+</ul>
+</li>
+<li>If IP is NOT pingable<ul>
+<li>Ping another server by name and then by IP</li>
+<li>Checking if your server has an IP address</li>
+<li>Ping your gateway (netstat -rnv)/modem IP</li>
+<li>Check physical cable connection</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Cannot connect to a website or an application</strong><br>Troubleshoting Steps: ping server by hostname and IP<br>if NOT pinable= go back to <strong>Server is not reachable</strong></p>
+<p>if pingable = Connect to service </p>
+<h1 id="telnet-192-168-1-5-80-http"><a href="#telnet-192-168-1-5-80-http" class="headerlink" title="telnet 192.168.1.5 80 (http)"></a>telnet 192.168.1.5 80 (http)</h1>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -204,7 +229,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP-networking"><span class="toc-number">1.</span> <span class="toc-text">TCP/IP networking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshoot-networking"><span class="toc-number">1.1.</span> <span class="toc-text">Troubleshoot networking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backup-and-streaming"><span class="toc-number">1.2.</span> <span class="toc-text">Backup and streaming</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP-IP-networking"><span class="toc-number">1.</span> <span class="toc-text">TCP/IP networking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Troubleshoot-networking"><span class="toc-number">1.1.</span> <span class="toc-text">Troubleshoot networking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backup-and-streaming"><span class="toc-number">1.2.</span> <span class="toc-text">Backup and streaming</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-troubleshooting"><span class="toc-number">2.</span> <span class="toc-text">Linux troubleshooting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#System-access-troubleshooting"><span class="toc-number">2.1.</span> <span class="toc-text">System access troubleshooting</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#telnet-192-168-1-5-80-http"><span class="toc-number">3.</span> <span class="toc-text">telnet 192.168.1.5 80 (http)</span></a></li></ol>
  
   </div>
 
@@ -274,11 +299,11 @@
 			
 		
 			
-				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
+				<li><a href="/tags/backup/" title="backup">backup<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/backup/" title="backup">backup<sup>2</sup></a></li>
+				<li><a href="/tags/ec2/" title="ec2">ec2<sup>2</sup></a></li>
 			
 		
 			
@@ -294,11 +319,11 @@
 			
 		
 			
-				<li><a href="/tags/Blue-Ocean/" title="Blue Ocean">Blue Ocean<sup>1</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+				<li><a href="/tags/Blue-Ocean/" title="Blue Ocean">Blue Ocean<sup>1</sup></a></li>
 			
 		
 			
@@ -306,7 +331,7 @@
 			
 		
 			
-				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
+				<li><a href="/tags/SRE/" title="SRE">SRE<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -319,7 +344,7 @@
         
           <li>
             
-            	<a href="https://zety.com/mycv/00root" target="_blank" title="Stan&#39;s resume">Stan&#39;s resume</a>
+            	<a href="https://kupczynski.info/2018/04/18/spacemacs.html" target="_blank" title="Learning Spacemacs">Learning Spacemacs</a>
             
           </li>
         

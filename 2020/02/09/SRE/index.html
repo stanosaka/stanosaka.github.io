@@ -4,25 +4,25 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>amazon linux 2 | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>SRE | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="Amazon Linux 2Change hostname use init-cloud:123456vim /etc/cloud/cloud.cfg.d/11_changehostname.cfg#cloud-configpreserve_hostname: falsehostname: myhostnamefqdn: myhostname.example.commanage_etc_hosts">
-<meta name="keywords" content="aws,linux">
+    <meta name="description" content="Implementing SLOsService level objectives (SLOs) specify a target level for the reliability of your service.SLOs are key to making data-driven decisions about reliability, they’re at the core of SRE p">
+<meta name="keywords" content="SRE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="amazon linux 2">
-<meta property="og:url" content="http://223.95.78.227/2019/05/05/amazon-linux2/index.html">
+<meta property="og:title" content="SRE">
+<meta property="og:url" content="http://223.95.78.227/2020/02/09/SRE/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="Amazon Linux 2Change hostname use init-cloud:123456vim /etc/cloud/cloud.cfg.d/11_changehostname.cfg#cloud-configpreserve_hostname: falsehostname: myhostnamefqdn: myhostname.example.commanage_etc_hosts">
+<meta property="og:description" content="Implementing SLOsService level objectives (SLOs) specify a target level for the reliability of your service.SLOs are key to making data-driven decisions about reliability, they’re at the core of SRE p">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-17T11:47:38.982Z">
+<meta property="og:updated_time" content="2020-02-09T06:18:34.749Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="amazon linux 2">
-<meta name="twitter:description" content="Amazon Linux 2Change hostname use init-cloud:123456vim /etc/cloud/cloud.cfg.d/11_changehostname.cfg#cloud-configpreserve_hostname: falsehostname: myhostnamefqdn: myhostname.example.commanage_etc_hosts">
+<meta name="twitter:title" content="SRE">
+<meta name="twitter:description" content="Implementing SLOsService level objectives (SLOs) specify a target level for the reliability of your service.SLOs are key to making data-driven decisions about reliability, they’re at the core of SRE p">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/05/05/amazon-linux2/" title="amazon linux 2" itemprop="url">amazon linux 2</a>
+      <a href="/2020/02/09/SRE/" title="SRE" itemprop="url">SRE</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2019-05-05T10:46:16.000Z" itemprop="datePublished"> Published 2019-05-05</time>
+    <time datetime="2020-02-09T01:10:52.000Z" itemprop="datePublished"> Published 2020-02-09</time>
     
   </p>
 </header>
@@ -99,13 +99,12 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Linux-2"><span class="toc-number">1.</span> <span class="toc-text">Amazon Linux 2</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementing-SLOs"><span class="toc-number">1.</span> <span class="toc-text">Implementing SLOs</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="Amazon-Linux-2"><a href="#Amazon-Linux-2" class="headerlink" title="Amazon Linux 2"></a>Amazon Linux 2</h3><p>Change hostname use init-cloud:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/cloud/cloud.cfg.d/11_changehostname.cfg</span><br><span class="line"><span class="comment">#cloud-config</span></span><br><span class="line">preserve_hostname: <span class="literal">false</span></span><br><span class="line">hostname: myhostname</span><br><span class="line">fqdn: myhostname.example.com</span><br><span class="line">manage_etc_hosts: <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p>By Command:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl <span class="built_in">set</span>-hostname foobar.localdomain</span><br><span class="line">sed -i <span class="string">'1s/localhost/foobar/1'</span> /etc/hosts|sed -i <span class="string">'1s/localhost/foobar/2'</span> /etc/hosts</span><br></pre></td></tr></table></figure></p>
-<p>Extra Library:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ec2-user ~]$ amazon-linux-extras list</span><br><span class="line">[ec2-user ~]$ sudo amazon-linux-extras install topic=version topic=version</span><br></pre></td></tr></table></figure></p>
+		<h1 id="Implementing-SLOs"><a href="#Implementing-SLOs" class="headerlink" title="Implementing SLOs"></a>Implementing SLOs</h1><p>Service level objectives (SLOs) specify a target level for the reliability of your service.<br>SLOs are key to making data-driven decisions about reliability, they’re at the core of SRE practices.</p>
+<p>SLOs are a tool to help determin what engineering work to prioritize.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,7 +113,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/aws/">aws</a><a href="/tags/linux/">linux</a>
+  <span></span> <a href="/tags/SRE/">SRE</a>
   </div>
 
 </div>
@@ -123,7 +122,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2019/05/05/amazon-linux2/" data-title="amazon linux 2 | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2020/02/09/SRE/" data-title="SRE | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,19 +135,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/05/06/git/" title="Complete Git and Github Masterclass">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Complete Git and Github Masterclass</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/05/05/docker/"  title="docker">
+<a href="/2019/09/28/photography/"  title="photography">
  <strong>下一篇：</strong><br/> 
- <span>docker
+ <span>photography
 </span>
 </a>
 </div>
@@ -163,7 +154,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Linux-2"><span class="toc-number">1.</span> <span class="toc-text">Amazon Linux 2</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementing-SLOs"><span class="toc-number">1.</span> <span class="toc-text">Implementing SLOs</span></a></li></ol>
  
   </div>
 

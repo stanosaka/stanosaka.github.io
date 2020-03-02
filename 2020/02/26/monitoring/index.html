@@ -4,25 +4,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>vim | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>monitoring | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="Multiple file editOpen multiple files in separate tab via vim -p file1.txt file2.txt.If already open just use :tabe file2.txt.Just 1gt, 2gt, use gt to view.Close tabs using :tabc Replace string global">
-<meta name="keywords" content="vim">
+    <meta name="description" content="Frontend MonitoringTwo approaches to frontend monitoring real user monitoring (RUM) synthetic tools: webpagetest.orgBrowsers expose page performance metrics visa the Navigation Timing API    Applicati">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vim">
-<meta property="og:url" content="http://223.95.78.227/2019/05/08/vim/index.html">
+<meta property="og:title" content="monitoring">
+<meta property="og:url" content="http://223.95.78.227/2020/02/26/monitoring/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="Multiple file editOpen multiple files in separate tab via vim -p file1.txt file2.txt.If already open just use :tabe file2.txt.Just 1gt, 2gt, use gt to view.Close tabs using :tabc Replace string global">
+<meta property="og:description" content="Frontend MonitoringTwo approaches to frontend monitoring real user monitoring (RUM) synthetic tools: webpagetest.orgBrowsers expose page performance metrics visa the Navigation Timing API    Applicati">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-20T10:14:31.264Z">
+<meta property="og:updated_time" content="2020-02-27T12:22:34.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim">
-<meta name="twitter:description" content="Multiple file editOpen multiple files in separate tab via vim -p file1.txt file2.txt.If already open just use :tabe file2.txt.Just 1gt, 2gt, use gt to view.Close tabs using :tabc Replace string global">
+<meta name="twitter:title" content="monitoring">
+<meta name="twitter:description" content="Frontend MonitoringTwo approaches to frontend monitoring real user monitoring (RUM) synthetic tools: webpagetest.orgBrowsers expose page performance metrics visa the Navigation Timing API    Applicati">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -83,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/05/08/vim/" title="vim" itemprop="url">vim</a>
+      <a href="/2020/02/26/monitoring/" title="monitoring" itemprop="url">monitoring</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2019-05-08T12:13:36.000Z" itemprop="datePublished"> Published 2019-05-08</time>
+    <time datetime="2020-02-26T10:52:07.000Z" itemprop="datePublished"> Published 2020-02-26</time>
     
   </p>
 </header>
@@ -99,33 +98,26 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multiple-file-edit"><span class="toc-number">1.</span> <span class="toc-text">Multiple file edit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace-string-globally"><span class="toc-number">2.</span> <span class="toc-text">Replace string globally</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evil-tutor"><span class="toc-number">3.</span> <span class="toc-text">evil-tutor</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#a-way-to-change-errors"><span class="toc-number"></span> <span class="toc-text">a way to change errors</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#execute-an-external-command"><span class="toc-number"></span> <span class="toc-text">execute an external command</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#writing-files"><span class="toc-number"></span> <span class="toc-text">writing files</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#remove-the-file"><span class="toc-number"></span> <span class="toc-text">remove the file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#to-save-part-of-the-file"><span class="toc-number"></span> <span class="toc-text">to save part of the file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#retrieves-disk-file-FILENAME-and-inserts-it-into-the-current-buffer-following-the-cursor-position"><span class="toc-number"></span> <span class="toc-text">retrieves disk file FILENAME and inserts it into the current buffer following the cursor position</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#opens-a-line-BELOW-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state"><span class="toc-number"></span> <span class="toc-text">opens a line BELOW the cursor and places the cursor on the open line in insert state</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#opens-a-line-ABOVE-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state"><span class="toc-number"></span> <span class="toc-text">opens a line ABOVE the cursor and places the cursor on the open line in insert state</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#R-to-replace-more-than-on-character"><span class="toc-number"></span> <span class="toc-text">R to replace more than on character</span></a>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Frontend-Monitoring"><span class="toc-number">1.</span> <span class="toc-text">Frontend Monitoring</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-approaches-to-frontend-monitoring"><span class="toc-number">1.1.</span> <span class="toc-text">Two approaches to frontend monitoring</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Monitoring"><span class="toc-number">2.</span> <span class="toc-text">Application Monitoring</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="Multiple-file-edit"><a href="#Multiple-file-edit" class="headerlink" title="Multiple file edit"></a>Multiple file edit</h3><p>Open multiple files in separate tab via <code>vim -p file1.txt file2.txt</code>.<br>If already open just use <code>:tabe file2.txt</code>.<br>Just 1gt, 2gt, use <code>gt</code> to view.<br>Close tabs using <code>:tabc</code></p>
-<h3 id="Replace-string-globally"><a href="#Replace-string-globally" class="headerlink" title="Replace string globally"></a>Replace string globally</h3><p>:%s/release1/release2/g</p>
-<h3 id="evil-tutor"><a href="#evil-tutor" class="headerlink" title="evil-tutor"></a>evil-tutor</h3><p>/ followed by a phrase searches FORWARD for the phrase<br>? followed by a phrase searches BACKWARD for the phrase<br>After a search type n to find the next occurrence in the same direction<br>or N to search in the opposite direction.</p>
-<p>Type % to find a matching ),], or }<br>The cursor should be on the matching parenthesis or bracket.</p>
-<h1 id="a-way-to-change-errors"><a href="#a-way-to-change-errors" class="headerlink" title="a way to change errors"></a>a way to change errors</h1><p>:s/old/new to substitute ‘new’ for first ‘old’s on a line type<br>:s/old/new/g to substitute ‘new’ for all ‘old’s on a line type<br>:#,#s/old/new/g to substitute phrases between two line #’s type<br>:%s/old/new/g to substitute all occurrences in the file type<br>:%s/old/new/gc to ask for confirmation each time add ‘c’</p>
-<h1 id="execute-an-external-command"><a href="#execute-an-external-command" class="headerlink" title="execute an external command"></a>execute an external command</h1><p>:! external command</p>
-<h1 id="writing-files"><a href="#writing-files" class="headerlink" title="writing files"></a>writing files</h1><p>:w TEST </p>
-<h1 id="remove-the-file"><a href="#remove-the-file" class="headerlink" title="remove the file"></a>remove the file</h1><p>:!rm TEST</p>
-<h1 id="to-save-part-of-the-file"><a href="#to-save-part-of-the-file" class="headerlink" title="to save part of the file"></a>to save part of the file</h1><p>:#,# w FILENAME</p>
-<h1 id="retrieves-disk-file-FILENAME-and-inserts-it-into-the-current-buffer-following-the-cursor-position"><a href="#retrieves-disk-file-FILENAME-and-inserts-it-into-the-current-buffer-following-the-cursor-position" class="headerlink" title="retrieves disk file FILENAME and inserts it into the current buffer following the cursor position"></a>retrieves disk file FILENAME and inserts it into the current buffer following the cursor position</h1><p>:r FILENAME</p>
-<h1 id="opens-a-line-BELOW-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state"><a href="#opens-a-line-BELOW-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state" class="headerlink" title="opens a line BELOW the cursor and places the cursor on the open line in insert state"></a>opens a line BELOW the cursor and places the cursor on the open line in insert state</h1><p>o</p>
-<h1 id="opens-a-line-ABOVE-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state"><a href="#opens-a-line-ABOVE-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state" class="headerlink" title="opens a line ABOVE the cursor and places the cursor on the open line in insert state"></a>opens a line ABOVE the cursor and places the cursor on the open line in insert state</h1><p>O</p>
-<h1 id="R-to-replace-more-than-on-character"><a href="#R-to-replace-more-than-on-character" class="headerlink" title="R to replace more than on character"></a>R to replace more than on character</h1><p>R enters Repace mode until <ESC> is pressed to exit.</p>
+		<h1 id="Frontend-Monitoring"><a href="#Frontend-Monitoring" class="headerlink" title="Frontend Monitoring"></a>Frontend Monitoring</h1><h2 id="Two-approaches-to-frontend-monitoring"><a href="#Two-approaches-to-frontend-monitoring" class="headerlink" title="Two approaches to frontend monitoring"></a>Two approaches to frontend monitoring</h2><ul>
+<li>real user monitoring (RUM)</li>
+<li>synthetic<ul>
+<li>tools: webpagetest.org<br><strong>Browsers expose page performance metrics visa the Navigation Timing API</strong></li>
+</ul>
+</li>
+</ul>
+<h1 id="Application-Monitoring"><a href="#Application-Monitoring" class="headerlink" title="Application Monitoring"></a>Application Monitoring</h1><p><strong>Application Performance Monitoring(APM) Tools</strong></p>
+<ul>
+<li>StatsD is a tool used to add metrics inside of your code.</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/vim/">vim</a>
-  </div>
 
 </div>
 
@@ -133,7 +125,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2019/05/08/vim/" data-title="vim | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2020/02/26/monitoring/" data-title="monitoring | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -146,19 +138,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/05/08/beginningDevOpsWithDocker/" title="Beginning DevOps with Docker">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Beginning DevOps with Docker</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/05/08/JenkinsForProfessionals/"  title="Jenkins For Professionals">
+<a href="/2020/02/09/SRE/"  title="SRE">
  <strong>下一篇：</strong><br/> 
- <span>Jenkins For Professionals
+ <span>SRE
 </span>
 </a>
 </div>
@@ -173,7 +157,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multiple-file-edit"><span class="toc-number">1.</span> <span class="toc-text">Multiple file edit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace-string-globally"><span class="toc-number">2.</span> <span class="toc-text">Replace string globally</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evil-tutor"><span class="toc-number">3.</span> <span class="toc-text">evil-tutor</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#a-way-to-change-errors"><span class="toc-number"></span> <span class="toc-text">a way to change errors</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#execute-an-external-command"><span class="toc-number"></span> <span class="toc-text">execute an external command</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#writing-files"><span class="toc-number"></span> <span class="toc-text">writing files</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#remove-the-file"><span class="toc-number"></span> <span class="toc-text">remove the file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#to-save-part-of-the-file"><span class="toc-number"></span> <span class="toc-text">to save part of the file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#retrieves-disk-file-FILENAME-and-inserts-it-into-the-current-buffer-following-the-cursor-position"><span class="toc-number"></span> <span class="toc-text">retrieves disk file FILENAME and inserts it into the current buffer following the cursor position</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#opens-a-line-BELOW-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state"><span class="toc-number"></span> <span class="toc-text">opens a line BELOW the cursor and places the cursor on the open line in insert state</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#opens-a-line-ABOVE-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state"><span class="toc-number"></span> <span class="toc-text">opens a line ABOVE the cursor and places the cursor on the open line in insert state</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#R-to-replace-more-than-on-character"><span class="toc-number"></span> <span class="toc-text">R to replace more than on character</span></a>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Frontend-Monitoring"><span class="toc-number">1.</span> <span class="toc-text">Frontend Monitoring</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-approaches-to-frontend-monitoring"><span class="toc-number">1.1.</span> <span class="toc-text">Two approaches to frontend monitoring</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Monitoring"><span class="toc-number">2.</span> <span class="toc-text">Application Monitoring</span></a></li></ol>
  
   </div>
 

@@ -1606,6 +1606,539 @@
 <li>Error2:<br><img src="https://i.imgur.com/NvWneaV.png" alt="error2"><br>if ecs try to connect to localhost as rds, and couldnot connect sucessfully</li>
 </ol>
 <p>Debug:<br>ecs_task.tpl pg environment vars are all missing</p>
+<!-- theme: spkane -->
+<!-- _class: lead -->
+<!-- $size: 16:9 -->
+<h1 id="Terraform"><a href="#Terraform" class="headerlink" title="Terraform"></a>Terraform</h1><h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p><br></br><br><br></br></p>
+<h6 id="Release-BUILD-RELEASE"><a href="#Release-BUILD-RELEASE" class="headerlink" title="Release %BUILD_RELEASE%"></a>Release %BUILD_RELEASE%</h6><hr>
+<!-- _class: lead -->
+<h1 id="Instructor"><a href="#Instructor" class="headerlink" title="Instructor"></a>Instructor</h1><h1 id="Sean-P-Kane"><a href="#Sean-P-Kane" class="headerlink" title="Sean P. Kane"></a>Sean P. Kane</h1><h3 id="spkane"><a href="#spkane" class="headerlink" title="@spkane"></a>@spkane</h3><p><img src="images/skane-2018-side-black-cropped.jpg" alt="bg right"></p>
+<hr>
+<!-- footer: Copyright © 2015-2020, Sean P. Kane (@spkane) -->
+<!-- paginate: true -->
+<!-- _class: lead -->
+<h1 id="Follow-Along-Guide"><a href="#Follow-Along-Guide" class="headerlink" title="Follow Along Guide"></a><a href="https://gist.github.com/spkane/df02f7858f6bef9f045fa1c296f8146f">Follow Along Guide</a></h1><h2 id="Textual-Slides"><a href="#Textual-Slides" class="headerlink" title="Textual Slides"></a>Textual Slides</h2><hr>
+<h1 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h1><ul>
+<li>A recent computer and OS<ul>
+<li>Recent Linux, OS X, or Windows 10</li>
+<li>Reliable and fast internet connectivity</li>
+</ul>
+</li>
+<li>Hashicorp Terraform</li>
+</ul>
+<hr>
+<h1 id="Prerequisites-1"><a href="#Prerequisites-1" class="headerlink" title="Prerequisites"></a>Prerequisites</h1><ul>
+<li>A graphical web browser</li>
+<li>A text editor</li>
+<li>A software package manager</li>
+<li>Git client</li>
+<li>General comfort with the command line will be helpful.</li>
+<li>[optional] tar, wget, curl, jq, SSH client</li>
+</ul>
+<hr>
+<h1 id="A-Note-for-Windows-Users"><a href="#A-Note-for-Windows-Users" class="headerlink" title="A Note for Windows Users"></a>A Note for Windows Users</h1><p>This class was written from a largely Unix based perspective, but everything can be made to work in Windows with very little effort.</p>
+<ul>
+<li>Unix Variables<ul>
+<li><code>export MY_VAR=test</code></li>
+<li><code>echo ${MY_VAR}</code></li>
+</ul>
+</li>
+<li>Windows 10 Variables (powershell)<ul>
+<li><code>$env:my_var = &quot;test&quot;</code></li>
+<li><code>Get-ChildItem Env:my_var</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="A-Note-About-Proxies"><a href="#A-Note-About-Proxies" class="headerlink" title="A Note About Proxies"></a>A Note About Proxies</h1><p>Proxies can interfere with some activities if they are not configured correctly.</p>
+<hr>
+<h1 id="Instructor-Environment"><a href="#Instructor-Environment" class="headerlink" title="Instructor Environment"></a>Instructor Environment</h1><ul>
+<li><strong>Operating System</strong>: Mac OS X (v10.15.X+)</li>
+<li><strong>Terminal</strong>: iTerm2 (Build 3.X.X+) - <a href="https://www.iterm2.com/">https://www.iterm2.com/</a></li>
+<li><strong>Shell Customization</strong>: Bash-it - <a href="https://github.com/Bash-it/bash-it">https://github.com/Bash-it/bash-it</a></li>
+<li><strong>Shell Prompt Theme</strong>: Starship - <a href="https://starship.rs/">https://starship.rs/</a></li>
+<li><strong>Shell Prompt Font</strong>: Fira Code - <a href="https://github.com/tonsky/FiraCode">https://github.com/tonsky/FiraCode</a></li>
+<li><strong>Text Editor</strong>: Visual Studio Code (v1.X.X+) - <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+</ul>
+<hr>
+<h1 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h1><ul>
+<li><strong>ter·ra·form</strong></li>
+<li><em>/ˈterəˌfôrm/</em><ul>
+<li>(verb) to alter a planet for the purpose of sustaining life</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Hashicorp-Terraform"><a href="#Hashicorp-Terraform" class="headerlink" title="Hashicorp Terraform"></a>Hashicorp Terraform</h1><ul>
+<li>Terraform is a tool that makes it possible to document and automate the creation, modification, and destruction of almost anything that can be managed by an API.</li>
+<li>This means that it is finally conceivable to automate the management of everything that your software stacks needs to actually run in any environment, including cloud resources, DNS entries, CDN configuration, and much more.</li>
+</ul>
+<hr>
+<h1 id="Installing-Terraform"><a href="#Installing-Terraform" class="headerlink" title="Installing Terraform"></a>Installing Terraform</h1><ul>
+<li>Download:<ul>
+<li><a href="https://www.terraform.io/downloads.html">https://www.terraform.io/downloads.html</a></li>
+</ul>
+</li>
+<li>Unarchive and copy into your executable $PATH</li>
+</ul>
+<hr>
+<h1 id="Version-0-12"><a href="#Version-0-12" class="headerlink" title="Version 0.12"></a>Version 0.12</h1><ul>
+<li>Version 0.12 of terraform was a major release that included many significant improvements, but also included some breaking changes.</li>
+<li>Be aware that code written for terraform 0.12 is not compatible with earlier releases and that in general, you should not use not use older terraform binaries with existing terraform managed infrastructure.</li>
+</ul>
+<hr>
+<h1 id="Code-Setup"><a href="#Code-Setup" class="headerlink" title="Code Setup"></a>Code Setup</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="variable">$&#123;HOME&#125;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mkdir class-terraform-starting</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="variable">$&#123;HOME&#125;</span>/class-terraform-starting</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/spkane/todo-for-terraform \</span></span><br><span class="line">    --config core.autocrlf=input</span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> todo-for-terraform</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Exploring-Terraform"><a href="#Exploring-Terraform" class="headerlink" title="Exploring Terraform"></a>Exploring Terraform</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> terraform-infrastructure</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="HCL-amp-JSON"><a href="#HCL-amp-JSON" class="headerlink" title="HCL &amp; JSON"></a>HCL &amp; JSON</h1><ul>
+<li>Hashicorp Configuration Language v2<ul>
+<li><a href="https://github.com/hashicorp/hcl/tree/hcl2">https://github.com/hashicorp/hcl/tree/hcl2</a></li>
+</ul>
+</li>
+<li><p>HCL is a JSON-compatible configuration language written by Hashicorp to be machine and human friendly.</p>
+</li>
+<li><p>HCL is intended to provide a less-verbose JSON style configuration language that supports comments, while also providing humans with a language that is easier to approach than YAML.</p>
+</li>
+</ul>
+<hr>
+<h1 id="Terraform-amp-Backends"><a href="#Terraform-amp-Backends" class="headerlink" title="Terraform &amp; Backends"></a>Terraform &amp; Backends</h1><ul>
+<li>Open <code>main.tf</code><ul>
+<li>Terraform block<ul>
+<li>Define high-level requirements for this associated HCL. Terraform and provider version, etc.</li>
+</ul>
+</li>
+<li>Backend block<ul>
+<li>Define where remote state is stored and any information required to read and write it.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Providers-1-of-2"><a href="#Providers-1-of-2" class="headerlink" title="Providers (1 of 2)"></a>Providers (1 of 2)</h1><ul>
+<li>Providers<ul>
+<li>Individual plugins that enable terraform to properly interact with an API.</li>
+<li>These can range between Hashicorp’s officially supported providers to custom providers written by a single developer.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Providers-2-of-2"><a href="#Providers-2-of-2" class="headerlink" title="Providers (2 of 2)"></a>Providers (2 of 2)</h1><ul>
+<li>In this example we are using the <code>aws</code> and <code>ns1</code> providers.<ul>
+<li><a href="https://github.com/terraform-providers/terraform-provider-aws">https://github.com/terraform-providers/terraform-provider-aws</a></li>
+<li><a href="https://github.com/terraform-providers/terraform-provider-ns1">https://github.com/terraform-providers/terraform-provider-ns1</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Variables-1"><a href="#Variables-1" class="headerlink" title="Variables"></a>Variables</h1><ul>
+<li>Open <code>variables.tf</code><ul>
+<li>Defines all the variables that you will be using and their default values.</li>
+</ul>
+</li>
+<li>You will get errors if you use variables that are not defined in this file.</li>
+</ul>
+<hr>
+<h1 id="Data-Sources"><a href="#Data-Sources" class="headerlink" title="Data Sources"></a>Data Sources</h1><ul>
+<li>Open <code>data.tf</code></li>
+<li>Using output as input<ul>
+<li>Remote Terraform State</li>
+<li>APIs</li>
+<li>Scripts<ul>
+<li>Open <code>bin/local-ip.sh</code></li>
+</ul>
+</li>
+<li>etc</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Building-Infrastructure"><a href="#Building-Infrastructure" class="headerlink" title="Building Infrastructure"></a>Building Infrastructure</h1><ul>
+<li><code>key-pairs.tf</code></li>
+<li><code>backend.tf</code></li>
+<li><code>frontend.tf</code></li>
+<li><code>security-groups.tf</code></li>
+</ul>
+<hr>
+<h1 id="Backend-Service"><a href="#Backend-Service" class="headerlink" title="Backend Service"></a>Backend Service</h1><ul>
+<li>Open <code>key-pairs.tf</code><ul>
+<li>SSH public key for system access</li>
+</ul>
+</li>
+<li>Open <code>backend.tf</code><ul>
+<li>Server Instance w/ basic provisioning</li>
+<li>Setup of <code>todo</code> backend service</li>
+</ul>
+</li>
+<li>The files in <code>./files</code> support the system provisioning.</li>
+</ul>
+<hr>
+<h1 id="Frontend-Infrastructure"><a href="#Frontend-Infrastructure" class="headerlink" title="Frontend Infrastructure"></a>Frontend Infrastructure</h1><ul>
+<li>Open <code>frontend.tf</code><ul>
+<li>S3 bucket (file share) for Load Balancer Logs<ul>
+<li>Security Policy for access to S3 bucket</li>
+</ul>
+</li>
+<li>Load Balancer for backend <code>todo</code> service<ul>
+<li>Listener</li>
+<li>Target Group</li>
+<li>Target Group Attachment</li>
+</ul>
+</li>
+<li>DNS record for load balancer</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Firewall-Security"><a href="#Firewall-Security" class="headerlink" title="Firewall Security"></a>Firewall Security</h1><ul>
+<li>Open <code>security-groups.tf</code><ul>
+<li>SSH to the backend server</li>
+<li>Traffic between load balancer and <code>todo</code> service</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Outputs"><a href="#Outputs" class="headerlink" title="Outputs"></a>Outputs</h1><ul>
+<li>Open <code>outputs.tf</code><ul>
+<li>Human and computer-readable data</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="The-Graph"><a href="#The-Graph" class="headerlink" title="The Graph"></a>The Graph</h1><p><img src="images/graph.png" alt="bg contain"></p>
+<hr>
+<h1 id="The-Setup"><a href="#The-Setup" class="headerlink" title="The Setup"></a>The Setup</h1><ul>
+<li><code>terraform init</code></li>
+</ul>
+<hr>
+<h1 id="The-Plan"><a href="#The-Plan" class="headerlink" title="The Plan"></a>The Plan</h1><ul>
+<li><code>terraform plan</code></li>
+</ul>
+<hr>
+<h1 id="The-Apply"><a href="#The-Apply" class="headerlink" title="The Apply"></a>The Apply</h1><ul>
+<li><code>terraform apply</code><ul>
+<li>If all looks good, answer: <code>yes</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="The-Outputs"><a href="#The-Outputs" class="headerlink" title="The Outputs"></a>The Outputs</h1><ul>
+<li><code>terraform output</code></li>
+</ul>
+<hr>
+<h1 id="The-State-File"><a href="#The-State-File" class="headerlink" title="The State File"></a>The State File</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ terraform state list</span><br><span class="line">$ terraform state show aws_instance.todo[0]</span><br><span class="line">$ terraform state pull &gt; \</span><br><span class="line">    $HOME/class-terraform-starting/state.json</span><br><span class="line">$ less $HOME/class-terraform-starting/state.json</span><br><span class="line">$ rm $HOME/class-terraform-starting/state.json</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Examine-the-Server"><a href="#Examine-the-Server" class="headerlink" title="Examine the Server"></a>Examine the Server</h1><ul>
+<li><code>ssh -i $HOME/.ssh/oreilly_aws ubuntu@${todo_ip}</code></li>
+<li><code>sudo systemctl status todo-list</code></li>
+<li><code>exit</code></li>
+<li><code>cd ..</code></li>
+</ul>
+<hr>
+<h1 id="Test-the-Todo-API"><a href="#Test-the-Todo-API" class="headerlink" title="Test the Todo API"></a>Test the Todo API</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ source ./bin/ip_vars.sh</span><br><span class="line">$ curl -i http://todo-api.spkane.org:8080/</span><br><span class="line">$ curl -i http://todo-api.spkane.org:8080/ -X POST \</span><br><span class="line">    -H &apos;Content-Type: application/spkane.todo-list.v1+json&apos; \</span><br><span class="line">    -d &apos;&#123;&quot;description&quot;:&quot;go shopping&quot;,&quot;completed&quot;:false&#125;&apos;</span><br><span class="line">$ curl -i http://todo-api.spkane.org:8080/</span><br><span class="line">$ curl -i http://todo-api.spkane.org:8080/1 -X DELETE \</span><br><span class="line">    -H &apos;Content-Type: application/spkane.todo-list.v1+json&apos;</span><br><span class="line">$ curl -i http://todo-api.spkane.org:8080/</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Download-the-Todo-Provider"><a href="#Download-the-Todo-Provider" class="headerlink" title="Download the Todo Provider"></a>Download the Todo Provider</h1><ul>
+<li>Open in your web browser:<ul>
+<li><a href="https://github.com/spkane/todo-for-terraform/releases/tag/v1.0.0">https://github.com/spkane/todo-for-terraform/releases/tag/v1.0.0</a></li>
+</ul>
+</li>
+<li>Download the <code>terraform-provider-todo</code> archive for your platform.</li>
+</ul>
+<hr>
+<h1 id="Install-the-Todo-Provider"><a href="#Install-the-Todo-Provider" class="headerlink" title="Install the Todo Provider"></a>Install the Todo Provider</h1><ul>
+<li><code>cd $HOME/Downloads</code><ul>
+<li>or where ever you downloaded the archive to.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ unzip terraform-provider-todo-*.zip</span><br><span class="line">$ mv terraform-provider-todo \</span><br><span class="line">    $HOME/class-terraform-starting/todo-for-terraform/terraform-tests/</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Copy-the-Code"><a href="#Copy-the-Code" class="headerlink" title="Copy the Code"></a>Copy the Code</h1><ul>
+<li><code>cd $HOME/class-terraform-starting/todo-for-terraform</code></li>
+<li><code>mkdir -p tf-code</code></li>
+<li><code>cp -a terraform-tests tf-code</code></li>
+<li><code>cd ./tf-code/terraform-tests</code></li>
+</ul>
+<hr>
+<h1 id="Defining-Variables"><a href="#Defining-Variables" class="headerlink" title="Defining Variables"></a>Defining Variables</h1><ul>
+<li>Open <code>variables.tf</code><ul>
+<li>This is where we define variables we will use in the terraform code.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Using-the-Todo-Provider"><a href="#Using-the-Todo-Provider" class="headerlink" title="Using the Todo Provider"></a>Using the Todo Provider</h1><ul>
+<li>Open <code>main.tf</code><ul>
+<li>Configure the todo provider<ul>
+<li>Change <code>host = &quot;127.0.0.1&quot;</code> to <code>host = &quot;todo-api.spkane.org&quot;</code></li>
+</ul>
+</li>
+<li>Create 5 new todos</li>
+<li>Read 1 existing todo as a data source</li>
+<li>Create 5 more new todos based on the data source</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Defining-Outputs"><a href="#Defining-Outputs" class="headerlink" title="Defining Outputs"></a>Defining Outputs</h1><ul>
+<li>Open <code>outputs.tf</code><ul>
+<li>Prints the IDs for all of the new todos</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Prepare-the-Data"><a href="#Prepare-the-Data" class="headerlink" title="Prepare the Data"></a>Prepare the Data</h1><ul>
+<li>We need a todo with ID 1 to read in as an example data source:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -i http://todo-api.spkane.org:8080/</span><br><span class="line">curl -i http://todo-api.spkane.org:8080/ -X POST \</span><br><span class="line">    -H &apos;Content-Type: application/spkane.todo-list.v1+json&apos; \</span><br><span class="line">    -d &apos;&#123;&quot;description&quot;:&quot;go shopping&quot;,&quot;completed&quot;:false&#125;&apos;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="macOS-Catalina-Notice"><a href="#macOS-Catalina-Notice" class="headerlink" title="macOS Catalina+ Notice"></a>macOS Catalina+ Notice</h1><ul>
+<li>You may need to whitelist the provider binary, since it is not signed.<ul>
+<li>Run <code>./terraform-provider-todo</code><ul>
+<li>Click <code>Cancel</code></li>
+</ul>
+</li>
+<li>Go to <code>System Preferences</code> → <code>Security &amp; Privacy</code> → <code>General</code><ul>
+<li>Click <code>Allow Anyway</code></li>
+</ul>
+</li>
+<li>Run <code>./terraform-provider-todo</code><ul>
+<li>Click <code>Open</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Apply-Terraform-Code"><a href="#Apply-Terraform-Code" class="headerlink" title="Apply Terraform Code"></a>Apply Terraform Code</h1><ul>
+<li><code>terraform init</code></li>
+<li><code>terrraform apply</code><ul>
+<li><strong>Plan</strong>: 10 to add, 0 to change, 0 to destroy.<ul>
+<li>If all looks good, answer: <code>yes</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Examine-the-Outputs"><a href="#Examine-the-Outputs" class="headerlink" title="Examine the Outputs"></a>Examine the Outputs</h1><ul>
+<li><p><code>terraform output</code></p>
+</li>
+<li><p>You may notice that your IDs are likely not in order. This is because, by default terraform creates many of the resources in parallel and we have many students using the server at the same time.</p>
+</li>
+</ul>
+<hr>
+<h1 id="Examine-The-State-File"><a href="#Examine-The-State-File" class="headerlink" title="Examine The State File"></a>Examine The State File</h1><ul>
+<li><p>Examine the state from one of the resulting todos</p>
+<ul>
+<li><code>state show todo.test1[0]</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># todo.test1[0]:</span><br><span class="line">resource &quot;todo&quot; &quot;test1&quot; &#123;</span><br><span class="line">    completed   = false</span><br><span class="line">    description = &quot;0-1 test todo&quot;</span><br><span class="line">    id          = &quot;6&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="The-Real-Object"><a href="#The-Real-Object" class="headerlink" title="The Real Object"></a>The Real Object</h1><ul>
+<li>From the output of the last command, grab the ID and use it at the end of this command.</li>
+<li><code>curl -i http://todo-api.spkane.org:8080/6</code></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Wed, 01 Jan 2020 20:13:45 GMT</span><br><span class="line">Content-Type: application/spkane.todo-list.v1+json</span><br><span class="line">Content-Length: 59</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">[&#123;<span class="attr">"completed"</span>:<span class="literal">false</span>,<span class="attr">"description"</span>:<span class="string">"0-1 test todo"</span>,<span class="attr">"id"</span>:<span class="number">6</span>&#125;]</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Updating-Objects"><a href="#Updating-Objects" class="headerlink" title="Updating Objects"></a>Updating Objects</h1><ul>
+<li>Change the 2 <code>count = 5</code> lines to read <code>count = 4</code></li>
+<li>Add <code>(updated)</code> to the end of the first description string.</li>
+</ul>
+<hr>
+<h1 id="Code-With-Edits"><a href="#Code-With-Edits" class="headerlink" title="Code With Edits"></a>Code With Edits</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">resource &quot;todo&quot; &quot;test1&quot; &#123;</span><br><span class="line">  count = 4</span><br><span class="line">  description = &quot;$&#123;count.index&#125;-1 test todo (updated)&quot;</span><br><span class="line">  completed = false</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">resource &quot;todo&quot; &quot;test2&quot; &#123;</span><br><span class="line">  count = 4</span><br><span class="line">  description = &quot;$&#123;count.index&#125;-2 test todo (linked to $&#123;data.todo.foreign.id&#125;)&quot;</span><br><span class="line">  completed = false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Examine-The-First-amp-Last-Todo"><a href="#Examine-The-First-amp-Last-Todo" class="headerlink" title="Examine The First &amp; Last Todo"></a>Examine The First &amp; Last Todo</h1><ul>
+<li><code>terraform state show todo.test1[0]</code></li>
+<li><code>terraform state show todo.test1[4]</code></li>
+</ul>
+<hr>
+<h1 id="Apply-The-Updates"><a href="#Apply-The-Updates" class="headerlink" title="Apply The Updates"></a>Apply The Updates</h1><ul>
+<li><code>terrraform apply</code><ul>
+<li><strong>Plan</strong>: 0 to add, 4 to change, 2 to destroy.<ul>
+<li>If all looks good, answer: <code>yes</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Re-examine-The-First-amp-Last-Todo"><a href="#Re-examine-The-First-amp-Last-Todo" class="headerlink" title="Re-examine The First &amp; Last Todo"></a>Re-examine The First &amp; Last Todo</h1><ul>
+<li><code>terraform state show todo.test1[0]</code><ul>
+<li>The description should now be updated.</li>
+</ul>
+</li>
+<li><code>terraform state show todo.test1[4]</code><ul>
+<li>This should give you an error since it has now been deleted.</li>
+</ul>
+</li>
+<li><code>terraform state show todo.test1[3]</code> will work however, since we only have 4 todos now.</li>
+</ul>
+<hr>
+<h1 id="Prepare-to-Import"><a href="#Prepare-to-Import" class="headerlink" title="Prepare to Import"></a>Prepare to Import</h1><ul>
+<li>Create a new todo by hand:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i http://todo-api.spkane.org:8080/ -X POST \</span><br><span class="line">    -H &apos;Content-Type: application/spkane.todo-list.v1+json&apos; \</span><br><span class="line">    -d &apos;&#123;&quot;description&quot;:&quot;Imported Todo&quot;,&quot;completed&quot;:false&#125;&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Note the ID in your output (<em>13</em> in this example): <code>{&quot;completed&quot;:false,&quot;description&quot;:&quot;Imported Todo&quot;,&quot;id&quot;:13}</code></li>
+</ul>
+<hr>
+<h1 id="Modify-The-Code"><a href="#Modify-The-Code" class="headerlink" title="Modify The Code"></a>Modify The Code</h1><ul>
+<li>In <code>main.tf</code> add:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">resource &quot;todo&quot; &quot;imported&quot; &#123;</span><br><span class="line">  description = &quot;Imported Todo&quot;</span><br><span class="line">  completed = false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Run-a-Plan"><a href="#Run-a-Plan" class="headerlink" title="Run a Plan"></a>Run a Plan</h1><ul>
+<li><code>terraform plan</code><ul>
+<li>You should see: <strong>Plan</strong>: 1 to add, 0 to change, 0 to destroy.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># todo.imported will be created</span><br><span class="line">+ resource &quot;todo&quot; &quot;imported&quot; &#123;</span><br><span class="line">    + completed   = false</span><br><span class="line">    + description = &quot;Imported Todo&quot;</span><br><span class="line">    + id          = (known after apply)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Import-a-Pre-Existing-Todo"><a href="#Import-a-Pre-Existing-Todo" class="headerlink" title="Import a Pre-Existing Todo"></a>Import a Pre-Existing Todo</h1><ul>
+<li>Import the ID of the Todo that you just created.<ul>
+<li><code>terraform import todo.imported[0] 13</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Re-run-the-Plan"><a href="#Re-run-the-Plan" class="headerlink" title="Re-run the Plan"></a>Re-run the Plan</h1><ul>
+<li><code>terraform plan</code><ul>
+<li>You should see<ul>
+<li><strong>No changes. Infrastructure is up-to-date.</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Rename-a-Resource"><a href="#Rename-a-Resource" class="headerlink" title="Rename a Resource"></a>Rename a Resource</h1><ul>
+<li>In <code>main.tf</code>:<ul>
+<li>change the line <code>resource &quot;todo&quot; &quot;imported&quot; {</code> to read <code>resource &quot;todo&quot; &quot;primary&quot; {</code></li>
+</ul>
+</li>
+<li>Run <code>terraform plan</code><ul>
+<li>You should see<ul>
+<li><strong>Plan</strong>: 1 to add, 0 to change, 1 to destroy.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>This would delete one todo and create a new one.<ul>
+<li>This is not what we want.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Manipulating-State"><a href="#Manipulating-State" class="headerlink" title="Manipulating State"></a>Manipulating State</h1><ul>
+<li><code>terraform state mv todo.imported todo.primary</code></li>
+<li>Run <code>terraform plan</code><ul>
+<li>You should see<ul>
+<li><strong>No changes. Infrastructure is up-to-date.</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>By moving the state of the existing resource to the new name, everything lines back up properly.</li>
+</ul>
+<hr>
+<h1 id="Terraform-Modules"><a href="#Terraform-Modules" class="headerlink" title="Terraform Modules"></a>Terraform Modules</h1><ul>
+<li>Blocks of re-useable Terraform code w/ inputs and outputs</li>
+<li><code>cd ..</code></li>
+<li><code>cp -a ../__modules .</code></li>
+<li><code>cd __modules/todo-test-data</code></li>
+</ul>
+<hr>
+<h1 id="Module-Variables"><a href="#Module-Variables" class="headerlink" title="Module Variables"></a>Module Variables</h1><ul>
+<li>Open <code>variables.tf</code><ul>
+<li>This files defines all the variables that the module uses and any default values.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="The-Main-Module-Code"><a href="#The-Main-Module-Code" class="headerlink" title="The Main Module Code"></a>The Main Module Code</h1><ul>
+<li>Open <code>main.tf</code><ul>
+<li>This files will allow us to easily create two set of todos matching our specific requirements.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Module-Outputs"><a href="#Module-Outputs" class="headerlink" title="Module Outputs"></a>Module Outputs</h1><ul>
+<li>Open <code>outputs.tf</code><ul>
+<li>If you think of modules like functions then outputs are return values.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Prepare-to-Use-the-Module"><a href="#Prepare-to-Use-the-Module" class="headerlink" title="Prepare to Use the Module"></a>Prepare to Use the Module</h1><ul>
+<li><code>cd ../../code/</code></li>
+<li>Open <code>main.tf</code></li>
+</ul>
+<hr>
+<h1 id="Utilize-the-Module-1-of-2"><a href="#Utilize-the-Module-1-of-2" class="headerlink" title="Utilize the Module (1 of 2)"></a>Utilize the Module (1 of 2)</h1><ul>
+<li>Add:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">module &quot;series-data&quot; &#123;</span><br><span class="line">    source       = &quot;../__modules/todo-test-data&quot;</span><br><span class="line">    number       = 5</span><br><span class="line">    purpose      = &quot;testing&quot;</span><br><span class="line">    team_name    = &quot;oreilly&quot;</span><br><span class="line">    descriptions = [&quot;my first completed todo&quot;, &quot;my second completed todo&quot;,</span><br><span class="line">                    &quot;my third completed todo&quot;, &quot;my fourth completed todo&quot;,</span><br><span class="line">                    &quot;my fifth completed todo&quot;</span><br><span class="line">                   ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Utilize-the-Module-2-of-2"><a href="#Utilize-the-Module-2-of-2" class="headerlink" title="Utilize the Module (2 of 2)"></a>Utilize the Module (2 of 2)</h1><ul>
+<li>Open <code>outputs.tf</code></li>
+<li>Add:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">output &quot;first_series_ids&quot; &#123;</span><br><span class="line">  value = &quot;$&#123;module.series-data.first_series_ids&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output &quot;second_series_ids&quot; &#123;</span><br><span class="line">  value = &quot;$&#123;module.series-data.second_series_ids&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Apply-the-Module"><a href="#Apply-the-Module" class="headerlink" title="Apply the Module"></a>Apply the Module</h1><ul>
+<li><code>terraform init</code><ul>
+<li>Initialize/download the module.</li>
+</ul>
+</li>
+<li><code>terraform apply</code><ul>
+<li>If all looks good, answer: <code>yes</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Destroy-the-Todos"><a href="#Destroy-the-Todos" class="headerlink" title="Destroy the Todos"></a>Destroy the Todos</h1><ul>
+<li><code>terraform destroy</code><ul>
+<li><strong>Plan</strong>: 0 to add, 0 to change, 9 to destroy.<ul>
+<li>If all looks good, answer: <code>yes</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Destroy-the-Infrastructure"><a href="#Destroy-the-Infrastructure" class="headerlink" title="Destroy the Infrastructure"></a>Destroy the Infrastructure</h1><ul>
+<li><code>cd ../terraform-infrastructure/</code></li>
+<li><code>terraform destroy</code><ul>
+<li>If all looks good, answer: <code>yes</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="What-We-Have-Learned"><a href="#What-We-Have-Learned" class="headerlink" title="What We Have Learned"></a>What We Have Learned</h1><ul>
+<li>How to install Terraform</li>
+<li>The primary use case for Terraform</li>
+<li>How to install a provider and what they are for</li>
+<li>Creating, reading, updating, and deleting objects</li>
+<li>Reading data sources &amp; importing existing objects</li>
+<li>Making &amp; using modules</li>
+<li>What the Terraform state is</li>
+<li>and more…</li>
+</ul>
+<hr>
+<!-- _class: lead -->
+<h1 id="Additional-Reading"><a href="#Additional-Reading" class="headerlink" title="Additional Reading"></a>Additional Reading</h1><p><a href="https://www.terraformupandrunning.com/">Terraform: Up &amp; Running</a><br><a href="https://www.terraform.io/docs/index.html">Terraform Documentation</a></p>
+<hr>
+<!-- _class: lead -->
+<h1 id="Additional-Learning-Resources"><a href="#Additional-Learning-Resources" class="headerlink" title="Additional Learning Resources"></a>Additional Learning Resources</h1><h2 id="https-learning-oreilly-com"><a href="#https-learning-oreilly-com" class="headerlink" title="https://learning.oreilly.com/"></a><a href="https://learning.oreilly.com/">https://learning.oreilly.com/</a></h2><hr>
+<!-- _class: lead -->
+<h1 id="Student-Survey"><a href="#Student-Survey" class="headerlink" title="Student Survey"></a>Student Survey</h1><p><strong>Please take a moment to fill out the class survey linked to in the chat channel.</strong></p>
+<p>O’Reilly and I value your comments about the class.</p>
+<p>Thank you!</p>
 
         
         

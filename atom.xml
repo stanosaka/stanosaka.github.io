@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://223.95.78.227/"/>
-  <updated>2020-03-05T04:57:19.027Z</updated>
+  <updated>2020-03-16T03:58:13.025Z</updated>
   <id>http://223.95.78.227/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>i3</title>
+    <link href="http://223.95.78.227/2020/03/16/i3/"/>
+    <id>http://223.95.78.227/2020/03/16/i3/</id>
+    <published>2020-03-16T03:53:08.000Z</published>
+    <updated>2020-03-16T03:58:13.025Z</updated>
+    
+    <content type="html"><![CDATA[<table><thead><tr><th>Key</th><th style="text-align:center">Description</th></tr></thead><tbody><tr><td>$mod+shift+direction</td><td style="text-align:center">swap two windows</td></tr><tr><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Key&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$mod+shift+direction&lt;/td&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="i3, linux" scheme="http://223.95.78.227/tags/i3-linux/"/>
+    
+  </entry>
   
   <entry>
     <title>spacemacs</title>
@@ -497,33 +530,6 @@
       <category term="terraform" scheme="http://223.95.78.227/tags/terraform/"/>
     
       <category term="automation" scheme="http://223.95.78.227/tags/automation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>agile</title>
-    <link href="http://223.95.78.227/2019/07/05/agile/"/>
-    <id>http://223.95.78.227/2019/07/05/agile/</id>
-    <published>2019-07-05T01:10:42.858Z</published>
-    <updated>2019-07-05T01:10:42.858Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Agile-is-a-movement"><a href="#Agile-is-a-movement" class="headerlink" title="Agile is a movement."></a>Agile is a movement.</h1><p>Movement: a group of people working together to advance their shared political, social, or artistic ideas.</p><h2 id="Early-agile-methodologies"><a href="#Early-agile-methodologies" class="headerlink" title="Early agile methodologies"></a>Early agile methodologies</h2><ul><li>1995: Scrum<ul><li>Iterative cycles of work</li><li>Emphasis on cross-functional collaboration</li></ul></li><li>Mid-90s: Crystal<ul><li>Emphasis on adaptability and “stretch-to-fit” process</li></ul></li><li>1990: XP<ul><li>Short, iterative cycles of work</li><li>Emphasis on collaboration between developers</li></ul></li></ul><p><img src="https://i.imgur.com/MjJqXdR.jpg" alt="agile manifesto"><br><strong>Agile Values</strong></p><ul><li>Increase cross-functional collaboration</li><li>Minimize works in progress (sepecs, etc)</li><li>Work in iterative cycles to incorporate change and get frequent feedback</li><li>Make time to reflect on how you work</li></ul><hr><h1 id="Agile-Development"><a href="#Agile-Development" class="headerlink" title="Agile Development"></a>Agile Development</h1><p><strong>born-on-the-cloud model</strong>: cloud as the primary platform for both consumed and delivered services<br>Agility to get projects up and running quickly<br>streamlined process by reducing transitions from Development to Operations</p><p>Java EE application with a Minimum Viable Product (MVP)<br>setup the cloud infrastructure and Toolchain using the Born-on-the-cloud approach</p><p>Hypothesis-driven development</p><p>ranked backlog, user stories, story points<br>tracking and delivering in Timeboxed iterations</p><p><strong>backlog</strong> is a prioritized list of features (User Stores) waiting to be scheduled and implemented</p><p>Note that among other things one of the most important responsibilities of the product owner role in Agile development methodology is to keep the backlog ranked by priority, and he or she can set the priorities by simply dragging the issues and ordering them, regardless of when they were added to the backlog</p><p>User stories: who, what, why<br>story points and planning poker</p><p><strong>user story</strong> is an informal, natural language description of a chunk of functionality that is of value from an end-user perspective<br>As a <who>, I want <what> so that <why></p><p><strong>Story Points</strong> are estimates of effort as influenced by the amount of work, complexity, risk, and uncertainty.</p><ul><li>(Adapted) Fibonacci sequence: 0,1,2,3,5,8,13,20,40,100</li></ul><p><strong>Planning Poker</strong> is a consensus-based, gamified technique for estimating<br>Timeboxing refers to the act of putting strict time boundaries around an action for activity</p><p>time boxed interrogations along with story points are important to measure the team velocity over time. For example you should track the total amount of story points that team delivers each iteration, and this way you’ll be able to determine on average the team velocity metric, or in other words how many story points on average the team is able to deliver. </p><p>Architecture breakdown</p><ul><li>User interface (html/css/javascript)</li><li>CRUD Service(REST APIs with JAX-RS)</li><li>Database(NoSQL)</li></ul><p><strong>Test-Driven Development (TDD)</strong> is a technique for building software by writing automate test cases before writing any code<br>why: focus on the outcome; helps to manage risk; enables fast iterations and continous integration; keeps the code clear, simple and testable;<br>grater confidence to make applicaton changes; documentation of how the system works</p><p>How:add a test-&gt;run all tests and see if the new one fails-&gt; write the code-&gt;run tests-&gt; refactor the code-&gt;repeat</p><p>A <strong>delivery pipeline</strong> is a sequence of automated stages that retrieve input and run jobs, such as builds, tests, and deployments.<br>It automates the continuous deployment of a project, with miniumum or no-human intervention.</p><ul><li>A Stage retrieves input and run jobs, such as builds,tests, and deployments.</li><li>Jobs run in discrete working directories in containers that are created for each pipeline run</li><li>By default, stages run sequentially after changes are delivered to source control</li></ul><p><strong>showcase the applicaton</strong>: At the end of the iteration before the retrospective meeting that is a showcase meaning, also know as demo meeting, where the work done is demonstrated to the stakeholders and feedback is obtaining. The showcase meeting starts by reviewing what we have committed in the form of user stories. And finally we demonstrate what we have accomplished in the form of working software, so we can acquire feedback on the product we are building.</p><p><strong>retrospective meeting</strong>: how to conduct<br>1st way:<br>What went well?<br>what could be improved?</p><p>2nd way:<br>Start doing</p><ul><li>continuous delivery<br>stop doing</li><li>time-bxed iterations<br>continue doing</li><li>ranked backlog</li></ul><h2 id="Common-Problems"><a href="#Common-Problems" class="headerlink" title="Common Problems"></a>Common Problems</h2><h2 id="Value-Focus"><a href="#Value-Focus" class="headerlink" title="Value/Focus"></a>Value/Focus</h2><table><thead><tr><th>Problems</th><th>Solution</th></tr></thead><tbody><tr><td>Not understanding the market</td><td>Hypothesis-driven development</td></tr><tr><td>Putting wrong products into the market</td><td>Minimum Viable Product (MVP)</td></tr><tr><td>Lack of focus on value</td><td>Timboxing/Iterations</td></tr></tbody></table><h2 id="Productivity-Speed-Cost"><a href="#Productivity-Speed-Cost" class="headerlink" title="Productivity/Speed/Cost"></a>Productivity/Speed/Cost</h2><table><thead><tr><th>Problems</th><th>Solution</th></tr></thead><tbody><tr><td>Too long to get projects up and running</td><td>Born on the Cloud</td></tr><tr><td>Slow to put products into market</td><td>MVP/Delivery pipeline/Continuous delivery</td></tr><tr><td>Too costly projects</td><td>Automation/Toolchain/Delivery pipeline</td></tr></tbody></table><h2 id="Communication-Visibility"><a href="#Communication-Visibility" class="headerlink" title="Communication/Visibility"></a>Communication/Visibility</h2><table><thead><tr><th>Problems</th><th>Solution</th></tr></thead><tbody><tr><td>Priorities aren’t clear</td><td>Ranked backlog</td></tr><tr><td>Requirements not reflecting the user’s needs</td><td>User stories</td></tr><tr><td>Poor team communication</td><td>Daily standup</td></tr><tr><td>Lack of visibility into the progress</td><td>Iteration wall/Showcase meeting</td></tr></tbody></table><h2 id="Quality-Control"><a href="#Quality-Control" class="headerlink" title="Quality/Control"></a>Quality/Control</h2><table><thead><tr><th>Problems</th><th>Solution</th></tr></thead><tbody><tr><td>Low quality products</td><td>Test driven development/Delivery pipeline</td></tr><tr><td>Lack of prcess improvement</td><td>Retrospective meeting/Continous improvement</td></tr><tr><td>Bad Requirements estimations</td><td>Story points/Planning poker</td></tr><tr><td>Not honouring past our commitments</td><td>Track team’s velocity</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Agile-is-a-movement&quot;&gt;&lt;a href=&quot;#Agile-is-a-movement&quot; class=&quot;headerlink&quot; title=&quot;Agile is a movement.&quot;&gt;&lt;/a&gt;Agile is a movement.&lt;/h1&gt;&lt;p&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="agile" scheme="http://223.95.78.227/tags/agile/"/>
-    
-      <category term="software development" scheme="http://223.95.78.227/tags/software-development/"/>
-    
-      <category term="agile development" scheme="http://223.95.78.227/tags/agile-development/"/>
     
   </entry>
   

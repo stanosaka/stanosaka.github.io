@@ -83,6 +83,77 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2020/03/16/i3/" title="i3" itemprop="url">i3</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2020-03-16T03:53:08.000Z" itemprop="datePublished"> Published 2020-03-16</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$mod+shift+direction</td>
+<td style="text-align:center">swap two windows</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/i3-linux/">i3, linux</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2020/03/03/spacemacs/" title="spacemacs" itemprop="url">spacemacs</a>
   </h1>
   <p class="article-author">By
@@ -1584,59 +1655,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/08/16/effective-devops-with-aws/" title="effective devops with aws" itemprop="url">effective devops with aws</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-08-15T14:15:29.000Z" itemprop="datePublished"> Published 2019-08-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>Code</strong></p>
-<p><a href="https://github.com/stanosaka/ansible">source code ansible</a><br><a href="https://github.com/00root/helloworld">source code helloworld</a></p>
-<h1 id="Continuous-Delivery"><a href="#Continuous-Delivery" class="headerlink" title="Continuous Delivery"></a>Continuous Delivery</h1><p><img src="https://i.imgur.com/QOYWSYb.png" alt="codepipline01"><br><img src="https://i.imgur.com/an0PPjD.png" alt="codepipline02"><br><img src="https://i.imgur.com/P7gdZBo.png" alt="Source"><br><img src="https://i.imgur.com/O6LNT3M.png" alt="Test"><br><img src="https://i.imgur.com/gD0EYZ7.png" alt="Deploy"><br><img src="https://i.imgur.com/uAnMDQk.png" alt="Approval"><br><img src="https://i.imgur.com/OoeILa2.png" alt="Production"><br><img src="https://i.imgur.com/Mz3RM0I.png" alt="Jenkins01"><br><img src="https://i.imgur.com/88C8zGu.png" alt="Jenkins02"><br><img src="https://i.imgur.com/7YXnt5L.png" alt="Jenkins03"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npmjs.org/ </span><br><span class="line">npm install</span><br><span class="line">./node_modules/mocha/bin/mocha</span><br></pre></td></tr></table></figure></p>
-<p><strong>Creating the new cloudformation stack for production</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">aws cloudformation create-stack --capabilities CAPABILITY_IAM --stack-name helloworld-production --template-body file://nodeserver-cf.template --parameters ParameterKey=KeyPair,ParameterValue=EffectiveDevOpsAWS</span><br><span class="line">aws cloudformation wait stack-create-complete --stack-name helloworld-production</span><br><span class="line">arn=$(aws deploy get-deployment-group --application-name helloworld --deployment-group-name staging --query &apos;deploymentGroupInfo.serviceRoleArn&apos;)</span><br><span class="line">aws deploy create-deployment-group --application-name helloworld --ec2-tag-filters Key=aws:cloudformation:stack-name,Type=KEY_AND_VALUE,Value=helloworld-production --deployment-group-name production --service-role-arn $arn</span><br><span class="line">aws deploy create-deployment-group --application-name helloworld --ec2-tag-filters Key=aws:cloudformation:stack-name,Type=KEY_AND_VALUE,Value=helloworld-production --deployment-group-name production --service-role-arn arn:aws:iam::012152306932:role/CodeDeployRole</span><br><span class="line">aws deploy list-deployment-groups --application-name helloworld</span><br><span class="line">aws sns create-topic --name production-deploy-approval</span><br><span class="line">aws sns subscribe --topic-arn arn:aws:sns:ap-southeast-2:012152306932:production-deploy-approval --protocol email --notification-endpoint foobar@gmail.com</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1695,11 +1713,11 @@
 			
 		
 			
-				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
+				<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
+				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
 			
 		
 			

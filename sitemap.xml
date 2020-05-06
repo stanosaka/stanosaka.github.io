@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2020/03/03/spacemacs/</loc>
+    
+    <lastmod>2020-05-05T12:54:59.027Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/05/06/git/</loc>
     
     <lastmod>2020-05-04T13:04:57.816Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://223.95.78.227/2020/04/26/puppet/</loc>
     
     <lastmod>2020-04-26T12:51:17.995Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2020/03/03/spacemacs/</loc>
-    
-    <lastmod>2020-04-02T23:31:15.312Z</lastmod>
     
   </url>
   
@@ -345,6 +345,13 @@
   </url>
   
   <url>
+    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
@@ -353,13 +360,6 @@
   
   <url>
     <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

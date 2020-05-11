@@ -4,25 +4,25 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>MySQL分库分表备份脚本 | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>spacemacs | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="Let’s cut to the chase123456789101112131415[root@aofa-staging tools]# cat mysql_backup.sh#!/bin/shMYUSER=rootMYPASS=yourpasswdSOCKET=/tmp/mysql.sockMYLOGIN=&amp;quot;mysql -u$MYUSER -p$MYPASS -S $SOCKET&amp;q">
-<meta name="keywords" content="backup,mysql">
+    <meta name="description" content="Key Description     SPC p f search find in the same project   SPC p p open project   SPC w m max the current windows   ALT ; uncomment   gcc comment out a line   gc comment out highlighted text   S">
+<meta name="keywords" content="spacemacs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL分库分表备份脚本">
-<meta property="og:url" content="http://223.95.78.227/2016/08/28/mysql-backup/index.html">
+<meta property="og:title" content="spacemacs">
+<meta property="og:url" content="http://223.95.78.227/2020/05/11/spacemacs/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="Let’s cut to the chase123456789101112131415[root@aofa-staging tools]# cat mysql_backup.sh#!/bin/shMYUSER=rootMYPASS=yourpasswdSOCKET=/tmp/mysql.sockMYLOGIN=&amp;quot;mysql -u$MYUSER -p$MYPASS -S $SOCKET&amp;q">
+<meta property="og:description" content="Key Description     SPC p f search find in the same project   SPC p p open project   SPC w m max the current windows   ALT ; uncomment   gcc comment out a line   gc comment out highlighted text   S">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-17T11:56:33.670Z">
+<meta property="og:updated_time" content="2020-05-11T04:45:57.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL分库分表备份脚本">
-<meta name="twitter:description" content="Let’s cut to the chase123456789101112131415[root@aofa-staging tools]# cat mysql_backup.sh#!/bin/shMYUSER=rootMYPASS=yourpasswdSOCKET=/tmp/mysql.sockMYLOGIN=&amp;quot;mysql -u$MYUSER -p$MYPASS -S $SOCKET&amp;q">
+<meta name="twitter:title" content="spacemacs">
+<meta name="twitter:description" content="Key Description     SPC p f search find in the same project   SPC p p open project   SPC w m max the current windows   ALT ; uncomment   gcc comment out a line   gc comment out highlighted text   S">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/08/28/mysql-backup/" title="MySQL分库分表备份脚本" itemprop="url">MySQL分库分表备份脚本</a>
+      <a href="/2020/05/11/spacemacs/" title="spacemacs" itemprop="url">spacemacs</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2016-08-28T06:46:20.000Z" itemprop="datePublished"> Published 2016-08-28</time>
+    <time datetime="2020-05-11T04:45:00.331Z" itemprop="datePublished"> Published 2020-05-11</time>
     
   </p>
 </header>
@@ -99,15 +99,168 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Stage-files-and-commit"><span class="toc-number">1.</span> <span class="toc-text">Stage files and commit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Org-mode"><span class="toc-number">2.</span> <span class="toc-text">Org mode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tumx"><span class="toc-number">3.</span> <span class="toc-text">tumx</span></a></li></ol>
 		
 		</div>
 		
-		<p>Let’s cut to the chase<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@aofa-staging tools]# cat mysql_backup.sh</span><br><span class="line">#!/bin/sh</span><br><span class="line">MYUSER=root</span><br><span class="line">MYPASS=yourpasswd</span><br><span class="line">SOCKET=/tmp/mysql.sock</span><br><span class="line">MYLOGIN=&quot;mysql -u$MYUSER -p$MYPASS -S $SOCKET&quot;</span><br><span class="line">MYDUMP=&quot;mysqldump -u$MYUSER -p$MYPASS -S$SOCKET -B&quot;</span><br><span class="line">DATABASE=&quot;$($MYLOGIN -e &quot;show databases;&quot;|egrep -vi &quot;Data|_schema|mysql&quot;)&quot;</span><br><span class="line"></span><br><span class="line">for dbname in $DATABASE</span><br><span class="line">  do</span><br><span class="line">   MYDIR=/backup/mysql/$dbname</span><br><span class="line">   [ ! -d $MYDIR ] &amp;&amp; mkdir -p $MYDIR</span><br><span class="line"> $MYDUMP $dbname|gzip &gt;$MYDIR/$&#123;dbname&#125;_$(date +%F).sql.gz</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
-<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@aofa-staging backup]# tree mysql</span><br><span class="line">mysql</span><br><span class="line">├── allyoubank</span><br><span class="line">│   └── allyoubank_2016-08-28.sql.gz</span><br><span class="line">├── test</span><br><span class="line">│   └── test_2016-08-28.sql.gz</span><br><span class="line">└── wgzy</span><br><span class="line">    └── wgzy_2016-08-28.sql.gz</span><br><span class="line"></span><br><span class="line">3 directories, 3 files</span><br></pre></td></tr></table></figure></p>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@aofa-staging tools]# cat mysql_table.sh</span><br><span class="line">#!/bin/sh</span><br><span class="line">USER=root</span><br><span class="line">PASSWD=xyz</span><br><span class="line">SOCKET=/tmp/mysql.sock</span><br><span class="line">MYLOGIN=&quot;mysql -u$USER -p$PASSWD -S$SOCKET&quot;</span><br><span class="line">MYDUMP=&quot;mysqldump -u$USER -p$PASSWD -S$SOCKET&quot;</span><br><span class="line">DATEBASE=&quot;$($MYLOGIN -e &quot;show databases;&quot;|egrep -vi &quot;Data|_schema|mysql&quot;)&quot;</span><br><span class="line"></span><br><span class="line">for dbname in $DATEBASE</span><br><span class="line">do</span><br><span class="line"> TABLE=&quot;$($MYLOGIN -e &quot;use $dbname;show tables;&quot;|sed &apos;1d&apos;)&quot;</span><br><span class="line">  for tname in $TABLE</span><br><span class="line">   do</span><br><span class="line">MYDIR=/backup/mysql02/$dbname/$&#123;dbname&#125;_$(date +%F)</span><br><span class="line">     [ ! -d $MYDIR ] &amp;&amp; mkdir -p $MYDIR</span><br><span class="line"> $MYDUMP $dbname $tname |gzip &gt;$MYDIR/$&#123;dbname&#125;_$&#123;tname&#125;_$(date +%F).sql.gz</span><br><span class="line">    done</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@aofa-staging mysql02]# tree</span><br><span class="line">.</span><br><span class="line">├── allyoubank</span><br><span class="line">│   └── allyoubank_2016-08-28</span><br><span class="line">│       ├── allyoubank_account_2016-08-28.sql.gz</span><br><span class="line">│       └── allyoubank_w_sign_in_2016-08-28.sql.gz</span><br><span class="line">└── wgzy</span><br><span class="line">    └── wgzy_2016-08-28</span><br><span class="line">        ├── wgzy_account_2016-08-28.sql.gz</span><br><span class="line">        └── wgzy_w_sign_in_2016-08-28.sql.gz</span><br><span class="line">4 directories, 172 files</span><br></pre></td></tr></table></figure></p>
+		<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPC p f</td>
+<td style="text-align:center">search find in the same project</td>
+</tr>
+<tr>
+<td>SPC p p</td>
+<td style="text-align:center">open project</td>
+</tr>
+<tr>
+<td>SPC w m</td>
+<td style="text-align:center">max the current windows</td>
+</tr>
+<tr>
+<td>ALT ;</td>
+<td style="text-align:center">uncomment</td>
+</tr>
+<tr>
+<td>gcc</td>
+<td style="text-align:center">comment out a line</td>
+</tr>
+<tr>
+<td>gc</td>
+<td style="text-align:center">comment out highlighted text</td>
+</tr>
+<tr>
+<td>SPC w /</td>
+<td style="text-align:center">vertical</td>
+</tr>
+<tr>
+<td>SPC w -</td>
+<td style="text-align:center">horizontal</td>
+</tr>
+<tr>
+<td>SPC f e d</td>
+<td style="text-align:center">edit spacemacs profile</td>
+</tr>
+<tr>
+<td>SPC f f</td>
+<td style="text-align:center">open file</td>
+</tr>
+<tr>
+<td>SPC w c</td>
+<td style="text-align:center">close the window</td>
+</tr>
+<tr>
+<td>SPC t l</td>
+<td style="text-align:center">toggle lines</td>
+</tr>
+<tr>
+<td>C-x h</td>
+<td style="text-align:center">select the entire buffer</td>
+</tr>
+<tr>
+<td>C-h m</td>
+<td style="text-align:center">show available commands for the current modes</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="Stage-files-and-commit"><a href="#Stage-files-and-commit" class="headerlink" title="Stage files and commit"></a>Stage files and commit</h1><table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPC g s</td>
+<td style="text-align:center">show Magit status view</td>
+</tr>
+<tr>
+<td>j k</td>
+<td style="text-align:center">position the cursor on a file</td>
+</tr>
+<tr>
+<td>TAB</td>
+<td style="text-align:center">show and hide the diff for the file</td>
+</tr>
+<tr>
+<td>s</td>
+<td style="text-align:center">stage a file (u to unstage fa file and x to discard changes to a file)</td>
+</tr>
+<tr>
+<td>cc</td>
+<td style="text-align:center">commit</td>
+</tr>
+<tr>
+<td>,c</td>
+<td style="text-align:center">finish the commit message</td>
+</tr>
+<tr>
+<td>p u</td>
+<td style="text-align:center">Push to upstream</td>
+</tr>
+<tr>
+<td>F (r) u</td>
+<td style="text-align:center">Pull tracked branch and rebase</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="Org-mode"><a href="#Org-mode" class="headerlink" title="Org mode"></a>Org mode</h1><table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-x org-mode</td>
+<td style="text-align:center">enable Org mode</td>
+</tr>
+<tr>
+<td>M-shift-RET</td>
+<td style="text-align:center">Add a TODO list</td>
+</tr>
+<tr>
+<td>C-c C-t</td>
+<td style="text-align:center">Mark as completed</td>
+</tr>
+</tbody>
+</table>
+<h1 id="tumx"><a href="#tumx" class="headerlink" title="tumx"></a>tumx</h1><table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prefix :setw synchronize-panes off</td>
+<td style="text-align:center">stop sending same command for all paines in windows</td>
+</tr>
+<tr>
+<td>prefix r</td>
+<td style="text-align:center">reload the tmux configuration</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://orgmode.org/manual/index.html">https://orgmode.org/manual/index.html</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,7 +269,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/backup/">backup</a><a href="/tags/mysql/">mysql</a>
+  <span></span> <a href="/tags/spacemacs/">spacemacs</a>
   </div>
 
 </div>
@@ -125,7 +278,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2016/08/28/mysql-backup/" data-title="MySQL分库分表备份脚本 | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2020/05/11/spacemacs/" data-title="spacemacs | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -138,19 +291,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/08/29/centos7/" title="centos7">
-  <strong>上一篇：</strong><br/>
-  <span>
-  centos7</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/08/28/backup-script/"  title="backup script">
+<a href="/2020/04/26/puppet/"  title="puppet">
  <strong>下一篇：</strong><br/> 
- <span>backup script
+ <span>puppet
 </span>
 </a>
 </div>
@@ -165,7 +310,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Stage-files-and-commit"><span class="toc-number">1.</span> <span class="toc-text">Stage files and commit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Org-mode"><span class="toc-number">2.</span> <span class="toc-text">Org mode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tumx"><span class="toc-number">3.</span> <span class="toc-text">tumx</span></a></li></ol>
  
   </div>
 

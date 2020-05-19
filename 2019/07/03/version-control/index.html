@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
 <meta property="og:description" content="Common TerminologiesRepository: A unit of storage and change tracking that represents a direcotry whose contents are tacked by Git Brach: A version of a repository that represents the current state of">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-03T13:35:34.673Z">
+<meta property="og:updated_time" content="2020-05-19T13:29:54.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="version control">
 <meta name="twitter:description" content="Common TerminologiesRepository: A unit of storage and change tracking that represents a direcotry whose contents are tacked by Git Brach: A version of a repository that represents the current state of">
@@ -99,7 +99,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Common-Terminologies"><span class="toc-number">1.</span> <span class="toc-text">Common Terminologies</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Workflows"><span class="toc-number">1.1.</span> <span class="toc-text">Workflows</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigating-GitHub"><span class="toc-number">2.</span> <span class="toc-text">Navigating GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Organizations"><span class="toc-number">2.1.</span> <span class="toc-text">Organizations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Market-place-install-codacy"><span class="toc-number">2.1.1.</span> <span class="toc-text">Market place install codacy</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Runtime-config"><span class="toc-number">3.</span> <span class="toc-text">Runtime config</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Removing-configuratoin"><span class="toc-number">3.1.</span> <span class="toc-text">Removing configuratoin</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fundamentails-of-repositories"><span class="toc-number">4.</span> <span class="toc-text">Fundamentails of repositories</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Versioning-Commits"><span class="toc-number">5.</span> <span class="toc-text">Versioning Commits</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amending-commits"><span class="toc-number">5.1.</span> <span class="toc-text">Amending commits</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Common-Terminologies"><span class="toc-number">1.</span> <span class="toc-text">Common Terminologies</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Workflows"><span class="toc-number">1.1.</span> <span class="toc-text">Workflows</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigating-GitHub"><span class="toc-number">2.</span> <span class="toc-text">Navigating GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Organizations"><span class="toc-number">2.1.</span> <span class="toc-text">Organizations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Market-place-install-codacy"><span class="toc-number">2.1.1.</span> <span class="toc-text">Market place install codacy</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Runtime-config"><span class="toc-number">3.</span> <span class="toc-text">Runtime config</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Removing-configuratoin"><span class="toc-number">3.1.</span> <span class="toc-text">Removing configuratoin</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fundamentails-of-repositories"><span class="toc-number">4.</span> <span class="toc-text">Fundamentails of repositories</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Versioning-Commits"><span class="toc-number">5.</span> <span class="toc-text">Versioning Commits</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amending-commits"><span class="toc-number">5.1.</span> <span class="toc-text">Amending commits</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-merge-with-No-Fast-Forward-technique"><span class="toc-number">6.</span> <span class="toc-text">Git merge with No-Fast-Forward technique</span></a></li></ol>
 		
 		</div>
 		
@@ -263,6 +263,8 @@
 </ul>
 <p><strong>git log command</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git log --follow src/lib/advanced/advanced_compute.py</span><br><span class="line">git log --decorate=full</span><br><span class="line">git log --decorate=short</span><br><span class="line">git log --decorate=no</span><br><span class="line">git log -L 6,12:src/lib/compute.py</span><br><span class="line">git log -n 3</span><br><span class="line">git log -3</span><br><span class="line">git log --skip=4</span><br><span class="line">git log --since=01/01/2018</span><br><span class="line">git log --pretty=oneline</span><br><span class="line">git log --pretty=short</span><br><span class="line">git log --pretty=medium</span><br><span class="line">git log --pretty=format:&quot;%H %an&quot;</span><br></pre></td></tr></table></figure></p>
 <h2 id="Amending-commits"><a href="#Amending-commits" class="headerlink" title="Amending commits"></a>Amending commits</h2><p>The most recent commit can be edited using the –amend option of the <strong>git commit</strong> command.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br><span class="line">git rebase -i HEAD~4  # retrv the last 4 commits</span><br><span class="line">pick 721d2ec Removed sci module</span><br><span class="line">pick fc150d2 Added sci module</span><br><span class="line">pick 4be4d85 Rename scientific module</span><br><span class="line">pick 9a8a4ea Moved scientific module</span><br><span class="line"></span><br><span class="line">change pick to reword save and quit the file.</span><br><span class="line"></span><br><span class="line">## change the file</span><br><span class="line">git rebase -i HEAD~3</span><br><span class="line">change pick to edit save and quit the file.</span><br><span class="line">vim src/lib/advanced/advanced_compute.py</span><br><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit --amend</span><br><span class="line">git rebase --continue</span><br><span class="line">git log -4</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1">CS Visualized: Useful Git Commands</a></p>
+<h1 id="Git-merge-with-No-Fast-Forward-technique"><a href="#Git-merge-with-No-Fast-Forward-technique" class="headerlink" title="Git merge with No-Fast-Forward technique"></a>Git merge with No-Fast-Forward technique</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">git-demo-project git:(demo-branch) ✗ git commit -am &quot;commit 1 from demo-branch&quot;</span><br><span class="line">[demo-branch 0280912] commit 1 from demo-branch</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 test-no-ff-merge-file</span><br><span class="line">➜  git-demo-project git:(demo-branch) echo &apos;line 2&apos; &gt;&gt; test-no-ff-merge-file</span><br><span class="line">➜  git-demo-project git:(demo-branch) ✗ git commit -am &quot;commit 2 from demo-branch&quot;</span><br><span class="line">[demo-branch ca0b8d0] commit 2 from demo-branch</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line">➜  git-demo-project git:(demo-branch) git log --oneline</span><br><span class="line">➜  git-demo-project git:(demo-branch) cat test-no-ff-merge-file</span><br><span class="line">line 1</span><br><span class="line">line 2</span><br><span class="line">➜  git-demo-project git:(demo-branch) git checkout master</span><br><span class="line">Switched to branch &apos;master&apos;</span><br><span class="line">➜  git-demo-project git:(master) git log --oneline</span><br><span class="line">➜  git-demo-project git:(master) ls</span><br><span class="line">readme.md  testffmergefile  test.html</span><br><span class="line">➜  git-demo-project git:(master) git diff master demo-branch</span><br><span class="line">➜  git-demo-project git:(master) git merge demo-branch --no-ff</span><br><span class="line">Merge made by the &apos;recursive&apos; strategy.</span><br><span class="line"> test-no-ff-merge-file | 2 ++</span><br><span class="line"> 1 file changed, 2 insertions(+)</span><br><span class="line"> create mode 100644 test-no-ff-merge-file</span><br><span class="line">➜  git-demo-project git:(master) cat test-no-ff-merge-file</span><br><span class="line">line 1</span><br><span class="line">line 2</span><br><span class="line">➜  git-demo-project git:(master) git log --oneline --decorate --graph</span><br><span class="line">➜  git-demo-project git:(master) git branch -d demo-branch</span><br><span class="line">Deleted branch demo-branch (was ca0b8d0).</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -320,7 +322,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Common-Terminologies"><span class="toc-number">1.</span> <span class="toc-text">Common Terminologies</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Workflows"><span class="toc-number">1.1.</span> <span class="toc-text">Workflows</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigating-GitHub"><span class="toc-number">2.</span> <span class="toc-text">Navigating GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Organizations"><span class="toc-number">2.1.</span> <span class="toc-text">Organizations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Market-place-install-codacy"><span class="toc-number">2.1.1.</span> <span class="toc-text">Market place install codacy</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Runtime-config"><span class="toc-number">3.</span> <span class="toc-text">Runtime config</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Removing-configuratoin"><span class="toc-number">3.1.</span> <span class="toc-text">Removing configuratoin</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fundamentails-of-repositories"><span class="toc-number">4.</span> <span class="toc-text">Fundamentails of repositories</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Versioning-Commits"><span class="toc-number">5.</span> <span class="toc-text">Versioning Commits</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amending-commits"><span class="toc-number">5.1.</span> <span class="toc-text">Amending commits</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Common-Terminologies"><span class="toc-number">1.</span> <span class="toc-text">Common Terminologies</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Workflows"><span class="toc-number">1.1.</span> <span class="toc-text">Workflows</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigating-GitHub"><span class="toc-number">2.</span> <span class="toc-text">Navigating GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Organizations"><span class="toc-number">2.1.</span> <span class="toc-text">Organizations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Market-place-install-codacy"><span class="toc-number">2.1.1.</span> <span class="toc-text">Market place install codacy</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Runtime-config"><span class="toc-number">3.</span> <span class="toc-text">Runtime config</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Removing-configuratoin"><span class="toc-number">3.1.</span> <span class="toc-text">Removing configuratoin</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fundamentails-of-repositories"><span class="toc-number">4.</span> <span class="toc-text">Fundamentails of repositories</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Versioning-Commits"><span class="toc-number">5.</span> <span class="toc-text">Versioning Commits</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amending-commits"><span class="toc-number">5.1.</span> <span class="toc-text">Amending commits</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-merge-with-No-Fast-Forward-technique"><span class="toc-number">6.</span> <span class="toc-text">Git merge with No-Fast-Forward technique</span></a></li></ol>
  
   </div>
 
@@ -374,11 +376,11 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
+				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
+				<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
 			
 		
 			
@@ -398,19 +400,11 @@
 			
 		
 			
-				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Pipeline/" title="Pipeline">Pipeline<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Blue-Ocean/" title="Blue Ocean">Blue Ocean<sup>1</sup></a></li>
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
 			
 		
 			
@@ -418,11 +412,19 @@
 			
 		
 			
+				<li><a href="/tags/containers/" title="containers">containers<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/SRE/" title="SRE">SRE<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+				<li><a href="/tags/cloudstack/" title="cloudstack">cloudstack<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ansbile/" title="ansbile">ansbile<sup>1</sup></a></li>
 			
 		
 		</ul>

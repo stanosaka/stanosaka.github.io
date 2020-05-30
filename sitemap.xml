@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2019/05/06/git/</loc>
+    
+    <lastmod>2020-05-30T03:54:21.239Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2019/07/03/version-control/</loc>
     
     <lastmod>2020-05-19T13:29:54.406Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://223.95.78.227/2016/08/29/centos7/</loc>
     
     <lastmod>2020-05-14T00:18:47.552Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/05/06/git/</loc>
-    
-    <lastmod>2020-05-04T13:04:57.816Z</lastmod>
     
   </url>
   
@@ -352,14 +352,14 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
+    <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
+    <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

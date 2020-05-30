@@ -350,7 +350,12 @@
 </header>
     <div class="article-content">
         
-        <h1 id="Complete-Git-and-Github-Masterclass"><a href="#Complete-Git-and-Github-Masterclass" class="headerlink" title="Complete Git and Github Masterclass"></a>Complete Git and Github Masterclass</h1><h2 id="How-Git-works-3-main-states-of-artifact"><a href="#How-Git-works-3-main-states-of-artifact" class="headerlink" title="How Git works - 3 main states of artifact"></a>How Git works - 3 main states of artifact</h2><p>Modified: Here, the artifact goes through chaneg made by the user </p>
+        <h1 id="Rebase-with-a-pull"><a href="#Rebase-with-a-pull" class="headerlink" title="Rebase with a pull"></a>Rebase with a pull</h1><p><code>git pull --rebase origin master</code></p>
+<p>It essentially puts the new commits in the master of the remote in your hisotry, and then superimpose your commits on them.</p>
+<h1 id="Squash-commits-together"><a href="#Squash-commits-together" class="headerlink" title="Squash commits together"></a>Squash commits together</h1><p><code>git rebase -i HEAD~2</code></p>
+<p>Squash the last two commits.<br>The HEAD~2 refers to the last two commits in the current branch, and the -i option stands for interactive.<br><a href="https://i.imgur.com/AaMM1KK.png">pick and squash</a><br>Pick the old commit and squash the latest commit.</p>
+<h1 id="Aborting-a-squash"><a href="#Aborting-a-squash" class="headerlink" title="Aborting a squash"></a>Aborting a squash</h1><p><code>git rebase --abort</code><br>get back to the pre-squash state</p>
+<h1 id="Complete-Git-and-Github-Masterclass"><a href="#Complete-Git-and-Github-Masterclass" class="headerlink" title="Complete Git and Github Masterclass"></a>Complete Git and Github Masterclass</h1><h2 id="How-Git-works-3-main-states-of-artifact"><a href="#How-Git-works-3-main-states-of-artifact" class="headerlink" title="How Git works - 3 main states of artifact"></a>How Git works - 3 main states of artifact</h2><p>Modified: Here, the artifact goes through chaneg made by the user </p>
 <p>Staged: Here, the user/developer adds the artifact to Git index or staging area</p>
 <p>Committed: Here, the artifact gets safely stored in Gt database.</p>
 <h3 id="git-add-files-moved-from-modified-state-to-staged-state"><a href="#git-add-files-moved-from-modified-state-to-staged-state" class="headerlink" title="git add: files moved from modified state to staged state"></a>git add: files moved from modified state to staged state</h3><h3 id="git-commit-files-moved-from-staged-state-to-committed-state"><a href="#git-commit-files-moved-from-staged-state-to-committed-state" class="headerlink" title="git commit: files moved from staged state to committed state"></a>git commit: files moved from staged state to committed state</h3><p>natural state progression is from modified-&gt; staged-&gt; committed</p>
@@ -1163,11 +1168,11 @@
 			
 		
 			
-				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
+				<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
+				<li><a href="/tags/tomcat/" title="tomcat">tomcat<sup>3</sup></a></li>
 			
 		
 			
@@ -1199,7 +1204,7 @@
 			
 		
 			
-				<li><a href="/tags/containers/" title="containers">containers<sup>1</sup></a></li>
+				<li><a href="/tags/Pipeline/" title="Pipeline">Pipeline<sup>1</sup></a></li>
 			
 		
 			
@@ -1207,11 +1212,11 @@
 			
 		
 			
-				<li><a href="/tags/cloudstack/" title="cloudstack">cloudstack<sup>1</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/ansbile/" title="ansbile">ansbile<sup>1</sup></a></li>
+				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -83,6 +83,92 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/07/15/splunk/" title="splunk" itemprop="url">splunk</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-15T00:40:04.000Z" itemprop="datePublished"> Published 2019-07-15</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="https://github.com/PacktPublishing/Splunk-7.x-Quick-Start-Guide">code</a></p>
+<h1 id="What-is-Splunk"><a href="#What-is-Splunk" class="headerlink" title="What is Splunk?"></a>What is Splunk?</h1><p>Splunk is a software platform that collects and stores all this machine data in one place.<br><img src="https://i.imgur.com/wObsIBw.png" alt="splunk data sources and use cases"></p>
+<h2 id="Splunk-products"><a href="#Splunk-products" class="headerlink" title="Splunk products"></a>Splunk products</h2><ul>
+<li><strong>Splunk Enterprise</strong>: designed for on-premise deployments</li>
+<li><strong>Splunk Cloud</strong>: a cloud-based <strong>software as a service (SaaS)</strong> version of Splunk Enterprise.</li>
+<li><strong>Splunk Light</strong>: is designed to be a small-scale solution.</li>
+<li><strong>Splunk Free</strong>: is a free version of the core Splunk Enterprise product that has limits on users(one user), ingestion volume (500 MB/day), and other features.</li>
+</ul>
+<p><strong>Splunk components</strong></p>
+<ul>
+<li>Universal forwarder</li>
+<li>Indexer and indexer clusters</li>
+<li>Search head and search head clusters</li>
+<li>Deployment server</li>
+<li>Deployer</li>
+<li>Cluster master</li>
+<li>License master</li>
+<li>Heavy forwarder<br>Universal forwarders, indexers, and search heads constitute the majority of Splunk functionality; the other components provide supporting roles for larger clustered/distributed environments.<br><img src="https://i.imgur.com/sqJ8esH.png" alt="Splunk components in a distributed deployment"></li>
+</ul>
+<p>The <strong>universal forwarder (UF)</strong> is a free small-footprint version of Splunk Enterprise that is installed on each application, web, or other type of server to collect data from specified log files and forward this data to Splunk for indexing(storage). In A large Splunk deployment, you may have hundreds or thousands of forwards that consume and forward data for indexing.</p>
+<p>An <strong>indexer</strong> is the Splunk component that creates and manages indexes, which is where machine data is stored. Indexers perform two main functions: parsing and storing data, which has been received from forwarders or other data sources into indexes, and searching and returning the indexed data in response to search requests.</p>
+<p>An indexing cluster is a group of indexers that have been configured to work together to handle higher volumes of both incmoing data to be indexed and search requests to be serviced, as well as providing redundancy by keeping duplicate copies of indexed data spread across the cluster members.</p>
+<p>A <strong>search head</strong> is an instance of Splunk Enterprise that handles search management functions. This includes providing a web-based user interface called Splunk Web, from which users issue search requests in what is called <strong>Search Processing Language (SPL)</strong>. Search reqeusts initiated by a user ( or a report or dashboard) are sent to one or more indexers to locate and return the requested data; the search head then formates the returned data for presentation to the user.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index=_internal | stats count by source, sourcetype</span><br></pre></td></tr></table></figure>
+<p>an example of executing a simple search in Splunk Web. The SPL specifies searching in the <code>_internal</code> index, which is where Splunk saves data about its internal operations, and provides a count of the number of events in each log for Today. The SPL command specified an <code>index</code>, and then pipes the returned results to the <code>stats</code> command to return a <code>count</code> of all the events by their <code>source</code> and `sourcetype<br><img src="https://i.imgur.com/exMXaN5.jpg" alt="Simple search in Splunk Web"></p>
+<p>A <strong>deployment server</strong> is a Splunk Enterprise instance that acts as a centralized configuration manager ofr a number of Splunk components, but which in practice is used to manage UFs.</p>
+<p>A <strong>deployer</strong> is a Splunk Enterprise instance that is ued to distribute Splunk apps and certain other configuration updates to search head cluster memebers.</p>
+<p>A <strong>cluster master</strong> is a Splunk Enterprise instance that coordinates the activities of an indexing cluster.</p>
+<p>A <strong>license master</strong> is a single Splunk Enterprise instance that provides a licensing service for the multiple instances of Splunk that have been deployed in a distributed environment.</p>
+<p>A <strong>heavy forwarder</strong> is an instance of Splunk Enterprise that can receive data from other forwarders or data sources and parse, index, and/or send data to another Splunk instance for indexing. </p>
+<p>Splunk Enterprise also has a monitoring tool function called the <strong>monitoring console</strong>, which lets you view detailed topology and performance information about your entire distributed deployment from one interface. </p>
+<p><img src="https://i.imgur.com/ElU7rTv.png" alt="Splunk data pipeline"></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/splunk/">splunk</a><a href="/tags/monitoring/">monitoring</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2019/07/13/terraform/" title="terraform" itemprop="url">terraform</a>
   </h1>
   <p class="article-author">By
@@ -2215,73 +2301,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/05/08/vim/" title="vim" itemprop="url">vim</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-05-08T12:13:36.000Z" itemprop="datePublished"> Published 2019-05-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="Multiple-file-edit"><a href="#Multiple-file-edit" class="headerlink" title="Multiple file edit"></a>Multiple file edit</h3><p>Open multiple files in separate tab via <code>vim -p file1.txt file2.txt</code>.<br>If already open just use <code>:tabe file2.txt</code>.<br>Just 1gt, 2gt, use <code>gt</code> to view.<br>Close tabs using <code>:tabc</code></p>
-<h3 id="Replace-string-globally"><a href="#Replace-string-globally" class="headerlink" title="Replace string globally"></a>Replace string globally</h3><p>:%s/release1/release2/g</p>
-<h3 id="evil-tutor"><a href="#evil-tutor" class="headerlink" title="evil-tutor"></a>evil-tutor</h3><p>/ followed by a phrase searches FORWARD for the phrase<br>? followed by a phrase searches BACKWARD for the phrase<br>After a search type n to find the next occurrence in the same direction<br>or N to search in the opposite direction.</p>
-<p>Type % to find a matching ),], or }<br>The cursor should be on the matching parenthesis or bracket.</p>
-<h1 id="a-way-to-change-errors"><a href="#a-way-to-change-errors" class="headerlink" title="a way to change errors"></a>a way to change errors</h1><p>:s/old/new to substitute ‘new’ for first ‘old’s on a line type<br>:s/old/new/g to substitute ‘new’ for all ‘old’s on a line type<br>:#,#s/old/new/g to substitute phrases between two line #’s type<br>:%s/old/new/g to substitute all occurrences in the file type<br>:%s/old/new/gc to ask for confirmation each time add ‘c’</p>
-<h1 id="execute-an-external-command"><a href="#execute-an-external-command" class="headerlink" title="execute an external command"></a>execute an external command</h1><p>:! external command</p>
-<h1 id="writing-files"><a href="#writing-files" class="headerlink" title="writing files"></a>writing files</h1><p>:w TEST </p>
-<h1 id="remove-the-file"><a href="#remove-the-file" class="headerlink" title="remove the file"></a>remove the file</h1><p>:!rm TEST</p>
-<h1 id="to-save-part-of-the-file"><a href="#to-save-part-of-the-file" class="headerlink" title="to save part of the file"></a>to save part of the file</h1><p>:#,# w FILENAME</p>
-<h1 id="retrieves-disk-file-FILENAME-and-inserts-it-into-the-current-buffer-following-the-cursor-position"><a href="#retrieves-disk-file-FILENAME-and-inserts-it-into-the-current-buffer-following-the-cursor-position" class="headerlink" title="retrieves disk file FILENAME and inserts it into the current buffer following the cursor position"></a>retrieves disk file FILENAME and inserts it into the current buffer following the cursor position</h1><p>:r FILENAME</p>
-<h1 id="opens-a-line-BELOW-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state"><a href="#opens-a-line-BELOW-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state" class="headerlink" title="opens a line BELOW the cursor and places the cursor on the open line in insert state"></a>opens a line BELOW the cursor and places the cursor on the open line in insert state</h1><p>o</p>
-<h1 id="opens-a-line-ABOVE-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state"><a href="#opens-a-line-ABOVE-the-cursor-and-places-the-cursor-on-the-open-line-in-insert-state" class="headerlink" title="opens a line ABOVE the cursor and places the cursor on the open line in insert state"></a>opens a line ABOVE the cursor and places the cursor on the open line in insert state</h1><p>O</p>
-<h1 id="R-to-replace-more-than-on-character"><a href="#R-to-replace-more-than-on-character" class="headerlink" title="R to replace more than on character"></a>R to replace more than on character</h1><p>R enters Repace mode until <ESC> is pressed to exit.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/vim/">vim</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
@@ -2380,15 +2399,15 @@
 			
 		
 			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/SRE/" title="SRE">SRE<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
 			
 		
 		</ul>

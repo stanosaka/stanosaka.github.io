@@ -83,6 +83,97 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/10/12/zabbix/" title="zabbix" itemprop="url">zabbix</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2016-10-12T04:54:53.000Z" itemprop="datePublished"> Published 2016-10-12</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="zabbix"><a href="#zabbix" class="headerlink" title="zabbix"></a>zabbix</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>IP address</th>
+<th>Roles</th>
+<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>192.168.0.49(chatswood)</td>
+<td>zabbix server</td>
+<td>Centos 6.8 Zabbix 2.4.8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>192.168.0.80(macadamina)</td>
+<td>zabbix agent</td>
+<td>Centos 6.8 Zabbix 2.4.8</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="server-setup"><a href="#server-setup" class="headerlink" title="server setup"></a>server setup</h2> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-server -y</span><br><span class="line">tar xf zabbix-2.4.8.tar.gz</span><br><span class="line"><span class="built_in">cd</span> zabbix-2.4.8</span><br><span class="line">./configure --prefix=/opt/zabbix --<span class="built_in">enable</span>-server --<span class="built_in">enable</span>-agent --with-mysql</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">yum install httpd php-devel php php-mbstring -y</span><br><span class="line">vim /etc/hosts</span><br><span class="line">192.168.0.80    macadamina</span><br><span class="line">192.168.0.49    chatswood</span><br><span class="line"><span class="built_in">cd</span> /opt/zabbix/</span><br><span class="line">mv etc&#123;,_bak&#125;</span><br><span class="line">/bin/cp -rf etc_bak/ etc</span><br><span class="line">[root@chatswood ~]<span class="comment"># cat /opt/zabbix/etc/zabbix_server.conf|egrep -v "^#|^$"</span></span><br><span class="line">LogFile=/tmp/zabbix_server.log</span><br><span class="line">PidFile=/tmp/zabbix_server.pid</span><br><span class="line">DBSocket=/tmp/mysql.sock</span><br><span class="line">DBHost=chatswood</span><br><span class="line">DBName=zabbix</span><br><span class="line">DBUser=zabbix</span><br><span class="line">DBPassword=123456</span><br><span class="line">Timeout=30</span><br><span class="line">[root@chatswood ~]<span class="comment"># cat /opt/zabbix/etc/zabbix_agentd.conf|egrep -v "^#|^$"</span></span><br><span class="line">PidFile=/tmp/zabbix_agentd.pid</span><br><span class="line">LogFile=/tmp/zabbix_agentd.log</span><br><span class="line">Server=chatswood</span><br><span class="line">ServerActive=chatswood</span><br><span class="line">Hostname=chatswood</span><br><span class="line">Timeout=30</span><br><span class="line"></span><br><span class="line">/etc/init.d/mysqld start</span><br><span class="line"><span class="comment"># mysql</span></span><br><span class="line">mysql&gt; create database zabbix character <span class="built_in">set</span> utf8;</span><br><span class="line">mysql&gt; grant all on zabbix.* to zabbix@<span class="string">'192.168.0.49'</span> identified by <span class="string">'123456'</span>;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; use zabbix;</span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">mysql&gt; <span class="built_in">exit</span>;</span><br><span class="line"><span class="built_in">cd</span> zabbix-2.4.8/database/mysql</span><br><span class="line">mysql zabbix &lt; ./schema.sql -p</span><br><span class="line">mysql zabbix &lt; ./images.sql -p</span><br><span class="line">mysql zabbix &lt; ./data.sql -p</span><br><span class="line"><span class="comment">## test database</span></span><br><span class="line">mysql -u zabbix -p -h192.168.0.49</span><br><span class="line">mysql&gt; use zabbix;</span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">mysql&gt; <span class="built_in">exit</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># create a zabbix user</span></span><br><span class="line">groupadd -g 508 zabbix</span><br><span class="line">useradd -g 508 -u 508 zabbix -M -s /sbin/nologin</span><br><span class="line"></span><br><span class="line">/opt/zabbix/sbin/zabbix_server -c /opt/zabbix/etc/zabbix_server.conf</span><br><span class="line">ps aux|grep zabbix</span><br><span class="line">/opt/zabbix/sbin/zabbix_agentd -c /opt/zabbix/etc/zabbix_agentd.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># test</span></span><br><span class="line">/opt/zabbix/bin/zabbix_get -s chatswood -k proc.num[]</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> zabbix-2.4.8</span><br><span class="line">mkdir /var/www/html/zabbix</span><br><span class="line">/bin/cp -rf frontends/php/* /var/www/html/zabbix/</span><br><span class="line">vim /etc/php.ini</span><br><span class="line">date.timezone = Asia/Shanghai</span><br><span class="line">post_max_size = 18M</span><br><span class="line">max_execution_time = 350</span><br><span class="line">max_input_time = 350</span><br><span class="line"></span><br><span class="line">yum install php-gd php-xml php-mysql php-bcmath -y</span><br><span class="line">/etc/init.d/httpd restart</span><br><span class="line">ps aux|grep apache</span><br><span class="line">/usr/sbin/ntpdate 3.cn.pool.ntp.org</span><br><span class="line">chown -R apache /var/www/html/zabbix/</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="agent-setup"><a href="#agent-setup" class="headerlink" title="agent setup"></a>agent setup</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br><span class="line">192.168.0.80    macadamina</span><br><span class="line">192.168.0.49    chatswood</span><br><span class="line">./configure --prefix=/opt/zabbix --<span class="built_in">enable</span>-agent --with-net-snmp</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">groupadd -g 508 zabbix</span><br><span class="line">useradd -g 508 -u 508 zabbix -M -s /sbin/nologin</span><br><span class="line">cat /opt/zabbix/etc/zabbix_agentd.conf|egrep -v <span class="string">"^#|^$"</span></span><br><span class="line">LogFile=/tmp/zabbix_agentd.log</span><br><span class="line">Server=chatswood</span><br><span class="line">ServerActive=chatswood</span><br><span class="line">Hostname=macadamina</span><br><span class="line"></span><br><span class="line">/opt/zabbix/sbin/zabbix_agentd -c /opt/zabbix/etc/zabbix_agentd.conf</span><br><span class="line">ps aux|grep zabbix</span><br><span class="line">lsof|grep zabbix</span><br></pre></td></tr></table></figure>
+<p>Access <a href="http://192.168.0.49/zabbix">http://192.168.0.49/zabbix</a>,<br>default username: admin<br>password: zabbix</p>
+<hr>
+<h2 id="issue"><a href="#issue" class="headerlink" title="issue"></a>issue</h2><hr>
+<p>checking for mysql_config… /usr/bin/mysql_config<br>checking for main in -lmysqlclient… no<br>configure: error: Not found mysqlclient library</p>
+<p>#yum -y install mysql-devel</p>
+<blockquote>
+<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/centos/">centos</a><a href="/tags/zabbix/">zabbix</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/10/10/web-security/" title="web security" itemprop="url">web security</a>
   </h1>
   <p class="article-author">By
@@ -862,106 +953,6 @@ Total states run: 1
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/08/24/docker-tomcat7/" title="docker tomcat7" itemprop="url">docker tomcat7</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2016-08-24T01:15:59.000Z" itemprop="datePublished"> Published 2016-08-24</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="docker-container-with-centos-6-and-tomcat-7"><a href="#docker-container-with-centos-6-and-tomcat-7" class="headerlink" title="docker container with centos 6 and tomcat 7"></a>docker container with centos 6 and tomcat 7</h1><pre><code># docker search centos
-# docker pull centos
-</code></pre><p>Download the Oracle JDK</p>
-<pre><code>wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u72-b14/jdk-7u72-linux-x64.tar.gz&quot;
-</code></pre><p>Create a working folder and place both Tomcat tarball and Oracle JDK files in the same folder.</p>
-<pre><code>[root@docker centos6]# ls
-apache-tomcat-7.0.70.tar.gz  Dockerfile  jdk-7u72-linux-x64.tar.gz
-
-[root@docker centos6]# cat Dockerfile
-FROM centos:latest
-MAINTAINER lreeder
-
-#Helpful utils, but only sudo is required
-#RUN yum -y install tar
-#RUN yum -y install vim
-#RUN yum -y install nc
-RUN yum -y install sudo
-
-######## JDK7
-
-#Note that ADD uncompresses this tarball automatically
-ADD jdk-7u72-linux-x64.tar.gz /opt
-WORKDIR /opt/jdk1.7.0_72
-RUN alternatives --install /usr/bin/java java /opt/jdk1.7.0_72/bin/java 1
-RUN alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_72/bin/jar 1
-RUN alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_72/bin/javac 1
-RUN echo &quot;JAVA_HOME=/opt/jdk1.7.0_72&quot; &gt;&gt; /etc/environment
-
-######## TOMCAT
-
-#Note that ADD uncompresses this tarball automatically
-ADD apache-tomcat-7.0.70.tar.gz /usr/share
-WORKDIR /usr/share/
-RUN mv  apache-tomcat-7.0.70 tomcat7
-RUN echo &quot;JAVA_HOME=/opt/jdk1.7.0_72/&quot; &gt;&gt; /etc/default/tomcat7
-RUN groupadd tomcat
-RUN useradd -s /bin/bash -g tomcat tomcat
-RUN chown -Rf tomcat.tomcat /usr/share/tomcat7
-EXPOSE 8080
-</code></pre><p>Build image</p>
-<pre><code># docker build --rm=true -t centos6/tomcat7 .
-</code></pre><p>Setup port forwarding and start tomcat</p>
-<pre><code>[root@docker centos6]# docker run -p 80:8080 --rm=true -t -i --name tomcat7 centos6/tomcat7 /usr/bin/sudo -u tomcat /usr/share/tomcat7/bin/catalina.sh run
-</code></pre><p>Find out the IP address for the running container:</p>
-<pre><code>[root@docker centos6]# docker inspect --format &apos;{{ .NetworkSettings.IPAddress }}&apos; tomcat7
-172.17.0.22
-</code></pre>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/docker/">docker</a><a href="/tags/tomcat/">tomcat</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next<span></span></a>
@@ -1060,15 +1051,15 @@ EXPOSE 8080
 			
 		
 			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/SRE/" title="SRE">SRE<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
 			
 		
 		</ul>

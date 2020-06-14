@@ -83,6 +83,82 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2020/06/14/azure/" title="azure" itemprop="url">azure</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2020-06-14T09:38:55.000Z" itemprop="datePublished"> Published 2020-06-14</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Azure-architecturue-foundations"><a href="#Azure-architecturue-foundations" class="headerlink" title="Azure architecturue foundations"></a>Azure architecturue foundations</h1><blockquote>
+<p>subscriptions, management, governance</p>
+</blockquote>
+<h2 id="Resource-organization"><a href="#Resource-organization" class="headerlink" title="Resource organization"></a>Resource organization</h2><ul>
+<li>Management group for each environment (Prod, Dev, and Test)</li>
+<li>Subscription for each “application categorization”</li>
+<li>Separate resource group for each application</li>
+<li>Consistent nomenclature at each level of this hierarchy<br><img src="https://i.imgur.com/jpBakdZ.png" alt="resource organization" title="resource organization"> <h2 id="Naming-Standards"><a href="#Naming-Standards" class="headerlink" title="Naming Standards"></a>Naming Standards</h2></li>
+<li>Azure resource names are important</li>
+<li>it’s difficult to change names later</li>
+<li>Names must meet requirements specific to their resource type<br><a href="https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging">naming and tagging</a><h2 id="Organize-resources-by-Tag"><a href="#Organize-resources-by-Tag" class="headerlink" title="Organize resources by Tag"></a>Organize resources by Tag</h2></li>
+<li>Allows you to add metadata to Azure resources</li>
+<li>Allows you to query resources using the same tags</li>
+<li>Not all resource types support tags<h2 id="Azure-policy-and-RBAC"><a href="#Azure-policy-and-RBAC" class="headerlink" title="Azure policy and RBAC"></a>Azure policy and RBAC</h2></li>
+<li>Policies enforce rules against your resources</li>
+<li>Role-based access control (RBAC) controls user actions<h2 id="Resource-locks"><a href="#Resource-locks" class="headerlink" title="Resource locks"></a>Resource locks</h2></li>
+<li>Prevent accidental resource changes<h2 id="Monitorinig-and-alerting"><a href="#Monitorinig-and-alerting" class="headerlink" title="Monitorinig and alerting"></a>Monitorinig and alerting</h2><img src="https://i.imgur.com/5mS3fbB.png" alt="monitoring and alerting"> </li>
+</ul>
+<h1 id="Cloud-application-architecture"><a href="#Cloud-application-architecture" class="headerlink" title="Cloud application architecture"></a>Cloud application architecture</h1><p><a href="https://docs.microsoft.com/en-us/azure/architecture/" title="Azure architecture center">Azure architecture center</a></p>
+<h1 id="N-tier-application-architecture"><a href="#N-tier-application-architecture" class="headerlink" title="N-tier application architecture"></a>N-tier application architecture</h1><p><img src="https://i.imgur.com/ziZzQrN.png" alt="n-tier applicatioin architecuture"></p>
+<h1 id="Hybrid-cloud-architecture"><a href="#Hybrid-cloud-architecture" class="headerlink" title="Hybrid cloud architecture"></a>Hybrid cloud architecture</h1><p><img src="https://i.imgur.com/VxYsaXo.png" alt="hybrid cloud architecture"></p>
+<p>Azure bastion</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/azure/">azure</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2020/05/11/spacemacs/" title="spacemacs" itemprop="url">spacemacs</a>
   </h1>
   <p class="article-author">By
@@ -1214,111 +1290,6 @@
 
 
 
-   
-    
-    <article class="post-expand blog" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/09/12/networking/" title="networking" itemprop="url">networking</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-09-12T08:37:21.000Z" itemprop="datePublished"> Published 2019-09-12</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="IP-subnetting"><a href="#IP-subnetting" class="headerlink" title="IP subnetting"></a>IP subnetting</h1><p><strong>Subnetting part 1</strong><br>IP address</p>
-<ul>
-<li>Subnet address </li>
-<li>1st Host address </li>
-<li>Last Host address </li>
-<li>Broadcast address </li>
-</ul>
-<p>Two methods</p>
-<ul>
-<li>Method 1 - Binary Method</li>
-<li>Method 2 - Quick Method</li>
-</ul>
-<p><img src="https://i.imgur.com/GFUUIuH.png" alt="Typical example"></p>
-<ul>
-<li><p>What IP address would router1 be configured with if it is to use the first ip address in the same subnet as PC1?</p>
-</li>
-<li><p>What broadcast address is use by PC1?</p>
-</li>
-<li><p>What ip address would Router1 be configured with if it is to use the last IP address in the same Subnet as PC1?</p>
-</li>
-<li><p>What subnet is PC1 part of?</p>
-</li>
-</ul>
-<p><strong>Binary Rules</strong></p>
-<p>Network/subnet address </p>
-<ul>
-<li>Fill the host portion of an address with binary 0’s </li>
-</ul>
-<p>Broadcast address </p>
-<ul>
-<li>Fill the host portion of an address with binary 1’s </li>
-</ul>
-<p>First Host</p>
-<ul>
-<li>Fill the host portion of an address with binary 0’s except for the last bit which is set to binary 1</li>
-</ul>
-<p>Last Host</p>
-<ul>
-<li>Fill the host portion of an address with binary 1’s except for the last bit which is set to binary 0</li>
-</ul>
-<p>3rd example<br>172.16.129.1/17</p>
-<p>172.16.1|000 0001.0000 0001<br>subnet = 172.16.1000 0000.0000 0000=172.16.128.0<br>Broadcast= 172.16.1111 1111.1111 1111=172.16.255.255<br>1st host=172.16.128.1<br>last host=172.16.255.254</p>
-<p><strong>Shortcut table</strong><br>128|64|32|16|8|4|2|1<br>128|192|224|240|248|252|254|255</p>
-<p>Tip: the first line shows the decimal values for the binary numbers of an octet<br>10000000=128   00010000=16</p>
-<p>Second row, subtract the value in the frist row from 256<br>256-128=128    256-32=224   256-64=192  256-1=255</p>
-<p><strong>Binary odometer:(0-255)</strong><br>10.1.1.254+1=10.1.1.255<br>10.1.1.255+1=10.1.2.0<br>10.1.2.0+1=10.1.2.1<br>or in reverse:<br>10.1.2.0-1=10.1.1.255</p>
-<p>Broadcast address = Next Network -1<br>First host = subnet +1<br>last host = broadcast -1<br>What subnet is this host on?<br>What is a last host?</p>
-<p><strong>Subnetting part 2</strong><br>creat multiple subnets</p>
-<p>Subnet this network into at least 10 subnets<br>Subnet this network into subnets each having 10 host</p>
-<h1 id="Azure-VMs-networking"><a href="#Azure-VMs-networking" class="headerlink" title="Azure VMs networking"></a>Azure VMs networking</h1><p>Priority: the lower the number, the higher the priority.</p>
-<h1 id="ipcalc-in-linux"><a href="#ipcalc-in-linux" class="headerlink" title="ipcalc in linux"></a>ipcalc in linux</h1><p>ipcalc 13.75.0.0/16<br>Address:   13.75.0.0            00001101.01001011. 00000000.00000000<br>Netmask:   255.255.0.0 = 16     11111111.11111111. 00000000.00000000<br>Wildcard:  0.0.255.255          00000000.00000000. 11111111.11111111<br>=&gt;<br>Network:   13.75.0.0/16         00001101.01001011. 00000000.00000000<br>HostMin:   13.75.0.1            00001101.01001011. 00000000.00000001<br>HostMax:   13.75.255.254        00001101.01001011. 11111111.11111110<br>Broadcast: 13.75.255.255        00001101.01001011. 11111111.11111111<br>Hosts/Net: 65534                 Class A</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/networking/">networking</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1417,15 +1388,15 @@
 			
 		
 			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/SRE/" title="SRE">SRE<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/agile/" title="agile">agile<sup>1</sup></a></li>
 			
 		
 		</ul>

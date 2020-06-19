@@ -11,17 +11,17 @@
     
 
     
-    <meta name="description" content="Puppet Code Directory Layoutenvironments/production/:manifests/:Puppet manifestsmodules/: Puppet modulesdata/: Hiera datahiera.yaml: Hiera configuration">
+    <meta name="description" content="Puppet Code Directory Layoutenvironments/production/:manifests/:Puppet manifestsmodules/: Puppet modulesdata/: Hiera datahiera.yaml: Hiera configuration add cert autosigncat /etc/puppetlabs/puppet/aut">
 <meta property="og:type" content="article">
 <meta property="og:title" content="puppet">
 <meta property="og:url" content="http://223.95.78.227/2020/04/26/puppet/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="Puppet Code Directory Layoutenvironments/production/:manifests/:Puppet manifestsmodules/: Puppet modulesdata/: Hiera datahiera.yaml: Hiera configuration">
+<meta property="og:description" content="Puppet Code Directory Layoutenvironments/production/:manifests/:Puppet manifestsmodules/: Puppet modulesdata/: Hiera datahiera.yaml: Hiera configuration add cert autosigncat /etc/puppetlabs/puppet/aut">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T12:51:17.995Z">
+<meta property="og:updated_time" content="2020-06-19T00:26:31.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="puppet">
-<meta name="twitter:description" content="Puppet Code Directory Layoutenvironments/production/:manifests/:Puppet manifestsmodules/: Puppet modulesdata/: Hiera datahiera.yaml: Hiera configuration">
+<meta name="twitter:description" content="Puppet Code Directory Layoutenvironments/production/:manifests/:Puppet manifestsmodules/: Puppet modulesdata/: Hiera datahiera.yaml: Hiera configuration add cert autosigncat /etc/puppetlabs/puppet/aut">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -98,11 +98,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Puppet-Code-Directory-Layout"><span class="toc-number">1.</span> <span class="toc-text">Puppet Code Directory Layout</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Puppet-Code-Directory-Layout"><span class="toc-number">1.</span> <span class="toc-text">Puppet Code Directory Layout</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#add-cert-autosign"><span class="toc-number">2.</span> <span class="toc-text">add cert autosign</span></a></li></ol>
 		
 		</div>
 		
 		<h1 id="Puppet-Code-Directory-Layout"><a href="#Puppet-Code-Directory-Layout" class="headerlink" title="Puppet Code Directory Layout"></a>Puppet Code Directory Layout</h1><p>environments/production/:<br>manifests/:Puppet manifests<br>modules/: Puppet modules<br>data/: Hiera data<br>hiera.yaml: Hiera configuration</p>
+<h1 id="add-cert-autosign"><a href="#add-cert-autosign" class="headerlink" title="add cert autosign"></a>add cert autosign</h1><p>cat /etc/puppetlabs/puppet/autosign.conf<br>add the hostname or *.foobar</p>
+<p>add a line in /etc/puppetlabs/puppet/puppet.conf<br>autosign = true</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -155,7 +157,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Puppet-Code-Directory-Layout"><span class="toc-number">1.</span> <span class="toc-text">Puppet Code Directory Layout</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Puppet-Code-Directory-Layout"><span class="toc-number">1.</span> <span class="toc-text">Puppet Code Directory Layout</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#add-cert-autosign"><span class="toc-number">2.</span> <span class="toc-text">add cert autosign</span></a></li></ol>
  
   </div>
 
@@ -253,11 +255,11 @@
 			
 		
 			
-				<li><a href="/tags/SRE/" title="SRE">SRE<sup>1</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+				<li><a href="/tags/SRE/" title="SRE">SRE<sup>1</sup></a></li>
 			
 		
 		</ul>

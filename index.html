@@ -240,6 +240,22 @@
 <td>SPC a d</td>
 <td style="text-align:center">Dired mode : 1. Copy file : C 2. Delete the file : D 3. Rename the file : R 4. Create a new directory : + 5. Reload directory listing : g</td>
 </tr>
+<tr>
+<td>C-b</td>
+<td style="text-align:center">Move back one full screen</td>
+</tr>
+<tr>
+<td>C-f</td>
+<td style="text-align:center">Move forward one full screen</td>
+</tr>
+<tr>
+<td>C-d</td>
+<td style="text-align:center">Move forward 1/2 screen</td>
+</tr>
+<tr>
+<td>C-u</td>
+<td style="text-align:center">Move back (upA)1/2 screen</td>
+</tr>
 </tbody>
 </table>
 <h1 id="Stage-files-and-commit"><a href="#Stage-files-and-commit" class="headerlink" title="Stage files and commit"></a>Stage files and commit</h1><table>
@@ -393,6 +409,8 @@
     <div class="article-content">
         
         <h1 id="Puppet-Code-Directory-Layout"><a href="#Puppet-Code-Directory-Layout" class="headerlink" title="Puppet Code Directory Layout"></a>Puppet Code Directory Layout</h1><p>environments/production/:<br>manifests/:Puppet manifests<br>modules/: Puppet modules<br>data/: Hiera data<br>hiera.yaml: Hiera configuration</p>
+<h1 id="add-cert-autosign"><a href="#add-cert-autosign" class="headerlink" title="add cert autosign"></a>add cert autosign</h1><p>cat /etc/puppetlabs/puppet/autosign.conf<br>add the hostname or *.foobar</p>
+<p>add a line in /etc/puppetlabs/puppet/puppet.conf<br>autosign = true</p>
 
         
         
@@ -1392,11 +1410,11 @@
 			
 		
 			
-				<li><a href="/tags/SRE/" title="SRE">SRE<sup>1</sup></a></li>
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+				<li><a href="/tags/SRE/" title="SRE">SRE<sup>1</sup></a></li>
 			
 		
 		</ul>

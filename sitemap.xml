@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://223.95.78.227/2020/06/14/azure/</loc>
+    <loc>http://223.95.78.227/2020/05/11/spacemacs/</loc>
     
-    <lastmod>2020-06-14T12:27:54.506Z</lastmod>
+    <lastmod>2020-06-19T04:38:52.389Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2020/05/11/spacemacs/</loc>
+    <loc>http://223.95.78.227/2020/04/26/puppet/</loc>
     
-    <lastmod>2020-06-03T07:17:27.652Z</lastmod>
+    <lastmod>2020-06-19T00:26:31.370Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/07/23/LinuxSystemAdmin/</loc>
+    
+    <lastmod>2020-06-15T13:00:59.701Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2020/06/14/azure/</loc>
+    
+    <lastmod>2020-06-14T12:27:54.506Z</lastmod>
     
   </url>
   
@@ -33,20 +47,6 @@
     <loc>http://223.95.78.227/2016/08/29/centos7/</loc>
     
     <lastmod>2020-05-14T00:18:47.552Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2020/04/26/puppet/</loc>
-    
-    <lastmod>2020-04-26T12:51:17.995Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/07/23/LinuxSystemAdmin/</loc>
-    
-    <lastmod>2020-03-23T05:13:40.268Z</lastmod>
     
   </url>
   
@@ -352,13 +352,6 @@
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://223.95.78.227/2016/08/12/tomcat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
@@ -367,6 +360,13 @@
   
   <url>
     <loc>http://223.95.78.227/2016/10/27/tomcat01/</loc>
+    
+    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2016/10/13/sysadmintool/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

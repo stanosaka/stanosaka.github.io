@@ -4,25 +4,25 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>puppet | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>spacemacs | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="Puppet Code Directory Layoutenvironments/production/:manifests/:Puppet manifestsmodules/: Puppet modulesdata/: Hiera datahiera.yaml: Hiera configuration add cert autosigncat /etc/puppetlabs/puppet/aut">
-<meta name="keywords" content="puppet">
+    <meta name="description" content="Basic   Key Description     SPC p f search find in the same project   SPC p p open project   SPC w m max the current windows   ALT ; uncomment   gcc comment out a line   gc comment out highlighted tex">
+<meta name="keywords" content="spacemacs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="puppet">
-<meta property="og:url" content="http://223.95.78.227/2020/04/26/puppet/index.html">
+<meta property="og:title" content="spacemacs">
+<meta property="og:url" content="http://223.95.78.227/2020/06/23/spacemacs/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="Puppet Code Directory Layoutenvironments/production/:manifests/:Puppet manifestsmodules/: Puppet modulesdata/: Hiera datahiera.yaml: Hiera configuration add cert autosigncat /etc/puppetlabs/puppet/aut">
+<meta property="og:description" content="Basic   Key Description     SPC p f search find in the same project   SPC p p open project   SPC w m max the current windows   ALT ; uncomment   gcc comment out a line   gc comment out highlighted tex">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-20T03:00:36.433Z">
+<meta property="og:updated_time" content="2020-06-23T06:36:43.985Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="puppet">
-<meta name="twitter:description" content="Puppet Code Directory Layoutenvironments/production/:manifests/:Puppet manifestsmodules/: Puppet modulesdata/: Hiera datahiera.yaml: Hiera configuration add cert autosigncat /etc/puppetlabs/puppet/aut">
+<meta name="twitter:title" content="spacemacs">
+<meta name="twitter:description" content="Basic   Key Description     SPC p f search find in the same project   SPC p p open project   SPC w m max the current windows   ALT ; uncomment   gcc comment out a line   gc comment out highlighted tex">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2020/04/26/puppet/" title="puppet" itemprop="url">puppet</a>
+      <a href="/2020/06/23/spacemacs/" title="spacemacs" itemprop="url">spacemacs</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2020-04-26T12:41:23.000Z" itemprop="datePublished"> Published 2020-04-26</time>
+    <time datetime="2020-06-23T06:34:35.474Z" itemprop="datePublished"> Published 2020-06-23</time>
     
   </p>
 </header>
@@ -99,30 +99,215 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Puppet-Code-Directory-Layout"><span class="toc-number">1.</span> <span class="toc-text">Puppet Code Directory Layout</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#add-cert-autosign"><span class="toc-number">2.</span> <span class="toc-text">add cert autosign</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Puppet-5-essentials"><span class="toc-number">3.</span> <span class="toc-text">Puppet 5 essentials</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#resources-parameters-and-properties"><span class="toc-number">3.1.</span> <span class="toc-text">resources, parameters, and properties</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dry-testing-your-manifest"><span class="toc-number">3.2.</span> <span class="toc-text">Dry testing your manifest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-variables"><span class="toc-number">3.3.</span> <span class="toc-text">Using variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variable-types"><span class="toc-number">3.4.</span> <span class="toc-text">Variable types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-types"><span class="toc-number">3.5.</span> <span class="toc-text">Data types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-control-structures-in-manifests"><span class="toc-number">3.6.</span> <span class="toc-text">Adding control structures in manifests</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Basic"><span class="toc-number">1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Movement"><span class="toc-number">2.</span> <span class="toc-text">Movement</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stage-files-and-commit"><span class="toc-number">3.</span> <span class="toc-text">Stage files and commit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Org-mode"><span class="toc-number">4.</span> <span class="toc-text">Org mode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tumx"><span class="toc-number">5.</span> <span class="toc-text">tumx</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="Puppet-Code-Directory-Layout"><a href="#Puppet-Code-Directory-Layout" class="headerlink" title="Puppet Code Directory Layout"></a>Puppet Code Directory Layout</h1><p>environments/production/:<br>manifests/:Puppet manifests<br>modules/: Puppet modules<br>data/: Hiera data<br>hiera.yaml: Hiera configuration</p>
-<h1 id="add-cert-autosign"><a href="#add-cert-autosign" class="headerlink" title="add cert autosign"></a>add cert autosign</h1><p>cat /etc/puppetlabs/puppet/autosign.conf<br>add the hostname or *.foobar</p>
-<p>add a line in /etc/puppetlabs/puppet/puppet.conf<br>autosign = true</p>
-<h1 id="Puppet-5-essentials"><a href="#Puppet-5-essentials" class="headerlink" title="Puppet 5 essentials"></a>Puppet 5 essentials</h1><h2 id="resources-parameters-and-properties"><a href="#resources-parameters-and-properties" class="headerlink" title="resources, parameters, and properties"></a>resources, parameters, and properties</h2><p>Resources are the elementray builing blocks of manifests.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># cat puppet_service.pp</span><br><span class="line">service &#123; &apos;puppet&apos;:</span><br><span class="line">  ensure =&gt; &apos;stopped&apos;,</span><br><span class="line">  enable =&gt; false,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Each has a type (service) and a name or title (puppet). Each resource is unique to a manifest, and can be referenced by the combination of its<br>type and name, such as Server[“puppet”].<br>A resource comprises a list of zero or more attributes.<br>An attribute is a key-value pair, such as <code>enable =&gt; fales</code>.</p>
-<p>Puppet differentiates between two different attributes: parameters and properties.<br>Parameters describe the way that Puppet should deal with a resource type.<br>Properties describe a specific setting of a resource.<br>Certain parameters are available for all resource types (metaparameters), and some names are just very common, such as ensure. The service type supports the ensure property, which represents the status of the managed process. Its enabled property, on the other hand, relates to the system boot configuration (with respect to the service in question).</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat puppet_service_provider.pp </span><br><span class="line">service &#123; &apos;puppet&apos;:</span><br><span class="line">  ensure   =&gt; &apos;stopped&apos;,</span><br><span class="line">  enable   =&gt; false,</span><br><span class="line">  provider =&gt; &apos;upstart&apos;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The provider parameter tells Puppet that it need to interact with the upstart subsystem to control its background service.</p>
-<p>The difference between parameters and properties is that the parameter merely indicates how Puppet should manage the resource, not what a desired state is.<br>Puppet will only take action on property values. In this example, these are ensure =&gt; ‘stopped’ and enable =&gt; false. For each such property, Puppet will perform the following tasks:</p>
+		<h1 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h1><table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPC p f</td>
+<td style="text-align:center">search find in the same project</td>
+</tr>
+<tr>
+<td>SPC p p</td>
+<td style="text-align:center">open project</td>
+</tr>
+<tr>
+<td>SPC w m</td>
+<td style="text-align:center">max the current windows</td>
+</tr>
+<tr>
+<td>ALT ;</td>
+<td style="text-align:center">uncomment</td>
+</tr>
+<tr>
+<td>gcc</td>
+<td style="text-align:center">comment out a line</td>
+</tr>
+<tr>
+<td>gc</td>
+<td style="text-align:center">comment out highlighted text</td>
+</tr>
+<tr>
+<td>SPC w /</td>
+<td style="text-align:center">vertical</td>
+</tr>
+<tr>
+<td>SPC w -</td>
+<td style="text-align:center">horizontal</td>
+</tr>
+<tr>
+<td>SPC f e d</td>
+<td style="text-align:center">edit spacemacs profile</td>
+</tr>
+<tr>
+<td>SPC f f</td>
+<td style="text-align:center">open file</td>
+</tr>
+<tr>
+<td>SPC w c</td>
+<td style="text-align:center">close the window</td>
+</tr>
+<tr>
+<td>SPC t l</td>
+<td style="text-align:center">toggle lines</td>
+</tr>
+<tr>
+<td>C-x h</td>
+<td style="text-align:center">select the entire buffer</td>
+</tr>
+<tr>
+<td>C-h m</td>
+<td style="text-align:center">show available commands for the current modes</td>
+</tr>
+<tr>
+<td>SPC a d</td>
+<td style="text-align:center">Dired mode : 1. Copy file : C 2. Delete the file : D 3. Rename the file : R 4. Create a new directory : + 5. Reload directory listing : g</td>
+</tr>
+<tr>
+<td>C-b</td>
+<td style="text-align:center">Move back one full screen</td>
+</tr>
+<tr>
+<td>C-f</td>
+<td style="text-align:center">Move forward one full screen</td>
+</tr>
+<tr>
+<td>C-d</td>
+<td style="text-align:center">Move forward 1/2 screen</td>
+</tr>
+<tr>
+<td>C-u</td>
+<td style="text-align:center">Move back (upA)1/2 screen</td>
+</tr>
+</tbody>
+</table>
+<h1 id="Movement"><a href="#Movement" class="headerlink" title="Movement"></a>Movement</h1><table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-u</td>
+<td style="text-align:center">up half page</td>
+</tr>
+<tr>
+<td>C-d</td>
+<td style="text-align:center">down half page</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="Stage-files-and-commit"><a href="#Stage-files-and-commit" class="headerlink" title="Stage files and commit"></a>Stage files and commit</h1><table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPC g s</td>
+<td style="text-align:center">show Magit status view</td>
+</tr>
+<tr>
+<td>j k</td>
+<td style="text-align:center">position the cursor on a file</td>
+</tr>
+<tr>
+<td>TAB</td>
+<td style="text-align:center">show and hide the diff for the file</td>
+</tr>
+<tr>
+<td>s</td>
+<td style="text-align:center">stage a file (u to unstage fa file and x to discard changes to a file)</td>
+</tr>
+<tr>
+<td>cc</td>
+<td style="text-align:center">commit</td>
+</tr>
+<tr>
+<td>,c</td>
+<td style="text-align:center">finish the commit message</td>
+</tr>
+<tr>
+<td>p u</td>
+<td style="text-align:center">Push to upstream</td>
+</tr>
+<tr>
+<td>F (r) u</td>
+<td style="text-align:center">Pull tracked branch and rebase</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="Org-mode"><a href="#Org-mode" class="headerlink" title="Org mode"></a>Org mode</h1><table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-x org-mode</td>
+<td style="text-align:center">enable Org mode</td>
+</tr>
+<tr>
+<td>M-shift-RET</td>
+<td style="text-align:center">Add a TODO list</td>
+</tr>
+<tr>
+<td>C-c C-t</td>
+<td style="text-align:center">Mark as completed</td>
+</tr>
+<tr>
+<td>C-c C-x C-b</td>
+<td style="text-align:center">toogle checkbox</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="tumx"><a href="#tumx" class="headerlink" title="tumx"></a>tumx</h1><table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prefix :setw synchronize-panes off</td>
+<td style="text-align:center">stop sending same command for all paines in windows</td>
+</tr>
+<tr>
+<td>prefix r</td>
+<td style="text-align:center">reload the tmux configuration</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>Test whether the resources is already in sync with the target state</li>
-<li>If the resource is not in sync, it will trigger a sync action</li>
+<li><a href="https://orgmode.org/manual/index.html">https://orgmode.org/manual/index.html</a></li>
 </ul>
-<p>Properties can be out of sync, whereas parameters cannot.</p>
-<h2 id="Dry-testing-your-manifest"><a href="#Dry-testing-your-manifest" class="headerlink" title="Dry testing your manifest"></a>Dry testing your manifest</h2><p><code>puppet apply puppet_service.pp --noop</code></p>
-<h2 id="Using-variables"><a href="#Using-variables" class="headerlink" title="Using variables"></a>Using variables</h2><p>Any variable name is always prefixed with the $ sign:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$download_server = &apos;img2.example.net&apos;</span><br><span class="line">$url = &quot;https://$&#123;download_server&#125;/pkg/example_source.tar.gz&quot;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Variable-types"><a href="#Variable-types" class="headerlink" title="Variable types"></a>Variable types</h2><p>Four variable types: strings, arrays, hashed, and Booleans<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$a_bool = true</span><br><span class="line">$a_string = &apos;This is a string value&apos;</span><br><span class="line">$an_array = [ &apos;This&apos;, &apos;forms&apos;, &apos;an&apos;, &apos;array&apos; ]</span><br><span class="line">$a_hash = &#123;   </span><br><span class="line">   &apos;subject&apos;   =&gt; &apos;Hashes&apos;,  </span><br><span class="line">   &apos;predicate&apos; =&gt; &apos;are written&apos;,  </span><br><span class="line">   &apos;object&apos;    =&gt; &apos;like this&apos;,  </span><br><span class="line">   &apos;note&apos;      =&gt; &apos;not actual grammar!&apos;,  </span><br><span class="line">   &apos;also note&apos; =&gt; [ &apos;nesting is&apos;,</span><br><span class="line">   &#123; &apos;allowed&apos;   =&gt; &apos; of course&apos; &#125; ], </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Data-types"><a href="#Data-types" class="headerlink" title="Data types"></a>Data types</h2><p>Puppet has core data types and abstract data types. The core data types are the most commonly used types of data, such as string or integer, whereas abstract data types allow for more sophisticated type validation, such as optional or variant.</p>
-<h2 id="Adding-control-structures-in-manifests"><a href="#Adding-control-structures-in-manifests" class="headerlink" title="Adding control structures in manifests"></a>Adding control structures in manifests</h2><p>if/else block:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if &apos;mail_lda&apos; in $needed_services &#123;  </span><br><span class="line">   service &#123; &apos;dovecot&apos;: enable =&gt; true &#125;</span><br><span class="line">&#125; else &#123;  </span><br><span class="line">   service &#123; &apos;dovecot&apos;: enable =&gt; false &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>case statement:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -131,7 +316,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/puppet/">puppet</a>
+  <span></span> <a href="/tags/spacemacs/">spacemacs</a>
   </div>
 
 </div>
@@ -140,7 +325,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2020/04/26/puppet/" data-title="puppet | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2020/06/23/spacemacs/" data-title="spacemacs | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -153,19 +338,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2020/06/14/azure/" title="azure">
-  <strong>上一篇：</strong><br/>
-  <span>
-  azure</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2020/03/16/i3/"  title="i3">
+<a href="/2020/06/14/azure/"  title="azure">
  <strong>下一篇：</strong><br/> 
- <span>i3
+ <span>azure
 </span>
 </a>
 </div>
@@ -180,7 +357,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Puppet-Code-Directory-Layout"><span class="toc-number">1.</span> <span class="toc-text">Puppet Code Directory Layout</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#add-cert-autosign"><span class="toc-number">2.</span> <span class="toc-text">add cert autosign</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Puppet-5-essentials"><span class="toc-number">3.</span> <span class="toc-text">Puppet 5 essentials</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#resources-parameters-and-properties"><span class="toc-number">3.1.</span> <span class="toc-text">resources, parameters, and properties</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dry-testing-your-manifest"><span class="toc-number">3.2.</span> <span class="toc-text">Dry testing your manifest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-variables"><span class="toc-number">3.3.</span> <span class="toc-text">Using variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variable-types"><span class="toc-number">3.4.</span> <span class="toc-text">Variable types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-types"><span class="toc-number">3.5.</span> <span class="toc-text">Data types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-control-structures-in-manifests"><span class="toc-number">3.6.</span> <span class="toc-text">Adding control structures in manifests</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Basic"><span class="toc-number">1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Movement"><span class="toc-number">2.</span> <span class="toc-text">Movement</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stage-files-and-commit"><span class="toc-number">3.</span> <span class="toc-text">Stage files and commit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Org-mode"><span class="toc-number">4.</span> <span class="toc-text">Org mode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tumx"><span class="toc-number">5.</span> <span class="toc-text">tumx</span></a></li></ol>
  
   </div>
 

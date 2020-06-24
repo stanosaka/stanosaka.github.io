@@ -1164,10 +1164,12 @@
 </ul>
 <p><strong>Cannot connect to a website or an application</strong><br>Troubleshoting Steps: ping server by hostname and IP<br>if NOT pinable= go back to <strong>Server is not reachable</strong></p>
 <p>if pingable = Connect to service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">telnet 192.168.1.5 80 (http)</span><br><span class="line">``` </span><br><span class="line">Verify the installation:</span><br><span class="line">``` </span><br><span class="line">rpm -q haproxy</span><br></pre></td></tr></table></figure></p>
-<p>Show the log file which is last written to:</p>
-<pre><code>cd /var/log
-ls -lrt
-</code></pre>
+<p>Show the log file which is last written to:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> cd /var/log</span><br><span class="line"> ls -lrt</span><br><span class="line">``` </span><br><span class="line"># ssh tunnel</span><br><span class="line"></span><br><span class="line">Stan@Company     root@toad.cwzhou.win ||  root@Kali</span><br><span class="line"></span><br><span class="line">1. From Kalia connect to Toad</span><br></pre></td></tr></table></figure></p>
+<p>root@Kalia:~# ssh -R 2222:localhost:22 <a href="mailto:root@toad.cwzhou.win">root@toad.cwzhou.win</a></p>
+<p>root@Toad:~# while [1]; do date; sleep 300; done</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. Stan in Company machine:</span><br></pre></td></tr></table></figure>
+<p>root@stan:~# ssh <a href="mailto:root@toad.cwzhou.win">root@toad.cwzhou.win</a><br>root@toad:~# ssh -p 2222 root@localhost<br><code>`</code></p>
+
         
         
         <p class="article-more-link">

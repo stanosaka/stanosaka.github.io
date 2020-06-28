@@ -83,6 +83,66 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2020/06/28/puppet6/" title="puppet6" itemprop="url">puppet6</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2020-06-28T11:26:20.000Z" itemprop="datePublished"> Published 2020-06-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="puppet-6"><a href="#puppet-6" class="headerlink" title="puppet 6"></a>puppet 6</h1><h2 id="Local-environment-installation"><a href="#Local-environment-installation" class="headerlink" title="Local environment installation"></a>Local environment installation</h2><h3 id="Puppet-6-download"><a href="#Puppet-6-download" class="headerlink" title="Puppet 6 download"></a>Puppet 6 download</h3><p><a href="http://apt.puppet.com/">http://apt.puppet.com/</a><br><a href="http://yum.puppet.com/puppet6/">http://yum.puppet.com/puppet6/</a><br><a href="http://downloads.puppet.com/windows/puppet6/">http://downloads.puppet.com/windows/puppet6/</a><br><a href="http://yum.puppet.com/mac/puppet6/">http://yum.puppet.com/mac/puppet6/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vagrant plugin install vagrant-hostmanager</span><br><span class="line">vagrant plugin install vagrant-vbguest</span><br><span class="line">vagrant --version</span><br><span class="line">vboxmanage --version</span><br><span class="line">git --version</span><br><span class="line">vagrant status</span><br><span class="line">vagrant up centos</span><br><span class="line">vagrant hostmanager # updating hosts file on the vm</span><br></pre></td></tr></table></figure></p>
+<h2 id="Types-and-providers"><a href="#Types-and-providers" class="headerlink" title="Types and providers"></a>Types and providers</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@centos ~]# puppet resource package</span><br><span class="line">package &#123; &apos;NetworkManager&apos;:</span><br><span class="line">  ensure   =&gt; &apos;1:1.18.4-3.el7&apos;,</span><br><span class="line">  provider =&gt; &apos;yum&apos;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[root@centos ~]# puppet resource package|less</span><br><span class="line">[root@centos ~]# gem list</span><br><span class="line"></span><br><span class="line">*** LOCAL GEMS ***</span><br><span class="line"></span><br><span class="line">bigdecimal (1.2.0)</span><br><span class="line">io-console (0.4.2)</span><br><span class="line">json (1.7.7)</span><br><span class="line">psych (2.0.0)</span><br><span class="line">rdoc (4.0.0)</span><br><span class="line">[root@centos ~]# puppet resource package bigdecimal</span><br><span class="line">package &#123; &apos;bigdecimal&apos;:</span><br><span class="line">  ensure   =&gt; [&apos;1.2.0&apos;],</span><br><span class="line">  provider =&gt; &apos;gem&apos;,</span><br><span class="line">&#125;</span><br><span class="line">[root@centos ~]# puppet resource package git</span><br><span class="line">package &#123; &apos;git&apos;:</span><br><span class="line">  ensure   =&gt; &apos;purged&apos;,</span><br><span class="line">  provider =&gt; &apos;yum&apos;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Puppet-Master-installation"><a href="#Puppet-Master-installation" class="headerlink" title="Puppet Master installation"></a>Puppet Master installation</h2><p><a href="https://github.com/PacktPublishing/Hands-On-Infrastructure-Automation-with-Puppet-6-V-" title="puppet 6">Hands-on-puppet-6</a></p>
+<h2 id="Puppet-communication"><a href="#Puppet-communication" class="headerlink" title="Puppet communication"></a>Puppet communication</h2><h3 id="on-centos"><a href="#on-centos" class="headerlink" title="on centos:"></a>on centos:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@centos ~]$ curl -v https://puppet:8140/puppet-ca/v1/certificate/ca</span><br><span class="line"></span><br><span class="line">[vagrant@centos ~]$ curl -v https://puppet:8140/puppet-ca/v1/certificate/ca -k</span><br><span class="line">* About to connect() to puppet port 8140 (#0)</span><br><span class="line">*   Trying 192.168.50.100...</span><br><span class="line">* Connected to puppet (192.168.50.100) port 8140 (#0)</span><br><span class="line">* Initializing NSS with certpath: sql:/etc/pki/nssdb</span><br><span class="line">* skipping SSL peer certificate verification</span><br><span class="line">* NSS: client certificate not found (nickname not specified)</span><br></pre></td></tr></table></figure>
+<h3 id="on-puppet"><a href="#on-puppet" class="headerlink" title="on puppet:"></a>on puppet:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@puppet ~]# puppetserver ca list</span><br><span class="line">Requested Certificates:</span><br><span class="line">    centos.example.com       (SHA256)  42:79:9E:79:A7:17:92:88:4C:E9:DE:A2:75:F0:03:5E:6A:7C:C4:D0:6B:AF:0E:F4:69:38:B8:9D:0F:E5:AE:5E</span><br><span class="line">[root@puppet ~]# puppetserver ca sign --cert centos.example.com</span><br><span class="line">Successfully signed certificate request for centos.example.com</span><br></pre></td></tr></table></figure>
+<h3 id="check-cert-expired-date"><a href="#check-cert-expired-date" class="headerlink" title="check cert expired date"></a>check cert expired date</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[root@centos ~]# cd /etc/puppetlabs/puppet/ssl/</span><br><span class="line">[root@centos ssl]# find .</span><br><span class="line">.</span><br><span class="line">./certs</span><br><span class="line">./certs/ca.pem</span><br><span class="line">./certs/centos.example.com.pem</span><br><span class="line">./public_keys</span><br><span class="line">./certificate_requests</span><br><span class="line">./private_keys</span><br><span class="line">./private_keys/centos.example.com.pem</span><br><span class="line">./private</span><br><span class="line">./crl.pem</span><br><span class="line">root@centos ssl]# openssl x509 -in certs/ca.pem -text -noout|less</span><br><span class="line">[root@centos ssl]# openssl x509 -in certs/centos.example.com.pem -text -noout|less</span><br><span class="line">[root@centos ssl]# openssl verify -CAfile certs/ca.pem certs/centos.example.com.pem</span><br><span class="line">certs/centos.example.com.pem: OK</span><br><span class="line"></span><br><span class="line">[root@centos ssl]# cat certs/ca.pem crl.pem &gt; ca_crl.pem</span><br><span class="line">[root@centos ssl]# openssl verify -CAfile ca_crl.pem -crl_check certs/centos.example.com.pem</span><br><span class="line">certs/centos.example.com.pem: OK</span><br><span class="line">[root@centos ssl]# openssl x509 -in certs/centos.example.com.pem -modulus -noout</span><br><span class="line">Modulus=C57D960784B36EB5E316C1CFA95424062207356C0ACA2271C060120E77EDE0D44347D109982ABDC46F122AFAF85EE83CBE9684AA9E2164D40246D2C72CE9BB67C9C6544282829CC6B1D9100B0A32BAD630DB65EFA338ECE9B941CE2C19003A2AF8BAE7DDADA2A4F7279CC0E2916AB37A058F9CF8316D35BFA45BF5B0E178ACE928F77846FE0DB035CB584A7C2622DE7A48C959814E1AFB9F6B5F7F0BAC284F0EC336D1C376691F388328B1AF0037D1789C8D1D5D12AD72014706594B9EF9463B10EF3949BD193201334B46724525D164B57F3A1BB350C2915D9476FB66547B5F4E861FC60A4309D8739910E4603C3E5BF536D3BB4581F0789044110AF8350AB1E4189459035EDD1CD13B737D1A17F96026B83686EED285A51F06C5B9E840A6FCDC29C13ACBE7E8787EDC293479D0CFCDE95610C5E93A377F8C1F962001EF354F39359E39855CCC9FF1C9E7548FBA6143784F80C820D5EFE59F96AC78196D560195260F3E1B6A8A0354EDF3F5D368EC4EAF0F3C91CBF88E436C529136ACCA1A9E6CA7ABDCF22763C38A6E6B9CCF75C9570B03D74BB54A50D114B256A540AF6973A1327D9C4CAC7C244BCA33AE27B96668F1CC5ED8D0B808E150ECC56F2489F0CECEB18D8A6E403DF434246D30DE327FF53D9B770C80194ABE124E84E15737B57543E92D50B146BE5BB56618E42783E80E8D5FE18B1E8AA509FCE64FFDA3521019</span><br><span class="line">[root@centos ssl]# openssl x509 -in certs/centos.example.com.pem -modulus -noout|sha256sum</span><br><span class="line">1527c07dedde5aed5061b7b2416c6d942c7cb66cd457ee545b02ef9934ca2e45  -</span><br><span class="line">[root@centos ssl]# openssl rsa -in private_keys/centos.example.com.pem -modulus -noout</span><br><span class="line">Modulus=C57D960784B36EB5E316C1CFA95424062207356C0ACA2271C060120E77EDE0D44347D109982ABDC46F122AFAF85EE83CBE9684AA9E2164D40246D2C72CE9BB67C9C6544282829CC6B1D9100B0A32BAD630DB65EFA338ECE9B941CE2C19003A2AF8BAE7DDADA2A4F7279CC0E2916AB37A058F9CF8316D35BFA45BF5B0E178ACE928F77846FE0DB035CB584A7C2622DE7A48C959814E1AFB9F6B5F7F0BAC284F0EC336D1C376691F388328B1AF0037D1789C8D1D5D12AD72014706594B9EF9463B10EF3949BD193201334B46724525D164B57F3A1BB350C2915D9476FB66547B5F4E861FC60A4309D8739910E4603C3E5BF536D3BB4581F0789044110AF8350AB1E4189459035EDD1CD13B737D1A17F96026B83686EED285A51F06C5B9E840A6FCDC29C13ACBE7E8787EDC293479D0CFCDE95610C5E93A377F8C1F962001EF354F39359E39855CCC9FF1C9E7548FBA6143784F80C820D5EFE59F96AC78196D560195260F3E1B6A8A0354EDF3F5D368EC4EAF0F3C91CBF88E436C529136ACCA1A9E6CA7ABDCF22763C38A6E6B9CCF75C9570B03D74BB54A50D114B256A540AF6973A1327D9C4CAC7C244BCA33AE27B96668F1CC5ED8D0B808E150ECC56F2489F0CECEB18D8A6E403DF434246D30DE327FF53D9B770C80194ABE124E84E15737B57543E92D50B146BE5BB56618E42783E80E8D5FE18B1E8AA509FCE64FFDA3521019</span><br><span class="line">[root@centos ssl]# openssl rsa -in private_keys/centos.example.com.pem -modulus -noout|sha256sum</span><br><span class="line">1527c07dedde5aed5061b7b2416c6d942c7cb66cd457ee545b02ef9934ca2e45  -</span><br></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/puppet6-puppet/">puppet6, puppet</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2020/06/23/spacemacs/" title="spacemacs" itemprop="url">spacemacs</a>
   </h1>
   <p class="article-author">By
@@ -1247,112 +1307,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/09/19/apache-cloudstack/" title="apache-cloudstack" itemprop="url">apache-cloudstack</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-09-19T12:56:11.000Z" itemprop="datePublished"> Published 2019-09-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="What-is-Apache-CloudStack"><a href="#What-is-Apache-CloudStack" class="headerlink" title="What is Apache CloudStack"></a>What is Apache CloudStack</h1><ul>
-<li>Top level Apache Software Foundation project for cloud computing</li>
-<li>Cloud computing framework to deploy IaaS cloud- private, public or hybrid</li>
-<li>Supports all popular hypervisors for virtualization</li>
-<li>Written in Java. Provides APIs and web GUI for management and administration</li>
-</ul>
-<h2 id="Key-features"><a href="#Key-features" class="headerlink" title="Key features"></a>Key features</h2><ul>
-<li>Rich management interface</li>
-<li>Powerful API</li>
-<li>Dynamic workload management</li>
-<li>Secure, configurable and extensible architecture<br><img src="https://i.imgur.com/J7Jm1XC.png" alt="architecuture"></li>
-</ul>
-<h2 id="Key-components-terminology"><a href="#Key-components-terminology" class="headerlink" title="Key components/terminology"></a>Key components/terminology</h2><ul>
-<li>Region<ul>
-<li>Largest Organizational Unit with a CloudStack Deployment</li>
-<li>Consists of one or more zones</li>
-</ul>
-</li>
-<li>Zone<ul>
-<li>Consists of one or more pods</li>
-<li>Contains one or more primary storage servers</li>
-<li>Consists of a secondary storage</li>
-</ul>
-</li>
-<li>Pod<ul>
-<li>Contains one or more clusters</li>
-<li>Contains primary storage servers</li>
-</ul>
-</li>
-<li>Cluster<ul>
-<li>Consists of a group of identical hosts running a common hypervisor</li>
-<li>Contins one or more primary storage servers</li>
-</ul>
-</li>
-<li>Host<ul>
-<li>Smallest orgnizational unit within a Cloustack deployment</li>
-<li>Has hypervisor to manage the guest VMs</li>
-<li>Provides the computing resources that run guest VMs.</li>
-</ul>
-</li>
-<li>Primary storage<br>iSCSI; NFS; Ceph; Gluster;  Local FileSystem</li>
-<li>Secondary storage<br>Templates;  ISO images;   Disk volume; snapshots</li>
-</ul>
-<hr>
-<p>Recap</p>
-<ul>
-<li>Cloud computing is more efficient than traditional IT infrastructure deployment and management</li>
-<li>Cloud can be deployed in public, private and hybrid configurations</li>
-<li>Cloud services can be provided as IaaS, PaaS or SaaS.</li>
-<li>Apache CloudStack is an open source IaaS cloud platform</li>
-<li>Apache CloudStack si very robust, extensible and open platform</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/cloudstack/">cloudstack</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1435,11 +1389,11 @@
 			
 		
 			
-				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
 			
 		
 			

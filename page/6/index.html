@@ -83,6 +83,62 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/08/28/backup-script/" title="backup script" itemprop="url">backup script</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2016-08-28T06:13:25.000Z" itemprop="datePublished"> Published 2016-08-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="weekly-backup-script"><a href="#weekly-backup-script" class="headerlink" title="weekly backup script"></a>weekly backup script</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/backup/backupwk.sh</span><br><span class="line">#!/bin/bash</span><br><span class="line"># ====================================================================</span><br><span class="line"># user input backup location</span><br><span class="line"># basedir=backup dir</span><br><span class="line">basedir=/backup/weekly</span><br><span class="line"></span><br><span class="line"># ====================================================================</span><br><span class="line">#</span><br><span class="line">PATH=/bin:/usr/bin:/sbin:/usr/sbin; export PATH</span><br><span class="line">export LANG=C</span><br><span class="line"></span><br><span class="line"># backup folders</span><br><span class="line">#named=$basedir/named</span><br><span class="line">#postfixd=$basedir/postfix</span><br><span class="line">#vsftpd=$basedir/vsftp</span><br><span class="line">sshd=$basedir/ssh</span><br><span class="line">#sambad=$basedir/samba</span><br><span class="line">wwwd=$basedir/wwwd</span><br><span class="line">#others=$basedir/others</span><br><span class="line">userinfod=$basedir/userinfo</span><br><span class="line"># check if the file exists, if didn&apos;t create a dir</span><br><span class="line">for dirs in $sshd $wwwd $userinfod</span><br><span class="line">do</span><br><span class="line">        [ ! -d &quot;$dirs&quot; ] &amp;&amp; mkdir -p $dirs</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 1. service config file</span><br><span class="line">#cp -a /var/named/chroot/&#123;etc,var&#125;      $named</span><br><span class="line">#cp -a /etc/postfix /etc/dovecot.conf   $postfixd</span><br><span class="line">#cp -a /etc/vsftpd/*                    $vsftpd</span><br><span class="line">cp -a /etc/ssh/*                        $sshd</span><br><span class="line">#cp -a /etc/samba/*                     $sambad</span><br><span class="line">cp -a /etc/my.cnf       $wwwd</span><br><span class="line">cp -a /application/nginx/conf/nginx.conf        $wwwd</span><br><span class="line"></span><br><span class="line">cd /application</span><br><span class="line">  tar -jpc -f $wwwd/tomcat.tar.bz2     tomcat</span><br><span class="line">  tar -jpc -f $wwwd/nginx.tar.bz2     nginx</span><br><span class="line"></span><br><span class="line"># 2. about user par</span><br><span class="line">cp -a /etc/&#123;passwd,shadow,group&#125;        $userinfod</span><br><span class="line">cd /var/spool</span><br><span class="line">  tar -jpc -f $userinfod/mail.tar.bz2   mail</span><br><span class="line">cd /var/spool</span><br><span class="line">  tar -jpc -f $userinfod/cron.tar.bz2   cron at</span><br></pre></td></tr></table></figure>
+<p>Every Sun 3.30 run weekly backup script:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/crontab</span><br><span class="line">30 3 * * 0 root /backup/backupwk.sh</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/backup/">backup</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/08/24/docker-tomcat7/" title="docker tomcat7" itemprop="url">docker tomcat7</a>
   </h1>
   <p class="article-author">By
@@ -649,11 +705,11 @@ ln -s /tmp/mysql.sock /var/lib/mysql/mysql.sock</code></p>
 			
 		
 			
-				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
 			
 		
 			

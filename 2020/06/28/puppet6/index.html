@@ -4,25 +4,25 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>aws ec2 init setup | Stan Zhou&#39;s Hexo Technical Blog</title>
+    <title>puppet6 | Stan Zhou&#39;s Hexo Technical Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Stan Zhou">
     
 
     
-    <meta name="description" content="ASW ec2 init setupManaging User Accounts on Your Linux Instance123456789101112131415[ec2-user@ip-172-31-17-193 ~]$ sudo -i[root@ip-172-31-17-193 ~]# adduser stan[root@koopa ~]# passwd stan[root@ip-172">
-<meta name="keywords" content="aws,ec2">
+    <meta name="description" content="puppet 6Local environment installationPuppet 6 downloadhttp://apt.puppet.com/http://yum.puppet.com/puppet6/http://downloads.puppet.com/windows/puppet6/http://yum.puppet.com/mac/puppet6/12345678vagrant">
+<meta name="keywords" content="puppet6, puppet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="aws ec2 init setup">
-<meta property="og:url" content="http://223.95.78.227/2016/08/17/aws/index.html">
+<meta property="og:title" content="puppet6">
+<meta property="og:url" content="http://223.95.78.227/2020/06/28/puppet6/index.html">
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
-<meta property="og:description" content="ASW ec2 init setupManaging User Accounts on Your Linux Instance123456789101112131415[ec2-user@ip-172-31-17-193 ~]$ sudo -i[root@ip-172-31-17-193 ~]# adduser stan[root@koopa ~]# passwd stan[root@ip-172">
+<meta property="og:description" content="puppet 6Local environment installationPuppet 6 downloadhttp://apt.puppet.com/http://yum.puppet.com/puppet6/http://downloads.puppet.com/windows/puppet6/http://yum.puppet.com/mac/puppet6/12345678vagrant">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-06T00:13:02.613Z">
+<meta property="og:updated_time" content="2020-06-28T13:24:14.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aws ec2 init setup">
-<meta name="twitter:description" content="ASW ec2 init setupManaging User Accounts on Your Linux Instance123456789101112131415[ec2-user@ip-172-31-17-193 ~]$ sudo -i[root@ip-172-31-17-193 ~]# adduser stan[root@koopa ~]# passwd stan[root@ip-172">
+<meta name="twitter:title" content="puppet6">
+<meta name="twitter:description" content="puppet 6Local environment installationPuppet 6 downloadhttp://apt.puppet.com/http://yum.puppet.com/puppet6/http://downloads.puppet.com/windows/puppet6/http://yum.puppet.com/mac/puppet6/12345678vagrant">
 <meta name="twitter:creator" content="@stanosaka">
 
     
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/08/17/aws/" title="aws ec2 init setup" itemprop="url">aws ec2 init setup</a>
+      <a href="/2020/06/28/puppet6/" title="puppet6" itemprop="url">puppet6</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2016-08-17T04:07:13.000Z" itemprop="datePublished"> Published 2016-08-17</time>
+    <time datetime="2020-06-28T11:26:20.000Z" itemprop="datePublished"> Published 2020-06-28</time>
     
   </p>
 </header>
@@ -99,73 +99,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#ASW-ec2-init-setup"><span class="toc-number">1.</span> <span class="toc-text">ASW ec2 init setup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssh-to-aws-without-key-pairs"><span class="toc-number">2.</span> <span class="toc-text">ssh to aws without key pairs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set-root-login"><span class="toc-number">3.</span> <span class="toc-text">set root login</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#the-5-pillars-of-aws-weel-architected-framework"><span class="toc-number"></span> <span class="toc-text">the 5 pillars of aws weel-architected framework</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Identity-and-access-management"><span class="toc-number"></span> <span class="toc-text">Identity and access management</span></a>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#puppet-6"><span class="toc-number">1.</span> <span class="toc-text">puppet 6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Local-environment-installation"><span class="toc-number">1.1.</span> <span class="toc-text">Local environment installation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Puppet-6-download"><span class="toc-number">1.1.1.</span> <span class="toc-text">Puppet 6 download</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Types-and-providers"><span class="toc-number">1.2.</span> <span class="toc-text">Types and providers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Puppet-Master-installation"><span class="toc-number">1.3.</span> <span class="toc-text">Puppet Master installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Puppet-communication"><span class="toc-number">1.4.</span> <span class="toc-text">Puppet communication</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#on-centos"><span class="toc-number">1.4.1.</span> <span class="toc-text">on centos:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#on-puppet"><span class="toc-number">1.4.2.</span> <span class="toc-text">on puppet:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#check-cert-expired-date"><span class="toc-number">1.4.3.</span> <span class="toc-text">check cert expired date</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h4 id="ASW-ec2-init-setup"><a href="#ASW-ec2-init-setup" class="headerlink" title="ASW ec2 init setup"></a>ASW ec2 init setup</h4><p>Managing User Accounts on Your Linux Instance<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-172-31-17-193 ~]$ sudo -i</span><br><span class="line">[root@ip-172-31-17-193 ~]# adduser stan</span><br><span class="line">[root@koopa ~]# passwd stan</span><br><span class="line">[root@ip-172-31-17-193 ~]# su - stan</span><br><span class="line">[stan@ip-172-31-17-193 ~]$ mkdir .ssh</span><br><span class="line">[stan@ip-172-31-17-193 ~]$ chmod 700 .ssh</span><br><span class="line">[stan@ip-172-31-17-193 ~]$ vim .ssh/authorized_keys</span><br><span class="line">[stan@ip-172-31-17-193 ~]$ chmod 600 .ssh/authorized_keys</span><br><span class="line">[root@ip-172-31-17-193 ~]# groupadd auegg</span><br><span class="line">[root@ip-172-31-17-193 ~]# usermod -a -G auegg stan</span><br><span class="line">[root@ip-172-31-17-193 ~]# visudo</span><br><span class="line">#add the following line</span><br><span class="line"></span><br><span class="line">%auegg ALL=(ALL) ALL</span><br><span class="line">[root@ip-172-31-17-193 ~]# service sshd restart</span><br></pre></td></tr></table></figure></p>
-<h4 id="ssh-to-aws-without-key-pairs"><a href="#ssh-to-aws-without-key-pairs" class="headerlink" title="ssh to aws without key pairs"></a>ssh to aws without key pairs</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">PasswordAuthentication yes</span><br><span class="line">Reload ssh daemon</span><br><span class="line">service sshd reload</span><br></pre></td></tr></table></figure>
-<h4 id="set-root-login"><a href="#set-root-login" class="headerlink" title="set root login"></a>set root login</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /root/.ssh/authorized_keys</span><br><span class="line">Delete the lines at the begining of the file until you get to the words ssh-rsa</span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
-<h1 id="the-5-pillars-of-aws-weel-architected-framework"><a href="#the-5-pillars-of-aws-weel-architected-framework" class="headerlink" title="the 5 pillars of aws weel-architected framework"></a>the 5 pillars of aws weel-architected framework</h1><ol>
-<li>Operationa Excellence<br>Design Principles:</li>
-</ol>
-<ul>
-<li>Perform operations as code</li>
-<li>Annotate documentation</li>
-<li>Make frequent, small, reversible changes</li>
-<li>Refine operations procedures frequently</li>
-<li>Anticipate failure</li>
-<li>Learn from all operation failures<br>Best practices:<br>Operations teams need to understand their business and customer needs so they can support business outcomes.<br>Ops creates and uses procedures to repond to operational events, and validates their effectiveness to support<br>business needs. Ops also collects metrics that are used to measure the achievement of desired business outcomes.</li>
-</ul>
-<ol start="2">
-<li>Security<br>Design Principles:</li>
-</ol>
-<ul>
-<li>Implement a strong identity foundation</li>
-<li>Enable traceability</li>
-<li>Apply security at all layers</li>
-<li>Automate security best practices</li>
-<li>Protect data in transfit and at rest</li>
-<li>Prepare for security events</li>
-</ul>
-<p>The <a href="https://aws.amazon.com/compliance/shared-responsibility-model/">AWS Shared Responsibility Model</a> enables organizations to achieve<br>security and compliance goals.</p>
-<ol start="3">
-<li>Reliability<br>Design Principles:</li>
-</ol>
-<ul>
-<li>Test recovery procedures</li>
-<li>Automatically recover from failure</li>
-<li>Gtop guessing capacity</li>
-<li>Manage change in automation</li>
-</ul>
-<ol start="4">
-<li>Performance efficiency<br>Design principles:</li>
-</ol>
-<ul>
-<li>Democratize advanced technologies</li>
-<li>Go global in minutes</li>
-<li>Use serverless architectures</li>
-<li>Experiment more often</li>
-<li>Mechanical sympathy</li>
-</ul>
-<ol start="5">
-<li>Cost optimization</li>
-</ol>
-<ul>
-<li>Adopt a consumption model</li>
-<li>Measure overall efficiency</li>
-<li>Stop spending monty on data center operations</li>
-<li>Analyze and attribute expenditure</li>
-<li>Use managed services to reduce cost of ownership</li>
-</ul>
-<h1 id="Identity-and-access-management"><a href="#Identity-and-access-management" class="headerlink" title="Identity and access management"></a>Identity and access management</h1><p><strong>IAM overview</strong><br>AWS API<br>Access ID + secret key</p>
-<p>CLI, SDKs and Management console call API.</p>
-<p>Users</p>
-<ul>
-<li>Are created and exist within IAM service</li>
-<li>Login to management console</li>
-<li>Can have long-term access keys</li>
-</ul>
+		<h1 id="puppet-6"><a href="#puppet-6" class="headerlink" title="puppet 6"></a>puppet 6</h1><h2 id="Local-environment-installation"><a href="#Local-environment-installation" class="headerlink" title="Local environment installation"></a>Local environment installation</h2><h3 id="Puppet-6-download"><a href="#Puppet-6-download" class="headerlink" title="Puppet 6 download"></a>Puppet 6 download</h3><p><a href="http://apt.puppet.com/">http://apt.puppet.com/</a><br><a href="http://yum.puppet.com/puppet6/">http://yum.puppet.com/puppet6/</a><br><a href="http://downloads.puppet.com/windows/puppet6/">http://downloads.puppet.com/windows/puppet6/</a><br><a href="http://yum.puppet.com/mac/puppet6/">http://yum.puppet.com/mac/puppet6/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vagrant plugin install vagrant-hostmanager</span><br><span class="line">vagrant plugin install vagrant-vbguest</span><br><span class="line">vagrant --version</span><br><span class="line">vboxmanage --version</span><br><span class="line">git --version</span><br><span class="line">vagrant status</span><br><span class="line">vagrant up centos</span><br><span class="line">vagrant hostmanager # updating hosts file on the vm</span><br></pre></td></tr></table></figure></p>
+<h2 id="Types-and-providers"><a href="#Types-and-providers" class="headerlink" title="Types and providers"></a>Types and providers</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@centos ~]# puppet resource package</span><br><span class="line">package &#123; &apos;NetworkManager&apos;:</span><br><span class="line">  ensure   =&gt; &apos;1:1.18.4-3.el7&apos;,</span><br><span class="line">  provider =&gt; &apos;yum&apos;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[root@centos ~]# puppet resource package|less</span><br><span class="line">[root@centos ~]# gem list</span><br><span class="line"></span><br><span class="line">*** LOCAL GEMS ***</span><br><span class="line"></span><br><span class="line">bigdecimal (1.2.0)</span><br><span class="line">io-console (0.4.2)</span><br><span class="line">json (1.7.7)</span><br><span class="line">psych (2.0.0)</span><br><span class="line">rdoc (4.0.0)</span><br><span class="line">[root@centos ~]# puppet resource package bigdecimal</span><br><span class="line">package &#123; &apos;bigdecimal&apos;:</span><br><span class="line">  ensure   =&gt; [&apos;1.2.0&apos;],</span><br><span class="line">  provider =&gt; &apos;gem&apos;,</span><br><span class="line">&#125;</span><br><span class="line">[root@centos ~]# puppet resource package git</span><br><span class="line">package &#123; &apos;git&apos;:</span><br><span class="line">  ensure   =&gt; &apos;purged&apos;,</span><br><span class="line">  provider =&gt; &apos;yum&apos;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Puppet-Master-installation"><a href="#Puppet-Master-installation" class="headerlink" title="Puppet Master installation"></a>Puppet Master installation</h2><p><a href="https://github.com/PacktPublishing/Hands-On-Infrastructure-Automation-with-Puppet-6-V-" title="puppet 6">Hands-on-puppet-6</a></p>
+<h2 id="Puppet-communication"><a href="#Puppet-communication" class="headerlink" title="Puppet communication"></a>Puppet communication</h2><h3 id="on-centos"><a href="#on-centos" class="headerlink" title="on centos:"></a>on centos:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[vagrant@centos ~]$ curl -v https://puppet:8140/puppet-ca/v1/certificate/ca</span><br><span class="line"></span><br><span class="line">[vagrant@centos ~]$ curl -v https://puppet:8140/puppet-ca/v1/certificate/ca -k</span><br><span class="line">* About to connect() to puppet port 8140 (#0)</span><br><span class="line">*   Trying 192.168.50.100...</span><br><span class="line">* Connected to puppet (192.168.50.100) port 8140 (#0)</span><br><span class="line">* Initializing NSS with certpath: sql:/etc/pki/nssdb</span><br><span class="line">* skipping SSL peer certificate verification</span><br><span class="line">* NSS: client certificate not found (nickname not specified)</span><br></pre></td></tr></table></figure>
+<h3 id="on-puppet"><a href="#on-puppet" class="headerlink" title="on puppet:"></a>on puppet:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@puppet ~]# puppetserver ca list</span><br><span class="line">Requested Certificates:</span><br><span class="line">    centos.example.com       (SHA256)  42:79:9E:79:A7:17:92:88:4C:E9:DE:A2:75:F0:03:5E:6A:7C:C4:D0:6B:AF:0E:F4:69:38:B8:9D:0F:E5:AE:5E</span><br><span class="line">[root@puppet ~]# puppetserver ca sign --cert centos.example.com</span><br><span class="line">Successfully signed certificate request for centos.example.com</span><br></pre></td></tr></table></figure>
+<h3 id="check-cert-expired-date"><a href="#check-cert-expired-date" class="headerlink" title="check cert expired date"></a>check cert expired date</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[root@centos ~]# cd /etc/puppetlabs/puppet/ssl/</span><br><span class="line">[root@centos ssl]# find .</span><br><span class="line">.</span><br><span class="line">./certs</span><br><span class="line">./certs/ca.pem</span><br><span class="line">./certs/centos.example.com.pem</span><br><span class="line">./public_keys</span><br><span class="line">./certificate_requests</span><br><span class="line">./private_keys</span><br><span class="line">./private_keys/centos.example.com.pem</span><br><span class="line">./private</span><br><span class="line">./crl.pem</span><br><span class="line">root@centos ssl]# openssl x509 -in certs/ca.pem -text -noout|less</span><br><span class="line">[root@centos ssl]# openssl x509 -in certs/centos.example.com.pem -text -noout|less</span><br><span class="line">[root@centos ssl]# openssl verify -CAfile certs/ca.pem certs/centos.example.com.pem</span><br><span class="line">certs/centos.example.com.pem: OK</span><br><span class="line"></span><br><span class="line">[root@centos ssl]# cat certs/ca.pem crl.pem &gt; ca_crl.pem</span><br><span class="line">[root@centos ssl]# openssl verify -CAfile ca_crl.pem -crl_check certs/centos.example.com.pem</span><br><span class="line">certs/centos.example.com.pem: OK</span><br><span class="line">[root@centos ssl]# openssl x509 -in certs/centos.example.com.pem -modulus -noout</span><br><span class="line">Modulus=C57D960784B36EB5E316C1CFA95424062207356C0ACA2271C060120E77EDE0D44347D109982ABDC46F122AFAF85EE83CBE9684AA9E2164D40246D2C72CE9BB67C9C6544282829CC6B1D9100B0A32BAD630DB65EFA338ECE9B941CE2C19003A2AF8BAE7DDADA2A4F7279CC0E2916AB37A058F9CF8316D35BFA45BF5B0E178ACE928F77846FE0DB035CB584A7C2622DE7A48C959814E1AFB9F6B5F7F0BAC284F0EC336D1C376691F388328B1AF0037D1789C8D1D5D12AD72014706594B9EF9463B10EF3949BD193201334B46724525D164B57F3A1BB350C2915D9476FB66547B5F4E861FC60A4309D8739910E4603C3E5BF536D3BB4581F0789044110AF8350AB1E4189459035EDD1CD13B737D1A17F96026B83686EED285A51F06C5B9E840A6FCDC29C13ACBE7E8787EDC293479D0CFCDE95610C5E93A377F8C1F962001EF354F39359E39855CCC9FF1C9E7548FBA6143784F80C820D5EFE59F96AC78196D560195260F3E1B6A8A0354EDF3F5D368EC4EAF0F3C91CBF88E436C529136ACCA1A9E6CA7ABDCF22763C38A6E6B9CCF75C9570B03D74BB54A50D114B256A540AF6973A1327D9C4CAC7C244BCA33AE27B96668F1CC5ED8D0B808E150ECC56F2489F0CECEB18D8A6E403DF434246D30DE327FF53D9B770C80194ABE124E84E15737B57543E92D50B146BE5BB56618E42783E80E8D5FE18B1E8AA509FCE64FFDA3521019</span><br><span class="line">[root@centos ssl]# openssl x509 -in certs/centos.example.com.pem -modulus -noout|sha256sum</span><br><span class="line">1527c07dedde5aed5061b7b2416c6d942c7cb66cd457ee545b02ef9934ca2e45  -</span><br><span class="line">[root@centos ssl]# openssl rsa -in private_keys/centos.example.com.pem -modulus -noout</span><br><span class="line">Modulus=C57D960784B36EB5E316C1CFA95424062207356C0ACA2271C060120E77EDE0D44347D109982ABDC46F122AFAF85EE83CBE9684AA9E2164D40246D2C72CE9BB67C9C6544282829CC6B1D9100B0A32BAD630DB65EFA338ECE9B941CE2C19003A2AF8BAE7DDADA2A4F7279CC0E2916AB37A058F9CF8316D35BFA45BF5B0E178ACE928F77846FE0DB035CB584A7C2622DE7A48C959814E1AFB9F6B5F7F0BAC284F0EC336D1C376691F388328B1AF0037D1789C8D1D5D12AD72014706594B9EF9463B10EF3949BD193201334B46724525D164B57F3A1BB350C2915D9476FB66547B5F4E861FC60A4309D8739910E4603C3E5BF536D3BB4581F0789044110AF8350AB1E4189459035EDD1CD13B737D1A17F96026B83686EED285A51F06C5B9E840A6FCDC29C13ACBE7E8787EDC293479D0CFCDE95610C5E93A377F8C1F962001EF354F39359E39855CCC9FF1C9E7548FBA6143784F80C820D5EFE59F96AC78196D560195260F3E1B6A8A0354EDF3F5D368EC4EAF0F3C91CBF88E436C529136ACCA1A9E6CA7ABDCF22763C38A6E6B9CCF75C9570B03D74BB54A50D114B256A540AF6973A1327D9C4CAC7C244BCA33AE27B96668F1CC5ED8D0B808E150ECC56F2489F0CECEB18D8A6E403DF434246D30DE327FF53D9B770C80194ABE124E84E15737B57543E92D50B146BE5BB56618E42783E80E8D5FE18B1E8AA509FCE64FFDA3521019</span><br><span class="line">[root@centos ssl]# openssl rsa -in private_keys/centos.example.com.pem -modulus -noout|sha256sum</span><br><span class="line">1527c07dedde5aed5061b7b2416c6d942c7cb66cd457ee545b02ef9934ca2e45  -</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -174,7 +117,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/aws/">aws</a><a href="/tags/ec2/">ec2</a>
+  <span></span> <a href="/tags/puppet6-puppet/">puppet6, puppet</a>
   </div>
 
 </div>
@@ -183,7 +126,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://223.95.78.227/2016/08/17/aws/" data-title="aws ec2 init setup | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://223.95.78.227/2020/06/28/puppet6/" data-title="puppet6 | Stan Zhou&#39;s Hexo Technical Blog" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -196,19 +139,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/08/19/zabbix-server/" title="Install zabbix server on aws ec2">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Install zabbix server on aws ec2</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/08/12/tomcat/"  title="tomcat troubleshooting">
+<a href="/2020/06/23/spacemacs/"  title="spacemacs">
  <strong>下一篇：</strong><br/> 
- <span>tomcat troubleshooting
+ <span>spacemacs
 </span>
 </a>
 </div>
@@ -223,7 +158,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#ASW-ec2-init-setup"><span class="toc-number">1.</span> <span class="toc-text">ASW ec2 init setup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssh-to-aws-without-key-pairs"><span class="toc-number">2.</span> <span class="toc-text">ssh to aws without key pairs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set-root-login"><span class="toc-number">3.</span> <span class="toc-text">set root login</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#the-5-pillars-of-aws-weel-architected-framework"><span class="toc-number"></span> <span class="toc-text">the 5 pillars of aws weel-architected framework</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Identity-and-access-management"><span class="toc-number"></span> <span class="toc-text">Identity and access management</span></a>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#puppet-6"><span class="toc-number">1.</span> <span class="toc-text">puppet 6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Local-environment-installation"><span class="toc-number">1.1.</span> <span class="toc-text">Local environment installation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Puppet-6-download"><span class="toc-number">1.1.1.</span> <span class="toc-text">Puppet 6 download</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Types-and-providers"><span class="toc-number">1.2.</span> <span class="toc-text">Types and providers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Puppet-Master-installation"><span class="toc-number">1.3.</span> <span class="toc-text">Puppet Master installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Puppet-communication"><span class="toc-number">1.4.</span> <span class="toc-text">Puppet communication</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#on-centos"><span class="toc-number">1.4.1.</span> <span class="toc-text">on centos:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#on-puppet"><span class="toc-number">1.4.2.</span> <span class="toc-text">on puppet:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#check-cert-expired-date"><span class="toc-number">1.4.3.</span> <span class="toc-text">check cert expired date</span></a></li></ol></li></ol></li></ol>
  
   </div>
 

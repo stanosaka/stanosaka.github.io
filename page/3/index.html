@@ -83,6 +83,148 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/07/15/devops-with-aws/" title="devops-with-aws" itemprop="url">devops-with-aws</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2019-07-15T13:44:53.000Z" itemprop="datePublished"> Published 2019-07-15</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Project-setup"><a href="#Project-setup" class="headerlink" title="Project setup"></a>Project setup</h1><p><a href="https://github.com/espiderinc/hapi-rest-demo">code</a></p>
+<h2 id="Importance-of-automated-test-in-CI-CD"><a href="#Importance-of-automated-test-in-CI-CD" class="headerlink" title="Importance of automated test in CI,CD"></a>Importance of automated test in CI,CD</h2><ul>
+<li>Automated tests<ul>
+<li>Unit tests</li>
+<li>Integration tests</li>
+<li>UAT tests</li>
+</ul>
+</li>
+<li>Code coverage</li>
+<li>Notifications<h2 id="CI-CD-with-relational-databases"><a href="#CI-CD-with-relational-databases" class="headerlink" title="CI/CD with relational databases"></a>CI/CD with relational databases</h2></li>
+<li>Managing the version of database schema<br>There is no easy way to control the version of relational database schema</li>
+<li>Database schema migrations</li>
+<li>DellStore2 sample database<ul>
+<li>Products table</li>
+</ul>
+</li>
+<li>Sqitch change management system<h2 id="Project-component-setup"><a href="#Project-component-setup" class="headerlink" title="Project component setup"></a>Project component setup</h2></li>
+<li>PostgreSQL database on AWS RDS</li>
+<li>Node.JS HAPI RESTful API project</li>
+<li>Sqitch database mangement framework<h2 id="Setup-PostreSQL-database-instance-in-AWS-RDS"><a href="#Setup-PostreSQL-database-instance-in-AWS-RDS" class="headerlink" title="Setup PostreSQL database instance in AWS RDS"></a>Setup PostreSQL database instance in AWS RDS</h2></li>
+</ul>
+<ol>
+<li>Create a rds in aws with postgresql engine version 9.4.7.</li>
+<li>Connect to aws rds use pgAdmin 3.</li>
+<li>Download sample schema dellstore2 from <a href="http://pgfoundry.org/projects/dbsamples/">link</a></li>
+<li>In pgAdmin3 click Plugins-&gt; PSQL console-&gt; run command <code>\i /tmp/dellstore2.sql</code> to create a new schema.<h2 id="Setup-Node-JS-HAPI-ReSTful-API-project"><a href="#Setup-Node-JS-HAPI-ReSTful-API-project" class="headerlink" title="Setup Node.JS HAPI ReSTful API project"></a>Setup Node.JS HAPI ReSTful API project</h2><strong>HAPI</strong> is a rich application framework for building applications and RESTful APIs with Node.JS</li>
+</ol>
+<p>Official website for HAPI framework is HAPIJS.com</p>
+<ol>
+<li>install node and npm<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">mkdir myfirsthapiproject</span><br><span class="line">cd myfirsthapiproject</span><br><span class="line">npm init</span><br><span class="line">npm install --save hapi</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/espiderinc/hapi-rest-demo.git</span><br><span class="line">cd hapi-rest-demo</span><br><span class="line">npm install</span><br><span class="line">sudo npm install -g istanbul mocha</span><br><span class="line">node index.js</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li><p><img src="https://i.imgur.com/rCcEgzW.png" alt="access by">)<br><img src="https://i.imgur.com/VdGe8f3.png" alt="Imgur"></p>
+</li>
+<li><p>test</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">hapi-rest-demo git:(master) ✗ npm test</span><br><span class="line"></span><br><span class="line">&gt; hapi-rest-demo@1.0.0 test /home/stan/workspace/hapi-rest-demo</span><br><span class="line">&gt; istanbul cover _mocha test/**/*.js</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(node:20777) [DEP0022] DeprecationWarning: os.tmpDir() is deprecated. Use os.tmpdir() instead.</span><br><span class="line">  Task routes</span><br><span class="line">    GET /products</span><br><span class="line">      ✓ should return statusCode 200 (381ms)</span><br><span class="line">      ✓ should return product [ACADEMY BROOKLYN] </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  2 passing (416ms)</span><br><span class="line"></span><br><span class="line">=============================================================================</span><br><span class="line">Writing coverage object [/home/stan/workspace/hapi-rest-demo/coverage/coverage.json]</span><br><span class="line">Writing coverage reports at [/home/stan/workspace/hapi-rest-demo/coverage]</span><br><span class="line">=============================================================================</span><br><span class="line"></span><br><span class="line">=============================== Coverage summary ===============================</span><br><span class="line">Statements   : 56.31% ( 58/103 )</span><br><span class="line">Branches     : 39.29% ( 11/28 )</span><br><span class="line">Functions    : 47.83% ( 11/23 )</span><br><span class="line">Lines        : 57% ( 57/100 )</span><br><span class="line">================================================================================</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>report generated workspace/hapi-rest-demo/coverage/lcov-report/index.html</p>
+<h2 id="Setup-swtich-database-schema-framework"><a href="#Setup-swtich-database-schema-framework" class="headerlink" title="Setup swtich (database schema framework)"></a>Setup swtich (database schema framework)</h2><p>Managin database schema for relational databaes (with Sqitch)<br><strong>Sqitch</strong> is a standalone system without any dependency on frameworks or ORMs.</p>
+<ul>
+<li>handels dependencies between scripts</li>
+<li><a href="http://sqitch.org">project site</a><br><strong>install sqitch</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull sqitch/sqitch</span><br><span class="line">curl -L https://git.io/fAX6Z -o sqitch &amp;&amp; chmod +x sqitch</span><br><span class="line">mv sqitch /usr/bin/</span><br><span class="line">sudo apt-get install -y libdbd-pg-perl postgresql-client</span><br><span class="line">sqitch --version</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>use sqitch</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">mkdir stantutorial</span><br><span class="line">cd stantutorial</span><br><span class="line">sqitch init stantutorial --uri http://github.com/espiderinc/hapi-rest-demo.git</span><br><span class="line">cat sqitch.conf</span><br><span class="line"> [core]</span><br><span class="line">         engine = pg</span><br><span class="line">        # plan_file = sqitch.plan</span><br><span class="line">        # top_dir = .</span><br><span class="line">sqitch config --user user.name &apos;StanTutorial&apos;</span><br><span class="line">sqitch config --user user.email &apos;devops@cwzhou.win&apos;</span><br><span class="line">sqitch add schema -n &apos;Add schema for tutorial objects.&apos;</span><br><span class="line">Created deploy/schema.sql</span><br><span class="line">Created revert/schema.sql</span><br><span class="line">Created verify/schema.sql</span><br><span class="line">Added &quot;schema&quot; to sqitch.plan</span><br><span class="line"></span><br><span class="line"> cat deploy/schema.sql</span><br><span class="line">-- Deploy stantutorial:schema to pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">CREATE SCHEMA tutorial;</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">cat revert/schema.sql</span><br><span class="line">-- Revert stantutorial:schema from pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">DROP SCHEMA tutorial;</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line"> cat verify/schema.sql</span><br><span class="line">-- Verify stantutorial:schema on pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add verifications here.</span><br><span class="line"></span><br><span class="line">select 1/count(*) from information_schema.schemata where schema_name=&apos;tutorial&apos;;</span><br><span class="line"></span><br><span class="line">ROLLBACK;</span><br><span class="line"></span><br><span class="line"> sqitch add video --requires schema -n &apos;add video table to schema tutorial&apos;</span><br><span class="line"></span><br><span class="line"> cat deploy/video.sql</span><br><span class="line">-- Deploy stantutorial:video to pg</span><br><span class="line">-- requires: schema</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">SET client_min_messages = &apos;warning&apos;;</span><br><span class="line">CREATE TABLE tutorial.video(</span><br><span class="line">        subject TEXT    PRIMARY KEY,</span><br><span class="line">        comment TEXT,</span><br><span class="line">        timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">cat revert/video.sql</span><br><span class="line">-- Revert stantutorial:video from pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">DROP TABLE tutorial.video;</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">cat verify/video.sql</span><br><span class="line">-- Verify stantutorial:video on pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add verifications here.</span><br><span class="line">select subject, comment, timestamp</span><br><span class="line">from tutorial.video</span><br><span class="line">where false;</span><br><span class="line"></span><br><span class="line">ROLLBACK;</span><br><span class="line">sqitch deploy db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br><span class="line">sqitch status db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br><span class="line">sqitch verify db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br><span class="line">sqitch revert db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br><span class="line">sqitch status db:pg://foo:bar@stantest-postgresql.c3mzoji03zxf.ap-southeast-2.rds.amazonaws.com:5432/postgres</span><br></pre></td></tr></table></figure></p>
+<h1 id="CI-and-CD-pipeline-deep-dive"><a href="#CI-and-CD-pipeline-deep-dive" class="headerlink" title="CI and CD pipeline deep dive"></a>CI and CD pipeline deep dive</h1><h2 id="AWS-prerequisites"><a href="#AWS-prerequisites" class="headerlink" title="AWS prerequisites"></a>AWS prerequisites</h2><ul>
+<li>IAM instance profile</li>
+</ul>
+<ol>
+<li><p>Create a policy, name: CodeDeploy-EC2-Permissions, json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;Version&quot;: &quot;2012-10-17&quot;,</span><br><span class="line">    &quot;Statement&quot;: [</span><br><span class="line">     &#123;</span><br><span class="line">        &quot;Action&quot;:[</span><br><span class="line">           &quot;s3:Get*&quot;,</span><br><span class="line">           &quot;s3:List*&quot;  </span><br><span class="line">        ],</span><br><span class="line">        &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">        &quot;Resource&quot;: &quot;*&quot;</span><br><span class="line">     &#125;    </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create a role, named CodeDeploy-EC2 -&gt; Choose role type ec2-&gt;Attach permissions policies “CodeDeploy-EC2-Permissions”</p>
+</li>
+</ol>
+<ul>
+<li>IAM service role</li>
+</ul>
+<ol>
+<li>Create a role named stantutorialRole -&gt; select role type CodeDeploy</li>
+</ol>
+<h2 id="Jenkins-installation"><a href="#Jenkins-installation" class="headerlink" title="Jenkins installation"></a>Jenkins installation</h2><p>Ubuntu-&gt; Configure Instance Details, IAM role, select CodeDeploy-EC2 (this will allow jenkins connect to s3 buckets)-&gt;<br>Tag instance: Key group Value hapi-demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key| sudo apt-key add -</span><br><span class="line">sudo vim /etc/apt/sources.list # add following line</span><br><span class="line">deb http://pkg.jenkins-ci.org/debian-stable binary/</span><br><span class="line">sudo apt-get install default-jdk</span><br><span class="line">sudo apt-get install jenkins</span><br><span class="line">sudo service jenkins start</span><br></pre></td></tr></table></figure></p>
+<p>Install plugin AWS CodePipeline<br>Install node.js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -</span><br><span class="line">apt-get install -y nodejs</span><br><span class="line">sudo npm install -g npm</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure></p>
+<p>Install sqitch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential cpanminus perl perl-doc</span><br><span class="line">cpanm --quiet --notest App::Sqitch</span><br><span class="line">sqitch --version</span><br><span class="line">apt-get install -y postgresql libdbd-pg-perl</span><br></pre></td></tr></table></figure></p>
+<p>Create a new instance hapi-demo install node.js and<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br><span class="line">sudo apt install ruby-full</span><br><span class="line">sudo apt install wget</span><br><span class="line">wget https://aws-codedeploy-ap-southeast-2.s3.amazonaws.com/latest/install</span><br><span class="line">chmod +x install</span><br><span class="line">sudo ./install auto</span><br></pre></td></tr></table></figure></p>
+<h2 id="CodeDeploy-application"><a href="#CodeDeploy-application" class="headerlink" title="CodeDeploy application"></a>CodeDeploy application</h2><p>Create a new Codedeploy application, choose compute type ec2/on-premises, Service role-&gt; statutorialRole; Environment configuration tick Amazon EC2 instances, Key-&gt; Name, Value-&gt; hapi-demo; Deployment setting-&gt; CodeDeployDefault.OneAtATime</p>
+<h2 id="Review-appSpec-yml-file"><a href="#Review-appSpec-yml-file" class="headerlink" title="Review appSpec.yml file"></a>Review appSpec.yml file</h2><p>appspec.yml file is an application specification file for aws codedeploy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cat appspec.yml</span><br><span class="line">version: 0.0</span><br><span class="line">os: linux</span><br><span class="line">files:</span><br><span class="line">  - source: /</span><br><span class="line">    destination: /myapp</span><br><span class="line">permissions:</span><br><span class="line">  - object: /myapp/startApp.sh</span><br><span class="line">    mode: 777</span><br><span class="line">hooks:</span><br><span class="line">  ApplicationStart:</span><br><span class="line">    - location: startApp.sh</span><br><span class="line">      timeout: 10</span><br></pre></td></tr></table></figure>
+<h2 id="Setup-Jenkins-job"><a href="#Setup-Jenkins-job" class="headerlink" title="Setup Jenkins job"></a>Setup Jenkins job</h2><p>Create a freestyle jenkins job, configurat as following screenshots:<br><img src="https://i.imgur.com/yb9AZch.png" alt="screenshot01"><br><img src="https://i.imgur.com/jxkg9xA.png" alt="screenshot02"><br><img src="https://i.imgur.com/ghjvXwd.png" alt="screenshot03"></p>
+<h2 id="Build-AWS-CodePieline"><a href="#Build-AWS-CodePieline" class="headerlink" title="Build AWS CodePieline"></a>Build AWS CodePieline</h2><ol>
+<li>Source provider <a href="https://github.com/stanosaka/hapi-rest-demo">GitHub</a></li>
+<li>Build provider: Add Jenkins; Prvider name must match the name in jenkin’s job</li>
+<li>Deployment provider: aws codedeploy<br><img src="https://i.imgur.com/Zcps1fo.png" alt="aws codedeploy"><br><img src="https://i.imgur.com/e2nGdbj.png" alt="deployed pages"><br><img src="https://i.imgur.com/eJAhUJH.png" alt="api"><br><img src="https://i.imgur.com/MJs6nKN.png" alt="lcov-report"></li>
+</ol>
+<h1 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h1><h2 id="Notifications"><a href="#Notifications" class="headerlink" title="Notifications"></a>Notifications</h2><p>AWS SNS notifications for build and deployment status</p>
+<ol>
+<li>Create a policy named: notification-policy<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;Version&quot;: &quot;2012-10-17&quot;,</span><br><span class="line">    &quot;Statement&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Effect&quot;: &quot;Allow&quot;,</span><br><span class="line">            &quot;Action&quot;: &quot;sns:Publish&quot;,</span><br><span class="line">            &quot;Resource&quot;: &quot;*&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Attach notification-policy to Role CodeDeploy-EC2</p>
+<ol start="2">
+<li>in CodeDeploy edit deployment group;<br><img src="https://i.imgur.com/Lx8Kxdw.png" alt="create deployment trigger"><br><img src="https://i.imgur.com/Xl4OvF8.png" alt="notification"></li>
+</ol>
+<h2 id="Code-changes"><a href="#Code-changes" class="headerlink" title="Code changes"></a>Code changes</h2><p>Automatically and continuously deploy code without any downtime</p>
+<h2 id="Database-schema-changes"><a href="#Database-schema-changes" class="headerlink" title="Database schema changes"></a>Database schema changes</h2><p>Consistently and automatically deploy relational database schema changes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sqitch add product-add-comments</span><br><span class="line">cat /db/deploy/product-add-comments.sql</span><br><span class="line">-- Deploy spidertutorial:product-add-comments to pg</span><br><span class="line"></span><br><span class="line">BEGIN;</span><br><span class="line"></span><br><span class="line">-- XXX Add DDLs here.</span><br><span class="line">alter table products add comments varchar(100) default &apos;default comments&apos;;</span><br><span class="line"></span><br><span class="line">COMMIT;</span><br><span class="line">git commit -a -m &quot;add new column to products&quot;</span><br><span class="line">git push origin master:master</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Jenkins/">Jenkins</a><a href="/tags/Devops/">Devops</a><a href="/tags/CD-CI/">CD/CI</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2019/07/15/splunk/" title="splunk" itemprop="url">splunk</a>
   </h1>
   <p class="article-author">By
@@ -1615,7 +1757,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/git/">git</a><a href="/tags/github/">github</a><a href="/tags/version-control/">version control</a>
+  <span></span> <a href="/tags/git/">git</a><a href="/tags/version-control/">version control</a><a href="/tags/github/">github</a>
   </div>
 
 </div>
@@ -2246,61 +2388,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2019/05/08/beginningDevOpsWithDocker/" title="Beginning DevOps with Docker" itemprop="url">Beginning DevOps with Docker</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Stan Zhou" target="_blank" itemprop="author">Stan Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2019-05-08T13:20:43.000Z" itemprop="datePublished"> Published 2019-05-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="https://docs.00root.com">see</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Devops/">Devops</a><a href="/tags/Docker/">Docker</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
@@ -2383,11 +2470,11 @@
 			
 		
 			
-				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
+				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/nginx/" title="nginx">nginx<sup>2</sup></a></li>
+				<li><a href="/tags/github/" title="github">github<sup>2</sup></a></li>
 			
 		
 			

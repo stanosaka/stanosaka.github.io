@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Stan Zhou&#39;s Hexo Technical Blog">
 <meta property="og:description" content="Implementing SLOsService level objectives (SLOs) specify a target level for the reliability of your service.SLOs are key to making data-driven decisions about reliability, they’re at the core of SRE p">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-09T06:18:34.749Z">
+<meta property="og:updated_time" content="2020-07-19T11:33:33.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SRE">
 <meta name="twitter:description" content="Implementing SLOsService level objectives (SLOs) specify a target level for the reliability of your service.SLOs are key to making data-driven decisions about reliability, they’re at the core of SRE p">
@@ -99,12 +99,28 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementing-SLOs"><span class="toc-number">1.</span> <span class="toc-text">Implementing SLOs</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementing-SLOs"><span class="toc-number">1.</span> <span class="toc-text">Implementing SLOs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Effective-team-incident-reports"><span class="toc-number">2.</span> <span class="toc-text">Effective team incident reports</span></a></li></ol>
 		
 		</div>
 		
 		<h1 id="Implementing-SLOs"><a href="#Implementing-SLOs" class="headerlink" title="Implementing SLOs"></a>Implementing SLOs</h1><p>Service level objectives (SLOs) specify a target level for the reliability of your service.<br>SLOs are key to making data-driven decisions about reliability, they’re at the core of SRE practices.</p>
 <p>SLOs are a tool to help determin what engineering work to prioritize.</p>
+<h1 id="Effective-team-incident-reports"><a href="#Effective-team-incident-reports" class="headerlink" title="Effective team incident reports"></a>Effective team incident reports</h1><p>It’s essential to have a team incident report per incident. These artifacts are for the team to help to spread knowledge and prevent stagnation where the team as a whole doesn’t know specific knowledge obtained via the incident. Store these artifacts in a central place. Depending on the organization, these artifacts may be useful to other teams.</p>
+<p>Each artifact may have slightly different content based on the nature of the incident. The reader of the team incident report is the individuals on the team, so these reports can be longer and more detailed than external or executive briefings.</p>
+<p>An example template for a team incident report:</p>
+<ul>
+<li>Title</li>
+<li>Date</li>
+<li>Author(s)</li>
+<li>Summary of the incident</li>
+<li>Incident participants and their role(s)</li>
+<li>Impact</li>
+<li>Timeline</li>
+<li>Include graphs and logs that help support the facts described in the timeline.</li>
+<li>Lessons learned about what went well, and what needs improvement.</li>
+<li>Action Items - These should include who, what, type of action, and when. Others outside of the incident response team might think of additional action items after reviewing the narrative.</li>
+</ul>
+<p>While one person should have the responsibility of being the note taker during the meeting and initial author of the report, everyone on the incident response team should review and update the team report.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -162,7 +178,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementing-SLOs"><span class="toc-number">1.</span> <span class="toc-text">Implementing SLOs</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Implementing-SLOs"><span class="toc-number">1.</span> <span class="toc-text">Implementing SLOs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Effective-team-incident-reports"><span class="toc-number">2.</span> <span class="toc-text">Effective team incident reports</span></a></li></ol>
  
   </div>
 

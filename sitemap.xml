@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://223.95.78.227/2017/09/06/redhat/</loc>
+    
+    <lastmod>2020-07-24T07:58:55.595Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2019/07/23/LinuxSystemAdmin/</loc>
+    
+    <lastmod>2020-07-22T06:13:08.116Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://223.95.78.227/2020/06/28/puppet6/</loc>
     
     <lastmod>2020-07-21T13:17:21.177Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://223.95.78.227/2020/02/09/SRE/</loc>
     
     <lastmod>2020-07-19T11:33:33.739Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2019/07/23/LinuxSystemAdmin/</loc>
-    
-    <lastmod>2020-07-19T11:28:04.077Z</lastmod>
     
   </url>
   
@@ -339,13 +346,6 @@
   
   <url>
     <loc>http://223.95.78.227/2016/08/28/backup-script/</loc>
-    
-    <lastmod>2018-09-16T11:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2017/09/06/redhat/</loc>
     
     <lastmod>2018-09-16T11:46:43.000Z</lastmod>
     

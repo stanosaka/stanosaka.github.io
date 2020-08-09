@@ -96,7 +96,33 @@
 </header>
     <div class="article-content">
         
-        <h1 id="Multiplexers"><a href="#Multiplexers" class="headerlink" title="Multiplexers"></a>Multiplexers</h1><h2 id="byobu"><a href="#byobu" class="headerlink" title="byobu"></a>byobu</h2><p>F2: Create a new windows.<br>F3: Go to the previous windows.<br>F4: Go to the next windows.<br>F9: help and configuration</p>
+        <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#-">-</a></li>
+<li><a href="#multiplexers">Multiplexers</a><ul>
+<li><a href="#byobu">byobu</a></li>
+<li><a href="#mosh">mosh</a></li>
+<li><a href="#ss">ss</a></li>
+<li><a href="#mtr">mtr</a></li>
+<li><a href="#iftop">iftop</a></li>
+<li><a href="#iperf">iperf</a></li>
+<li><a href="#troubleshooting-layer-1-problems">Troubleshooting layer 1 problems</a></li>
+<li><a href="#http-core-protocol">HTTP core protocol</a><ul>
+<li><a href="#request">Request</a></li>
+<li><a href="#response">Response</a></li>
+</ul>
+</li>
+<li><a href="#curl">cURL</a></li>
+<li><a href="#netcat">netcat</a><ul>
+<li><a href="#basic-clientserver">Basic client/server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- markdown-toc end -->
+<h1 id="Multiplexers"><a href="#Multiplexers" class="headerlink" title="Multiplexers"></a>Multiplexers</h1><h2 id="byobu"><a href="#byobu" class="headerlink" title="byobu"></a>byobu</h2><p>F2: Create a new windows.<br>F3: Go to the previous windows.<br>F4: Go to the next windows.<br>F9: help and configuration</p>
 <p>Quitting a byobu session: locking and disconnecting.<br>F12: Lock access</p>
 <p>F6: disconnect<br>byobu -r: reconnect<br>F7: scrollback, spacebar for mark the start of buffer, spacebar again to mark the end of selection.<br>Paste: Byobu-Escape + [</p>
 <h2 id="mosh"><a href="#mosh" class="headerlink" title="mosh"></a>mosh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mosh jdoe@10.10.10.101</span><br><span class="line">mosh username@remoteserver.org --ssh=&quot;ssh -i ~/.ssh/identity_file -p 1234&quot;</span><br></pre></td></tr></table></figure>

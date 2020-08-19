@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://223.95.78.227/2020/06/28/puppet6/</loc>
+    <loc>http://223.95.78.227/2020/08/09/tools/</loc>
     
-    <lastmod>2020-08-10T12:08:45.570Z</lastmod>
+    <lastmod>2020-08-19T07:40:51.779Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://223.95.78.227/2020/08/09/tools/</loc>
+    <loc>http://223.95.78.227/2020/06/23/spacemacs/</loc>
     
-    <lastmod>2020-08-09T07:48:21.317Z</lastmod>
+    <lastmod>2020-08-19T07:34:25.669Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://223.95.78.227/2020/06/28/puppet6/</loc>
+    
+    <lastmod>2020-08-10T12:08:45.570Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://223.95.78.227/2020/02/09/SRE/</loc>
     
     <lastmod>2020-07-19T11:33:33.739Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://223.95.78.227/2020/06/23/spacemacs/</loc>
-    
-    <lastmod>2020-07-13T13:15:41.606Z</lastmod>
     
   </url>
   

@@ -673,7 +673,10 @@
 </header>
     <div class="article-content">
         
-        <h1 id="Rebase-with-a-pull"><a href="#Rebase-with-a-pull" class="headerlink" title="Rebase with a pull"></a>Rebase with a pull</h1><p><code>git pull --rebase origin master</code></p>
+        <h1 id="Git-material"><a href="#Git-material" class="headerlink" title="Git material"></a>Git material</h1><h2 id="Pro-Git"><a href="#Pro-Git" class="headerlink" title="Pro Git"></a>Pro Git</h2><p><a href="https://git-scm.com/book/zh/v2">Pro Git</a> </p>
+<h2 id="LearnGitBranching"><a href="#LearnGitBranching" class="headerlink" title="LearnGitBranching"></a>LearnGitBranching</h2><p><a href="https://learngitbranching.js.org/">Learn Git Branching</a></p>
+<h2 id="tryGit"><a href="#tryGit" class="headerlink" title="tryGit"></a>tryGit</h2><p><a href="https://try.github.io/">tryGit</a></p>
+<h1 id="Rebase-with-a-pull"><a href="#Rebase-with-a-pull" class="headerlink" title="Rebase with a pull"></a>Rebase with a pull</h1><p><code>git pull --rebase origin master</code></p>
 <p>It essentially puts the new commits in the master of the remote in your hisotry, and then superimpose your commits on them.</p>
 <h1 id="Squash-commits-together"><a href="#Squash-commits-together" class="headerlink" title="Squash commits together"></a>Squash commits together</h1><p><code>git rebase -i HEAD~2</code></p>
 <p>Squash the last two commits.<br>The HEAD~2 refers to the last two commits in the current branch, and the -i option stands for interactive.<br><a href="https://i.imgur.com/AaMM1KK.png">pick and squash</a><br>Pick the old commit and squash the latest commit.</p>
